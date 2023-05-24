@@ -4,20 +4,20 @@ body {
     padding: 0;
 }
 
-.control_buttons {
-    width: 600px;
-    height: 70px;
-    padding: 0 20px;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/*.control_buttons {*/
+/*    width: 600px;*/
+/*    height: 70px;*/
+/*    padding: 0 20px;*/
+/*    background-color: #ffffff;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 
-.go_to {
-    padding: 20px 20px;
-    background-color: #62a744;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-}
+/*.go_to {*/
+/*    padding: 20px 20px;*/
+/*    background-color: #62a744;*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    cursor: pointer;*/
+/*}*/
