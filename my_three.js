@@ -17,7 +17,10 @@ let activeScene = 1;
 
 // 1-я сцена
 const scene1 = new THREE.Scene();
-scene1.background = new THREE.Color(0x000000);
+scene1.background = new THREE.Color(0xffffff);
+
+//0xffffff
+//0x000000
 
 const initialCameraPosition1 = new THREE.Vector3(-5.680156277820456, 1.5032113113583057, 2.3163283637778207);
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -27,23 +30,40 @@ const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
 controls1.minDistance = 6;
-controls1.maxDistance = 9;
+controls1.maxDistance = 100;
 controls1.update();
 
 const lightPositions1 = [
-    [-6.6949320476748895, 0.6394380104152245, 0.2525267068988812],
-    [-5.890447905989216, 0.28536090943213066, 2.5924728987819785],
-    [-4.541980914648881, 0.7065124503210292, 3.7635398733832703],
-    [1.5975045898229867, 2.2735571726268664, 3.2748116863335843],
-    [8.79287998211111, 0.9465531822234525, -4.977844830639549],
-    [-5.680156277820456, 1.5032113113583057, 2.3163283637778207]
+    [-5.867325070813964, 0.875893944836542, 2.1671416628122966],
+    [-5.996793371323893, 0.55869131539196, -0.5149670786661111],
+    [-4.70987, 1.323152, -3.473671],
+    [4.548392, 1.510619, 3.609732],
+    // [6.541486076530456, 1.1843171131607289, 0.07006254067916627]
 ];
 
+// const lightPositions1 = [
+//     [0.000005999387780526352, 5.999999999997, -1.0269702929669093e-7],
+//     [4.612135, 3.83707, 0.071417],
+//     [4.419631, 1.366719, -3.820855],
+//     [4.548392, 1.510619, 3.609732],
+//     [-4.70987, 1.323152, -3.473671],
+//     [-5.680156, 1.503211, 2.316328]
+// ];
+
 lightPositions1.forEach(position => {
-    const light = new THREE.DirectionalLight(0xffffff);
+    const light = new THREE.PointLight(0xffffff, 0.9);
     light.position.set(position[0], position[1], position[2]);
     scene1.add(light);
+    const helper = new THREE.PointLightHelper(light);
+    scene1.add(helper);
 });
+
+const light2 = new THREE.SpotLight(0xffffff, 0.9);
+light2.position.set(0.4414868941158466, 6.315789619633837, -0.1345017011849941);
+light2.angle = 0.7;
+scene1.add(light2);
+const helper2 = new THREE.SpotLightHelper(light2);
+scene1.add(helper2);
 
 let gltfLoader = new GLTFLoader();
 // const dLoader = new DRACOLoader();
@@ -51,7 +71,7 @@ let gltfLoader = new GLTFLoader();
 // dLoader.setDecoderConfig({type: 'js'});
 // gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/13/car.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/18/car.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
     scene1.add(obj);
@@ -61,6 +81,10 @@ gltfLoader.load(url, function(gltf) {
         console.log(camera1.position); // Выводим координаты камеры
     });
 });
+
+// https://coddmac.store/THREE/3Dmodels/16/car.gltf
+// https://coddmac.store/THREE/3Dmodels/13/car.gltf
+// https://coddmac.store/THREE/3Dmodels/17/car.gltf
 
 // Плита или пол
 // const planeGeometry = new THREE.CircleGeometry(4.5, 50); // Модель №2 Подложка
