@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 // import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
-// import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 
@@ -31,6 +31,7 @@ controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
 controls1.minDistance = 6;
 controls1.maxDistance = 100;
+controls1.enabled = true;
 controls1.update();
 
 const lightPositions1 = [
@@ -66,10 +67,10 @@ const helper2 = new THREE.SpotLightHelper(light2);
 scene1.add(helper2);
 
 let gltfLoader = new GLTFLoader();
-// const dLoader = new DRACOLoader();
-// dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
-// dLoader.setDecoderConfig({type: 'js'});
-// gltfLoader.setDRACOLoader(dLoader);
+const dLoader = new DRACOLoader();
+dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+dLoader.setDecoderConfig({type: 'js'});
+gltfLoader.setDRACOLoader(dLoader);
 let obj;
 let url = 'https://coddmac.store/THREE/3Dmodels/18/car.gltf';
 gltfLoader.load(url, function(gltf) {
@@ -120,7 +121,8 @@ const coordinates = [
     [4.419631461529943, 1.366719430512851, -3.82085536791349, 1.5],
     [4.612135343130454, 3.8370701385486443, 0.07141658424494553, 1.5],
     [4.548391730389692, 1.5106187886098281, 3.6097317826151065, 1.5],
-    [-5.680156277820456, 1.5032113113583057, 2.3163283637778207, 1.5]
+    [-5.680156277820456, 1.5032113113583057, 2.3163283637778207, 1.5],
+    [-1.6416573959597511, 1.1981686266100635, 1.2447508461030132, 1.5]
 ];
 
 const go_to = document.querySelectorAll('.go_to');
@@ -141,6 +143,7 @@ const camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.inner
 camera2.position.copy(initialCameraPosition2);
 
 const controls2 = new OrbitControls(camera2, renderer.domElement);
+controls2.enabled = false;
 controls2.update();
 
 const hLight = new THREE.AmbientLight(0x404040, 2);
@@ -198,18 +201,29 @@ window.addEventListener('resize', () => {
 });
 
 // Переключение между сценами при клике на кнопку с классом ".interior"
-const interierButton = document.querySelector('.interior');
-interierButton.addEventListener('click', () => {
+const interiorButton = document.querySelector('.interior');
+interiorButton.addEventListener('click', () => {
     if (activeScene === 1) {
-        camera1.position.copy(initialCameraPosition1);
-        controls1.reset();
+        const [x, y, z, dur] = coordinates[5];
+        MyCoordinates(x, y, z, dur);
+        setTimeout(() => {
+            activeScene = 2;
+            const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
+            MyCoordinates(x2, y2, z2, dur2);
+            controls1.enabled = false;
+            controls2.enabled = true;
+            animate();
+        }, dur * 1000);
     } else {
-        camera2.position.copy(initialCameraPosition2);
-        controls2.reset();
+        const [x, y, z, dur] = coordinates[4];
+        MyCoordinates(x, y, z, dur);
+        activeScene = 1;
+        setTimeout(() => {
+            const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
+            MyCoordinates(x2, y2, z2, dur2);
+            controls1.enabled = true;
+            controls2.enabled = false;
+            animate();
+        }, dur * 1000);
     }
-
-    activeScene = (activeScene === 1) ? 2 : 1;
-
-    // Сразу рендерим активную сцену после сброса камеры
-    animate();
 });
