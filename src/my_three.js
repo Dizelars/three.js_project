@@ -72,7 +72,7 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/bus/1/cop2y.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/19/car3.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
     scene1.add(obj);
@@ -83,8 +83,10 @@ gltfLoader.load(url, function(gltf) {
     });
 });
 
+// https://coddmac.store/THREE/3Dmodels/18/car.gltf
 // https://coddmac.store/THREE/3Dmodels/17/car.gltf
 // https://coddmac.store/THREE/3Dmodels/bus/1/cop2y.gltf
+// https://coddmac.store/THREE/3Dmodels/bus/2/cop2y.gltf
 
 // Плита или пол
 // const planeGeometry = new THREE.CircleGeometry(4.5, 50); // Модель №2 Подложка
