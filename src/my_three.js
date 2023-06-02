@@ -139,6 +139,68 @@ gltfLoader.load(url, function(gltf) {
     //     }
     // });
 
+    // let names = [];
+    // let materialProperties = {};
+    //
+    // for (let i = 0; i < obj.children.length; i++) {
+    //     names.push(obj.children[i].name);
+    // }
+    //
+    // for (let i = 0; i < names.length; i++) {
+    //     let name = names[i];
+    //     materialProperties[name] = createMaterialProperties(name);
+    // }
+    //
+    // function createMaterialProperties(name) {
+    //     let properties = {};
+    //
+    //     switch (name) {
+    //         case 'Стекла_машины':
+    //             properties.color = 0xff0000;
+    //             properties.roughness = 0.5;
+    //             properties.metalness = 0.8;
+    //             properties.envMapIntensity = 1.0;
+    //             properties.emissive = 0x000000;
+    //             properties.emissiveIntensity = 1.0;
+    //             break;
+    //         case 'Фары':
+    //             properties.color = 0x00ff00;
+    //             properties.roughness = 0.4;
+    //             properties.metalness = 0.6;
+    //             break;
+    //         case 'проблесковый_мячок':
+    //             properties.color = 0x0000ff;
+    //             properties.roughness = 0.6;
+    //             properties.metalness = 0.4;
+    //             break;
+    //         // Добавьте другие случаи, если необходимо
+    //     }
+    //
+    //     return properties;
+    // }
+    //
+    // console.log(materialProperties);
+    //
+    // obj.traverse(function(child) {
+    //     if (names.includes(child.name) && (child.isMesh || child.isGroup)) {
+    //         const material = child.material;
+    //         const group = child.children;
+    //         console.log(group);
+    //         setMaterialProperties(material, child.name);
+    //     }
+    // });
+    //
+    // function setMaterialProperties(material, name) {
+    //     const properties = materialProperties[name];
+    //
+    //     if (properties) {
+    //         if (properties.color) material.color.set(properties.color);
+    //         if (properties.roughness) material.roughness = properties.roughness;
+    //         if (properties.metalness) material.metalness = properties.metalness;
+    //         // и другие свойства
+    //     }
+    // }
+
     let names = [];
     let materialProperties = {};
 
@@ -182,9 +244,18 @@ gltfLoader.load(url, function(gltf) {
     console.log(materialProperties);
 
     obj.traverse(function(child) {
-        if (names.includes(child.name) && child.isMesh) {
-            const material = child.material;
-            setMaterialProperties(material, child.name);
+        if (names.includes(child.name)) {
+            if (child.isMesh) {
+                const material = child.material;
+                setMaterialProperties(material, child.name);
+            } else if (child.isGroup) {
+                child.traverse(function(groupChild) {
+                    if (groupChild.isMesh) {
+                        const material = groupChild.material;
+                        setMaterialProperties(material, groupChild.name);
+                    }
+                });
+            }
         }
     });
 
@@ -198,6 +269,7 @@ gltfLoader.load(url, function(gltf) {
             // и другие свойства
         }
     }
+
 
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
