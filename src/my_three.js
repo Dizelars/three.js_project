@@ -1,14 +1,15 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 // import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 
 const renderer = new THREE.WebGLRenderer({
     // precision: "lowp",
-    antialias: true
+    antialias: true,
+    physicallyCorrectLights: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -84,53 +85,107 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/audi/scene.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/25/car.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
-    // obj.traverse((child) => {
-    //     if (child.isMesh) {
-    //         child.material.metalness = 0.8;
-    //         child.material.roughness = 0.2;
-    //         child.emissive = 0x0
-    //     }
-    // });
     scene1.add(obj);
-    console.log(obj);
+    console.log(obj.children);
     obj.position.set(0, 0, 0);
 
-    // Load the car material textures
-    // const textureLoader = new THREE.TextureLoader();
-    // const envMap = textureLoader.load('car-envmap.jpg');
-    // const map = textureLoader.load('car-albedo.jpg');
-    // const normalMap = textureLoader.load('car-normal.jpg');
-    // const aoMap = textureLoader.load('car-ao.jpg');
-    // const roughnessMap = textureLoader.load('car-roughness.jpg');
-
-    // Create a new Standard Material and set its properties
-    // const material = new THREE.MeshStandardMaterial({
-    //     // envMap,
-    //     // map,
-    //     // normalMap,
-    //     // aoMap,
-    //     // roughnessMap,
-    //     metalness: 0.5,
-    //     roughness: 0.5,
-    // });
-
-    // Set the material of the car model
-    // obj.traverse((node) => {
-    //     if (node.isMesh) {
-    //         node.material = material;
+    // obj.traverse(function(child) {
+    //     if (child.isMesh) {
+    //         const materials = child.material;
+    //
+    //         materials.metalness = 0.8;
+    //         console.log(materials.metalness);
+    //         // materials.roughness = 0.2;
+    //         // child.emissive = 0x0
+    //
+    //         if (Array.isArray(materials)) {
+    //             // Если материалы являются массивом
+    //             materials.forEach(function(material, index) {
+    //                 console.log('Material', index + 1, ':', material);
+    //             });
+    //         } else {
+    //             // Если материал один
+    //             console.log('Material:', materials);
+    //         }
     //     }
     // });
+
+    // Изменение материалов модели и поиск по имени
+    // obj.traverse(function(child) {
+    //     if (child.isMesh) {
+    //         const materials = child.material;
+    //
+    //         if (Array.isArray(materials)) {
+    //             // Если материалы являются массивом
+    //             materials.forEach(function(material, index) {
+    //                 // console.log('Material', index + 1, ':', material);
+    //
+    //                 // Изменение параметров материала
+    //                 // material.color.set(0xff0000); // Задание цвета
+    //                 // material.map = texture; // Задание текстуры
+    //                 // material.envMap = envMap; // Задание отражения окружающей среды
+    //                 // material.opacity = 0.5; // Задание прозрачности
+    //                 // material.shininess = 50; // Задание блеска
+    //                 // material.specular.set(0xffffff); // Задание цвета отражаемого света
+    //                 // material.size = 5; // Задание размера точек (для Points или PointCloud)
+    //                 // material.side = THREE.DoubleSide; // Задание видимости сторон
+    //
+    //                 // Фильтрация материалов по ключу name
+    //                 if (material.name === 'Стекла_машины') {
+    //                     // Код для материала с определенным именем
+    //                     console.log('Material with name "Стекла_машины":', material);
+    //                 }
+    //             });
+    //         } else {
+    //             // console.log('Material:', materials);
+    //
+    //             // Изменение параметров материала (аналогично массиву материалов)
+    //             // materials.color.set(0xff0000);
+    //             // materials.map = texture;
+    //             // materials.envMap = envMap;
+    //             // materials.opacity = 0.5;
+    //             // materials.shininess = 50;
+    //             // materials.specular.set(0xffffff);
+    //             // materials.size = 5;
+    //             // materials.side = THREE.DoubleSide;
+    //
+    //             // Фильтрация материалов по ключу name
+    //             if (materials.name === 'myMaterial') {
+    //                 // Код для материала с определенным именем
+    //             }
+    //         }
+    //     }
+    // });
+
+    obj.traverse(function(child) {
+        if (child.name === 'Стекла_машины') {
+            console.log(child);
+
+            if (child.isMesh) {
+                const materials = child.material;
+
+                if (Array.isArray(materials)) {
+                    materials.forEach(function(material) {
+                        // Изменение свойств материала
+                        material.color.set(0xff0000); // Пример изменения цвета материала
+                    });
+                } else {
+                    // Изменение свойств материала
+                    materials.color.set(0xff0000); // Пример изменения цвета материала
+                }
+            }
+        }
+    });
 
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
     });
 });
 
-// https://coddmac.store/THREE/3Dmodels/18/car.gltf
-// https://coddmac.store/THREE/3Dmodels/17/car.gltf
+// https://coddmac.store/THREE/3Dmodels/25/car.gltf
 // https://coddmac.store/THREE/3Dmodels/bus/1/cop2y.gltf
 // https://coddmac.store/THREE/3Dmodels/bus/2/cop2y.gltf
 
