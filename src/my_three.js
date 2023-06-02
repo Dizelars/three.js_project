@@ -160,34 +160,40 @@ gltfLoader.load(url, function(gltf) {
     // });
 
     let names = [];
+    let materialProperties = {};
+
     for (let i = 0; i < obj.children.length; i++) {
         names.push(obj.children[i].name);
     }
 
-    console.log(names);
-
-    let materialProperties = {};
-
     for (let i = 0; i < names.length; i++) {
         let name = names[i];
-        materialProperties[name] = createMaterialProperties();
+        materialProperties[name] = createMaterialProperties(name);
     }
 
-    function createMaterialProperties() {
-        return {
-            color: 0xff0000,
-            roughness: 0.5,
-            metalness: 0.7,
-            map: 'texture',
-            normalMap: 'normalMapTexture',
-            metalnessMap: 'metalnessMapTexture',
-            roughnessMap: 'roughnessMapTexture',
-            envMap: 'envMapTexture',
-            envMapIntensity: 1.0,
-            emissive: 0x000000,
-            emissiveIntensity: 1.0,
-            emissiveMap: 'emissiveMapTexture'
-        };
+    function createMaterialProperties(name) {
+        let properties = {};
+
+        switch (name) {
+            case 'Стекла_машины':
+                properties.color = 0xff0000;
+                properties.roughness = 0.5;
+                properties.metalness = 0.8;
+                break;
+            case 'Фары':
+                properties.color = 0x00ff00;
+                properties.roughness = 0.4;
+                properties.metalness = 0.6;
+                break;
+            case 'проблесковый_мячок':
+                properties.color = 0x0000ff;
+                properties.roughness = 0.6;
+                properties.metalness = 0.4;
+                break;
+            // Добавьте другие случаи, если необходимо
+        }
+
+        return properties;
     }
 
     console.log(materialProperties);
@@ -195,15 +201,22 @@ gltfLoader.load(url, function(gltf) {
     obj.traverse(function(child) {
         if (names.includes(child.name) && child.isMesh) {
             const material = child.material;
-            setMaterialProperties(material);
-            // console.log(material);
+            setMaterialProperties(material, child.name);
         }
     });
 
-    function setMaterialProperties(material) {
-        for (let key in material) {
+    function setMaterialProperties(material, name) {
+        const properties = materialProperties[name];
+
+        if (properties) {
+            if (properties.color) material.color.set(properties.color);
+            if (properties.roughness) material.roughness = properties.roughness;
+            if (properties.metalness) material.metalness = properties.metalness;
+            // и другие свойства
         }
     }
+
+    console.log(obj.children);
 
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
