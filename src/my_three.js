@@ -139,26 +139,6 @@ gltfLoader.load(url, function(gltf) {
     //     }
     // });
 
-    // obj.traverse(function(child) {
-    //     if (child.name === 'Стекла_машины') {
-    //         console.log(child);
-    //
-    //         if (child.isMesh) {
-    //             const materials = child.material;
-    //
-    //             if (Array.isArray(materials)) {
-    //                 materials.forEach(function(material) {
-    //                     // Изменение свойств материала
-    //                     material.color.set(0xff0000); // Пример изменения цвета материала
-    //                 });
-    //             } else {
-    //                 // Изменение свойств материала
-    //                 materials.color.set(0xff0000); // Пример изменения цвета материала
-    //             }
-    //         }
-    //     }
-    // });
-
     let names = [];
     let materialProperties = {};
 
@@ -179,6 +159,9 @@ gltfLoader.load(url, function(gltf) {
                 properties.color = 0xff0000;
                 properties.roughness = 0.5;
                 properties.metalness = 0.8;
+                properties.envMapIntensity = 1.0;
+                properties.emissive = 0x000000;
+                properties.emissiveIntensity = 1.0;
                 break;
             case 'Фары':
                 properties.color = 0x00ff00;
@@ -215,8 +198,6 @@ gltfLoader.load(url, function(gltf) {
             // и другие свойства
         }
     }
-
-    console.log(obj.children);
 
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
