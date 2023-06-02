@@ -92,27 +92,6 @@ gltfLoader.load(url, function(gltf) {
     console.log(obj.children);
     obj.position.set(0, 0, 0);
 
-    // obj.traverse(function(child) {
-    //     if (child.isMesh) {
-    //         const materials = child.material;
-    //
-    //         materials.metalness = 0.8;
-    //         console.log(materials.metalness);
-    //         // materials.roughness = 0.2;
-    //         // child.emissive = 0x0
-    //
-    //         if (Array.isArray(materials)) {
-    //             // Если материалы являются массивом
-    //             materials.forEach(function(material, index) {
-    //                 console.log('Material', index + 1, ':', material);
-    //             });
-    //         } else {
-    //             // Если материал один
-    //             console.log('Material:', materials);
-    //         }
-    //     }
-    // });
-
     // Изменение материалов модели и поиск по имени
     // obj.traverse(function(child) {
     //     if (child.isMesh) {
@@ -160,25 +139,71 @@ gltfLoader.load(url, function(gltf) {
     //     }
     // });
 
+    // obj.traverse(function(child) {
+    //     if (child.name === 'Стекла_машины') {
+    //         console.log(child);
+    //
+    //         if (child.isMesh) {
+    //             const materials = child.material;
+    //
+    //             if (Array.isArray(materials)) {
+    //                 materials.forEach(function(material) {
+    //                     // Изменение свойств материала
+    //                     material.color.set(0xff0000); // Пример изменения цвета материала
+    //                 });
+    //             } else {
+    //                 // Изменение свойств материала
+    //                 materials.color.set(0xff0000); // Пример изменения цвета материала
+    //             }
+    //         }
+    //     }
+    // });
+
+    let names = [];
+    for (let i = 0; i < obj.children.length; i++) {
+        names.push(obj.children[i].name);
+    }
+
+    console.log(names);
+
+    let materialProperties = {};
+
+    for (let i = 0; i < names.length; i++) {
+        let name = names[i];
+        materialProperties[name] = createMaterialProperties();
+    }
+
+    function createMaterialProperties() {
+        return {
+            color: 0xff0000,
+            roughness: 0.5,
+            metalness: 0.7,
+            map: 'texture',
+            normalMap: 'normalMapTexture',
+            metalnessMap: 'metalnessMapTexture',
+            roughnessMap: 'roughnessMapTexture',
+            envMap: 'envMapTexture',
+            envMapIntensity: 1.0,
+            emissive: 0x000000,
+            emissiveIntensity: 1.0,
+            emissiveMap: 'emissiveMapTexture'
+        };
+    }
+
+    console.log(materialProperties);
+
     obj.traverse(function(child) {
-        if (child.name === 'Стекла_машины') {
-            console.log(child);
-
-            if (child.isMesh) {
-                const materials = child.material;
-
-                if (Array.isArray(materials)) {
-                    materials.forEach(function(material) {
-                        // Изменение свойств материала
-                        material.color.set(0xff0000); // Пример изменения цвета материала
-                    });
-                } else {
-                    // Изменение свойств материала
-                    materials.color.set(0xff0000); // Пример изменения цвета материала
-                }
-            }
+        if (names.includes(child.name) && child.isMesh) {
+            const material = child.material;
+            setMaterialProperties(material);
+            // console.log(material);
         }
     });
+
+    function setMaterialProperties(material) {
+        for (let key in material) {
+        }
+    }
 
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
