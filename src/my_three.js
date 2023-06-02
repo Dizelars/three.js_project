@@ -17,30 +17,30 @@ let activeScene = 1;
 
 // 1-я сцена
 const scene1 = new THREE.Scene();
-scene1.background = new THREE.Color(0xffffff);
+scene1.background = new THREE.Color(0x000000);
 
 //0xffffff
 //0x000000
 
-const initialCameraPosition1 = new THREE.Vector3(-5.680156277820456, 1.5032113113583057, 2.3163283637778207);
+const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera1.position.copy(initialCameraPosition1);
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
-controls1.minPolarAngle = 0;
-controls1.maxPolarAngle = Math.PI * 0.5;
+// controls1.minPolarAngle = 0;
+// controls1.maxPolarAngle = Math.PI * 0.5;
 controls1.minDistance = 6;
-controls1.maxDistance = 100;
+controls1.maxDistance = 1000;
 controls1.enabled = true;
 controls1.update();
 
-const lightPositions1 = [
-    [-5.867325070813964, 0.875893944836542, 2.1671416628122966],
-    [-5.996793371323893, 0.55869131539196, -0.5149670786661111],
-    [-4.70987, 1.323152, -3.473671],
-    [4.548392, 1.510619, 3.609732],
-    // [6.541486076530456, 1.1843171131607289, 0.07006254067916627]
-];
+// const lightPositions1 = [
+//     [-5.867325070813964, 0.875893944836542, 2.1671416628122966],
+//     [-5.996793371323893, 0.55869131539196, -0.5149670786661111],
+//     [-4.70987, 1.323152, -3.473671],
+//     [4.548392, 1.510619, 3.609732],
+//     // [6.541486076530456, 1.1843171131607289, 0.07006254067916627]
+// ];
 
 // const lightPositions1 = [
 //     [0.000005999387780526352, 5.999999999997, -1.0269702929669093e-7],
@@ -51,20 +51,32 @@ const lightPositions1 = [
 //     [-5.680156, 1.503211, 2.316328]
 // ];
 
-lightPositions1.forEach(position => {
-    const light = new THREE.PointLight(0xffffff, 0.9);
-    light.position.set(position[0], position[1], position[2]);
-    scene1.add(light);
-    const helper = new THREE.PointLightHelper(light);
-    scene1.add(helper);
-});
+// lightPositions1.forEach(position => {
+//     const light = new THREE.PointLight(0xffffff, 0.9);
+//     light.position.set(position[0], position[1], position[2]);
+//     scene1.add(light);
+//     const helper = new THREE.PointLightHelper(light);
+//     scene1.add(helper);
+// });
+//
+// const light2 = new THREE.SpotLight(0xffffff, 0.9);
+// light2.position.set(0.4414868941158466, 6.315789619633837, -0.1345017011849941);
+// light2.angle = 0.7;
+// scene1.add(light2);
+// const helper2 = new THREE.SpotLightHelper(light2);
+// scene1.add(helper2);
 
-const light2 = new THREE.SpotLight(0xffffff, 0.9);
-light2.position.set(0.4414868941158466, 6.315789619633837, -0.1345017011849941);
-light2.angle = 0.7;
-scene1.add(light2);
-const helper2 = new THREE.SpotLightHelper(light2);
-scene1.add(helper2);
+// Create Ambient and Point lights for the scene
+const ambientLight = new THREE.AmbientLight(0xffffff);
+const pointLight = new THREE.DirectionalLight(0xffffff);
+pointLight.position.set(4.535622620739531, 280.0453245202818, 24.052762487525687);
+pointLight.castShadow = true;
+scene1.add(ambientLight);
+scene1.add(pointLight);
+
+const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
+scene1.add( pointLightHelper );
+
 
 let gltfLoader = new GLTFLoader();
 const dLoader = new DRACOLoader();
@@ -72,11 +84,45 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/19/car3.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/audi/scene.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
+    // obj.traverse((child) => {
+    //     if (child.isMesh) {
+    //         child.material.metalness = 0.8;
+    //         child.material.roughness = 0.2;
+    //         child.emissive = 0x0
+    //     }
+    // });
     scene1.add(obj);
+    console.log(obj);
     obj.position.set(0, 0, 0);
+
+    // Load the car material textures
+    // const textureLoader = new THREE.TextureLoader();
+    // const envMap = textureLoader.load('car-envmap.jpg');
+    // const map = textureLoader.load('car-albedo.jpg');
+    // const normalMap = textureLoader.load('car-normal.jpg');
+    // const aoMap = textureLoader.load('car-ao.jpg');
+    // const roughnessMap = textureLoader.load('car-roughness.jpg');
+
+    // Create a new Standard Material and set its properties
+    // const material = new THREE.MeshStandardMaterial({
+    //     // envMap,
+    //     // map,
+    //     // normalMap,
+    //     // aoMap,
+    //     // roughnessMap,
+    //     metalness: 0.5,
+    //     roughness: 0.5,
+    // });
+
+    // Set the material of the car model
+    // obj.traverse((node) => {
+    //     if (node.isMesh) {
+    //         node.material = material;
+    //     }
+    // });
 
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
@@ -102,8 +148,8 @@ gltfLoader.load(url, function(gltf) {
 
 // 5. Вспомогательные объекты
 // Вспомогательная система координат
-// const axesHelper = new THREE.AxesHelper(7);
-// scene.add(axesHelper);
+// const axesHelper = new THREE.AxesHelper(85);
+// scene1.add(axesHelper);
 
 function MyCoordinates(xPos, yPos, zPos, dur) {
     gsap.to(camera1.position, {
