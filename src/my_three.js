@@ -323,11 +323,13 @@ gltfLoader.load(url, function(gltf) {
     //     if (names.includes(child.name)) {
     //         if (child.isMesh) {
     //             const material = child.material;
+    //             console.log(material);
     //             setMaterialProperties(material, child.name);
     //         } else if (child.isGroup) {
     //             child.traverse(function(groupChild) {
     //                 if (groupChild.isMesh) {
     //                     const material = groupChild.material;
+    //                     // console.log(material);
     //                     setMaterialProperties(material, groupChild.name);
     //                 }
     //             });
@@ -391,34 +393,35 @@ gltfLoader.load(url, function(gltf) {
 
     console.log(materialProperties);
 
-    obj.traverse(function(child) {
-        if (names.includes(child.name)) {
-            if (child.isMesh) {
-                const material = child.material;
-                setMaterialProperties(material, child.name);
-            } else if (child.isGroup) {
-                const materials = child.material;
-                child.traverse(function(mesh) {
+    obj.traverse(function (child) {
+        if (child.isGroup) {
+            const properties = materialProperties[child.name];
+            if (properties) {
+                setMaterialProperties(child, properties);
+                child.traverse(function (mesh) {
                     if (mesh.isMesh) {
-                        setMaterialProperties(mesh.material, mesh.name);
+                        setMaterialProperties(mesh, properties);
                     }
                 });
-                setMaterialProperties(materials, child.name);
+            }
+        } else if (child.isMesh) {
+            const group = child.parent;
+            if (group && names.includes(group.name)) {
+                const properties = materialProperties[group.name];
+                setMaterialProperties(child, properties);
             }
         }
     });
 
-    function setMaterialProperties(material, name) {
-        const properties = materialProperties[name];
-
-        if (properties) {
-            if (properties.color) material.color.set(properties.color);
-            if (properties.roughness) material.roughness = properties.roughness;
-            if (properties.metalness) material.metalness = properties.metalness;
+    function setMaterialProperties(object, properties) {
+        const material = object.material;
+        if (properties && material) {
+            if (properties.hasOwnProperty('color')) material.color.set(properties.color);
+            if (properties.hasOwnProperty('roughness')) material.roughness = properties.roughness;
+            if (properties.hasOwnProperty('metalness')) material.metalness = properties.metalness;
             // и другие свойства
         }
     }
-
 
 
 
