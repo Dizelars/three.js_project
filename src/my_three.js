@@ -277,80 +277,6 @@ gltfLoader.load(url, function(gltf) {
 
     // Меняет только Mesh
 
-    // let names = [];
-    // let materialProperties = {};
-    //
-    // for (let i = 0; i < obj.children.length; i++) {
-    //     names.push(obj.children[i].name);
-    // }
-    //
-    // for (let i = 0; i < names.length; i++) {
-    //     let name = names[i];
-    //     materialProperties[name] = createMaterialProperties(name);
-    // }
-    //
-    // function createMaterialProperties(name) {
-    //     let properties = {};
-    //
-    //     switch (name) {
-    //         case 'Стекла_машины':
-    //             properties.color = 0xff0000;
-    //             properties.roughness = 0.5;
-    //             properties.metalness = 0.8;
-    //             properties.envMapIntensity = 1.0;
-    //             properties.emissive = 0x000000;
-    //             properties.emissiveIntensity = 1.0;
-    //             break;
-    //         case 'Фары':
-    //             properties.color = 0x00ff00;
-    //             properties.roughness = 0.4;
-    //             properties.metalness = 0.6;
-    //             break;
-    //         case 'проблесковый_мячок':
-    //             properties.color = 0x0000ff;
-    //             properties.roughness = 0.6;
-    //             properties.metalness = 0.4;
-    //             break;
-    //         // Добавьте другие случаи, если необходимо
-    //     }
-    //
-    //     return properties;
-    // }
-    //
-    // console.log(materialProperties);
-    //
-    // obj.traverse(function(child) {
-    //     if (names.includes(child.name)) {
-    //         if (child.isMesh) {
-    //             const material = child.material;
-    //             console.log(material);
-    //             setMaterialProperties(material, child.name);
-    //         } else if (child.isGroup) {
-    //             child.traverse(function(groupChild) {
-    //                 if (groupChild.isMesh) {
-    //                     const material = groupChild.material;
-    //                     // console.log(material);
-    //                     setMaterialProperties(material, groupChild.name);
-    //                 }
-    //             });
-    //         }
-    //     }
-    // });
-    //
-    // function setMaterialProperties(material, name) {
-    //     const properties = materialProperties[name];
-    //
-    //     if (properties) {
-    //         if (properties.color) material.color.set(properties.color);
-    //         if (properties.roughness) material.roughness = properties.roughness;
-    //         if (properties.metalness) material.metalness = properties.metalness;
-    //         // и другие свойства
-    //     }
-    // }
-
-
-    // Должно менять все
-
     let names = [];
     let materialProperties = {};
 
@@ -393,35 +319,112 @@ gltfLoader.load(url, function(gltf) {
 
     console.log(materialProperties);
 
-    obj.traverse(function (child) {
-        if (child.isGroup) {
-            const properties = materialProperties[child.name];
-            if (properties) {
-                setMaterialProperties(child, properties);
-                child.traverse(function (mesh) {
-                    if (mesh.isMesh) {
-                        setMaterialProperties(mesh, properties);
+    obj.traverse(function(child) {
+        if (names.includes(child.name)) {
+            if (child.isMesh) {
+                const material = child.material;
+                console.log(material);
+                setMaterialProperties(material, child.name);
+            } else if (child.isGroup) {
+                child.traverse(function(groupChild) {
+                    if (groupChild.isMesh) {
+                        const material = groupChild.material;
+                        // console.log(material);
+                        setMaterialProperties(material, groupChild.name);
                     }
                 });
-            }
-        } else if (child.isMesh) {
-            const group = child.parent;
-            if (group && names.includes(group.name)) {
-                const properties = materialProperties[group.name];
-                setMaterialProperties(child, properties);
             }
         }
     });
 
-    function setMaterialProperties(object, properties) {
-        const material = object.material;
-        if (properties && material) {
-            if (properties.hasOwnProperty('color')) material.color.set(properties.color);
-            if (properties.hasOwnProperty('roughness')) material.roughness = properties.roughness;
-            if (properties.hasOwnProperty('metalness')) material.metalness = properties.metalness;
+    function setMaterialProperties(material, name) {
+        const properties = materialProperties[name];
+
+        if (properties) {
+            if (properties.color) material.color.set(properties.color);
+            if (properties.roughness) material.roughness = properties.roughness;
+            if (properties.metalness) material.metalness = properties.metalness;
             // и другие свойства
         }
     }
+
+
+    // Должно менять все
+
+    // let names = [];
+    // let materialProperties = {};
+    //
+    // for (let i = 0; i < obj.children.length; i++) {
+    //     names.push(obj.children[i].name);
+    // }
+    //
+    // for (let i = 0; i < names.length; i++) {
+    //     let name = names[i];
+    //     materialProperties[name] = createMaterialProperties(name);
+    // }
+    //
+    // function createMaterialProperties(name) {
+    //     let properties = {};
+    //
+    //     switch (name) {
+    //         case 'Стекла_машины':
+    //             properties.color = 0xff0000;
+    //             properties.roughness = 0.5;
+    //             properties.metalness = 0.8;
+    //             properties.envMapIntensity = 1.0;
+    //             properties.emissive = 0x000000;
+    //             properties.emissiveIntensity = 1.0;
+    //             break;
+    //         case 'Фары':
+    //             properties.color = 0x00ff00;
+    //             properties.roughness = 0.4;
+    //             properties.metalness = 0.6;
+    //             break;
+    //         case 'проблесковый_мячок':
+    //             properties.color = 0x0000ff;
+    //             properties.roughness = 0.6;
+    //             properties.metalness = 0.4;
+    //             break;
+    //         // Добавьте другие случаи, если необходимо
+    //     }
+    //
+    //     return properties;
+    // }
+    //
+    // console.log(materialProperties);
+    //
+    // obj.traverse(function (child) {
+    //     if (child.isGroup) {
+    //         const groupName = child.name;
+    //         const groupProperties = materialProperties[groupName];
+    //         if (groupProperties) {
+    //             child.traverse(function (mesh) {
+    //                 if (mesh.isMesh) {
+    //                     const meshName = mesh.name;
+    //                     const meshProperties = materialProperties[meshName];
+    //                     setMaterialProperties(mesh, meshProperties || groupProperties);
+    //                 }
+    //             });
+    //         }
+    //     } else if (child.isMesh) {
+    //         const meshName = child.name;
+    //         const meshProperties = materialProperties[meshName];
+    //         setMaterialProperties(child, meshProperties);
+    //     }
+    // });
+    //
+    // function setMaterialProperties(object, properties) {
+    //     const material = object.material;
+    //     if (properties && material) {
+    //         if (properties.hasOwnProperty('color')) material.color.set(properties.color);
+    //         if (properties.hasOwnProperty('roughness')) material.roughness = properties.roughness;
+    //         if (properties.hasOwnProperty('metalness')) material.metalness = properties.metalness;
+    //         // и другие свойства
+    //     }
+    // }
+
+
+
 
 
 
