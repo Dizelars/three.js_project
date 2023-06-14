@@ -3,6 +3,8 @@
 body {
     overflow: hidden;
     font-family: 'MoscowSans', sans-serif;
+    color: white;
+    box-sizing: border-box;
 }
 
 .container {
