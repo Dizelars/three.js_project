@@ -1,5 +1,13 @@
 @import '../style/base.css';
 
+/*control*/
+/*header*/
+/*tech_spec*/
+/*auto_park*/
+
+
+/*control*/
+
 .control_wrapper {
     width: 100%;
     background-color: #000000;
@@ -28,6 +36,9 @@
 .interior {
     background-color: #FF69B4;
 }
+
+
+/*header*/
 
 .header {
     background-color: #090909;
@@ -81,14 +92,22 @@
 }
 
 
+/*main {*/
+/*    position: absolute;*/
+/*}*/
+
+/*tech_spec*/
+
 .tech_spec {
-    background-color: grey;
+    /*width: 100vh;*/
+    background: black;
 }
 
 .tech_spec__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    opacity: 1;
 }
 
 .tech_spec__description {
@@ -97,14 +116,13 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 20px 30px 30px 30px;
-    background: #090909;
-    opacity: 0.3;
+    background: rgba(9,9,9, 0.3);
     border-radius: 30px;
     width: 100%;
     max-width: 410px;
 }
 
-.tech_spec__titles, .tech_spec__mission, .tech_spec__outfit {
+.tech_spec__titles, .tech_spec__mission {
     margin-bottom: 24px;
 }
 
@@ -130,11 +148,20 @@
     font-size: 16px;
 }
 
+.tech_spec__outfit {
+    margin-bottom: 4px;
+}
+
 .tech_spec__outfit-list {
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: space-between;*/
     align-items: center;
+}
+
+.tech_spec__outfit-item {
+    max-width: 80px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .tech_spec__outfit-item:not(:last-child) {
@@ -147,7 +174,6 @@
     height: 65px;
     border: 1px solid #FFFFFF;
     border-radius: 6px;
-    /*margin-bottom: 4px;*/
 }
 
 .tech_spec__outfit-img img {
@@ -162,6 +188,7 @@
 .tech_spec__outfit-text {
     font-weight: 700;
     font-size: 9px;
+    line-height: 11px;
 }
 
 .tech_spec__btn {
@@ -174,6 +201,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 .tech_spec__btn span {
@@ -183,5 +211,81 @@
     margin-right: 12px;
 }
 
+.tech_spec__interior {
+    max-width: 200px;
+    width: 100%;
+    height: 124px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    border-radius: 20px;
+    background: url("../img/layout/interior_prew.png") no-repeat center/cover;
+    padding: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.tech_spec__interior-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80px;
+    width: 100%;
+    /*margin-top: auto;*/
+}
+
+.tech_spec__interior-text {
+    font-weight: 300;
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.tech_spec__interior-before {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.arrow-wrapper {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #090909;
+    border-radius: 8px;
+}
+
+.arrow-wrapper > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
+/*auto_park*/
+
+.auto_park {
+    background-color: black;
+}
+
+.auto_park_wrapper {
+    background-color: #090909;
+    border: 1px solid #FFFFFF;
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    height: 224px;
+    padding: 20px;
+}
+
+.auto_park__control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.auto_park__title {
+    font-weight: 800;
+    font-size: 20px;
+    color: #FFFFFF;
+}
