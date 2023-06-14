@@ -1,0 +1,13 @@
+@import '../style/fonts.css';
+
+body {
+    overflow: hidden;
+    font-family: 'MoscowSans', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 5px;
+    margin: 0 auto;
+}

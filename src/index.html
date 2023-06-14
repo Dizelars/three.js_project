@@ -6,7 +6,7 @@
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Гараж ЦОДД</title>
-        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
     <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.151.3/three.min.js"></script>-->
@@ -15,18 +15,36 @@
     <!--    <script src="https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/RGBELoader.js"></script>-->
     <!--    <script src="https://cdn.jsdelivr.net/npm/three@0.114.0/examples/jsm/loaders/DRACOLoader.js"></script>-->
 
-    <div class="control_wrapper">
-        <div class="control_buttons">
-            <button class="go_to">Go!</button>
-            <button class="go_to">Go!</button>
-            <button class="go_to">Go!</button>
-            <button class="go_to">Go!</button>
-            <button class="go_to">Go!</button>
-            <button class="interior">interior</button>
-        </div>
-    </div>
+<!--    <div class="control_wrapper">-->
+<!--        <div class="control_buttons">-->
+<!--            <button class="go_to">Go!</button>-->
+<!--            <button class="go_to">Go!</button>-->
+<!--            <button class="go_to">Go!</button>-->
+<!--            <button class="go_to">Go!</button>-->
+<!--            <button class="go_to">Go!</button>-->
+<!--            <button class="interior">interior</button>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <div id="gui-container"></div>
+<!--    <div id="gui-container"></div>-->
+
+        <header class="header">
+            <div class="container">
+                <div class="header__wrapper">
+                    <div class="header__logo">
+                        <img class="header__logo-img" src="./img/layout/header_logo.svg" alt="logo">
+                        <p class="header__logo-text">Гараж ЦОТТ ММММ</p>
+                    </div>
+                    <div class="header__info">
+                        <img class="header__info-img" src="./img/layout/header_img.png" alt="model_preview">
+                        <div class="header__info-descr">
+                            <p class="header__info-text">Volkswagen Amarok</p>
+                            <p class="header__info-text">30 автомобилей</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <script type="module" src="./my_three.js"></script>
     </body>

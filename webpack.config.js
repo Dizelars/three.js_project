@@ -60,6 +60,13 @@ module.exports = {
                     }
                 }
             },
+            {
+                test: /\.otf?$/i,
+                type: "asset/resource",
+                generator: {
+                    filename: 'fonts/[name][ext]'
+                }
+            },
         ]
     }
 }
