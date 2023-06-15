@@ -1,10 +1,13 @@
 @import '../style/fonts.css';
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     overflow: hidden;
     font-family: 'MoscowSans', sans-serif;
     color: white;
-    box-sizing: border-box;
 }
 
 .container {
