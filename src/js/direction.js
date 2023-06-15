@@ -1,2 +1,2 @@
-// import './my_three';
 import './script';
+import './my_three';

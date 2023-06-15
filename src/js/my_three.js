@@ -551,7 +551,7 @@ window.addEventListener('resize', () => {
 });
 
 // Переключение между сценами при клике на кнопку с классом ".interior"
-const interiorButton = document.querySelector('.interior');
+const interiorButton = document.querySelector('.tech_spec__interior');
 interiorButton.addEventListener('click', () => {
     if (activeScene === 1) {
         const [x, y, z, dur] = coordinates[5];

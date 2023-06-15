@@ -1,11 +1,14 @@
 const button = document.querySelector('.tech_spec__btn');
 const visibleBlock = document.querySelector('.tech_spec__visible');
+const visibleDescr = document.querySelector('.tech_spec__description');
+const visibleSlide = document.querySelector('.auto_park_wrapper');
 const buttonText = document.querySelector('.tech_spec__btn span');
 const buttonIcon = document.querySelector('.tech_spec__btn img');
 const autoParkSection = document.querySelector('.auto_park');
 const autoParkControl = document.querySelector('.auto_park__control');
 const autoParkSlider = document.querySelector('.auto_park_slider');
 const buttonIcon2 = document.querySelector('.auto_park__control img');
+const interior = document.querySelector('.tech_spec__interior');
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
 
@@ -56,6 +59,12 @@ function toggleAutoParkSection() {
     // Инвертируем флаг видимости секции .auto_park
     isAutoParkVisible = !isAutoParkVisible;
 }
+
+interior.addEventListener('click', () => {
+    // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
+    visibleDescr.classList.toggle('hidden');
+    visibleSlide.classList.toggle('hidden');
+});
 
 
 // Слайдер
