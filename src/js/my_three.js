@@ -28,10 +28,10 @@ const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.inner
 camera1.position.copy(initialCameraPosition1);
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
-// controls1.minPolarAngle = 0;
-// controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 6;
-controls1.maxDistance = 1000;
+controls1.minPolarAngle = 0;
+controls1.maxPolarAngle = Math.PI * 0.5;
+// controls1.minDistance = 200;
+controls1.maxDistance = 350;
 controls1.enabled = true;
 controls1.update();
 
@@ -69,14 +69,14 @@ controls1.update();
 
 // Create Ambient and Point lights for the scene
 const ambientLight = new THREE.AmbientLight(0xffffff);
-const pointLight = new THREE.DirectionalLight(0xffffff);
+const pointLight = new THREE.DirectionalLight(0xffffff, 2.5);
 pointLight.position.set(4.535622620739531, 280.0453245202818, 24.052762487525687);
 pointLight.castShadow = true;
 scene1.add(ambientLight);
 scene1.add(pointLight);
 
-const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
-scene1.add( pointLightHelper );
+// const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
+// scene1.add( pointLightHelper );
 
 
 let gltfLoader = new GLTFLoader();
@@ -85,12 +85,15 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/25/car.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/27/car4.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
     scene1.add(obj);
     console.log(obj.children);
-    obj.position.set(0, 0, 0);
+    obj.position.set(0, 0, -27.5);
+
+    // https://coddmac.store/THREE/3Dmodels/26/car.gltf
+    // https://coddmac.store/THREE/3Dmodels/27/car4.gltf
 
     // Изменение материалов модели и поиск по имени
     // obj.traverse(function(child) {
@@ -294,23 +297,28 @@ gltfLoader.load(url, function(gltf) {
 
         switch (name) {
             case 'Стекла_машины':
-                properties.color = 0xff0000;
-                properties.roughness = 0.5;
+                properties.color = 0xB8B8B8;
+                properties.roughness = 0;
                 properties.metalness = 0.8;
-                properties.envMapIntensity = 1.0;
-                properties.emissive = 0x000000;
-                properties.emissiveIntensity = 1.0;
+                properties.transmission = 1;
+                properties.ior = 1.450;
+                // properties.thickness = 0.5;
+                // properties.envMapIntensity = 1.0;
+                // properties.emissive = 0x000000;
+                // properties.emissiveIntensity = 1.0;
                 break;
             case 'Фары':
-                properties.color = 0x00ff00;
-                properties.roughness = 0.4;
-                properties.metalness = 0.6;
+                properties.color = 0xffffff;
+                properties.roughness = 0;
+                properties.metalness = 0.5;
+                properties.transmission = 1;
+                properties.ior = 1.450;
                 break;
-            case 'проблесковый_мячок':
-                properties.color = 0x0000ff;
-                properties.roughness = 0.6;
-                properties.metalness = 0.4;
-                break;
+            // case 'проблесковый_мячок':
+            //     properties.color = 0x0000ff;
+            //     properties.roughness = 0.6;
+            //     properties.metalness = 0.4;
+            //     break;
             // Добавьте другие случаи, если необходимо
         }
 
@@ -319,22 +327,65 @@ gltfLoader.load(url, function(gltf) {
 
     console.log(materialProperties);
 
+    // obj.traverse(function(child) {
+    //     if (names.includes(child.name)) {
+    //         if (child.isMesh) {
+    //             const material = child.material;
+    //             console.log(material);
+    //             setMaterialProperties(material, child.name);
+    //         } else if (child.isGroup) {
+    //             child.traverse(function(groupChild) {
+    //                 if (groupChild.isMesh) {
+    //                     const material = groupChild.material;
+    //                     // console.log(material);
+    //                     setMaterialProperties(material, groupChild.name);
+    //                 }
+    //             });
+    //         }
+    //     }
+    // });
+
+    // obj.traverse(function(child) {
+    //     if (names.includes(child.name)) {
+    //         if (child.isMesh) {
+    //             const properties = materialProperties[child.name];  // заменяем здесь также нужный ключ
+    //             if (properties) {
+    //                 const myNewMaterial = new THREE.MeshPhysicalMaterial(properties);  // создаем новый материал
+    //                 child.material = myNewMaterial;  // заменяем материал в child
+    //             }
+    //         } else if (child.isGroup) {
+    //             child.traverse(function(groupChild) {
+    //                 if (groupChild.isMesh) {
+    //                     const properties = materialProperties[groupChild.name];  // заменяем здесь также нужный ключ
+    //                     if (properties) {
+    //                         const myNewMaterial = new THREE.MeshPhysicalMaterial(properties);  // создаем новый материал
+    //                         groupChild.material = myNewMaterial;  // заменяем материал в groupChild
+    //                     }
+    //                 }
+    //             });
+    //         }
+    //     }
+    // });
+
     obj.traverse(function(child) {
-        if (names.includes(child.name)) {
-            if (child.isMesh) {
-                const material = child.material;
-                console.log(material);
-                setMaterialProperties(material, child.name);
-            } else if (child.isGroup) {
-                child.traverse(function(groupChild) {
-                    if (groupChild.isMesh) {
-                        const material = groupChild.material;
-                        // console.log(material);
-                        setMaterialProperties(material, groupChild.name);
-                    }
-                });
+        if (child.isMesh && names.includes(child.name)) {
+            const properties = materialProperties[child.name];
+            if (properties && Object.keys(properties).length > 0) {
+                const newMaterial = new THREE.MeshPhysicalMaterial(properties);
+                child.material = newMaterial;
             }
         }
+        // else if (child.isGroup) {
+        //     child.traverse(function(groupChild) {
+        //         if (groupChild.isMesh && names.includes(groupChild.name)) {
+        //             const properties = materialProperties[groupChild.name];
+        //             if (properties) {
+        //                 const newMaterial = new THREE.MeshPhysicalMaterial(properties);
+        //                 groupChild.material = newMaterial;
+        //             }
+        //         }
+        //     });
+        // }
     });
 
     function setMaterialProperties(material, name) {
@@ -424,10 +475,6 @@ gltfLoader.load(url, function(gltf) {
     // }
 
 
-
-
-
-
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
     });
@@ -437,14 +484,18 @@ gltfLoader.load(url, function(gltf) {
 // https://coddmac.store/THREE/3Dmodels/bus/1/cop2y.gltf
 // https://coddmac.store/THREE/3Dmodels/bus/2/cop2y.gltf
 
-// Плита или пол
-// const planeGeometry = new THREE.CircleGeometry(4.5, 50); // Модель №2 Подложка
-// const planeMaterial = new THREE.MeshStandardMaterial({
-//     color: 0x62a744,              // Цвет
+// // Плита или пол
+// const planeGeometry = new THREE.CircleGeometry(200, 200); // Модель №2 Подложка
+// const planeMaterial = new THREE.MeshPhysicalMaterial({     // Цвет
+//     color: 0x090909,
+//     roughness: 0,
+//     metalness: 0.8,
+//     transmission: 1,
+//     ior: 1.450,
 //     side: THREE.DoubleSide        // Применение ко всем сторонам
 // });
 // const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-// scene.add(plane);
+// scene1.add(plane);
 // plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
 // plane.position.set(1.8, -0.6, 0) // Поворот плиты.
 // plane.receiveShadow = true; // Плоскость получает тень, которую излучает модель Сфера перед источником света.
@@ -471,8 +522,8 @@ const coordinates = [
     [4.419631461529943, 1.366719430512851, -3.82085536791349, 1.5],
     [4.612135343130454, 3.8370701385486443, 0.07141658424494553, 1.5],
     [4.548391730389692, 1.5106187886098281, 3.6097317826151065, 1.5],
-    [-5.680156277820456, 1.5032113113583057, 2.3163283637778207, 1.5],
-    [-1.6416573959597511, 1.1981686266100635, 1.2447508461030132, 1.5]
+    [-171.85716505033145, 74.93456415868356, 86.89998171402281, 1.5],
+    [-51.38847217341723, 55.119928388623705, 29.436440217618962, 1.5]
 ];
 
 const go_to = document.querySelectorAll('.go_to');
@@ -496,15 +547,18 @@ const controls2 = new OrbitControls(camera2, renderer.domElement);
 controls2.enabled = false;
 controls2.update();
 
-const hLight = new THREE.AmbientLight(0x404040, 2);
+const hLight = new THREE.AmbientLight(0x404040);
 scene2.add(hLight);
 
 const textureLoader = new THREE.TextureLoader();
 
 // Сфера
+// https://coddmac.store/THREE/360/Amarok/amarok.jpg
+// https://coddmac.store/THREE/360/Amarok/20230421_161001_041.jpg
+// https://coddmac.store/THREE/360/Amarok/IMG_20230425_124930_00_merged.jpg
 const sphereGeometry = new THREE.SphereBufferGeometry(4, 30, 30);
 const sphereMaterial = new THREE.MeshBasicMaterial({
-    map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/20230421_161001_041.jpg'),
+    map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok.jpg'),
     side: THREE.BackSide, // Отрисовка на внутренней стороне сферы
 });
 sphereMaterial.map.wrapS = THREE.RepeatWrapping;
@@ -512,7 +566,7 @@ sphereMaterial.map.repeat.x = -1; // Инвертирование UV-коорд�
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 scene2.add(sphere);
 sphere.position.set(0, 0, 0);
-sphere.castShadow = true;
+// sphere.castShadow = true;
 
 // Вывод в сферу картинки в формате hdr
 // const hdrTextureURL = new URL('./img/photo_2023-04-21_16-11-51.hdr', import.meta.url);

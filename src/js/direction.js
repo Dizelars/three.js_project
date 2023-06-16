@@ -1,2 +1,2 @@
-import './script';
-import './my_three';
+import './script.js';
+import './my_three.js';

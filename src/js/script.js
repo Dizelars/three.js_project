@@ -10,6 +10,8 @@ const autoParkControl = document.querySelector('.auto_park__control');
 const autoParkSlider = document.querySelector('.auto_park_slider');
 const buttonIcon2 = document.querySelector('.auto_park__control img');
 const interior = document.querySelector('.tech_spec__interior');
+const gallery_toggle = document.querySelectorAll('.gallery_item');
+
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
 
@@ -67,6 +69,13 @@ interior.addEventListener('click', () => {
     visibleSlide.classList.toggle('hidden');
     sliderButton.forEach(e => {
         e.classList.toggle('hidden');
+    });
+});
+
+gallery_toggle.forEach((e) => {
+    e.addEventListener('click', () => {
+        gallery_toggle.forEach((el) => el.classList.remove('active'));
+        e.classList.add('active');
     });
 });
 
