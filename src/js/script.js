@@ -2,6 +2,7 @@ const button = document.querySelector('.tech_spec__btn');
 const visibleBlock = document.querySelector('.tech_spec__visible');
 const visibleDescr = document.querySelector('.tech_spec__description');
 const visibleSlide = document.querySelector('.auto_park_wrapper');
+const sliderButton = document.querySelectorAll('.auto_park_slider-button button');
 const buttonText = document.querySelector('.tech_spec__btn span');
 const buttonIcon = document.querySelector('.tech_spec__btn img');
 const autoParkSection = document.querySelector('.auto_park');
@@ -64,6 +65,9 @@ interior.addEventListener('click', () => {
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleDescr.classList.toggle('hidden');
     visibleSlide.classList.toggle('hidden');
+    sliderButton.forEach(e => {
+        e.classList.toggle('hidden');
+    });
 });
 
 
