@@ -95,190 +95,7 @@ gltfLoader.load(url, function(gltf) {
     // https://coddmac.store/THREE/3Dmodels/26/car.gltf
     // https://coddmac.store/THREE/3Dmodels/27/car4.gltf
 
-    // Изменение материалов модели и поиск по имени
-    // obj.traverse(function(child) {
-    //     if (child.isMesh) {
-    //         const materials = child.material;
-    //
-    //         if (Array.isArray(materials)) {
-    //             // Если материалы являются массивом
-    //             materials.forEach(function(material, index) {
-    //                 // console.log('Material', index + 1, ':', material);
-    //
-    //                 // Изменение параметров материала
-    //                 // material.color.set(0xff0000); // Задание цвета
-    //                 // material.map = texture; // Задание текстуры
-    //                 // material.envMap = envMap; // Задание отражения окружающей среды
-    //                 // material.opacity = 0.5; // Задание прозрачности
-    //                 // material.shininess = 50; // Задание блеска
-    //                 // material.specular.set(0xffffff); // Задание цвета отражаемого света
-    //                 // material.size = 5; // Задание размера точек (для Points или PointCloud)
-    //                 // material.side = THREE.DoubleSide; // Задание видимости сторон
-    //
-    //                 // Фильтрация материалов по ключу name
-    //                 if (material.name === 'Стекла_машины') {
-    //                     // Код для материала с определенным именем
-    //                     console.log('Material with name "Стекла_машины":', material);
-    //                 }
-    //             });
-    //         } else {
-    //             // console.log('Material:', materials);
-    //
-    //             // Изменение параметров материала (аналогично массиву материалов)
-    //             // materials.color.set(0xff0000);
-    //             // materials.map = texture;
-    //             // materials.envMap = envMap;
-    //             // materials.opacity = 0.5;
-    //             // materials.shininess = 50;
-    //             // materials.specular.set(0xffffff);
-    //             // materials.size = 5;
-    //             // materials.side = THREE.DoubleSide;
-    //
-    //             // Фильтрация материалов по ключу name
-    //             if (materials.name === 'myMaterial') {
-    //                 // Код для материала с определенным именем
-    //             }
-    //         }
-    //     }
-    // });
-
-
-    // Показывает массивы Mesh внутри Group
-
-    // let names = [];
-    // let materialProperties = {};
-    //
-    // for (let i = 0; i < obj.children.length; i++) {
-    //     names.push(obj.children[i].name);
-    // }
-    //
-    // for (let i = 0; i < names.length; i++) {
-    //     let name = names[i];
-    //     materialProperties[name] = createMaterialProperties(name);
-    // }
-    //
-    // function createMaterialProperties(name) {
-    //     let properties = {};
-    //
-    //     switch (name) {
-    //         case 'Стекла_машины':
-    //             properties.color = 0xff0000;
-    //             properties.roughness = 0.5;
-    //             properties.metalness = 0.8;
-    //             properties.envMapIntensity = 1.0;
-    //             properties.emissive = 0x000000;
-    //             properties.emissiveIntensity = 1.0;
-    //             break;
-    //         case 'Фары':
-    //             properties.color = 0x00ff00;
-    //             properties.roughness = 0.4;
-    //             properties.metalness = 0.6;
-    //             break;
-    //         case 'проблесковый_мячок':
-    //             properties.color = 0x0000ff;
-    //             properties.roughness = 0.6;
-    //             properties.metalness = 0.4;
-    //             break;
-    //         // Добавьте другие случаи, если необходимо
-    //     }
-    //
-    //     return properties;
-    // }
-    //
-    // console.log(materialProperties);
-    //
-    // obj.traverse(function(child) {
-    //     if (names.includes(child.name) && (child.isMesh || child.isGroup)) {
-    //         const material = child.material;
-    //         const group = child.children;
-    //         console.log(group);
-    //         setMaterialProperties(material, child.name);
-    //     }
-    // });
-    //
-    // function setMaterialProperties(material, name) {
-    //     const properties = materialProperties[name];
-    //
-    //     if (properties) {
-    //         if (properties.color) material.color.set(properties.color);
-    //         if (properties.roughness) material.roughness = properties.roughness;
-    //         if (properties.metalness) material.metalness = properties.metalness;
-    //         // и другие свойства
-    //     }
-    // }
-
-    // Меняет только все Mesh внутри Group
-
-    // let names = [];
-    // let materialProperties = {};
-    //
-    // for (let i = 0; i < obj.children.length; i++) {
-    //     names.push(obj.children[i].name);
-    // }
-    //
-    // for (let i = 0; i < names.length; i++) {
-    //     let name = names[i];
-    //     materialProperties[name] = createMaterialProperties(name);
-    // }
-    //
-    // function createMaterialProperties(name) {
-    //     let properties = {};
-    //
-    //     switch (name) {
-    //         case 'Стекла_машины':
-    //             properties.color = 0xff0000;
-    //             properties.roughness = 0.5;
-    //             properties.metalness = 0.8;
-    //             properties.envMapIntensity = 1.0;
-    //             properties.emissive = 0x000000;
-    //             properties.emissiveIntensity = 1.0;
-    //             break;
-    //         case 'Фары':
-    //             properties.color = 0x00ff00;
-    //             properties.roughness = 0.4;
-    //             properties.metalness = 0.6;
-    //             break;
-    //         case 'проблесковый_мячок':
-    //             properties.color = 0x0000ff;
-    //             properties.roughness = 0.6;
-    //             properties.metalness = 0.4;
-    //             break;
-    //         // Добавьте другие случаи, если необходимо
-    //     }
-    //
-    //     return properties;
-    // }
-    //
-    // console.log(materialProperties);
-    //
-    // obj.traverse(function(child) {
-    //     if (names.includes(child.name) && (child.isMesh || child.isGroup)) {
-    //         if (child.isMesh) {
-    //             const material = child.material;
-    //             setMaterialProperties(material, child.name);
-    //         } else if (child.isGroup) {
-    //             const materials = child.material;
-    //             child.traverse(function(mesh) {
-    //                 if (mesh.isMesh) {
-    //                     setMaterialProperties(mesh.material, child.name);
-    //                 }
-    //             });
-    //         }
-    //     }
-    // });
-    //
-    // function setMaterialProperties(material, name) {
-    //     const properties = materialProperties[name];
-    //
-    //     if (properties) {
-    //         if (properties.color) material.color.set(properties.color);
-    //         if (properties.roughness) material.roughness = properties.roughness;
-    //         if (properties.metalness) material.metalness = properties.metalness;
-    //         // и другие свойства
-    //     }
-    // }
-
-    // Меняет только Mesh
+    // Меняет Mesh как отдельно, так и внутри Group
 
     let names = [];
     let materialProperties = {};
@@ -302,6 +119,7 @@ gltfLoader.load(url, function(gltf) {
                 properties.metalness = 0.8;
                 properties.transmission = 1;
                 properties.ior = 1.450;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
                 // properties.thickness = 0.5;
                 // properties.envMapIntensity = 1.0;
                 // properties.emissive = 0x000000;
@@ -313,12 +131,13 @@ gltfLoader.load(url, function(gltf) {
                 properties.metalness = 0.5;
                 properties.transmission = 1;
                 properties.ior = 1.450;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            // case 'проблесковый_мячок':
-            //     properties.color = 0x0000ff;
-            //     properties.roughness = 0.6;
-            //     properties.metalness = 0.4;
-            //     break;
+            case 'кузов_+_прицеп':
+                // properties.color = 0x0000ff;
+                properties.roughness = 0.6;
+                properties.metalness = 0.4;
+                break;
             // Добавьте другие случаи, если необходимо
         }
 
@@ -327,65 +146,22 @@ gltfLoader.load(url, function(gltf) {
 
     console.log(materialProperties);
 
-    // obj.traverse(function(child) {
-    //     if (names.includes(child.name)) {
-    //         if (child.isMesh) {
-    //             const material = child.material;
-    //             console.log(material);
-    //             setMaterialProperties(material, child.name);
-    //         } else if (child.isGroup) {
-    //             child.traverse(function(groupChild) {
-    //                 if (groupChild.isMesh) {
-    //                     const material = groupChild.material;
-    //                     // console.log(material);
-    //                     setMaterialProperties(material, groupChild.name);
-    //                 }
-    //             });
-    //         }
-    //     }
-    // });
-
-    // obj.traverse(function(child) {
-    //     if (names.includes(child.name)) {
-    //         if (child.isMesh) {
-    //             const properties = materialProperties[child.name];  // заменяем здесь также нужный ключ
-    //             if (properties) {
-    //                 const myNewMaterial = new THREE.MeshPhysicalMaterial(properties);  // создаем новый материал
-    //                 child.material = myNewMaterial;  // заменяем материал в child
-    //             }
-    //         } else if (child.isGroup) {
-    //             child.traverse(function(groupChild) {
-    //                 if (groupChild.isMesh) {
-    //                     const properties = materialProperties[groupChild.name];  // заменяем здесь также нужный ключ
-    //                     if (properties) {
-    //                         const myNewMaterial = new THREE.MeshPhysicalMaterial(properties);  // создаем новый материал
-    //                         groupChild.material = myNewMaterial;  // заменяем материал в groupChild
-    //                     }
-    //                 }
-    //             });
-    //         }
-    //     }
-    // });
-
     obj.traverse(function(child) {
         if (child.isMesh && names.includes(child.name)) {
             const properties = materialProperties[child.name];
-            if (properties && Object.keys(properties).length > 0) {
-                const newMaterial = new THREE.MeshPhysicalMaterial(properties);
-                child.material = newMaterial;
+            if (properties && Object.keys(properties).length > 0 && properties.material) {
+                child.material = properties.material;
+            }
+        } else if (child.isGroup && names.includes(child.name)) {
+            const groupProperties = materialProperties[child.name];
+            if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
+                child.traverse(function(groupChild) {
+                    if (groupChild.isMesh) {
+                        groupChild.material = groupProperties.material;
+                    }
+                });
             }
         }
-        // else if (child.isGroup) {
-        //     child.traverse(function(groupChild) {
-        //         if (groupChild.isMesh && names.includes(groupChild.name)) {
-        //             const properties = materialProperties[groupChild.name];
-        //             if (properties) {
-        //                 const newMaterial = new THREE.MeshPhysicalMaterial(properties);
-        //                 groupChild.material = newMaterial;
-        //             }
-        //         }
-        //     });
-        // }
     });
 
     function setMaterialProperties(material, name) {
@@ -399,90 +175,10 @@ gltfLoader.load(url, function(gltf) {
         }
     }
 
-
-    // Должно менять все
-
-    // let names = [];
-    // let materialProperties = {};
-    //
-    // for (let i = 0; i < obj.children.length; i++) {
-    //     names.push(obj.children[i].name);
-    // }
-    //
-    // for (let i = 0; i < names.length; i++) {
-    //     let name = names[i];
-    //     materialProperties[name] = createMaterialProperties(name);
-    // }
-    //
-    // function createMaterialProperties(name) {
-    //     let properties = {};
-    //
-    //     switch (name) {
-    //         case 'Стекла_машины':
-    //             properties.color = 0xff0000;
-    //             properties.roughness = 0.5;
-    //             properties.metalness = 0.8;
-    //             properties.envMapIntensity = 1.0;
-    //             properties.emissive = 0x000000;
-    //             properties.emissiveIntensity = 1.0;
-    //             break;
-    //         case 'Фары':
-    //             properties.color = 0x00ff00;
-    //             properties.roughness = 0.4;
-    //             properties.metalness = 0.6;
-    //             break;
-    //         case 'проблесковый_мячок':
-    //             properties.color = 0x0000ff;
-    //             properties.roughness = 0.6;
-    //             properties.metalness = 0.4;
-    //             break;
-    //         // Добавьте другие случаи, если необходимо
-    //     }
-    //
-    //     return properties;
-    // }
-    //
-    // console.log(materialProperties);
-    //
-    // obj.traverse(function (child) {
-    //     if (child.isGroup) {
-    //         const groupName = child.name;
-    //         const groupProperties = materialProperties[groupName];
-    //         if (groupProperties) {
-    //             child.traverse(function (mesh) {
-    //                 if (mesh.isMesh) {
-    //                     const meshName = mesh.name;
-    //                     const meshProperties = materialProperties[meshName];
-    //                     setMaterialProperties(mesh, meshProperties || groupProperties);
-    //                 }
-    //             });
-    //         }
-    //     } else if (child.isMesh) {
-    //         const meshName = child.name;
-    //         const meshProperties = materialProperties[meshName];
-    //         setMaterialProperties(child, meshProperties);
-    //     }
-    // });
-    //
-    // function setMaterialProperties(object, properties) {
-    //     const material = object.material;
-    //     if (properties && material) {
-    //         if (properties.hasOwnProperty('color')) material.color.set(properties.color);
-    //         if (properties.hasOwnProperty('roughness')) material.roughness = properties.roughness;
-    //         if (properties.hasOwnProperty('metalness')) material.metalness = properties.metalness;
-    //         // и другие свойства
-    //     }
-    // }
-
-
     window.addEventListener('mouseup', () => {
         console.log(camera1.position); // Выводим координаты камеры
     });
 });
-
-// https://coddmac.store/THREE/3Dmodels/25/car.gltf
-// https://coddmac.store/THREE/3Dmodels/bus/1/cop2y.gltf
-// https://coddmac.store/THREE/3Dmodels/bus/2/cop2y.gltf
 
 // // Плита или пол
 // const planeGeometry = new THREE.CircleGeometry(200, 200); // Модель №2 Подложка
@@ -502,8 +198,8 @@ gltfLoader.load(url, function(gltf) {
 
 // 5. Вспомогательные объекты
 // Вспомогательная система координат
-// const axesHelper = new THREE.AxesHelper(85);
-// scene1.add(axesHelper);
+const axesHelper = new THREE.AxesHelper(85);
+scene1.add(axesHelper);
 
 function MyCoordinates(xPos, yPos, zPos, dur) {
     gsap.to(camera1.position, {
