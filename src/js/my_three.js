@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
@@ -22,6 +22,7 @@ scene1.background = new THREE.Color(0x000000);
 
 //0xffffff
 //0x000000
+//0xB5B8B1
 
 const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -95,6 +96,18 @@ gltfLoader.load(url, function(gltf) {
     // https://coddmac.store/THREE/3Dmodels/26/car.gltf
     // https://coddmac.store/THREE/3Dmodels/27/car4.gltf
 
+    const PhoneHDR = new URL('../img/studio.hdr', import.meta.url);
+    const rgbLoaderPhone = new RGBELoader();
+
+    renderer.outputEncoding = THREE.sRGBEncoding; // Сопоставление цветов hdr фото
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;// Алгоритм отображения тонов
+
+    rgbLoaderPhone.load(PhoneHDR, function (texture) {
+        texture.mapping = THREE.EquirectangularReflectionMapping;
+        // scene1.background = texture;
+        scene1.environment = texture;
+    });
+
     // Меняет Mesh как отдельно, так и внутри Group
 
     let names = [];
@@ -126,17 +139,51 @@ gltfLoader.load(url, function(gltf) {
                 // properties.emissiveIntensity = 1.0;
                 break;
             case 'Фары':
-                properties.color = 0xffffff;
+                properties.color = 0xffffff; // Цвет света фар (белый)
+                // properties.emissive = 0xffffff; // Цвет свечения фар (белый)
+                // properties.emissiveIntensity = 1.0; // Максимальная интенсивность свечения фар
+                // properties.emissiveMap = emissiveMap; // Текстура свечения фар (если есть)
+                // properties.envMap = envMap; // Текстура сферической карты окружения
+                properties.transmission = 0.9; // Небольшая прозрачность фар
+                properties.transparent = true; // Включение прозрачности фар
+                properties.depthWrite = false; // Отключение записи в буфер глубины для фар
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case 'кузов_+_прицеп':
+                properties.color = 0x56B53F;
+                properties.roughness = 0.1; // Низкая шероховатость
+                properties.metalness = 1;
+                properties.clearcoat = 0.1; // Интенсивность слоя лака
+                properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
+                // properties.transmission = 0.0;
+                // properties.ior = 1.450;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case 'проблесковый_мячок':
+                properties.color = 0xB8B8B8;
                 properties.roughness = 0;
-                properties.metalness = 0.5;
+                properties.metalness = 0.8;
                 properties.transmission = 1;
                 properties.ior = 1.450;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case 'кузов_+_прицеп':
-                // properties.color = 0x0000ff;
-                properties.roughness = 0.6;
-                properties.metalness = 0.4;
+            case 'Рейлинги':
+                properties.color = 0x000000;
+                properties.roughness = 0.9;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case 'Подножие_авто':
+                properties.color = 0xffffff;
+                properties.roughness = 0;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case 'Дворники':
+                properties.color = 0x000000;
+                properties.roughness = 0.9;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
             // Добавьте другие случаи, если необходимо
         }
@@ -147,22 +194,33 @@ gltfLoader.load(url, function(gltf) {
     console.log(materialProperties);
 
     obj.traverse(function(child) {
+        // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
         if (child.isMesh && names.includes(child.name)) {
             const properties = materialProperties[child.name];
+            // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
+            // Также проверяем, есть ли у свойств объект material
             if (properties && Object.keys(properties).length > 0 && properties.material) {
+                // Присваиваем материал из свойств child.material
                 child.material = properties.material;
             }
-        } else if (child.isGroup && names.includes(child.name)) {
+        }
+        // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
+        else if (child.isGroup && names.includes(child.name)) {
             const groupProperties = materialProperties[child.name];
+            // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
+            // Также проверяем, есть ли у свойств объект material
             if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
                 child.traverse(function(groupChild) {
+                    // Проверяем, является ли объект groupChild мешем внутри группы
                     if (groupChild.isMesh) {
+                        // Присваиваем материал из свойств groupChild.material
                         groupChild.material = groupProperties.material;
                     }
                 });
             }
         }
     });
+
 
     function setMaterialProperties(material, name) {
         const properties = materialProperties[name];
