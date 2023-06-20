@@ -69,15 +69,21 @@ controls1.update();
 // scene1.add(helper2);
 
 // Create Ambient and Point lights for the scene
-const ambientLight = new THREE.AmbientLight(0xffffff);
+// const ambientLight = new THREE.AmbientLight(0xffffff);
 const pointLight = new THREE.DirectionalLight(0xffffff, 2.5);
-pointLight.position.set(4.535622620739531, 280.0453245202818, 24.052762487525687);
-pointLight.castShadow = true;
-scene1.add(ambientLight);
+pointLight.position.set(0, 349.999999999825, 0);
+// pointLight.castShadow = true;
+// scene1.add(ambientLight);
+const pointLight2 = new THREE.DirectionalLight(0xffffff, 2.5);
+pointLight2.position.set(-10.549787823730556, 376.36978923940944, 99.06331410559106);
 scene1.add(pointLight);
+scene1.add(pointLight2);
 
-// const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
-// scene1.add( pointLightHelper );
+const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
+scene1.add( pointLightHelper );
+
+const pointLightHelper2 = new THREE.DirectionalLightHelper(pointLight2);
+scene1.add( pointLightHelper2 );
 
 
 let gltfLoader = new GLTFLoader();
@@ -86,15 +92,16 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/27/car4.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/31/car5.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
     scene1.add(obj);
     console.log(obj.children);
-    obj.position.set(0, 0, -27.5);
+    obj.position.set(0, -1.5, -27.5);
 
-    // https://coddmac.store/THREE/3Dmodels/26/car.gltf
-    // https://coddmac.store/THREE/3Dmodels/27/car4.gltf
+    // src/models/27/car4.gltf
+    // https://coddmac.store/THREE/3Dmodels/31/car5.gltf
+    //https://coddmac.store/THREE/3Dmodels/29/uv.png
 
     const PhoneHDR = new URL('../img/studio.hdr', import.meta.url);
     const rgbLoaderPhone = new RGBELoader();
@@ -125,41 +132,37 @@ gltfLoader.load(url, function(gltf) {
     function createMaterialProperties(name) {
         let properties = {};
 
+        const textureLoader = new THREE.TextureLoader();
+        const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/31/uv.png');
+        mapTexture.flipY = false;
+
         switch (name) {
-            case 'Стекла_машины':
+            case "Stekla":
                 properties.color = 0xB8B8B8;
-                properties.roughness = 0;
+                properties.roughness = 0.1;
                 properties.metalness = 0.8;
                 properties.transmission = 1;
                 properties.ior = 1.450;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
-                // properties.thickness = 0.5;
-                // properties.envMapIntensity = 1.0;
-                // properties.emissive = 0x000000;
-                // properties.emissiveIntensity = 1.0;
                 break;
-            case 'Фары':
-                properties.color = 0xffffff; // Цвет света фар (белый)
-                // properties.emissive = 0xffffff; // Цвет свечения фар (белый)
-                // properties.emissiveIntensity = 1.0; // Максимальная интенсивность свечения фар
-                // properties.emissiveMap = emissiveMap; // Текстура свечения фар (если есть)
-                // properties.envMap = envMap; // Текстура сферической карты окружения
-                properties.transmission = 0.9; // Небольшая прозрачность фар
+            case "Fari_perednie_stekla":
+                properties.color = 0x000000; // Цвет света фар (белый)
+                properties.roughness = 0.1;
+                properties.metalness = 0.8;
+                properties.transmission = 1; // Небольшая прозрачность фар
                 properties.transparent = true; // Включение прозрачности фар
-                properties.depthWrite = false; // Отключение записи в буфер глубины для фар
+                properties.opacity = 0;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case 'кузов_+_прицеп':
-                properties.color = 0x56B53F;
+            case "main":
                 properties.roughness = 0.1; // Низкая шероховатость
                 properties.metalness = 1;
                 properties.clearcoat = 0.1; // Интенсивность слоя лака
                 properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
-                // properties.transmission = 0.0;
-                // properties.ior = 1.450;
+                properties.map = mapTexture;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case 'проблесковый_мячок':
+            case "Mayachok":
                 properties.color = 0xB8B8B8;
                 properties.roughness = 0;
                 properties.metalness = 0.8;
@@ -167,19 +170,19 @@ gltfLoader.load(url, function(gltf) {
                 properties.ior = 1.450;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case 'Рейлинги':
+            case "Reylingi":
                 properties.color = 0x000000;
                 properties.roughness = 0.9;
                 properties.metalness = 1;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case 'Подножие_авто':
+            case "Podnozhka":
                 properties.color = 0xffffff;
                 properties.roughness = 0;
                 properties.metalness = 1;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case 'Дворники':
+            case "Dvorniki":
                 properties.color = 0x000000;
                 properties.roughness = 0.9;
                 properties.metalness = 1;
@@ -238,21 +241,28 @@ gltfLoader.load(url, function(gltf) {
     });
 });
 
-// // Плита или пол
-// const planeGeometry = new THREE.CircleGeometry(200, 200); // Модель №2 Подложка
-// const planeMaterial = new THREE.MeshPhysicalMaterial({     // Цвет
-//     color: 0x090909,
-//     roughness: 0,
-//     metalness: 0.8,
-//     transmission: 1,
-//     ior: 1.450,
-//     side: THREE.DoubleSide        // Применение ко всем сторонам
-// });
-// const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-// scene1.add(plane);
-// plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
-// plane.position.set(1.8, -0.6, 0) // Поворот плиты.
-// plane.receiveShadow = true; // Плоскость получает тень, которую излучает модель Сфера перед источником света.
+// Плита или пол
+const planeGeometry = new THREE.CircleGeometry(200, 200); // Модель №2 Подложка
+const planeMaterial = new THREE.MeshPhysicalMaterial({     // Цвет
+    color: 0x090909, // Цвет бетона
+    roughness: 1, // Шероховатость бетона
+    metalness: 0.0, // Отсутствие металличности
+    transmission: 0.0, // Непрозрачность (без прозрачности)
+    side: THREE.DoubleSide, // Применение к обеим сторонам
+});
+// Загрузка текстуры бетона
+const textureBeton = new THREE.TextureLoader();
+const concreteTexture = textureBeton.load('https://coddmac.store/THREE/beton_2.jpg');
+// sftp://design@62.109.20.91/var/www/html/THREE/beton.jpg
+// https://coddmac.store/THREE/3Dmodels/27/car4.gltf
+// https://coddmac.store/THREE/beton.jpg
+planeMaterial.map = concreteTexture; // Присваивание текстуры бетона
+
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+scene1.add(plane);
+plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
+plane.position.set(1.8, -0.6, 0) // Поворот плиты.
+plane.receiveShadow = true; // Плоскость получает тень, которую излучает модель Сфера перед источником света.
 
 // 5. Вспомогательные объекты
 // Вспомогательная система координат
@@ -301,7 +311,7 @@ const controls2 = new OrbitControls(camera2, renderer.domElement);
 controls2.enabled = false;
 controls2.update();
 
-const hLight = new THREE.AmbientLight(0x404040);
+const hLight = new THREE.AmbientLight(0x404040, 5);
 scene2.add(hLight);
 
 const textureLoader = new THREE.TextureLoader();
@@ -310,35 +320,35 @@ const textureLoader = new THREE.TextureLoader();
 // https://coddmac.store/THREE/360/Amarok/amarok.jpg
 // https://coddmac.store/THREE/360/Amarok/20230421_161001_041.jpg
 // https://coddmac.store/THREE/360/Amarok/IMG_20230425_124930_00_merged.jpg
-const sphereGeometry = new THREE.SphereBufferGeometry(4, 30, 30);
-const sphereMaterial = new THREE.MeshBasicMaterial({
-    map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok.jpg'),
-    side: THREE.BackSide, // Отрисовка на внутренней стороне сферы
-});
-sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-scene2.add(sphere);
-sphere.position.set(0, 0, 0);
+// const sphereGeometry = new THREE.SphereBufferGeometry(4, 30, 30);
+// const sphereMaterial = new THREE.MeshBasicMaterial({
+//     map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok.jpg'),
+//     side: THREE.BackSide, // Отрисовка на внутренней стороне сферы
+// });
+// sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+// sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+// const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+// scene2.add(sphere);
+// sphere.position.set(0, 0, 0);
 // sphere.castShadow = true;
 
 // Вывод в сферу картинки в формате hdr
-// const hdrTextureURL = new URL('./img/photo_2023-04-21_16-11-51.hdr', import.meta.url);
-// const rgbLoader = new RGBELoader();
-// rgbLoader.load(hdrTextureURL, (texture) => {
-//     const sphereGeometry = new THREE.SphereGeometry(4, 30, 30); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
-//     const sphereMaterial = new THREE.MeshPhongMaterial({
-//         wireframe: false,  // Показываем сегменты модели
-//         map: texture,
-//         opacity: 1,
-//         transparent: true,
-//         side: THREE.DoubleSide
-//     });
-//     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-//     scene.add(sphere);
-//     sphere.position.set(0, 0, 0);
-//     sphere.castShadow = true; // Модель Сфера отбрасывает тень, находясь перед источником света.
-// })
+const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
+const rgbLoader = new RGBELoader();
+rgbLoader.load(hdrTextureURL, (texture) => {
+    const sphereGeometry = new THREE.SphereGeometry(4, 30, 30); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
+    const sphereMaterial = new THREE.MeshPhongMaterial({
+        map: texture,
+        // opacity: 1,
+        // transparent: true,
+        side: THREE.BackSide
+    });
+    sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+    sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    scene2.add(sphere);
+    sphere.position.set(0, 0, 0);
+})
 
 function animate() {
     if (activeScene === 1) {
