@@ -19,6 +19,9 @@ let activeScene = 1;
 // 1-я сцена
 const scene1 = new THREE.Scene();
 scene1.background = new THREE.Color(0x000000);
+scene1.fog = new THREE.Fog(0xDFE9F3, 100, 500);
+// scene1.fog = new THREE.FogExp2( 0xDFE9F3, 0.0005 );
+// console.log(new THREE.Fog(0xDFE9F3, 0.0, 500))
 
 //0xffffff
 //0x000000
@@ -37,53 +40,53 @@ controls1.enabled = true;
 controls1.update();
 
 // const lightPositions1 = [
-//     [-5.867325070813964, 0.875893944836542, 2.1671416628122966],
-//     [-5.996793371323893, 0.55869131539196, -0.5149670786661111],
-//     [-4.70987, 1.323152, -3.473671],
-//     [4.548392, 1.510619, 3.609732],
-//     // [6.541486076530456, 1.1843171131607289, 0.07006254067916627]
+//     [-185.6241207481791, 32.07062433508278, 84.95199678588864],
+//     [-204.3011171303053, 30.934039929212076, 2.412388785758053],
+//     [-180.31006688957424, 33.01550961882396, -137.20319905907786],
+//     [265.38149179418303, 29.66356022269588, 3.5128582340225742],
+//     [197.0975889816967, 33.78571878903604, 156.13137890856612]
 // ];
 
-// const lightPositions1 = [
-//     [0.000005999387780526352, 5.999999999997, -1.0269702929669093e-7],
-//     [4.612135, 3.83707, 0.071417],
-//     [4.419631, 1.366719, -3.820855],
-//     [4.548392, 1.510619, 3.609732],
-//     [-4.70987, 1.323152, -3.473671],
-//     [-5.680156, 1.503211, 2.316328]
-// ];
+const lightPositions1 = [
+    [-17.567221408112857, -0.22629529010871796, 82.99075253414],
+    [4.612135, 3.83707, 0.071417],
+    [4.419631, 1.366719, -3.820855],
+    [4.548392, 1.510619, 3.609732],
+    [-4.70987, 1.323152, -3.473671],
+    [-5.680156, 1.503211, 2.316328]
+];
 
-// lightPositions1.forEach(position => {
-//     const light = new THREE.PointLight(0xffffff, 0.9);
-//     light.position.set(position[0], position[1], position[2]);
-//     scene1.add(light);
-//     const helper = new THREE.PointLightHelper(light);
-//     scene1.add(helper);
-// });
-//
-// const light2 = new THREE.SpotLight(0xffffff, 0.9);
-// light2.position.set(0.4414868941158466, 6.315789619633837, -0.1345017011849941);
-// light2.angle = 0.7;
-// scene1.add(light2);
-// const helper2 = new THREE.SpotLightHelper(light2);
-// scene1.add(helper2);
+lightPositions1.forEach(position => {
+    const light = new THREE.PointLight(0xffffff, 0.9);
+    light.position.set(position[0], position[1], position[2]);
+    scene1.add(light);
+    const helper = new THREE.PointLightHelper(light);
+    scene1.add(helper);
+});
+
+const light2 = new THREE.SpotLight(0xffffff, 0.1);
+light2.position.set(0, 349.999999999825, 0);
+light2.angle = 0.7;
+scene1.add(light2);
+const helper2 = new THREE.SpotLightHelper(light2);
+scene1.add(helper2);
 
 // Create Ambient and Point lights for the scene
-// const ambientLight = new THREE.AmbientLight(0xffffff);
-const pointLight = new THREE.DirectionalLight(0xffffff, 2.5);
-pointLight.position.set(0, 349.999999999825, 0);
+const ambientLight = new THREE.AmbientLight(0xffffff);
+// const pointLight = new THREE.DirectionalLight(0xffffff);
+// pointLight.position.set(0, 349.999999999825, 0);
 // pointLight.castShadow = true;
 // scene1.add(ambientLight);
-const pointLight2 = new THREE.DirectionalLight(0xffffff, 2.5);
-pointLight2.position.set(-10.549787823730556, 376.36978923940944, 99.06331410559106);
-scene1.add(pointLight);
-scene1.add(pointLight2);
-
-const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
-scene1.add( pointLightHelper );
-
-const pointLightHelper2 = new THREE.DirectionalLightHelper(pointLight2);
-scene1.add( pointLightHelper2 );
+// const pointLight2 = new THREE.DirectionalLight(0xffffff);
+// pointLight2.position.set(-10.549787823730556, 376.36978923940944, 99.06331410559106);
+// scene1.add(pointLight);
+// scene1.add(pointLight2);
+//
+// const pointLightHelper = new THREE.DirectionalLightHelper(pointLight);
+// scene1.add( pointLightHelper );
+//
+// const pointLightHelper2 = new THREE.DirectionalLightHelper(pointLight2);
+// scene1.add( pointLightHelper2 );
 
 
 let gltfLoader = new GLTFLoader();
@@ -92,7 +95,7 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/31/car5.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/32/car5.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
     scene1.add(obj);
@@ -100,6 +103,7 @@ gltfLoader.load(url, function(gltf) {
     obj.position.set(0, -1.5, -27.5);
 
     // src/models/27/car4.gltf
+    // https://coddmac.store/THREE/3Dmodels/32/car5.gltf
     // https://coddmac.store/THREE/3Dmodels/31/car5.gltf
     //https://coddmac.store/THREE/3Dmodels/29/uv.png
 
@@ -133,7 +137,7 @@ gltfLoader.load(url, function(gltf) {
         let properties = {};
 
         const textureLoader = new THREE.TextureLoader();
-        const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/31/uv.png');
+        const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/32/uv.png');
         mapTexture.flipY = false;
 
         switch (name) {
@@ -145,20 +149,35 @@ gltfLoader.load(url, function(gltf) {
                 properties.ior = 1.450;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case "Fari_perednie_stekla":
-                properties.color = 0x000000; // Цвет света фар (белый)
-                properties.roughness = 0.1;
-                properties.metalness = 0.8;
+            case "Fari_perednie_stekla001":
+                properties.color = 0xffffff;
+                properties.roughness = 1;
+                properties.metalness = 1;
                 properties.transmission = 1; // Небольшая прозрачность фар
                 properties.transparent = true; // Включение прозрачности фар
-                properties.opacity = 0;
+                properties.opacity = 0.3;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Fari_perednie_vnutri":
+                // properties.color = 0xffffff;
+                properties.roughness = 0;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Fari_zadnie":
+                properties.color = 0xff0000;
+                properties.roughness = 1;
+                properties.metalness = 1;
+                properties.transmission = 1; // Небольшая прозрачность фар
+                properties.transparent = true; // Включение прозрачности фар
+                properties.opacity = 0.8;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
             case "main":
-                properties.roughness = 0.1; // Низкая шероховатость
-                properties.metalness = 1;
-                properties.clearcoat = 0.1; // Интенсивность слоя лака
-                properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
+                properties.roughness = 0.2; // Низкая шероховатость
+                properties.metalness = 0.9;
+                // properties.clearcoat = 0.1; // Интенсивность слоя лака
+                // properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
                 properties.map = mapTexture;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
@@ -177,12 +196,47 @@ gltfLoader.load(url, function(gltf) {
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
             case "Podnozhka":
+                properties.color = 0x000000;
+                properties.roughness = 0.2;
+                properties.metalness = 0.9;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Dvorniki":
+                properties.color = 0x000000;
+                properties.roughness = 0.9;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Salon":
+                properties.color = 0x000000;
+                properties.roughness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Reshetka":
+                properties.color = 0x000000;
+                properties.roughness = 0.9;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Reshetka_metal":
                 properties.color = 0xffffff;
                 properties.roughness = 0;
                 properties.metalness = 1;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case "Dvorniki":
+            case "Kolesa_diski":
+                properties.color = 0xffffff;
+                properties.roughness = 0;
+                properties.metalness = 1;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Kolesa-shini":
+                properties.color = 0x000000;
+                properties.roughness = 0.2;
+                properties.metalness = 0.0;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Krishka_pod_bazazhnikom":
                 properties.color = 0x000000;
                 properties.roughness = 0.9;
                 properties.metalness = 1;
@@ -242,26 +296,35 @@ gltfLoader.load(url, function(gltf) {
 });
 
 // Плита или пол
-const planeGeometry = new THREE.CircleGeometry(200, 200); // Модель №2 Подложка
-const planeMaterial = new THREE.MeshPhysicalMaterial({     // Цвет
-    color: 0x090909, // Цвет бетона
-    roughness: 1, // Шероховатость бетона
+
+// Загрузка текстуры бетона
+const BetonLoader = new THREE.TextureLoader();
+const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton.jpg');
+// const betonBmap = BetonLoader.load('https://coddmac.store/THREE/beton_bump.jpg');
+const betonDmap= BetonLoader.load('https://coddmac.store/THREE/beton_displacement.jpg');
+
+const planeMaterial = new THREE.MeshPhongMaterial({     // Цвет
+    // color: 0x090909, // Цвет бетона
+    // roughness: 1, // Шероховатость бетона
     metalness: 0.0, // Отсутствие металличности
     transmission: 0.0, // Непрозрачность (без прозрачности)
+    // bumpMap: betonBmap,
+    bumpScale: 2,
+    map: BetonMap,
+    displacementMap: betonDmap,
+    displacementScale: 2,
     side: THREE.DoubleSide, // Применение к обеим сторонам
 });
-// Загрузка текстуры бетона
-const textureBeton = new THREE.TextureLoader();
-const concreteTexture = textureBeton.load('https://coddmac.store/THREE/beton_2.jpg');
+const planeGeometry = new THREE.PlaneGeometry(1000, 1000, 40, 40); // Модель №2 Подложка
+
 // sftp://design@62.109.20.91/var/www/html/THREE/beton.jpg
 // https://coddmac.store/THREE/3Dmodels/27/car4.gltf
 // https://coddmac.store/THREE/beton.jpg
-planeMaterial.map = concreteTexture; // Присваивание текстуры бетона
-
+// planeMaterial.map = textureBeton; // Присваивание текстуры бетона
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 scene1.add(plane);
 plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
-plane.position.set(1.8, -0.6, 0) // Поворот плиты.
+plane.position.set(0, -2, 0) // Поворот плиты.
 plane.receiveShadow = true; // Плоскость получает тень, которую излучает модель Сфера перед источником света.
 
 // 5. Вспомогательные объекты
