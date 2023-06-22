@@ -95,7 +95,7 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/32/car5.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/33/car5.gltf';
 gltfLoader.load(url, function(gltf) {
     obj = gltf.scene;
     scene1.add(obj);
@@ -103,8 +103,7 @@ gltfLoader.load(url, function(gltf) {
     obj.position.set(0, -1.5, -27.5);
 
     // src/models/27/car4.gltf
-    // https://coddmac.store/THREE/3Dmodels/32/car5.gltf
-    // https://coddmac.store/THREE/3Dmodels/31/car5.gltf
+    // https://coddmac.store/THREE/3Dmodels/33/car5.gltf
     //https://coddmac.store/THREE/3Dmodels/29/uv.png
 
     const PhoneHDR = new URL('../img/studio.hdr', import.meta.url);
@@ -137,7 +136,7 @@ gltfLoader.load(url, function(gltf) {
         let properties = {};
 
         const textureLoader = new THREE.TextureLoader();
-        const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/32/uv.png');
+        const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/33/uv.png');
         mapTexture.flipY = false;
 
         switch (name) {
@@ -149,7 +148,7 @@ gltfLoader.load(url, function(gltf) {
                 properties.ior = 1.450;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case "Fari_perednie_stekla001":
+            case "Fari_perednie_stekla":
                 properties.color = 0xffffff;
                 properties.roughness = 0.2;
                 properties.metalness = 0.9;
@@ -158,7 +157,7 @@ gltfLoader.load(url, function(gltf) {
                 properties.opacity = 0.4;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
-            case "Fari_perednie_vnutri":
+            case "Fari_perednie_zad":
                 properties.color = 0xffffff;
                 properties.roughness = 0;
                 properties.metalness = 1;
@@ -179,6 +178,23 @@ gltfLoader.load(url, function(gltf) {
                 // properties.clearcoat = 0.1; // Интенсивность слоя лака
                 // properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
                 properties.map = mapTexture;
+                properties.side = THREE.DoubleSide;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Ekran":
+                // properties.color = 0xff0000;
+                properties.roughness = 0.2;
+                properties.metalness = 0.8;
+                properties.map = mapTexture;
+                properties.side = THREE.DoubleSide;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Ekran2":
+                properties.color = 0xB8B8B8;
+                properties.roughness = 0.1;
+                properties.metalness = 0.8;
+                properties.transmission = 1;
+                properties.ior = 1.450;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
             case "Mayachok":
@@ -234,6 +250,18 @@ gltfLoader.load(url, function(gltf) {
                 properties.color = 0x000000;
                 properties.roughness = 0.2;
                 properties.metalness = 0.0;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Tormoza":
+                properties.color = 0x000000;
+                properties.roughness = 0.2;
+                properties.metalness = 0.0;
+                properties.material = new THREE.MeshPhysicalMaterial(properties);
+                break;
+            case "Brzgoviki":
+                properties.color = 0x000000;
+                properties.roughness = 0.2;
+                properties.metalness = 0.9;
                 properties.material = new THREE.MeshPhysicalMaterial(properties);
                 break;
             case "Krishka_pod_bazazhnikom":
