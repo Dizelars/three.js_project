@@ -67,6 +67,19 @@ module.exports = {
                     filename: 'fonts/[name][ext]'
                 }
             },
+            // {
+            //     test: /\.gltf$/,
+            //     loader: '@vxna/gltf-loader',
+            //     options: { inline: true }
+            // },
+            // {
+            //     test: /\.(png|jpe?g|gif|glb|gltf)$/i,
+            //     loader: 'file-loader',
+            //     options: {
+            //         publicPath: './',
+            //         name: '[name].[ext]'
+            //     },
+            // },
         ]
     }
 }
