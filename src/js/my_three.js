@@ -83,16 +83,17 @@ controls1.update();
 // scene1.add(helper2);
 
 // Create Ambient and Point lights for the scene
-const ambientLight = new THREE.AmbientLight(0xededed, 0.8);
+const ambientLight = new THREE.AmbientLight(0xededed, 0.01);
 scene1.add(ambientLight);
 
-const Hemilight = new THREE.HemisphereLight( 0xffffff, 5 );
-Hemilight.position.set(32, 30, -58);
-Hemilight.rotateY(200);
-scene1.add( Hemilight );
+// const Hemilight = new THREE.HemisphereLight( 0xffffff, 5 );
+// Hemilight.position.set(32, 30, -58);
+// Hemilight.rotateY(200);
+// scene1.add( Hemilight );
+//
+// const helper = new THREE.HemisphereLightHelper( Hemilight, 10);
+// scene1.add( helper );
 
-const helper = new THREE.HemisphereLightHelper( Hemilight, 10);
-scene1.add( helper );
 
 // const pointLight = new THREE.SpotLight(0xffffff, 5);
 // // pointLight.position.set(0, 350, 0);
@@ -127,23 +128,23 @@ scene1.add( helper );
 // pointLight4.penumbra = 0.3;
 // scene1.add(pointLight4);
 
-const pointLight5 = new THREE.SpotLight(0xffffff, 5);
-pointLight5.position.set(-170, 160, 104);
-pointLight5.castShadow = true;
-// pointLight5.shadow.bias = 0.001;
-pointLight5.shadow.mapSize.height = 2048; // Разрешение отображения теней
-pointLight5.shadow.mapSize.width = 2048; // Разрешение отображения теней
-pointLight5.shadow.camera.near = 1.0;
-pointLight5.shadow.camera.far = 550;
-pointLight5.shadow.camera.left = 1;
-pointLight5.shadow.camera.right = -1;
-pointLight5.shadow.camera.top = 1;
-pointLight5.shadow.camera.bottom = -1;
-// pointLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
-// pointLight5.shadow.focus = 1;
-pointLight5.angle = 0.5;
-pointLight5.penumbra = 0.3;
-scene1.add(pointLight5);
+const SpotLight5 = new THREE.SpotLight(0xffffff, 8);
+SpotLight5.position.set(-170, 160, 104);
+SpotLight5.castShadow = true;
+// SpotLight5.shadow.bias = 0.001;
+SpotLight5.shadow.mapSize.height = 2048; // Разрешение отображения теней
+SpotLight5.shadow.mapSize.width = 2048; // Разрешение отображения теней
+SpotLight5.shadow.camera.near = 1.0;
+SpotLight5.shadow.camera.far = 550;
+SpotLight5.shadow.camera.left = 1;
+SpotLight5.shadow.camera.right = -1;
+SpotLight5.shadow.camera.top = 1;
+SpotLight5.shadow.camera.bottom = -1;
+// SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
+// SpotLight5.shadow.focus = 1;
+SpotLight5.angle = 0.5;
+SpotLight5.penumbra = 0.3;
+scene1.add(SpotLight5);
 
 
 // const pointLightHelper = new THREE.SpotLightHelper(pointLight);
@@ -158,8 +159,21 @@ scene1.add(pointLight5);
 // const pointLightHelper4 = new THREE.SpotLightHelper(pointLight4);
 // scene1.add( pointLightHelper4 );
 
-const pointLightHelper5 = new THREE.SpotLightHelper(pointLight5);
-scene1.add( pointLightHelper5 );
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 6 );
+directionalLight.position.set(50, 85, -81);
+directionalLight.castShadow = false;
+scene1.add( directionalLight );
+
+// const directionhelper1 = new THREE.DirectionalLightHelper( directionalLight, 6 );
+// scene1.add( directionhelper1 );
+
+// const Pointlight = new THREE.PointLight( 0xffffff, 5, 100 );
+// Pointlight.position.set( 10, 1, -51 );
+// scene1.add( Pointlight );
+//
+// const sphereSize = 5;
+// const pointLightHelper = new THREE.PointLightHelper( Pointlight, sphereSize );
+// scene1.add( pointLightHelper );
 
 
 let gltfLoader = new GLTFLoader();
@@ -663,8 +677,8 @@ plane.receiveShadow = true; // Плоскость получает тень, к�
 
 // 5. Вспомогательные объекты
 // Вспомогательная система координат
-const axesHelper = new THREE.AxesHelper(85);
-scene1.add(axesHelper);
+// const axesHelper = new THREE.AxesHelper(85);
+// scene1.add(axesHelper);
 
 function MyCoordinates(xPos, yPos, zPos, dur) {
     gsap.to(camera1.position, {
