@@ -7,6 +7,11 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
 // import {func} from "three/nodes";
 
+// const visibleBlock = document.querySelector('.tech_spec__visible');
+// const buttonText = document.querySelector('.tech_spec__btn span');
+// const buttonIcon = document.querySelector('.tech_spec__btn img');
+// let isAutoParkVisible = true;
+
 
 
 // WebGLRenderer + настройки окружения
@@ -86,7 +91,21 @@ controls1.maxPolarAngle = Math.PI * 0.5;
 // controls1.minDistance = 210;
 // controls1.maxDistance = 260;
 controls1.enabled = true;
+controls1.enablePan = false;
 controls1.update();
+// controls1.addEventListener('change', () => {
+//     // Проверяем, если блок .tech_spec__visible открыт, скрываем его
+//     if (!visibleBlock.classList.contains('hidden')) {
+//         visibleBlock.classList.add('hidden');
+//         buttonText.textContent = 'Подробнее';
+//         buttonIcon.classList.remove('rotate');
+//     }
+//
+//     // Если секция .auto_park открыта, скрываем ее
+//     if (!isAutoParkVisible) {
+//         toggleAutoParkSection();
+//     }
+// });
 
 
 // 3) Свет экстерьер
@@ -249,10 +268,11 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
                     properties.material = new THREE.MeshPhysicalMaterial(properties);
                     break;
                 case "main":
-                    properties.roughness = 0.2; // Низкая шероховатость
+                    properties.roughness = 0.13; // Низкая шероховатость
+                    // properties.roughness = 0.2; // Низкая шероховатость
                     properties.metalness = 0.8;
-                    properties.clearcoat = 0.1; // Интенсивность слоя лака
-                    properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
+                    // properties.clearcoat = 0.1; // Интенсивность слоя лака
+                    // properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
                     properties.map = mapTexture;
                     properties.side = THREE.DoubleSide;
                     properties.clipShadows = true;
@@ -266,8 +286,8 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
                     properties.material = new THREE.MeshPhysicalMaterial(properties);
                     break;
                 case "Ekran":
-                    // properties.color = 0xff0000;
-                    properties.roughness = 0.2;
+                    properties.roughness = 0.13; // Низкая шероховатость
+                    // properties.roughness = 0.2; // Низкая шероховатость
                     properties.metalness = 0.8;
                     properties.map = mapTexture;
                     properties.clipShadows = true;
@@ -275,7 +295,8 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
                     properties.material = new THREE.MeshPhysicalMaterial(properties);
                     break;
                 case "Ekran2":
-                    properties.color = 0xB8B8B8;
+                    // properties.color = 0xB8B8B8;
+                    properties.color = 0x000000;
                     properties.roughness = 0.1;
                     properties.metalness = 0.8;
                     properties.transmission = 1;
@@ -507,17 +528,19 @@ controls2.enabled = false;
 controls2.update();
 
 // 3) Свет интерьер
-let ambientLightScene_2 = new THREE.AmbientLight(0xfffff,11);
+let ambientLightScene_2 = new THREE.AmbientLight(0x40404,2000);
 scene2.add(ambientLightScene_2);
-//0x40404
+//0x40404  1500
+//0xfffff  8-10
 // const textureLoader = new THREE.TextureLoader();
+
 // Сфера
-// https://coddmac.store/THREE/360/Amarok/amarok.jpg
-// https://coddmac.store/THREE/360/Amarok/20230421_161001_041.jpg
-// https://coddmac.store/THREE/360/Amarok/IMG_20230425_124930_00_merged.jpg
+
+// https://coddmac.store/THREE/360/Amarok/amarok_interior.jpg
+
 // const sphereGeometry = new THREE.SphereBufferGeometry(4, 30, 30);
 // const sphereMaterial = new THREE.MeshBasicMaterial({
-//     map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok.jpg'),
+//     map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok_interior.jpg'),
 //     side: THREE.BackSide, // Отрисовка на внутренней стороне сферы
 // });
 // sphereMaterial.map.wrapS = THREE.RepeatWrapping;
@@ -533,7 +556,7 @@ scene2.add(ambientLightScene_2);
 const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
 const rgbLoader = new RGBELoader();
 rgbLoader.load(hdrTextureURL, (texture) => {
-    const sphereGeometry = new THREE.SphereGeometry(4, 30, 30); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
+    const sphereGeometry = new THREE.SphereGeometry(4, 60, 60); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
     const sphereMaterial = new THREE.MeshPhongMaterial({
         map: texture,
         // opacity: 1,

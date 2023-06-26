@@ -8,6 +8,37 @@
 
 /*control*/
 
+/*#hellopreloader>p {*/
+/*    display: none;*/
+/*}*/
+/*#hellopreloader_preload {*/
+/*    display: block;*/
+/*    position: fixed;*/
+/*    z-index: 99999;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    min-width: 320px;*/
+/*    background: #0E173E url(https://coddmac.store/Reka/oval.svg) center center no-repeat;*/
+/*    background-color: #000000;*/
+/*    background-size: 76px;*/
+/*}*/
+
+/*#welcome-text {*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    font-size: 24px;*/
+/*    color: #62a744;*/
+/*    font-weight: 600;*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    position: absolute;*/
+/*    align-items: center;*/
+/*    top: 72px;*/
+/*    height: 100%;*/
+/*}*/
+
 .control_wrapper {
     width: 100%;
     background-color: #000000;
@@ -159,7 +190,7 @@
     font-family: 'MoscowSans', sans-serif;
     font-weight: 800;
     font-size: 30px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 .tech_spec__subtitle {
@@ -226,10 +257,12 @@
 }
 
 .tech_spec__outfit-text {
+    display: inline-block;
     font-family: 'MoscowSans', sans-serif;
     font-weight: 300;
     font-size: 12px;
     line-height: 12px;
+    margin-top: 4px;
 }
 
 .tech_spec__btn {
@@ -260,8 +293,12 @@
 }
 
 .tech_spec__btn img.rotate {
-    transform: rotate(0);
+    transform: rotate(0) scale(1);
 }
+
+/*.tech_spec__btn:hover img {*/
+/*    transform: scale(1.4) rotate(180deg);*/
+/*}*/
 
 .tech_spec__interior {
     position: absolute;
@@ -278,6 +315,10 @@
     cursor: pointer;
     margin-top: 20px;
 }
+
+/*.tech_spec__interior.garage {*/
+/*    background-image: url("../img/layout/slider/slide_amarok.png");*/
+/*}*/
 
 .tech_spec__interior:hover .arrow-wrapper img {
     margin-left: 3px;
@@ -364,6 +405,11 @@
 .auto_park__control img.rotate {
     transform: rotate(0);
 }
+
+/*.auto_park__control:hover img {*/
+/*    transform: scale(1.4) rotate(180deg);*/
+/*    !*transform: rotate(180deg);*!*/
+/*}*/
 
 .auto_park__title {
     font-family: 'MoscowSans', sans-serif;
