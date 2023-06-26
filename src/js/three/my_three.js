@@ -6,12 +6,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 // import {func} from "three/nodes";
-
-// const visibleBlock = document.querySelector('.tech_spec__visible');
-// const buttonText = document.querySelector('.tech_spec__btn span');
-// const buttonIcon = document.querySelector('.tech_spec__btn img');
-// let isAutoParkVisible = true;
-
+import {createMaterialProperties, setMaterialProperties} from './functions/create_material.js';
 
 
 // WebGLRenderer + настройки окружения
@@ -68,7 +63,6 @@ let activeScene = 1;
 const scene1 = new THREE.Scene();
 
 // 1) Фон и туман сцены экстерьер
-// import './model_exterior/background_fog';
 scene1.background = new THREE.Color(0x000000);
 scene1.fog = new THREE.Fog(0x000000, 290, 600);
 // scene1.fog = new THREE.FogExp2( 0xDFE9F3, 0.0005 );
@@ -88,24 +82,11 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
 controls1.enabled = true;
 controls1.enablePan = false;
 controls1.update();
-// controls1.addEventListener('change', () => {
-//     // Проверяем, если блок .tech_spec__visible открыт, скрываем его
-//     if (!visibleBlock.classList.contains('hidden')) {
-//         visibleBlock.classList.add('hidden');
-//         buttonText.textContent = 'Подробнее';
-//         buttonIcon.classList.remove('rotate');
-//     }
-//
-//     // Если секция .auto_park открыта, скрываем ее
-//     if (!isAutoParkVisible) {
-//         toggleAutoParkSection();
-//     }
-// });
 
 
 // 3) Свет экстерьер
@@ -180,8 +161,8 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/36/car6.gltf';
-// https://coddmac.store/THREE/3Dmodels/34/car6.gltf
+let url = 'http://89.208.211.133/models/36/car6.gltf';
+// https://coddmac.store/THREE/3Dmodels/36/car6.gltf
 
 
 // 5) Загрузка карты отражений на моделе экстерьер
@@ -203,7 +184,6 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
         console.log(obj.children);
         obj.position.set(0, -1.5, -27.5);
 
-
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
         let materialProperties = {};
@@ -216,180 +196,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
         }
 
         // 8) Функция с моими параметрами материалов экстерьер
-        function createMaterialProperties(name) {
-            let properties = {};
-            const textureLoader = new THREE.TextureLoader();
-            const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/36/uv.png');
-            const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/36/fara.png');
-            // https://coddmac.store/THREE/3Dmodels/34/car6.gltf
-            // https://coddmac.store/THREE/3Dmodels/34/uv.png
-            mapTexture.flipY = false;
-            mapTextureFara.flipY = false;
-            switch (name) {
-                case "Stekla":
-                    properties.color = 0xB8B8B8;
-                    properties.roughness = 0.1;
-                    properties.metalness = 0.8;
-                    properties.transmission = 1;
-                    properties.ior = 1.450;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Fari_perednie_stekla":
-                    properties.color = 0xffffff;
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.9;
-                    properties.transmission = 1; // Небольшая прозрачность фар
-                    properties.transparent = true; // Включение прозрачности фар
-                    properties.opacity = 0.4;
-                    // properties.opacity = 0;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Fari_perednie_zad":
-                    properties.color = 0xffffff;
-                    properties.roughness = 0;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Fari_perednie_pravo_vnutri":
-                    // properties.color = 0xffffff;
-                    properties.roughness = 1;
-                    properties.metalness = 0;
-                    properties.map = mapTextureFara;
-                    properties.side = THREE.DoubleSide;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Fari_zadnie":
-                    properties.color = 0xA52019; // Сигнальный красный
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.9;
-                    properties.transmission = 1; // Небольшая прозрачность фар
-                    properties.transparent = true; // Включение прозрачности фар
-                    properties.opacity = 0.8;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "main":
-                    properties.roughness = 0.13; // Низкая шероховатость
-                    // properties.roughness = 0.2; // Низкая шероховатость
-                    properties.metalness = 0.8;
-                    // properties.clearcoat = 0.1; // Интенсивность слоя лака
-                    // properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
-                    properties.map = mapTexture;
-                    properties.side = THREE.DoubleSide;
-                    properties.clipShadows = true;
-                    // THREE.FrontSide
-                    // THREE.BackSide
-                    // THREE.DoubleSide
-                    // properties.emissiveMap = false;
-                    // properties.emissiveColor = new THREE.Color(0);
-                    // properties.emissive = 0;
-                    // properties.emissiveIntensity = 0;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Ekran":
-                    properties.roughness = 0.13; // Низкая шероховатость
-                    // properties.roughness = 0.2; // Низкая шероховатость
-                    properties.metalness = 0.8;
-                    properties.map = mapTexture;
-                    properties.clipShadows = true;
-                    properties.side = THREE.DoubleSide;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Ekran2":
-                    // properties.color = 0xB8B8B8;
-                    properties.color = 0x000000;
-                    properties.roughness = 0.1;
-                    properties.metalness = 0.8;
-                    properties.transmission = 1;
-                    properties.ior = 1.450;
-                    properties.clipShadows = true;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Mayachok":
-                    properties.color = 0xffffff;
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.9;
-                    properties.transmission = 1; // Небольшая прозрачность фар
-                    properties.transparent = true; // Включение прозрачности фар
-                    properties.opacity = 0.7;
-                    // properties.opacity = 0;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Mayachokvnutri":
-                    properties.color = 0xffffff;
-                    properties.roughness = 0;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Reylingi":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.9;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Podnozhka":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.9;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Dvorniki":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.9;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Salon":
-                    properties.color = 0x000000;
-                    properties.roughness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Reshetka":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.9;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Reshetka_metal":
-                    properties.color = 0xffffff;
-                    properties.roughness = 0;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Kolesa_diski":
-                    properties.color = 0xffffff;
-                    properties.roughness = 0;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Kolesa-shini":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.0;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Tormoza":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.0;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Brzgoviki":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.2;
-                    properties.metalness = 0.9;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                case "Krishka_pod_bazazhnikom":
-                    properties.color = 0x000000;
-                    properties.roughness = 0.9;
-                    properties.metalness = 1;
-                    properties.material = new THREE.MeshPhysicalMaterial(properties);
-                    break;
-                // Добавьте другие случаи, если необходимо
-            }
-            return properties;
-        }
-
+        createMaterialProperties();
         console.log(materialProperties);
 
         // 9) Обход загружаемой модели и замена материалов экстерьер
@@ -427,6 +234,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
             }
         });
 
+        // setMaterialProperties();
         function setMaterialProperties(material, name) {
             const properties = materialProperties[name];
 
@@ -443,7 +251,6 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
             console.log(camera1.position); // Выводим координаты камеры
         });
     });
-    console.log(texture);
 });
 
 // 11) Пол + Загрузка текстуры бетона экстерьер
@@ -455,7 +262,7 @@ BetonMap.wrapS = THREE.RepeatWrapping; // Повторение текстуры 
 BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры по вертикали
 BetonMap.repeat.set(6, 6); // Количество повторений текстуры
 
-const planeMaterial = new THREE.MeshPhongMaterial({     // Цвет
+const planeMaterial = new THREE.MeshPhongMaterial({
     // color: 0x090909, // Цвет бетона
     // roughness: 1, // Шероховатость бетона
     metalness: 0.0, // Отсутствие металличности

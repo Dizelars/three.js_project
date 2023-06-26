@@ -31,54 +31,6 @@ window.onload = function(){
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
 
-// Добавляем обработчик события на клик по кнопке .tech_spec__btn
-// button.addEventListener('click', () => {
-//     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
-//     visibleBlock.classList.toggle('hidden');
-//
-//     if (visibleBlock.classList.contains('hidden')) {
-//         buttonText.textContent = 'Подробнее';
-//         buttonIcon.classList.remove('rotate');
-//     } else {
-//         buttonText.textContent = 'Скрыть';
-//         buttonIcon.classList.add('rotate');
-//     }
-//
-//     // Если блок .auto_park открыт, скрываем его
-//     if (!isAutoParkVisible) {
-//         toggleAutoParkSection();
-//     }
-// });
-
-// Обработчик события клика на блок .auto_park__control
-// autoParkControl.addEventListener('click', () => {
-//     // Скрываем блок .tech_spec__visible, если он открыт
-//     if (!visibleBlock.classList.contains('hidden')) {
-//         visibleBlock.classList.add('hidden');
-//         buttonText.textContent = 'Подробнее';
-//         buttonIcon.classList.remove('rotate');
-//     }
-//
-//     toggleAutoParkSection();
-// });
-
-// Функция для скрытия/отображения блока .auto_park
-// function toggleAutoParkSection() {
-//     if (isAutoParkVisible) {
-//         // Если секция .auto_park видима, скрываем ее
-//         const sliderHeight = autoParkSlider.offsetHeight;
-//         autoParkSection.style.transform = `translateY(0)`;
-//         buttonIcon2.classList.remove('rotate');
-//     } else {
-//         // Если секция .auto_park скрыта, возвращаем ее обратно
-//         autoParkSection.style.transform = 'translateY(100%)';
-//         buttonIcon2.classList.add('rotate');
-//     }
-//
-//     // Инвертируем флаг видимости секции .auto_park
-//     isAutoParkVisible = !isAutoParkVisible;
-// }
-
 // Добавляем обработчик события на весь документ
 document.addEventListener('mousedown', (event) => {
     const target = event.target;
@@ -150,10 +102,6 @@ function toggleAutoParkSection() {
     isAutoParkVisible = !isAutoParkVisible;
 }
 
-
-
-
-
 interior.addEventListener('click', () => {
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleDescr.classList.toggle('hidden');
@@ -178,7 +126,6 @@ gallery_toggle.forEach((e) => {
         e.classList.add('active');
     });
 });
-
 
 // Слайдер
 
