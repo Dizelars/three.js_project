@@ -1,2 +1,2 @@
-import './script.js';
-import './my_three.js';
+import './layout/script.js';
+import './three/my_three.js';
