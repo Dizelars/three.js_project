@@ -3,8 +3,8 @@ import * as THREE from "three";
 export function createMaterialProperties(name) {
     let properties = {};
     const textureLoader = new THREE.TextureLoader();
-    const mapTexture = textureLoader.load('http://89.208.211.133/models/36/uv.png');
-    const mapTextureFara = textureLoader.load('http://89.208.211.133/models/36/fara.png');
+    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/36/uv.png');
+    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/36/fara.png');
     //http://89.208.211.133/models/36/uv.png
     //http://89.208.211.133/models/36/fara.png
     //https://coddmac.store/THREE/3Dmodels/36/uv.png
@@ -168,5 +168,4 @@ export function createMaterialProperties(name) {
     }
     return properties;
 }
-
 // export default createMaterialProperties;

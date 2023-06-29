@@ -6,7 +6,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 // import {func} from "three/nodes";
-import {createMaterialProperties, setMaterialProperties} from './functions/create_material.js';
+import {createMaterialProperties} from './functions/create_material.js';
 
 
 // WebGLRenderer + настройки окружения
@@ -58,6 +58,8 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отобр
 document.body.appendChild(renderer.domElement);
 
 
+
+
 let activeScene = 1;
 // Сцена экстерьера Амарок
 const scene1 = new THREE.Scene();
@@ -82,8 +84,8 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
 controls1.enabled = true;
 controls1.enablePan = false;
 controls1.update();
@@ -161,8 +163,9 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'http://89.208.211.133/models/36/car6.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/36/car6.gltf';
 // https://coddmac.store/THREE/3Dmodels/36/car6.gltf
+// http://89.208.211.133/models/36/car6.gltf
 
 
 // 5) Загрузка карты отражений на моделе экстерьер
@@ -401,27 +404,30 @@ window.addEventListener('resize', () => {
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 const interiorButton = document.querySelector('.tech_spec__interior');
 interiorButton.addEventListener('click', () => {
-    if (activeScene === 1) {
-        const [x, y, z, dur] = coordinates[5];
-        MyCoordinates(x, y, z, dur);
-        setTimeout(() => {
-            activeScene = 2;
-            const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
-            MyCoordinates(x2, y2, z2, dur2);
-            controls1.enabled = false;
-            controls2.enabled = true;
-            animate();
-        }, dur * 1000);
-    } else {
-        const [x, y, z, dur] = coordinates[4];
-        MyCoordinates(x, y, z, dur);
-        activeScene = 1;
-        setTimeout(() => {
-            const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
-            MyCoordinates(x2, y2, z2, dur2);
-            controls1.enabled = true;
-            controls2.enabled = false;
-            animate();
-        }, dur * 1000);
-    }
+    window.location.href = '/src/pages/aframe_interior.html';
 });
+// interiorButton.addEventListener('click', () => {
+//     if (activeScene === 1) {
+//         const [x, y, z, dur] = coordinates[5];
+//         MyCoordinates(x, y, z, dur);
+//         setTimeout(() => {
+//             activeScene = 2;
+//             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
+//             MyCoordinates(x2, y2, z2, dur2);
+//             controls1.enabled = false;
+//             controls2.enabled = true;
+//             animate();
+//         }, dur * 1000);
+//     } else {
+//         const [x, y, z, dur] = coordinates[4];
+//         MyCoordinates(x, y, z, dur);
+//         activeScene = 1;
+//         setTimeout(() => {
+//             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
+//             MyCoordinates(x2, y2, z2, dur2);
+//             controls1.enabled = true;
+//             controls2.enabled = false;
+//             animate();
+//         }, dur * 1000);
+//     }
+// });
