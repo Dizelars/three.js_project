@@ -14,25 +14,29 @@ module.exports = {
         open: true,
     },
     entry: path.resolve(__dirname, 'src', 'index.js'),
+    // entry: {
+    //     index: './src/index.js',
+    //     aframe_interior: './src/pages/aframe_interior.js',
+    // },
     output: {
         path: path.resolve(__dirname, 'dist'),
         clean: true,
         filename: 'script.js',
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src', 'index.html')
+        }),
         // new HtmlWebpackPlugin({
-        //     template: path.resolve(__dirname, 'src', 'index.html')
+        //     filename: 'index.html',
+        //     template: './src/index.html',
+        //     // chunks: ['index'],
         // }),
-        new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: "./src/index.html"
-            // template: path.resolve(__dirname, 'src/pages', 'aframe_interior.html')
-        }),
-        new HtmlWebpackPlugin({
-            filename: "aframe_interior.html",
-            template: "./src/pages/aframe_interior.html"
-            // template: path.resolve(__dirname, 'src/pages', 'aframe_interior.html')
-        }),
+        // new HtmlWebpackPlugin({
+        //     filename: 'aframe_interior.html',
+        //     template: './src/pages/aframe_interior.html',
+        //     // chunks: ['aframe_interior'],
+        // }),
         new MiniCssExtractPlugin({
             filename: 'style.css',
         }),

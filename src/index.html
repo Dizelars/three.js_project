@@ -7,6 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Гараж ЦОДД</title>
         <link rel="stylesheet" href="style/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.4.2/aframe.min.js"></script>
     </head>
     <body>
 <!--    <div class="control_wrapper">-->
@@ -21,11 +22,13 @@
 <!--    </div>-->
 
 <!--    <div id="gui-container"></div>-->
-    <div id="hellopreloader">
-        <div id="hellopreloader_preload">
-            <p id="welcome-text">Готовимся к патрулированию</p>
-        </div>
+
+    <div class="progress-bar-container">
+        <label for="progress-bar">Загрузка...</label>
+        <progress id="progress-bar" value="0" max="100"></progress>
+        <span id="progress-label">0%</span>
     </div>
+
 
     <header class="header">
             <div class="container">
@@ -209,6 +212,13 @@
                 </div>
             </div>
         </section>
+
+    <a-scene>
+        <a-assets>
+            <img id="img" src="/src/img/amarok.jpg"/>
+        </a-assets>
+        <a-sky id="img-360" radius="10" rotation="0 180 0" src="#img"></a-sky>
+    </a-scene>
 
     <script type="module" src="js/three/my_three.js"></script>
     </body>

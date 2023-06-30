@@ -50,6 +50,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;// Алгоритм отоб�
 renderer.toneMappingExposure = 0.1;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
+// renderer.toneMapping = THREE.NoToneMapping;
 // Shadow Types
 // THREE.BasicShadowMap
 // THREE.PCFShadowMap
@@ -58,6 +59,59 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отобр
 document.body.appendChild(renderer.domElement);
 
 
+
+// Менеджер загрузки
+const LoadingManager = new THREE.LoadingManager();
+
+// У LoadingManager есть 4-е метода загрузки:
+// 1) onStart - вызыается на старте, аргументы:
+// url-адрес загружаемого обьекта
+// index-игдекс загружаемого обьекта
+// total-общее количесво обьектов, которое будет загружено.
+// LoadingManager.onStart = function(url, index, total) {
+//     console.log(`Начало загрузки: ${url}`);
+// }
+
+// 2) onProgress - вызывается каждый раз, когда начинает загрузка одного из компонентов модели.
+// url-путь к загруженному файлу
+// loaded-игдекс загружаемого обьекта
+// total-общее количесво загружаемых файлов.
+
+const progressBar = document.getElementById('progress-bar');
+const progressLabel = document.getElementById('progress-label');
+const progressLoad = document.querySelector('.progress-bar-container > label');
+LoadingManager.onProgress = function(url, loaded, total) {
+    // progressBar.value = (loaded / total) * 100;
+    const progressPercent = Math.round((loaded / total) * 100);
+    progressBar.value = progressPercent;
+    progressLabel.textContent = `${progressPercent}%`;
+
+    // Проверяем значение прогресса и выводим соответствующее сообщение
+    if (progressPercent >= 50 && progressPercent < 70) {
+        progressLoad.textContent = 'Экипируемся...';
+    } else if (progressPercent >= 70 && progressPercent < 90) {
+        progressLoad.textContent = 'Прогреваем двигатель...';
+    }else if (progressPercent >= 80 && progressPercent < 90) {
+        progressLoad.textContent = 'Принимаем вызов...';
+    } else if (progressPercent >= 90) {
+        progressLoad.textContent = 'Выезжаем...';
+    }
+}
+
+// 3) onLoad - Запись по завершению загрузки.
+
+const progressBarContainer = document.querySelector('.progress-bar-container');
+LoadingManager.onLoad = function() {
+    progressBarContainer.style.display = 'none';
+}
+
+// 4) onError - когда при загрузке одного из файлов происходит ошибка.
+// LoadingManager.onError = function(url, loaded, total) {
+//     console.error(`Ошибка во время загрузки: ${url}`);
+// }
+
+// const gltfLoaderForManager = new GLTFLoader(LoadingManager);
+// const rgbeLoaderForManager = new RGBELoader(LoadingManager);
 
 
 let activeScene = 1;
@@ -157,7 +211,7 @@ scene1.add( directionalLight );
 
 // 4) Настройка GLTFLoader и сжатия модели DRACOLoader экстерьер
 
-let gltfLoader = new GLTFLoader();
+let gltfLoader = new GLTFLoader(LoadingManager);
 const dLoader = new DRACOLoader();
 dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
 dLoader.setDecoderConfig({type: 'js'});
@@ -174,7 +228,7 @@ let url = 'https://coddmac.store/THREE/3Dmodels/36/car6.gltf';
 // ../img/garage.hdr  toneMappingExposure = 0.1;
 // ../img/MR_INT-005_WhiteNeons_NAD.hdr   toneMappingExposure = 0.3
 const PhoneHDR = new URL('../../img/garage.hdr', import.meta.url);
-const rgbLoaderPhone = new RGBELoader();
+const rgbLoaderPhone = new RGBELoader(LoadingManager);
 rgbLoaderPhone.load(PhoneHDR, function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     // scene1.background = texture;
@@ -257,7 +311,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
 });
 
 // 11) Пол + Загрузка текстуры бетона экстерьер
-const BetonLoader = new THREE.TextureLoader();
+const BetonLoader = new THREE.TextureLoader(LoadingManager);
 const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton.jpg');
 // const betonBmap = BetonLoader.load('https://coddmac.store/THREE/beton_bump.jpg');
 const betonDmap= BetonLoader.load('https://coddmac.store/THREE/beton_displacement.jpg');
@@ -325,10 +379,10 @@ const coordinates = [
 // Сцена интерьера Амарок
 
 // 1) Фон интерьер
-const scene2 = new THREE.Scene();
+const scene2 = new THREE.Scene(LoadingManager);
 scene2.background = new THREE.Color(0x000000)
-
-// 2) Камера и управление камерой интерьер
+//
+// // 2) Камера и управление камерой интерьер
 const initialCameraPosition2 = new THREE.Vector3(-0.0006, -0.00006, 0.0001);
 const camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera2.position.copy(initialCameraPosition2);
@@ -338,20 +392,20 @@ controls2.enabled = false;
 controls2.update();
 
 // 3) Свет интерьер
-let ambientLightScene_2 = new THREE.AmbientLight(0x40404,2000);
+// let ambientLightScene_2 = new THREE.AmbientLight(0x40404,2000);
+let ambientLightScene_2 = new THREE.AmbientLight(0xffffff,4);
 scene2.add(ambientLightScene_2);
 //0x40404  1500
 //0xfffff  8-10
-// const textureLoader = new THREE.TextureLoader();
 
 // Сфера
-
+// const textureLoader = new THREE.TextureLoader(LoadingManager);
 // https://coddmac.store/THREE/360/Amarok/amarok_interior.jpg
-
-// const sphereGeometry = new THREE.SphereBufferGeometry(4, 30, 30);
+// const textureLoader = new THREE.TextureLoader(LoadingManager);
+// const sphereGeometry = new THREE.SphereBufferGeometry(1000, 50, 50);
 // const sphereMaterial = new THREE.MeshBasicMaterial({
-//     map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok_interior.jpg'),
-//     side: THREE.BackSide, // Отрисовка на внутренней стороне сферы
+//     map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok.jpg'),
+//     side: THREE.BackSide,
 // });
 // sphereMaterial.map.wrapS = THREE.RepeatWrapping;
 // sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
@@ -361,24 +415,77 @@ scene2.add(ambientLightScene_2);
 // sphere.castShadow = true;
 
 
+let loader = new THREE.ImageLoader();
+let texture = new THREE.Texture();
+
+loader.load(
+    'https://coddmac.store/THREE/360/Amarok/amarok.jpg',
+    function (image) {
+        texture.image = image;
+        texture.needsUpdate = true;
+
+        let sphereGeometry = new THREE.SphereGeometry(500, 32, 64);
+        let sphereMaterial = new THREE.MeshPhysicalMaterial({
+            map: texture,
+            side: THREE.BackSide,
+            color: '#fffff',
+            opacity: 1,
+            roughness: 0.5, // Нет отражений (матовый материал)
+            metalness: 0, // Нет отражений (не металлический)
+            transparent: false,
+        });
+        sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+        sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+        sphereGeometry.phiLength = 360;
+        sphereGeometry.phiStart = 0;
+        sphereGeometry.thetaLength = 180;
+        sphereGeometry.thetaStart = 0;
+        let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        scene2.add(sphere);
+        sphere.position.set(0, 0, 0);
+        sphere.castShadow = true;
+        sphere.rotation.y = Math.PI;
+    }
+);
+
+
+// const geometry = new THREE.SphereGeometry( 50, 32, 32 );
+// // geometry.scale( - 1, 1, 1 );
+//
+// const texture = new THREE.TextureLoader().load( 'https://coddmac.store/THREE/360/Amarok/amarok.jpg' );
+// texture.colorSpace = THREE.SRGBColorSpace;
+// const material = new THREE.MeshBasicMaterial({
+//     map: texture,
+//     side: THREE.DoubleSide,
+// });
+// material.map.wrapS = THREE.RepeatWrapping;
+// material.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+// const mesh = new THREE.Mesh( geometry, material );
+// scene2.add( mesh );
+
+
+
+
+
+
 // 4) Вывод в сферу картинки в формате hdr интерьер
 
-const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
-const rgbLoader = new RGBELoader();
-rgbLoader.load(hdrTextureURL, (texture) => {
-    const sphereGeometry = new THREE.SphereGeometry(4, 60, 60); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
-    const sphereMaterial = new THREE.MeshPhongMaterial({
-        map: texture,
-        // opacity: 1,
-        // transparent: true,
-        side: THREE.BackSide
-    });
-    sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-    sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-    sphere.position.set(0, 0, 0);
-    scene2.add(sphere);
-})
+// const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
+// const rgbLoader = new RGBELoader(LoadingManager);
+// rgbLoader.load(hdrTextureURL, (texture) => {
+//     const sphereGeometry = new THREE.SphereGeometry(4, 60, 60); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
+//     const sphereMaterial = new THREE.MeshPhongMaterial({
+//         map: texture,
+//         // opacity: 1,
+//         // transparent: true,
+//         side: THREE.BackSide
+//     });
+//     sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+//     sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+//     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+//     sphere.position.set(0, 0, 0);
+//     scene2.add(sphere);
+// })
 
 
 // Переключение активной сцены
@@ -396,38 +503,38 @@ renderer.setAnimationLoop(animate);
 window.addEventListener('resize', () => {
     camera1.aspect = window.innerWidth / window.innerHeight;
     camera1.updateProjectionMatrix();
-    camera2.aspect = window.innerWidth / window.innerHeight;
-    camera2.updateProjectionMatrix();
+    // camera2.aspect = window.innerWidth / window.innerHeight;
+    // camera2.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 const interiorButton = document.querySelector('.tech_spec__interior');
-interiorButton.addEventListener('click', () => {
-    window.location.href = '/src/pages/aframe_interior.html';
-});
 // interiorButton.addEventListener('click', () => {
-//     if (activeScene === 1) {
-//         const [x, y, z, dur] = coordinates[5];
-//         MyCoordinates(x, y, z, dur);
-//         setTimeout(() => {
-//             activeScene = 2;
-//             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
-//             MyCoordinates(x2, y2, z2, dur2);
-//             controls1.enabled = false;
-//             controls2.enabled = true;
-//             animate();
-//         }, dur * 1000);
-//     } else {
-//         const [x, y, z, dur] = coordinates[4];
-//         MyCoordinates(x, y, z, dur);
-//         activeScene = 1;
-//         setTimeout(() => {
-//             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
-//             MyCoordinates(x2, y2, z2, dur2);
-//             controls1.enabled = true;
-//             controls2.enabled = false;
-//             animate();
-//         }, dur * 1000);
-//     }
+//     window.location.href = 'aframe_interior.html';
 // });
+interiorButton.addEventListener('click', () => {
+    if (activeScene === 1) {
+        const [x, y, z, dur] = coordinates[5];
+        MyCoordinates(x, y, z, dur);
+        setTimeout(() => {
+            activeScene = 2;
+            const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
+            MyCoordinates(x2, y2, z2, dur2);
+            controls1.enabled = false;
+            controls2.enabled = true;
+            animate();
+        }, dur * 1000);
+    } else {
+        const [x, y, z, dur] = coordinates[4];
+        MyCoordinates(x, y, z, dur);
+        activeScene = 1;
+        setTimeout(() => {
+            const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
+            MyCoordinates(x2, y2, z2, dur2);
+            controls1.enabled = true;
+            controls2.enabled = false;
+            animate();
+        }, dur * 1000);
+    }
+});

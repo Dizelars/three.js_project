@@ -1,5 +1,5 @@
-let hellopreloader = document.getElementById("hellopreloader_preload");
-const button = document.querySelector('.tech_spec__btn');
+// let hellopreloader = document.getElementById("hellopreloader_preload");
+const buttontech = document.querySelector('.tech_spec__btn');
 const visibleBlock = document.querySelector('.tech_spec__visible');
 const visibleDescr = document.querySelector('.tech_spec__description');
 const visibleSlide = document.querySelector('.auto_park_wrapper');
@@ -14,19 +14,6 @@ const interior = document.querySelector('.tech_spec__interior');
 const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const interiorBlock = document.querySelector('.tech_spec__interior');
-
-
-function fadeOutnojquery(el){el.style.opacity = 1;
-    let interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;
-
-        if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);
-            hellopreloader.style.display = "none";}},16);
-
-}
-window.onload = function(){
-    setTimeout(function(){fadeOutnojquery(hellopreloader);
-        },15000);
-};
 
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
@@ -55,7 +42,7 @@ document.addEventListener('mousedown', (event) => {
 });
 
 // Добавляем обработчик события на клик по кнопке .tech_spec__btn
-button.addEventListener('click', () => {
+buttontech.addEventListener('click', () => {
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleBlock.classList.toggle('hidden');
 
