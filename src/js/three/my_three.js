@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
@@ -80,27 +80,30 @@ const LoadingManager = new THREE.LoadingManager();
 const progressBar = document.getElementById('progress-bar');
 const progressLabel = document.getElementById('progress-label');
 const progressLoad = document.querySelector('.progress-bar-container > label');
+const progressContainer = document.querySelector('.progress-bar-container');
 LoadingManager.onProgress = function(url, loaded, total) {
-    // progressBar.value = (loaded / total) * 100;
     const progressPercent = Math.round((loaded / total) * 100);
     progressBar.value = progressPercent;
     progressLabel.textContent = `${progressPercent}%`;
+
+    progressContainer.style.setProperty('--top-left-percentage', `${progressPercent + 20}%`);
+    progressContainer.style.setProperty('--bottom-right-percentage', `${progressPercent + 20}%`);
 
     // Проверяем значение прогресса и выводим соответствующее сообщение
     if (progressPercent >= 50 && progressPercent < 70) {
         progressLoad.textContent = 'Экипируемся...';
     } else if (progressPercent >= 70 && progressPercent < 90) {
-        progressLoad.textContent = 'Прогреваем двигатель...';
+        progressLoad.textContent = 'Проводим ТО...';
     }else if (progressPercent >= 80 && progressPercent < 90) {
-        progressLoad.textContent = 'Принимаем вызов...';
+        progressLoad.textContent = 'Моем машину...';
     } else if (progressPercent >= 90) {
-        progressLoad.textContent = 'Выезжаем...';
+        progressLoad.textContent = 'Мы готовы!';
     }
 }
 
 // 3) onLoad - Запись по завершению загрузки.
 
-const progressBarContainer = document.querySelector('.progress-bar-container');
+const progressBarContainer = document.querySelector('.progress-bar');
 LoadingManager.onLoad = function() {
     progressBarContainer.style.display = 'none';
 }
@@ -510,6 +513,7 @@ window.addEventListener('resize', () => {
 
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 const interiorButton = document.querySelector('.tech_spec__interior');
+const aFrameScene = document.querySelector('a-scene');
 // interiorButton.addEventListener('click', () => {
 //     window.location.href = 'aframe_interior.html';
 // });
@@ -519,6 +523,7 @@ interiorButton.addEventListener('click', () => {
         MyCoordinates(x, y, z, dur);
         setTimeout(() => {
             activeScene = 2;
+            aFrameScene.style.display = 'block';
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             controls1.enabled = false;
@@ -529,6 +534,7 @@ interiorButton.addEventListener('click', () => {
         const [x, y, z, dur] = coordinates[4];
         MyCoordinates(x, y, z, dur);
         activeScene = 1;
+        aFrameScene.style.display = 'none';
         setTimeout(() => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);

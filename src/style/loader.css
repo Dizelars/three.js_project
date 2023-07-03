@@ -1,0 +1,109 @@
+/*Loader*/
+
+.progress-bar {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+}
+
+.progress-bar-container {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(var(--top-left-percentage) var(--top-left-percentage) at top left, rgba(252, 118, 43, 0.3) 0%, rgba(9, 9, 9, 0.3) 100%) no-repeat,
+                radial-gradient(var(--bottom-right-percentage) var(--bottom-right-percentage) at bottom right, rgba(252, 118, 43, 0.3) 0%, rgba(9, 9, 9, 0.3) 100%) no-repeat;
+    /*background-size: 100% 100%;*/
+    transition: background-size 0.5s ease; /* Плавный переход при изменении размера градиента */
+}
+
+.progress-bar-container .image {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar-container .image:after {
+    position: absolute;
+    content: ' ';
+    top: 40.5%;
+    /*left: 100%; !* Начальное положение справа *!*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 28px;
+    background-color: #FCA82B;
+    box-shadow: 0 0 8px 2px rgb(252, 168, 43);
+    border-radius: 50%;
+    z-index: 10;
+    animation: blink 1.6s infinite; /* 0.3s + 0.3s + 0.4s = 1.6s */
+}
+
+/*.progress-bar-container .image svg g {*/
+/*    overflow: hidden;*/
+/*}*/
+
+@keyframes blink {
+    0% {
+        /*left: 100%; !* Справа *!*/
+        opacity: 0; /* Скрытый */
+    }
+    30% {
+        /*left: calc(50%); !* Центр (24px / 2 - 20px / 2) *!*/
+        opacity: 1; /* Показывается */
+        animation-timing-function: ease-in;
+    }
+    70% {
+        /*left: calc(-100% + 10px); !* Налево (-100% + 24px) *!*/
+        opacity: 0; /* Показывается */
+        animation-timing-function: ease-out;
+    }
+    100% {
+        /*left: calc(-100% + 10px); !* Налево (-100% + 24px) *!*/
+        opacity: 0; /* Скрытый */
+    }
+}
+
+#progress-label {
+    color: #ffffff;
+    font-family: 'MoscowSans', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+#progress-bar {
+    /*display: none;*/
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 10px; /* Задает круглые углы */
+    overflow: hidden; /* Скрывает прогресс за пределами полоски */
+    background-color: #62a744;
+    box-shadow: 0 0 5px 1px rgba(98, 167, 68, 0.50);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 18px;
+    height: 6px;
+}
+
+#progress-bar::-webkit-progress-bar {
+    background-color: white;
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.40);
+}
+
+label {
+    color: #ffffff;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}

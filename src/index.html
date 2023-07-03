@@ -22,11 +22,15 @@
 <!--    </div>-->
 
 <!--    <div id="gui-container"></div>-->
-
-    <div class="progress-bar-container">
-        <label for="progress-bar">Загрузка...</label>
-        <progress id="progress-bar" value="0" max="100"></progress>
-        <span id="progress-label">0%</span>
+    <div class="progress-bar">
+        <div class="progress-bar-container">
+            <div class="image">
+                <img src="/src/img/layout/loader/blinker.svg" alt="Проблесковый маячок">
+            </div>
+            <span id="progress-label">0%</span>
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <label for="progress-bar">Загрузка...</label>
+        </div>
     </div>
 
 
@@ -50,7 +54,7 @@
 
         <main>
             <section class="tech_spec">
-                <div class="container">
+                <div class="container__content">
                     <div class="tech_spec__wrapper">
                         <div class="tech_spec__description">
                             <div class="tech_spec__titles">

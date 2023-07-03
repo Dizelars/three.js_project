@@ -1,58 +1,23 @@
 @import '../style/base.css';
+@import "../style/loader.css";
 
 /*control*/
 /*header*/
 /*tech_spec*/
 /*auto_park*/
 
+/*scene interior a-frame*/
+
+a-scene {
+    display: none;
+}
+
+.a-modal {
+    display: none !important;
+}
+
 
 /*control*/
-
-/*Loader*/
-
-.progress-bar-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0);
-    z-index: 5;
-}
-
-#progress-bar {
-    /*display: none;*/
-    appearance: none;
-    -webkit-appearance: none;
-    border: none;
-    border-radius: 10px; /* Задает круглые углы */
-    overflow: hidden; /* Скрывает прогресс за пределами полоски */
-    background-color: #62a744;
-    width: 30%;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    height: 0.5%;
-}
-
-#progress-bar::-webkit-progress-bar {
-    background-color: white;
-}
-
-/*#progress-bar::-webkit-progress-value {*/
-/*    background-color: #62a744;*/
-/*}*/
-
-label {
-    color: #62a744;
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 24px;
-    font-weight: 600;
-}
 
 .control_wrapper {
     width: 100%;
@@ -163,8 +128,6 @@ label {
     justify-content: flex-start;
     align-items: flex-start;
     position: absolute;
-    left: -22px;
-    /*opacity: 1;*/
 }
 
 .tech_spec__description.hidden, .auto_park_wrapper.hidden, .auto_park_slider-button button.hidden {
@@ -316,6 +279,14 @@ label {
     background-color: #313131;
 }
 
+.tech_spec__btn:hover img {
+    transform: rotate(180deg) scale(1.2) translateY(-2px);
+}
+
+.tech_spec__btn:hover img.rotate {
+    transform: rotate(0) scale(1.2) translateY(-2px);
+}
+
 .tech_spec__interior {
     position: absolute;
     right: 0;
@@ -330,11 +301,12 @@ label {
     padding: 8px;
     cursor: pointer;
     margin-top: 20px;
+    margin-right: 60px;
 }
 
-/*.tech_spec__interior.garage {*/
-/*    background-image: url("../img/layout/slider/slide_amarok.png");*/
-/*}*/
+.tech_spec__interior.garage {
+    background-image: url("../img/layout/slider/slide_amarok.png");
+}
 
 .tech_spec__interior:hover .arrow-wrapper img {
     margin-left: 3px;
@@ -422,10 +394,13 @@ label {
     transform: rotate(0);
 }
 
-/*.auto_park__control:hover img {*/
-/*    transform: scale(1.4) rotate(180deg);*/
-/*    !*transform: rotate(180deg);*!*/
-/*}*/
+.auto_park__control:hover img {
+    transform: rotate(180deg) scale(1.2) translateY(-4px);
+}
+
+.auto_park__control:hover img.rotate  {
+    transform: rotate(0) scale(1.2) translateY(-4px);
+}
 
 .auto_park__title {
     font-family: 'MoscowSans', sans-serif;
