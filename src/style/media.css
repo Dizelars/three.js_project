@@ -129,7 +129,7 @@
         max-width: none;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__visible {
+    .tech_spec .tech_spec__description .tech_spec__info-wrapper {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;

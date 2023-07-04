@@ -480,10 +480,10 @@ a-scene {
 }
 
 .auto_park_slider-button button.prev_button {
-    right: 288%;
+    right: 318%;
 }
 
 .auto_park_slider-button button.next_button {
     transform: rotate(180deg);
-    left: 288%;
+    left: 318%;
 }
