@@ -142,10 +142,10 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
-controls1.enabled = true;
-controls1.enablePan = false;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
+// controls1.enabled = true;
+// controls1.enablePan = false;
 controls1.update();
 
 
@@ -198,7 +198,7 @@ SpotLight5.shadow.camera.top = 1;
 SpotLight5.shadow.camera.bottom = -1;
 // SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
 // SpotLight5.shadow.focus = 1;
-SpotLight5.angle = 0.35;
+SpotLight5.angle = 0.5;
 SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
 
@@ -234,7 +234,12 @@ RectAreaLight.castShadow = false;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
-// const helper = new RectAreaLightHelper( RectAreaLight );
+const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
+RectAreaLight2.position.set(71, 56, -194);
+RectAreaLight2.castShadow = false;
+RectAreaLight2.lookAt( 0, 0, 0 );
+scene1.add( RectAreaLight2 );
+// const helper = new RectAreaLightHelper( RectAreaLight2 );
 // scene1.add( helper ); // helper must be added as a child of the light
 //
 // const spothelper1 = new THREE.SpotLightHelper(SpotLight5);

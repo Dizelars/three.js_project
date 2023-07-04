@@ -66,9 +66,10 @@ export function createMaterialProperties(name) {
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Ekran":
-            properties.roughness = 0.13; // Низкая шероховатость
-            // properties.roughness = 0.2; // Низкая шероховатость
+            properties.roughness = 0.3; // Низкая шероховатость
             properties.metalness = 0.8;
+            properties.clearcoat = 0.3; // Интенсивность слоя лака
+            properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
             properties.map = mapTexture;
             properties.clipShadows = true;
             properties.side = THREE.DoubleSide;
@@ -142,7 +143,7 @@ export function createMaterialProperties(name) {
             break;
         case "Kolesa-shini":
             properties.color = 0x000000;
-            properties.roughness = 0.2;
+            properties.roughness = 0.35;
             properties.metalness = 0.0;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
