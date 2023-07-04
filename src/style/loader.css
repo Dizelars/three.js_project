@@ -48,27 +48,26 @@
 
 @keyframes gradientAnimation {
     0% {
-        background: radial-gradient(50% 50% at 0% 100%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
-                    radial-gradient(50% 50% at 100% 0%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+        background: radial-gradient(50% 50% at 0% 0%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 100%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
     }
     25% {
-        background: radial-gradient(50% 50% at 0% 75%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
-                    radial-gradient(50% 50% at 100% 25%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+        background: radial-gradient(50% 50% at 0% 25%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 75%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
     }
     50% {
         background: radial-gradient(50% 50% at 0% 50%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
                     radial-gradient(50% 50% at 100% 50%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
     }
     75% {
-        background: radial-gradient(50% 50% at 0% 25%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
-                    radial-gradient(50% 50% at 100% 75%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
+        background: radial-gradient(50% 50% at 0% 75%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 25%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
     }
     100% {
-        background: radial-gradient(50% 50% at 0% 0%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
-                    radial-gradient(50% 50% at 100% 100%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
+        background: radial-gradient(50% 50% at 0% 100%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 0%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
     }
 }
-
 
 
 

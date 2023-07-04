@@ -11,14 +11,14 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 1280px;
+    /*width: 100%;*/
+    /*max-width: 1280px;*/
     padding: 0 5px;
-    margin: 0 auto;
+    margin: 0 60px;
 }
 
 .container__content {
-    width: 100%;
+    /*width: 100%;*/
     padding: 0 5px;
-    margin: 0 60px;
+    margin: 0 30px;
 }

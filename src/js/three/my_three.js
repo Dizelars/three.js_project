@@ -3,6 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
+import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 // import {func} from "three/nodes";
@@ -141,33 +142,39 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
 controls1.enabled = true;
 controls1.enablePan = false;
 controls1.update();
 
 
 // 3) Свет экстерьер
-
+const lightPositions1 = [
+    [-168, 38, -112],
+    [-184, 37, -2],
+    [-164, 33, 83],
+    // [265.38149179418303, 29.66356022269588, 3.5128582340225742],
+    // [197.0975889816967, 33.78571878903604, 156.13137890856612]
+];
 // const lightPositions1 = [
 //     [-185.6241207481791, 32.07062433508278, 84.95199678588864],
 //     [-204.3011171303053, 30.934039929212076, 2.412388785758053],
 //     [-180.31006688957424, 33.01550961882396, -137.20319905907786],
-//     [265.38149179418303, 29.66356022269588, 3.5128582340225742],
-//     [197.0975889816967, 33.78571878903604, 156.13137890856612]
+//     // [265.38149179418303, 29.66356022269588, 3.5128582340225742],
+//     // [197.0975889816967, 33.78571878903604, 156.13137890856612]
 // ];
-// lightPositions1.forEach(position => {
-//     const light = new THREE.PointLight(0xffffff, 0.9);
-//     light.position.set(position[0], position[1], position[2]);
-//     scene1.add(light);
-//     const helper = new THREE.PointLightHelper(light);
-//     scene1.add(helper);
-// });
+lightPositions1.forEach(position => {
+    const light = new THREE.PointLight(0xffffff, 0.9);
+    light.position.set(position[0], position[1], position[2]);
+    scene1.add(light);
+    // const helper = new THREE.PointLightHelper(light);
+    // scene1.add(helper);
+});
 
 // Create Ambient and Point lights for the scene
-const ambientLight = new THREE.AmbientLight(0xededed, 0.01);
-scene1.add(ambientLight);
+// const ambientLight = new THREE.AmbientLight(0xededed, 0.01);
+// scene1.add(ambientLight);
 
 // const Hemilight = new THREE.HemisphereLight( 0xffffff, 5 );
 // Hemilight.position.set(32, 30, -58);
@@ -177,12 +184,12 @@ scene1.add(ambientLight);
 // const helper = new THREE.HemisphereLightHelper( Hemilight, 10);
 // scene1.add( helper );
 
-const SpotLight5 = new THREE.SpotLight(0xffffff, 8);
-SpotLight5.position.set(-170, 160, 104);
+const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
+SpotLight5.position.set(0, 470, -0);
 SpotLight5.castShadow = true;
 // SpotLight5.shadow.bias = 0.001;
-SpotLight5.shadow.mapSize.height = 2048; // Разрешение отображения теней
-SpotLight5.shadow.mapSize.width = 2048; // Разрешение отображения теней
+SpotLight5.shadow.mapSize.height = 64; // Разрешение отображения теней
+SpotLight5.shadow.mapSize.width = 64; // Разрешение отображения теней
 SpotLight5.shadow.camera.near = 1.0;
 SpotLight5.shadow.camera.far = 550;
 SpotLight5.shadow.camera.left = 1;
@@ -191,17 +198,47 @@ SpotLight5.shadow.camera.top = 1;
 SpotLight5.shadow.camera.bottom = -1;
 // SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
 // SpotLight5.shadow.focus = 1;
-SpotLight5.angle = 0.5;
-SpotLight5.penumbra = 0.3;
+SpotLight5.angle = 0.35;
+SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
 
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 6 );
-directionalLight.position.set(50, 85, -81);
-directionalLight.castShadow = false;
-scene1.add( directionalLight );
+// const SpotLight5 = new THREE.SpotLight(0xffffff, 8);
+// SpotLight5.position.set(-170, 160, 104);
+// SpotLight5.castShadow = true;
+// // SpotLight5.shadow.bias = 0.001;
+// SpotLight5.shadow.mapSize.height = 2048; // Разрешение отображения теней
+// SpotLight5.shadow.mapSize.width = 2048; // Разрешение отображения теней
+// SpotLight5.shadow.camera.near = 1.0;
+// SpotLight5.shadow.camera.far = 550;
+// SpotLight5.shadow.camera.left = 1;
+// SpotLight5.shadow.camera.right = -1;
+// SpotLight5.shadow.camera.top = 1;
+// SpotLight5.shadow.camera.bottom = -1;
+// // SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
+// // SpotLight5.shadow.focus = 1;
+// SpotLight5.angle = 0.5;
+// SpotLight5.penumbra = 0.3;
+// scene1.add(SpotLight5);
 
+// const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+// directionalLight.position.set(63, 146, 145);
+// directionalLight.castShadow = false;
+// scene1.add( directionalLight );
+// //
 // const directionhelper1 = new THREE.DirectionalLightHelper( directionalLight, 6 );
 // scene1.add( directionhelper1 );
+
+const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
+RectAreaLight.position.set(45, 110, 120);
+RectAreaLight.castShadow = false;
+RectAreaLight.lookAt( 0, 0, 0 );
+scene1.add( RectAreaLight );
+
+// const helper = new RectAreaLightHelper( RectAreaLight );
+// scene1.add( helper ); // helper must be added as a child of the light
+//
+// const spothelper1 = new THREE.SpotLightHelper(SpotLight5);
+// scene1.add( spothelper1 );
 
 // const Pointlight = new THREE.PointLight( 0xffffff, 5, 100 );
 // Pointlight.position.set( 10, 1, -51 );
@@ -315,23 +352,23 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
 
 // 11) Пол + Загрузка текстуры бетона экстерьер
 const BetonLoader = new THREE.TextureLoader(LoadingManager);
-const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton.jpg');
+const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton_1111.jpg');
 // const betonBmap = BetonLoader.load('https://coddmac.store/THREE/beton_bump.jpg');
 const betonDmap= BetonLoader.load('https://coddmac.store/THREE/beton_displacement.jpg');
 BetonMap.wrapS = THREE.RepeatWrapping; // Повторение текстуры по горизонтали
 BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры по вертикали
-BetonMap.repeat.set(6, 6); // Количество повторений текстуры
+BetonMap.repeat.set(8, 8); // Количество повторений текстуры
 
 const planeMaterial = new THREE.MeshPhongMaterial({
     // color: 0x090909, // Цвет бетона
     // roughness: 1, // Шероховатость бетона
-    metalness: 0.0, // Отсутствие металличности
-    transmission: 0.0, // Непрозрачность (без прозрачности)
+    // metalness: 0.0, // Отсутствие металличности
+    // transmission: 0.0, // Непрозрачность (без прозрачности)
     // bumpMap: betonBmap,
     bumpScale: 2,
     map: BetonMap,
     displacementMap: betonDmap,
-    displacementScale: 2,
+    displacementScale: 0.1,
     side: THREE.DoubleSide, // Применение к обеим сторонам
 });
 const planeGeometry = new THREE.PlaneGeometry(1500, 1500, 40, 40); // Модель №2 Подложка

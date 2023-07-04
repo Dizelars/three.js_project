@@ -52,11 +52,11 @@ export function createMaterialProperties(name) {
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "main":
-            properties.roughness = 0.13; // Низкая шероховатость
-            // properties.roughness = 0.2; // Низкая шероховатость
+            // properties.roughness = 0.13; // Низкая шероховатость
+            properties.roughness = 0.3; // Низкая шероховатость
             properties.metalness = 0.8;
-            // properties.clearcoat = 0.1; // Интенсивность слоя лака
-            // properties.clearcoatRoughness = 0.1; // Шероховатость слоя лака
+            properties.clearcoat = 0.3; // Интенсивность слоя лака
+            properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
             properties.map = mapTexture;
             properties.side = THREE.DoubleSide;
             properties.clipShadows = true;
@@ -129,14 +129,14 @@ export function createMaterialProperties(name) {
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Reshetka_metal":
-            properties.color = 0xffffff;
-            properties.roughness = 0;
+            properties.color = 0xBCBCBC;
+            properties.roughness = 0.2;
             properties.metalness = 1;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Kolesa_diski":
-            properties.color = 0xffffff;
-            properties.roughness = 0;
+            properties.color = 0xBCBCBC;
+            properties.roughness = 0.2;
             properties.metalness = 1;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
