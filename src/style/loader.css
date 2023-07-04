@@ -8,6 +8,25 @@
     background-color: rgba(0, 0, 0);
 }
 
+/*.progress-bar-container {*/
+/*    position: absolute;*/
+/*    z-index: 5;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    padding: 5px 20px;*/
+/*    background: radial-gradient(var(--top-left-percentage) var(--top-left-percentage) at top left, #FC762B 0%, rgba(9, 9, 9, 0.3) 100%) no-repeat,*/
+/*    radial-gradient(var(--bottom-right-percentage) var(--bottom-right-percentage) at bottom right, #FC762B 0%, rgba(9, 9, 9, 0.3) 100%) no-repeat;*/
+/*    transition: background-position 0.5s ease; !* Плавный переход при изменении позиции градиента *!*/
+/*    animation: gradientAnimation 5s infinite;*/
+/*}*/
+
 .progress-bar-container {
     position: absolute;
     z-index: 5;
@@ -20,11 +39,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(var(--top-left-percentage) var(--top-left-percentage) at top left, rgba(252, 118, 43, 0.3) 0%, rgba(9, 9, 9, 0.3) 100%) no-repeat,
-                radial-gradient(var(--bottom-right-percentage) var(--bottom-right-percentage) at bottom right, rgba(252, 118, 43, 0.3) 0%, rgba(9, 9, 9, 0.3) 100%) no-repeat;
-    /*background-size: 100% 100%;*/
-    transition: background-size 0.5s ease; /* Плавный переход при изменении размера градиента */
+    padding: 5px 20px;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
+                radial-gradient(50% 50.00% at top left, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: background-position 4s ease; /* Плавный переход при изменении позиции градиента */
+    animation: gradientAnimation 4s infinite linear;
 }
+
+@keyframes gradientAnimation {
+    0% {
+        background: radial-gradient(50% 50% at 0% 100%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 0%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+    }
+    25% {
+        background: radial-gradient(50% 50% at 0% 75%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 25%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+    }
+    50% {
+        background: radial-gradient(50% 50% at 0% 50%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 50%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
+    }
+    75% {
+        background: radial-gradient(50% 50% at 0% 25%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 75%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
+    }
+    100% {
+        background: radial-gradient(50% 50% at 0% 0%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),
+                    radial-gradient(50% 50% at 100% 100%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);
+    }
+}
+
+
+
 
 .progress-bar-container .image {
     position: relative;
@@ -73,6 +119,27 @@
     }
 }
 
+/*@keyframes gradient {*/
+/*    0% {*/
+/*        !*left: 100%; !* Справа *!*!*/
+/*        opacity: 0; !* Скрытый *!*/
+/*    }*/
+/*    30% {*/
+/*        !*left: calc(50%); !* Центр (24px / 2 - 20px / 2) *!*!*/
+/*        opacity: 1; !* Показывается *!*/
+/*        animation-timing-function: ease-in;*/
+/*    }*/
+/*    70% {*/
+/*        !*left: calc(-100% + 10px); !* Налево (-100% + 24px) *!*!*/
+/*        opacity: 0; !* Показывается *!*/
+/*        animation-timing-function: ease-out;*/
+/*    }*/
+/*    100% {*/
+/*        !*left: calc(-100% + 10px); !* Налево (-100% + 24px) *!*!*/
+/*        opacity: 0; !* Скрытый *!*/
+/*    }*/
+/*}*/
+
 #progress-label {
     color: #ffffff;
     font-family: 'MoscowSans', sans-serif;
@@ -83,6 +150,7 @@
 
 #progress-bar {
     /*display: none;*/
+    position: relative;
     appearance: none;
     -webkit-appearance: none;
     border: none;
@@ -96,9 +164,24 @@
     height: 6px;
 }
 
+/*#progress-bar:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    right: 0;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*    bottom: 0;*/
+/*    width: 10px;*/
+/*    height: 10px;*/
+/*    border-radius: 10px;*/
+/*    background: #62A744;*/
+/*    box-shadow: 0 0 5px 1px rgba(98, 167, 68, 0.50);*/
+/*    z-index: 6;*/
+/*}*/
+
 #progress-bar::-webkit-progress-bar {
     background-color: white;
-    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.40);
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.50);
 }
 
 label {

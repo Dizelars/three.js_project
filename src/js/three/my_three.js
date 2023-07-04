@@ -86,8 +86,8 @@ LoadingManager.onProgress = function(url, loaded, total) {
     progressBar.value = progressPercent;
     progressLabel.textContent = `${progressPercent}%`;
 
-    progressContainer.style.setProperty('--top-left-percentage', `${progressPercent + 20}%`);
-    progressContainer.style.setProperty('--bottom-right-percentage', `${progressPercent + 20}%`);
+    progressContainer.style.setProperty('--top-left-percentage', `${progressPercent}%`);
+    progressContainer.style.setProperty('--bottom-right-percentage', `${progressPercent}%`);
 
     // Проверяем значение прогресса и выводим соответствующее сообщение
     if (progressPercent >= 50 && progressPercent < 70) {
@@ -514,9 +514,7 @@ window.addEventListener('resize', () => {
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 const interiorButton = document.querySelector('.tech_spec__interior');
 const aFrameScene = document.querySelector('a-scene');
-// interiorButton.addEventListener('click', () => {
-//     window.location.href = 'aframe_interior.html';
-// });
+
 interiorButton.addEventListener('click', () => {
     if (activeScene === 1) {
         const [x, y, z, dur] = coordinates[5];
