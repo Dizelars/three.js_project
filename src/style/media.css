@@ -47,7 +47,7 @@
 
     .tech_spec .tech_spec__interior .tech_spec__interior-btn {
         position: absolute;
-        top: 72px;
+        top: 75px;
         left: 0;
     }
 
@@ -56,7 +56,15 @@
     }
 }
 
-@media (max-width: 391px) {
+/*@media (max-width: 600px) {*/
+/*    .tech_spec .tech_spec__interior {*/
+/*        top: 238px;*/
+/*        margin: 0;*/
+/*        left: 50px;*/
+/*    }*/
+/*}*/
+
+@media (max-width: 576px) {
     .container {
         margin: 0 20px;
         padding: 0;
@@ -120,7 +128,26 @@
     }
 }
 
+@media (max-width: 380px) {
+    .header .header__logo {
+        max-width: 138px;
+    }
+
+    .header .header__logo .header__logo-text {
+        font-size: 15px;
+    }
+}
+
 @media screen and (min-width:320px) and (max-width:845px) and (orientation:landscape) {
+    .container {
+        margin: 0 15px;
+    }
+
+    .container__content {
+        margin: 0;
+        padding: 0;
+    }
+
     .header .header__wrapper {
         height: 60px;
     }
@@ -136,21 +163,30 @@
     }
 
     .tech_spec .tech_spec__description .tech_spec__btn {
-        position: absolute;
-        top: 190px;
+        /*position: absolute;*/
+        /*bottom: 30px;*/
+        width: fit-content;
     }
 
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {
         font-size: 24px;
     }
 
+    /*.tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle {*/
+    /*    margin-bottom: 24px;*/
+    /*}*/
+
     .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__mission {
         max-width: 313px;
-        margin-bottom: 40px;
+        /*margin-bottom: 40px;*/
+        position: absolute;
+        top: 100px;
+        left: 30px;
     }
 
     .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {
         max-width: 440px;
+        margin-left: 74px;
     }
 
     .tech_spec .tech_spec__titles .tech_spec__subtitle, .tech_spec .tech_spec__visible .tech_spec__mission .tech_spec__text, .tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__text {
@@ -163,6 +199,14 @@
 
     .tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-text {
         font-size: 10px;
+    }
+
+    .tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list {
+        margin: 0;
+    }
+
+    .tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-item {
+        margin-bottom: 0;
     }
 
     .tech_spec .tech_spec__interior {

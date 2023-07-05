@@ -3,8 +3,8 @@ import * as THREE from "three";
 export function createMaterialProperties(name) {
     let properties = {};
     const textureLoader = new THREE.TextureLoader();
-    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/36/uv.png');
-    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/36/fara.png');
+    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/41/uv.png');
+    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/41/fara.png');
     //http://89.208.211.133/models/36/uv.png
     //http://89.208.211.133/models/36/fara.png
     //https://coddmac.store/THREE/3Dmodels/36/uv.png
@@ -35,7 +35,7 @@ export function createMaterialProperties(name) {
             properties.metalness = 1;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
-        case "Fari_perednie_pravo_vnutri":
+        case "Fari_perednie_pravolevo_vnutri":
             properties.roughness = 1;
             properties.metalness = 0;
             properties.map = mapTextureFara;

@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
-import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
+// import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 // import {func} from "three/nodes";
@@ -142,10 +142,10 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
-// controls1.enabled = true;
-// controls1.enablePan = false;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
+controls1.enabled = true;
+controls1.enablePan = false;
 controls1.update();
 
 
@@ -262,7 +262,7 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/36/car6.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/41/car.gltf';
 // https://coddmac.store/THREE/3Dmodels/36/car6.gltf
 // http://89.208.211.133/models/36/car6.gltf
 
@@ -284,7 +284,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
         obj = gltf.scene;
         scene1.add(obj);
         console.log(obj.children);
-        obj.position.set(0, -1.5, -27.5);
+        obj.position.set(-35, -2, -27.5);
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
@@ -460,38 +460,38 @@ scene2.add(ambientLightScene_2);
 // sphere.castShadow = true;
 
 
-let loader = new THREE.ImageLoader();
-let texture = new THREE.Texture();
-
-loader.load(
-    'https://coddmac.store/THREE/360/Amarok/amarok.jpg',
-    function (image) {
-        texture.image = image;
-        texture.needsUpdate = true;
-
-        let sphereGeometry = new THREE.SphereGeometry(500, 32, 64);
-        let sphereMaterial = new THREE.MeshPhysicalMaterial({
-            map: texture,
-            side: THREE.BackSide,
-            color: '#fffff',
-            opacity: 1,
-            roughness: 0.5, // Нет отражений (матовый материал)
-            metalness: 0, // Нет отражений (не металлический)
-            transparent: false,
-        });
-        sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-        sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-        sphereGeometry.phiLength = 360;
-        sphereGeometry.phiStart = 0;
-        sphereGeometry.thetaLength = 180;
-        sphereGeometry.thetaStart = 0;
-        let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-        scene2.add(sphere);
-        sphere.position.set(0, 0, 0);
-        sphere.castShadow = true;
-        sphere.rotation.y = Math.PI;
-    }
-);
+// let loader = new THREE.ImageLoader();
+// let texture = new THREE.Texture();
+//
+// loader.load(
+//     'https://coddmac.store/THREE/360/Amarok/amarok.jpg',
+//     function (image) {
+//         texture.image = image;
+//         texture.needsUpdate = true;
+//
+//         let sphereGeometry = new THREE.SphereGeometry(500, 32, 64);
+//         let sphereMaterial = new THREE.MeshPhysicalMaterial({
+//             map: texture,
+//             side: THREE.BackSide,
+//             color: '#fffff',
+//             opacity: 1,
+//             roughness: 0.5, // Нет отражений (матовый материал)
+//             metalness: 0, // Нет отражений (не металлический)
+//             transparent: false,
+//         });
+//         sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+//         sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+//         sphereGeometry.phiLength = 360;
+//         sphereGeometry.phiStart = 0;
+//         sphereGeometry.thetaLength = 180;
+//         sphereGeometry.thetaStart = 0;
+//         let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+//         scene2.add(sphere);
+//         sphere.position.set(0, 0, 0);
+//         sphere.castShadow = true;
+//         sphere.rotation.y = Math.PI;
+//     }
+// );
 
 
 // const geometry = new THREE.SphereGeometry( 50, 32, 32 );

@@ -75,6 +75,7 @@ a-scene {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 800;
     font-size: 20px;
+    margin-left: 12px;
 }
 
 .header__info {
@@ -161,6 +162,7 @@ a-scene {
     transition: opacity 0.5s ease, max-height 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5);
 }
 .tech_spec__visible.hidden {
+    display: none;
     opacity: 0;
     max-height: 0; /* Устанавливаем максимальную высоту блока на 0 */
 }
@@ -450,14 +452,13 @@ a-scene {
 }
 
 .auto_park_slider-button {
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    max-width: 210px;
     width: 100%;
     visibility: hidden;
 }
@@ -480,10 +481,14 @@ a-scene {
 }
 
 .auto_park_slider-button button.prev_button {
-    right: 318%;
+    position: absolute;
+    left: 0;
+    bottom: 58px;
 }
 
 .auto_park_slider-button button.next_button {
     transform: rotate(180deg);
-    left: 318%;
+    position: absolute;
+    right: 0;
+    bottom: 58px;
 }
