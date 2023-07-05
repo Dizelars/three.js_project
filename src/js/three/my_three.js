@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
-// import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
+import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 // import {func} from "three/nodes";
@@ -135,25 +135,26 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 
 // 2) Камера и управление камерой экстерьер
 
-const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
+// const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
+const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera1.position.copy(initialCameraPosition1);
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
-// controls1.enabled = true;
-// controls1.enablePan = false;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
+controls1.enabled = true;
+controls1.enablePan = false;
 controls1.update();
 
 
 // 3) Свет экстерьер
 const lightPositions1 = [
-    [-168, 38, -112],
-    [-184, 37, -2],
-    [-164, 33, 83],
+    [-203, 38, -112],
+    [-219, 37, -2],
+    [-199, 33, 83],
     // [265.38149179418303, 29.66356022269588, 3.5128582340225742],
     // [197.0975889816967, 33.78571878903604, 156.13137890856612]
 ];
@@ -229,19 +230,22 @@ scene1.add(SpotLight5);
 // scene1.add( directionhelper1 );
 
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
-RectAreaLight.position.set(45, 110, 120);
+RectAreaLight.position.set(10, 110, 120);
 RectAreaLight.castShadow = false;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
 const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
-RectAreaLight2.position.set(71, 56, -194);
+RectAreaLight2.position.set(36, 56, -194);
 RectAreaLight2.castShadow = false;
 RectAreaLight2.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight2 );
-// const helper = new RectAreaLightHelper( RectAreaLight2 );
+// const helper = new RectAreaLightHelper( RectAreaLight );
 // scene1.add( helper ); // helper must be added as a child of the light
 //
+// const helper2 = new RectAreaLightHelper( RectAreaLight2 );
+// scene1.add( helper2 ); // helper must be added as a child of the light
+// //
 // const spothelper1 = new THREE.SpotLightHelper(SpotLight5);
 // scene1.add( spothelper1 );
 
@@ -407,7 +411,7 @@ const coordinates = [
     [4.419631461529943, 1.366719430512851, -3.82085536791349, 1.5],
     [4.612135343130454, 3.8370701385486443, 0.07141658424494553, 1.5],
     [4.548391730389692, 1.5106187886098281, 3.6097317826151065, 1.5],
-    [-171.85716505033145, 74.93456415868356, 86.89998171402281, 1.5],
+    [-216, 94, 109, 1.5],
     [-51.38847217341723, 55.119928388623705, 29.436440217618962, 1.5]
 ];
 //
