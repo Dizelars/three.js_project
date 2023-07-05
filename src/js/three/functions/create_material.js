@@ -3,8 +3,8 @@ import * as THREE from "three";
 export function createMaterialProperties(name) {
     let properties = {};
     const textureLoader = new THREE.TextureLoader();
-    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/41/uv.png');
-    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/41/fara.png');
+    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/42/uv.png');
+    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/42/fara.png');
     //http://89.208.211.133/models/36/uv.png
     //http://89.208.211.133/models/36/fara.png
     //https://coddmac.store/THREE/3Dmodels/36/uv.png
@@ -53,8 +53,8 @@ export function createMaterialProperties(name) {
             break;
         case "main":
             // properties.roughness = 0.13; // Низкая шероховатость
-            properties.roughness = 0.3; // Низкая шероховатость
-            properties.metalness = 0.8;
+            properties.roughness = 0.4; // Низкая шероховатость
+            properties.metalness = 0.7;
             properties.clearcoat = 0.3; // Интенсивность слоя лака
             properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
             properties.map = mapTexture;
@@ -66,8 +66,8 @@ export function createMaterialProperties(name) {
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Ekran":
-            properties.roughness = 0.3; // Низкая шероховатость
-            properties.metalness = 0.8;
+            properties.roughness = 0.4; // Низкая шероховатость
+            properties.metalness = 0.7;
             properties.clearcoat = 0.3; // Интенсивность слоя лака
             properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
             properties.map = mapTexture;

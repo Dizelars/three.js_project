@@ -73,15 +73,37 @@ autoParkControl.addEventListener('click', () => {
 });
 
 // Функция для скрытия/отображения блока .auto_park
+// function toggleAutoParkSection() {
+//     if (isAutoParkVisible) {
+//         // Если секция .auto_park видима, скрываем ее
+//         // const sliderHeight = autoParkSlider.offsetHeight;
+//         autoParkSection.style.transform = `translateY(0)`;
+//         buttonIcon2.classList.remove('rotate');
+//     } else {
+//         // Если секция .auto_park скрыта, возвращаем ее обратно
+//         autoParkSection.style.transform = 'translateY(100%)';
+//         buttonIcon2.classList.add('rotate');
+//     }
+//
+//     // Инвертируем флаг видимости секции .auto_park
+//     isAutoParkVisible = !isAutoParkVisible;
+// }
 function toggleAutoParkSection() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
     if (isAutoParkVisible) {
         // Если секция .auto_park видима, скрываем ее
-        const sliderHeight = autoParkSlider.offsetHeight;
-        autoParkSection.style.transform = `translateY(0)`;
+        autoParkSection.style.transform = 'translateY(0)';
         buttonIcon2.classList.remove('rotate');
     } else {
         // Если секция .auto_park скрыта, возвращаем ее обратно
-        autoParkSection.style.transform = 'translateY(100%)';
+        if (screenWidth <= 391 && screenHeight <= 845) {
+            autoParkSection.style.transform = 'translateY(72%)';
+            autoParkSection.style.margin = '0';
+        } else {
+            autoParkSection.style.transform = 'translateY(100%)';
+        }
         buttonIcon2.classList.add('rotate');
     }
 

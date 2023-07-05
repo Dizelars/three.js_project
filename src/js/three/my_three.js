@@ -142,10 +142,10 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
-controls1.enabled = true;
-controls1.enablePan = false;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
+// controls1.enabled = true;
+// controls1.enablePan = false;
 controls1.update();
 
 
@@ -262,7 +262,7 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/41/car.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/42/car.gltf';
 // https://coddmac.store/THREE/3Dmodels/36/car6.gltf
 // http://89.208.211.133/models/36/car6.gltf
 
@@ -284,7 +284,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
         obj = gltf.scene;
         scene1.add(obj);
         console.log(obj.children);
-        obj.position.set(-35, -2, -27.5);
+        obj.position.set(-35, -3, -27.5);
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];

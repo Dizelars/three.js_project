@@ -1,6 +1,7 @@
 /*Loader*/
 
 .progress-bar {
+    font-family: 'MoscowSans', sans-serif;
     position: absolute;
     z-index: 5;
     width: 100%;
