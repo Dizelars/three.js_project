@@ -169,6 +169,14 @@
         width: fit-content;
     }
 
+    .tech_spec .tech_spec__description .tech_spec__titles {
+        /*height: 210px;*/
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {
         font-size: 24px;
     }

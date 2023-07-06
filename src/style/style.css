@@ -246,7 +246,11 @@ a-scene {
     margin-top: 4px;
 }
 
-.tech_spec__btn {
+/*.tech_spec__btn-copied {*/
+/*    display: none;*/
+/*}*/
+
+.tech_spec__btn, .tech_spec__btn-copied {
     padding: 14px 12px;
     border: 1px solid #FFFFFF;
     border-radius: 10px;
@@ -260,7 +264,7 @@ a-scene {
     cursor: pointer;
 }
 
-.tech_spec__btn span {
+.tech_spec__btn span, .tech_spec__btn-copied span {
     color: white;
     font-family: 'MoscowSans', sans-serif;
     font-weight: 300;
@@ -288,6 +292,10 @@ a-scene {
 
 .tech_spec__btn:hover img.rotate {
     transform: rotate(0) scale(1.2) translateY(-2px);
+}
+
+.tech_spec__btn-copied {
+    display: none;
 }
 
 .tech_spec__interior {

@@ -1,11 +1,12 @@
-// let hellopreloader = document.getElementById("hellopreloader_preload");
-const buttontech = document.querySelector('.tech_spec__btn');
 const visibleBlock = document.querySelector('.tech_spec__visible');
 const visibleDescr = document.querySelector('.tech_spec__description');
 const visibleSlide = document.querySelector('.auto_park_wrapper');
 const sliderButton = document.querySelectorAll('.auto_park_slider-button button');
+const techSpecWrapperText = document.querySelector('.tech_spec__titles');
+const buttontech = document.querySelector('.tech_spec__btn');
 const buttonText = document.querySelector('.tech_spec__btn span');
 const buttonIcon = document.querySelector('.tech_spec__btn img');
+const buttontechcopied = document.querySelector('.tech_spec__btn-copied');
 const autoParkSection = document.querySelector('.auto_park');
 const autoParkControl = document.querySelector('.auto_park__control');
 const autoParkSlider = document.querySelector('.auto_park_slider');
@@ -14,6 +15,23 @@ const interior = document.querySelector('.tech_spec__interior');
 const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const interiorBlock = document.querySelector('.tech_spec__interior');
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+
+if (screenWidth === 540 && screenHeight === 720) {
+    interior.style.top = '500px';
+} else if (screenWidth === 414 && screenHeight === 896) {
+    interior.style.top = '676px';
+} else if (screenWidth === 412 && (screenHeight === 914 || screenHeight === 915)) {
+    interior.style.top = '696px';
+} else if (screenWidth === 390 && screenHeight === 844) {
+    interior.style.top = '625px';
+} else if (screenWidth === 375 && screenHeight === 667) {
+    interior.style.top = '448px';
+} else if (screenWidth === 360 && screenHeight === 740) {
+    interior.style.top = '522px';
+}
+
 
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
@@ -43,21 +61,40 @@ document.addEventListener('mousedown', (event) => {
 
 // Добавляем обработчик события на клик по кнопке .tech_spec__btn
 buttontech.addEventListener('click', () => {
+    console.log(techSpecWrapperText);
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleBlock.classList.toggle('hidden');
 
     if (visibleBlock.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
+
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            techSpecWrapperText.style.height = 'auto';
+            buttontechcopied.style.display = 'none';
+            buttontech.style.display = 'block';
+            interior.style.zIndex = 'none';
+        }
     } else {
         buttonText.textContent = 'Скрыть';
         buttonIcon.classList.add('rotate');
+
+        if (window.matchMedia("(orientation: landscape)").matches) {
+            techSpecWrapperText.style.height = '210px';
+            buttontechcopied.style.display = 'block';
+            buttontech.style.display = 'none';
+            interior.style.zIndex = '-1';
+        }
     }
 
     // Если блок .auto_park открыт, скрываем его
     if (!isAutoParkVisible) {
         toggleAutoParkSection();
     }
+});
+
+buttontechcopied.addEventListener('click', () => {
+    buttontech.click();
 });
 
 // Обработчик события клика на блок .auto_park__control
@@ -67,6 +104,11 @@ autoParkControl.addEventListener('click', () => {
         visibleBlock.classList.add('hidden');
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
+    } else if (visibleBlock.classList.contains('hidden') && (window.matchMedia("(orientation: landscape)").matches)) {
+        techSpecWrapperText.style.height = 'auto';
+        buttontechcopied.style.display = 'none';
+        buttontech.style.display = 'block';
+        interior.style.zIndex = 'none';
     }
 
     toggleAutoParkSection();
@@ -89,9 +131,6 @@ autoParkControl.addEventListener('click', () => {
 //     isAutoParkVisible = !isAutoParkVisible;
 // }
 function toggleAutoParkSection() {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-
     if (isAutoParkVisible) {
         // Если секция .auto_park видима, скрываем ее
         autoParkSection.style.transform = 'translateY(0)';
@@ -135,6 +174,12 @@ gallery_toggle.forEach((e) => {
         e.classList.add('active');
     });
 });
+
+
+
+
+
+
 
 // Слайдер
 
@@ -192,6 +237,12 @@ function slideToNext() {
     }
     checkPrevButton();
     checkNextButton();
+
+    // Проверяем, является ли текущий слайд последним
+    if (currentIndex === slides.length - 1) {
+        // Если текущий слайд последний, скрываем кнопку следующего слайда
+        nextButton.style.visibility = 'hidden';
+    }
 }
 
 // Добавляем обработчики событий на кнопки
@@ -201,3 +252,6 @@ nextButton.addEventListener('click', slideToNext);
 // При загрузке страницы проверяем состояние кнопок
 checkPrevButton();
 checkNextButton();
+if (currentIndex === slides.length - 1) {
+    nextButton.style.visibility = 'hidden';
+}
