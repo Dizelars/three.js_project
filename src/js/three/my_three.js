@@ -266,7 +266,7 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/46/test2.gltf';
+let url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
 // https://coddmac.store/THREE/3Dmodels/36/car6.gltf
 // http://89.208.211.133/models/36/car6.gltf
 

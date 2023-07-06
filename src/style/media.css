@@ -221,6 +221,7 @@
     .tech_spec .tech_spec__interior {
         max-width: 80px;
         height: 50px;
+        z-index: -1;
     }
 
     .tech_spec .tech_spec__interior {

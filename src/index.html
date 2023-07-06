@@ -25,7 +25,7 @@
     <div class="progress-bar">
         <div class="progress-bar-container">
             <div class="image">
-                <img src="/src/img/layout/loader/blinker.svg" alt="Проблесковый маячок">
+                    <img src="/src/img/layout/loader/1.svg" alt="цодд">
             </div>
             <span id="progress-label">0%</span>
             <progress id="progress-bar" value="0" max="100"></progress>
@@ -224,8 +224,33 @@
             <img id="img" src="/src/img/amarok.jpg"/>
         </a-assets>
         <a-sky id="img-360" radius="10" rotation="0 180 0" src="#img"></a-sky>
+        <a-camera rotation-reader></a-camera>
     </a-scene>
 
     <script type="module" src="js/three/my_three.js"></script>
+    <script>
+        AFRAME.registerComponent('rotation-reader', {
+            init() {
+                this.onDeviceOrientation = this.onDeviceOrientation.bind(this);
+                this.addEventListeners();
+            },
+
+            addEventListeners() {
+                window.addEventListener('deviceorientation', this.onDeviceOrientation);
+            },
+
+            onDeviceOrientation(event) {
+                const cameraEl = this.el;
+                const { alpha, beta, gamma } = event;
+
+                // Применение поворота к камере
+                cameraEl.setAttribute('rotation', {
+                    x: beta,
+                    y: alpha,
+                    z: -gamma
+                });
+            }
+        });
+    </script>
     </body>
 </html>

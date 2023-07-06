@@ -3,9 +3,9 @@ import * as THREE from "three";
 export function createMaterialProperties(name) {
     let properties = {};
     const textureLoader = new THREE.TextureLoader();
-    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/46/uv-1.png');
-    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/46/fara.png');
-    const mapTexture2 = textureLoader.load('https://coddmac.store/THREE/3Dmodels/46/Main_texture_2.png');
+    const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/uv-1.png');
+    const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/fara.png');
+    const mapTexture2 = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png');
     //http://89.208.211.133/models/36/uv.png
     //http://89.208.211.133/models/36/fara.png
     //https://coddmac.store/THREE/3Dmodels/36/uv.png
@@ -66,6 +66,15 @@ export function createMaterialProperties(name) {
             break;
         case "Fari_perednie_stekla":
             properties.color = 0xffffff;
+            properties.roughness = 0.2;
+            properties.metalness = 0.9;
+            properties.transmission = 1; // Небольшая прозрачность фар
+            properties.transparent = true; // Включение прозрачности фар
+            properties.opacity = 0.4;
+            properties.material = new THREE.MeshPhysicalMaterial(properties);
+            break;
+        case "steklo_nuzhnie_fari":
+            properties.color = 0xff0000;
             properties.roughness = 0.2;
             properties.metalness = 0.9;
             properties.transmission = 1; // Небольшая прозрачность фар

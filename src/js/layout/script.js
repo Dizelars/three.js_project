@@ -60,6 +60,51 @@ document.addEventListener('mousedown', (event) => {
 });
 
 // Добавляем обработчик события на клик по кнопке .tech_spec__btn
+// buttontech.addEventListener('click', () => {
+//     console.log(techSpecWrapperText);
+//     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
+//     visibleBlock.classList.toggle('hidden');
+//
+//     if (visibleBlock.classList.contains('hidden')) {
+//         buttonText.textContent = 'Подробнее';
+//         buttonIcon.classList.remove('rotate');
+//
+//         if (window.matchMedia("(orientation: landscape)").matches) {
+//             techSpecWrapperText.style.height = 'auto';
+//             buttontechcopied.style.display = 'none';
+//             buttontech.style.display = 'block';
+//             interior.style.zIndex = 'auto';
+//         }
+//     } else if (!visibleBlock.classList.contains('hidden')) {
+//         buttonText.textContent = 'Скрыть';
+//         buttonIcon.classList.add('rotate');
+//
+//         if (window.matchMedia("(orientation: landscape)").matches) {
+//             techSpecWrapperText.style.height = '210px';
+//             buttontechcopied.style.display = 'block';
+//             buttontech.style.display = 'none';
+//             interior.style.zIndex = '-1';
+//         }
+//     }
+//     // } else if (visibleBlock.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
+//     //     techSpecWrapperText.style.height = 'auto';
+//     //     buttontechcopied.style.display = 'none';
+//     //     buttontech.style.display = 'block';
+//     //     interior.style.zIndex = 'auto';
+//     // } else if (!visibleBlock.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
+//     //     techSpecWrapperText.style.height = '210px';
+//     //     buttontechcopied.style.display = 'block';
+//     //     buttontech.style.display = 'none';
+//     //     interior.style.zIndex = '-1';
+//     // }
+//
+//     // Если блок .auto_park открыт, скрываем его
+//     if (!isAutoParkVisible) {
+//         toggleAutoParkSection();
+//     }
+// });
+
+
 buttontech.addEventListener('click', () => {
     console.log(techSpecWrapperText);
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
@@ -68,19 +113,23 @@ buttontech.addEventListener('click', () => {
     if (visibleBlock.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
-    } else if (!visibleBlock.classList.contains('hidden')) {
+
+        if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+            techSpecWrapperText.style.height = 'auto';
+            buttontechcopied.style.display = 'none';
+            buttontech.style.display = 'block';
+            interior.style.zIndex = 'auto';
+        }
+    } else {
         buttonText.textContent = 'Скрыть';
         buttonIcon.classList.add('rotate');
-    } else if (visibleBlock.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
-        techSpecWrapperText.style.height = 'auto';
-        buttontechcopied.style.display = 'none';
-        buttontech.style.display = 'block';
-        interior.style.zIndex = 'none';
-    } else if (!visibleBlock.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
-        techSpecWrapperText.style.height = '210px';
-        buttontechcopied.style.display = 'block';
-        buttontech.style.display = 'none';
-        interior.style.zIndex = '-1';
+
+        if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+            techSpecWrapperText.style.height = '210px';
+            buttontechcopied.style.display = 'block';
+            buttontech.style.display = 'none';
+            interior.style.zIndex = '-1';
+        }
     }
 
     // Если блок .auto_park открыт, скрываем его
@@ -88,6 +137,9 @@ buttontech.addEventListener('click', () => {
         toggleAutoParkSection();
     }
 });
+
+
+
 
 buttontechcopied.addEventListener('click', () => {
     buttontech.click();
