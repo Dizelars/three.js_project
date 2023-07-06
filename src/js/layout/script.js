@@ -68,23 +68,19 @@ buttontech.addEventListener('click', () => {
     if (visibleBlock.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
-
-        if (window.matchMedia("(orientation: landscape)").matches) {
-            techSpecWrapperText.style.height = 'auto';
-            buttontechcopied.style.display = 'none';
-            buttontech.style.display = 'block';
-            interior.style.zIndex = 'none';
-        }
-    } else {
+    } else if (!visibleBlock.classList.contains('hidden')) {
         buttonText.textContent = 'Скрыть';
         buttonIcon.classList.add('rotate');
-
-        if (window.matchMedia("(orientation: landscape)").matches) {
-            techSpecWrapperText.style.height = '210px';
-            buttontechcopied.style.display = 'block';
-            buttontech.style.display = 'none';
-            interior.style.zIndex = '-1';
-        }
+    } else if (visibleBlock.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
+        techSpecWrapperText.style.height = 'auto';
+        buttontechcopied.style.display = 'none';
+        buttontech.style.display = 'block';
+        interior.style.zIndex = 'none';
+    } else if (!visibleBlock.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
+        techSpecWrapperText.style.height = '210px';
+        buttontechcopied.style.display = 'block';
+        buttontech.style.display = 'none';
+        interior.style.zIndex = '-1';
     }
 
     // Если блок .auto_park открыт, скрываем его
@@ -227,6 +223,26 @@ function slideToPrev() {
 }
 
 // Перемещаемся на слайд вправо
+// function slideToNext() {
+//     if (currentIndex < slides.length - 1) {
+//         currentIndex++;
+//         const slide = slides[currentIndex];
+//         const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
+//         const translateAmount = -slideWidth * currentIndex;
+//         sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+//     }
+//     checkPrevButton();
+//     checkNextButton();
+//
+//     // Проверяем, является ли текущий слайд последним
+//     if (currentIndex === slides.length - 1) {
+//         // Если текущий слайд последний, скрываем кнопку следующего слайда
+//         nextButton.style.visibility = 'hidden';
+//     }
+// }
+
+
+// Перемещаемся на слайд вправо
 function slideToNext() {
     if (currentIndex < slides.length - 1) {
         currentIndex++;
@@ -243,7 +259,18 @@ function slideToNext() {
         // Если текущий слайд последний, скрываем кнопку следующего слайда
         nextButton.style.visibility = 'hidden';
     }
+
+    // Проверяем видимость последнего слайда
+    const lastSlide = slides[slides.length - 1];
+    const slideRect = lastSlide.getBoundingClientRect();
+    const sliderRect = slider.getBoundingClientRect();
+
+    if (slideRect.right <= sliderRect.right) {
+        nextButton.style.visibility = 'hidden';
+    }
 }
+
+
 
 // Добавляем обработчики событий на кнопки
 prevButton.addEventListener('click', slideToPrev);
