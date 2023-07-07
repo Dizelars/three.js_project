@@ -7,25 +7,15 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Гараж ЦОДД</title>
         <link rel="stylesheet" href="style/style.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.4.2/aframe.min.js"></script>
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     </head>
     <body>
-<!--    <div class="control_wrapper">-->
-<!--        <div class="control_buttons">-->
-<!--            <button class="go_to">Go!</button>-->
-<!--            <button class="go_to">Go!</button>-->
-<!--            <button class="go_to">Go!</button>-->
-<!--            <button class="go_to">Go!</button>-->
-<!--            <button class="go_to">Go!</button>-->
-<!--            <button class="interior">interior</button>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div id="gui-container"></div>-->
     <div class="progress-bar">
         <div class="progress-bar-container">
             <div class="image">
-                    <img src="/src/img/layout/loader/1.svg" alt="цодд">
+                <img src="/src/img/layout/loader/2.svg" alt="цодд">
+                <p class="image-text">ЦОДД</p>
             </div>
             <span id="progress-label">0%</span>
             <progress id="progress-bar" value="0" max="100"></progress>
@@ -42,7 +32,7 @@
                         <p class="header__logo-text">Гараж ЦОДД</p>
                     </div>
                     <div class="header__info">
-                        <img class="header__info-img" src="./img/layout/header_img.png" alt="model_preview">
+                        <img class="header__info-img" src="./img/layout/header_img2.png" alt="model_preview">
                         <div class="header__info-descr">
                             <p class="header__info-text">Volkswagen Amarok</p>
                             <p class="header__info-text">30 автомобилей</p>
@@ -146,18 +136,25 @@
                             </a>
                         </div>
                     </div>
-                    <div class="tech_spec__interior">
-                        <div class="tech_spec__interior-btn">
-                            <span class="tech_spec__interior-text">В салон</span>
-                            <div class="arrow-wrapper">
-                                <img src="./img/layout/interior_arrow.svg" alt="interior_arrow">
-                            </div>
-                        </div>
-                    </div>
+<!--                    <div class="tech_spec__interior">-->
+<!--                        <div class="tech_spec__interior-btn">-->
+<!--                            <span class="tech_spec__interior-text">В салон</span>-->
+<!--                            <div class="arrow-wrapper">-->
+<!--                                <img src="./img/layout/interior_arrow.svg" alt="interior_arrow">-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </section>
+            <div class="tech_spec__interior">
+                <div class="tech_spec__interior-btn">
+                    <span class="tech_spec__interior-text">В салон</span>
+                    <div class="arrow-wrapper">
+                        <img src="./img/layout/interior_arrow.svg" alt="interior_arrow">
+                    </div>
+                </div>
+            </div>
         </main>
-
         <section class="auto_park">
             <div class="container">
                 <div class="auto_park_wrapper">
@@ -169,7 +166,7 @@
                         <div class="auto_park_slider-overflow">
                             <div class="auto_park_slider-wrapper">
                                 <div class="gallery_item active">
-                                    <img class="gallery_item-img" src="./img/layout/slider/slide_amarok.png" alt="slide">
+                                    <img class="gallery_item-img" src="./img/layout/slider/slide_amarok2.png" alt="slide">
                                 </div>
                                 <div class="gallery_item">
                                     <img class="gallery_item-img" src="./img/layout/slider/slide_solara_1.png" alt="slide">
@@ -181,7 +178,7 @@
                                     <img class="gallery_item-img" src="./img/layout/slider/slide_bus.png" alt="slide">
                                 </div>
                                 <div class="gallery_item">
-                                    <img class="gallery_item-img" src="./img/layout/slider/slide_amarok.png" alt="slide">
+                                    <img class="gallery_item-img" src="./img/layout/slider/slide_amarok2.png" alt="slide">
                                 </div>
                                 <div class="gallery_item">
                                     <img class="gallery_item-img" src="./img/layout/slider/slide_solara_1.png" alt="slide">
@@ -193,7 +190,7 @@
                                     <img class="gallery_item-img" src="./img/layout/slider/slide_bus.png" alt="slide">
                                 </div>
                                 <div class="gallery_item">
-                                    <img class="gallery_item-img" src="./img/layout/slider/slide_amarok.png" alt="slide">
+                                    <img class="gallery_item-img" src="./img/layout/slider/slide_amarok2.png" alt="slide">
                                 </div>
                                 <div class="gallery_item">
                                     <img class="gallery_item-img" src="./img/layout/slider/slide_solara_1.png" alt="slide">
@@ -228,6 +225,7 @@
     </a-scene>
 
     <script type="module" src="js/three/my_three.js"></script>
+<!--    <script type="module" src="js/three/functions/aframe.js"></script>-->
     <script>
         AFRAME.registerComponent('rotation-reader', {
             init() {
@@ -236,7 +234,17 @@
             },
 
             addEventListeners() {
-                window.addEventListener('deviceorientation', this.onDeviceOrientation);
+                // Проверка поддержки гироскопа
+                if (window.DeviceOrientationEvent && typeof window.DeviceOrientationEvent.requestPermission === 'function') {
+                    // Запрос доступа к гироскопу
+                    window.DeviceOrientationEvent.requestPermission().then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('deviceorientation', this.onDeviceOrientation);
+                        }
+                    }).catch(console.error);
+                } else {
+                    window.addEventListener('deviceorientation', this.onDeviceOrientation);
+                }
             },
 
             onDeviceOrientation(event) {

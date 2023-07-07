@@ -6,54 +6,36 @@ export function createMaterialProperties(name) {
     const mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/uv-1.png');
     const mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/fara.png');
     const mapTexture2 = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png');
-    //http://89.208.211.133/models/36/uv.png
-    //http://89.208.211.133/models/36/fara.png
-    //https://coddmac.store/THREE/3Dmodels/36/uv.png
-    //https://coddmac.store/THREE/3Dmodels/36/fara.png
     mapTexture.flipY = false;
     mapTexture2.flipY = false;
     mapTextureFara.flipY = false;
     switch (name) {
         case "main":
-            // properties.roughness = 0.13; // Низкая шероховатость
-            properties.roughness = 0.4; // Низкая шероховатость
+            properties.roughness = 0.4;
             properties.metalness = 0.7;
-            properties.clearcoat = 0.3; // Интенсивность слоя лака
-            properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
+            properties.clearcoat = 0.3;
+            properties.clearcoatRoughness = 0.3;
             properties.map = mapTexture;
             properties.side = THREE.DoubleSide;
             properties.clipShadows = true;
-            // THREE.FrontSide
-            // THREE.BackSide
-            // THREE.DoubleSide
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Main_2":
-            // properties.roughness = 0.13; // Низкая шероховатость
-            properties.roughness = 0.4; // Низкая шероховатость
+            properties.roughness = 0.4;
             properties.metalness = 0.7;
-            properties.clearcoat = 0.3; // Интенсивность слоя лака
-            properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
+            properties.clearcoat = 0.3;
+            properties.clearcoatRoughness = 0.3;
             properties.map = mapTexture2;
-            // properties.side = THREE.DoubleSide;
             properties.clipShadows = true;
-            // THREE.FrontSide
-            // THREE.BackSide
-            // THREE.DoubleSide
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "main002":
-            // properties.roughness = 0.13; // Низкая шероховатость
-            properties.roughness = 0.4; // Низкая шероховатость
+            properties.roughness = 0.4;
             properties.metalness = 0.7;
-            properties.clearcoat = 0.3; // Интенсивность слоя лака
-            properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
+            properties.clearcoat = 0.3;
+            properties.clearcoatRoughness = 0.3;
             properties.map = mapTexture;
-            // properties.side = THREE.DoubleSide;
             properties.clipShadows = true;
-            // THREE.FrontSide
-            // THREE.BackSide
-            // THREE.DoubleSide
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Stekla":
@@ -68,17 +50,17 @@ export function createMaterialProperties(name) {
             properties.color = 0xffffff;
             properties.roughness = 0.2;
             properties.metalness = 0.9;
-            properties.transmission = 1; // Небольшая прозрачность фар
-            properties.transparent = true; // Включение прозрачности фар
+            properties.transmission = 1;
+            properties.transparent = true;
             properties.opacity = 0.4;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "steklo_nuzhnie_fari":
-            properties.color = 0xff0000;
+            properties.color = 0xffffff;
             properties.roughness = 0.2;
             properties.metalness = 0.9;
-            properties.transmission = 1; // Небольшая прозрачность фар
-            properties.transparent = true; // Включение прозрачности фар
+            properties.transmission = 1;
+            properties.transparent = true;
             properties.opacity = 0.4;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
@@ -96,26 +78,25 @@ export function createMaterialProperties(name) {
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Fari_zadnie":
-            properties.color = 0xA52019; // Сигнальный красный
+            properties.color = 0xA52019;
             properties.roughness = 0.2;
             properties.metalness = 0.9;
-            properties.transmission = 1; // Небольшая прозрачность фар
-            properties.transparent = true; // Включение прозрачности фар
+            properties.transmission = 1;
+            properties.transparent = true;
             properties.opacity = 0.8;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Ekran":
-            properties.roughness = 0.4; // Низкая шероховатость
+            properties.roughness = 0.4;
             properties.metalness = 0.7;
-            properties.clearcoat = 0.3; // Интенсивность слоя лака
-            properties.clearcoatRoughness = 0.3; // Шероховатость слоя лака
+            properties.clearcoat = 0.3;
+            properties.clearcoatRoughness = 0.3;
             properties.map = mapTexture;
             properties.clipShadows = true;
             properties.side = THREE.DoubleSide;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
         case "Ekran2":
-            // properties.color = 0xB8B8B8;
             properties.color = 0x000000;
             properties.roughness = 0.1;
             properties.metalness = 0.8;
@@ -128,8 +109,8 @@ export function createMaterialProperties(name) {
             properties.color = 0xffffff;
             properties.roughness = 0.2;
             properties.metalness = 0.9;
-            properties.transmission = 1; // Небольшая прозрачность фар
-            properties.transparent = true; // Включение прозрачности фар
+            properties.transmission = 1;
+            properties.transparent = true;
             properties.opacity = 0.7;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
@@ -204,8 +185,6 @@ export function createMaterialProperties(name) {
             properties.metalness = 1;
             properties.material = new THREE.MeshPhysicalMaterial(properties);
             break;
-        // Добавьте другие случаи, если необходимо
     }
     return properties;
 }
-// export default createMaterialProperties;

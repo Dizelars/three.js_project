@@ -15,9 +15,9 @@
         display: none;
     }
 
-    .tech_spec .tech_spec__wrapper {
-        margin-top: 50px;
-    }
+    /*.tech_spec .tech_spec__wrapper {*/
+    /*    margin-top: 50px;*/
+    /*}*/
 
     .tech_spec .tech_spec__description {
         max-width: 500px;
@@ -38,31 +38,23 @@
         font-size: 20px;
     }
 
-    .tech_spec .tech_spec__interior {
+    .tech_spec__interior {
         margin-top: 70px;
         margin-right: 50px;
         max-width: 110px;
         height: 70px;
     }
 
-    .tech_spec .tech_spec__interior .tech_spec__interior-btn {
-        position: absolute;
-        top: 75px;
-        left: 0;
-    }
 
-    .tech_spec .tech_spec__interior .tech_spec__interior-btn .arrow-wrapper {
+
+    .tech_spec__interior .tech_spec__interior-btn .arrow-wrapper {
         border: 1px solid #FFF;
     }
+    /*.auto_park {*/
+    /*    transform: translateY(0px);*/
+    /*    margin: 0;*/
+    /*}*/
 }
-
-/*@media (max-width: 600px) {*/
-/*    .tech_spec .tech_spec__interior {*/
-/*        top: 238px;*/
-/*        margin: 0;*/
-/*        left: 50px;*/
-/*    }*/
-/*}*/
 
 @media (max-width: 576px) {
     .container {
@@ -112,20 +104,25 @@
         margin-bottom: 24px;
     }
 
-    .tech_spec .tech_spec__interior {
-        max-width: 80px;
-        height: 50px;
-        margin: 0;
-        top: 822px;
-        left: 20px;
+    .tech_spec__interior {
+        max-width: 80px !important;
+        height: 50px !important;
+        margin: 0 !important;
+        left: 20px !important;
+        bottom: 112px !important;
     }
 
-    .tech_spec .tech_spec__interior .tech_spec__interior-btn {
-        top: 54px;
+    .tech_spec__interior .tech_spec__interior-btn {
+        top: 54px !important;
+    }
+    .tech_spec__interior .tech_spec__interior-btn {
+        position: absolute;
+        top: 75px;
+        left: 0;
     }
 
     .auto_park .container {
-        margin: 0;
+        margin-bottom: 0 !important;
     }
 }
 
@@ -139,7 +136,7 @@
     }
 }
 
-@media screen and (min-width:320px) and (max-width:845px) and (orientation:landscape) {
+@media screen and (min-width:320px) and (max-width:900px) and (orientation:landscape) {
     .container {
         margin: 0 15px;
     }
@@ -218,18 +215,27 @@
         margin-bottom: 0;
     }
 
-    .tech_spec .tech_spec__interior {
-        max-width: 80px;
-        height: 50px;
-        z-index: -1;
+    .tech_spec__interior {
+        max-width: 80px !important;
+        height: 50px !important;
+        /*z-index: -1;*/
     }
 
-    .tech_spec .tech_spec__interior {
-        padding: 0;
+    .tech_spec__interior {
+        padding: 0 !important;
     }
 
-    .tech_spec .tech_spec__interior .tech_spec__interior-btn {
-        position: absolute;
-        top: 54px;
+    .tech_spec__interior .tech_spec__interior-btn {
+        position: absolute !important;
+        top: 54px !important;
     }
 }
+
+/*@media (max-width:740px) {*/
+/*    .tech_spec__description {*/
+/*        padding: 10px;*/
+/*    }*/
+/*    .tech_spec__titles, .tech_spec__outfit {*/
+/*        margin-bottom: 14px;*/
+/*    }*/
+/*}*/

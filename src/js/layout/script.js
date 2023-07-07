@@ -17,22 +17,49 @@ const interiorText = document.querySelector('.tech_spec__interior-text');
 const interiorBlock = document.querySelector('.tech_spec__interior');
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
+const modalAframe = document.querySelector('.a-modal');
+console.log(modalAframe);
 
-if (screenWidth === 540 && screenHeight === 720) {
-    interior.style.top = '500px';
-} else if (screenWidth === 414 && screenHeight === 896) {
-    interior.style.top = '676px';
-} else if (screenWidth === 412 && (screenHeight === 914 || screenHeight === 915)) {
-    interior.style.top = '696px';
-} else if (screenWidth === 390 && screenHeight === 844) {
-    interior.style.top = '625px';
-} else if (screenWidth === 375 && screenHeight === 667) {
-    interior.style.top = '448px';
-} else if (screenWidth === 360 && screenHeight === 740) {
-    interior.style.top = '522px';
-}
+// if (screenWidth === 540 && screenHeight === 720) {
+//     interior.style.top = '500px';
+// } else if (screenWidth === 414 && screenHeight === 896) {
+//     interior.style.top = '676px';
+// } else if (screenWidth === 412 && (screenHeight === 914 || screenHeight === 915)) {
+//     interior.style.top = '696px';
+// } else if (screenWidth === 390 && screenHeight === 844) {
+//     interior.style.top = '625px';
+// } else if (screenWidth === 375 && screenHeight === 667) {
+//     interior.style.top = '448px';
+// } else if (screenWidth === 360 && screenHeight === 740) {
+//     interior.style.top = '522px';
+// }
 
-
+// function updateInteriorPosition() {
+//     const screenWidth2 = window.innerWidth;
+//     const screenHeight2 = window.innerHeight;
+//     const interior2 = document.querySelector('.tech_spec__interior');
+//
+//     if (screenWidth2 === 540 && screenHeight2 === 720) {
+//         interior2.style.top = '500px';
+//     } else if (screenWidth2 === 414 && screenHeight2 === 896) {
+//         interior2.style.top = '676px';
+//     } else if (screenWidth2 === 412 && (screenHeight2 === 914 || screenHeight2 === 915)) {
+//         interior2.style.top = '696px';
+//     } else if (screenWidth2 === 390 && screenHeight2 === 844) {
+//         interior2.style.top = '625px';
+//     } else if (screenWidth2 === 375 && screenHeight2 === 667) {
+//         interior2.style.top = '448px';
+//     } else if (screenWidth2 === 360 && screenHeight2 === 740) {
+//         interior2.style.top = '522px';
+//     } else {
+//         // Добавьте обработку остальных случаев или значение по умолчанию
+//         interior2.style.top = 'inherit';
+//     }
+// }
+// // Вызовите функцию для первоначального обновления положения интерьера
+// updateInteriorPosition();
+// // Добавьте обработчик события resize для отслеживания изменений размеров окна страницы
+// window.addEventListener('resize', updateInteriorPosition);
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
 
@@ -113,33 +140,115 @@ buttontech.addEventListener('click', () => {
     if (visibleBlock.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
-
         if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
             techSpecWrapperText.style.height = 'auto';
             buttontechcopied.style.display = 'none';
             buttontech.style.display = 'block';
             interior.style.zIndex = 'auto';
         }
+        window.addEventListener('resize', () => {
+            if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+                techSpecWrapperText.style.height = 'auto';
+                buttontechcopied.style.display = 'none';
+                buttontech.style.display = 'block';
+                interior.style.zIndex = 'auto';
+            }
+        });
     } else {
         buttonText.textContent = 'Скрыть';
         buttonIcon.classList.add('rotate');
-
         if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
             techSpecWrapperText.style.height = '210px';
             buttontechcopied.style.display = 'block';
             buttontech.style.display = 'none';
             interior.style.zIndex = '-1';
         }
+        window.addEventListener('resize', () => {
+            if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+                techSpecWrapperText.style.height = '210px';
+                buttontechcopied.style.display = 'block';
+                buttontech.style.display = 'none';
+                interior.style.zIndex = '-1';
+            }
+        });
     }
-
     // Если блок .auto_park открыт, скрываем его
     if (!isAutoParkVisible) {
         toggleAutoParkSection();
     }
 });
 
+window.addEventListener('resize', () => {
+    if (visibleBlock.classList.contains('hidden')) {
+        buttonText.textContent = 'Подробнее';
+        buttonIcon.classList.remove('rotate');
+        if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+            techSpecWrapperText.style.height = 'auto';
+            buttontechcopied.style.display = 'none';
+            buttontech.style.display = 'block';
+            interior.style.zIndex = 'auto';
+        }
+        window.addEventListener('resize', () => {
+            if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+                techSpecWrapperText.style.height = 'auto';
+                buttontechcopied.style.display = 'none';
+                buttontech.style.display = 'block';
+                interior.style.zIndex = 'auto';
+            }
+        });
+    } else {
+        buttonText.textContent = 'Скрыть';
+        buttonIcon.classList.add('rotate');
+        if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+            techSpecWrapperText.style.height = '210px';
+            buttontechcopied.style.display = 'block';
+            buttontech.style.display = 'none';
+            interior.style.zIndex = '-1';
+        }
+        window.addEventListener('resize', () => {
+            if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+                techSpecWrapperText.style.height = '210px';
+                buttontechcopied.style.display = 'block';
+                buttontech.style.display = 'none';
+                interior.style.zIndex = '-1';
+            }
+        });
+    }
+});
 
 
+
+// window.addEventListener('resize', () => {
+//     buttontech.addEventListener('click', () => {
+//         console.log(techSpecWrapperText);
+//         // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
+//         visibleBlock.classList.toggle('hidden');
+//
+//         if (visibleBlock.classList.contains('hidden')) {
+//             buttonText.textContent = 'Подробнее';
+//             buttonIcon.classList.remove('rotate');
+//             if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+//                 techSpecWrapperText.style.height = 'auto';
+//                 buttontechcopied.style.display = 'none';
+//                 buttontech.style.display = 'block';
+//                 interior.style.zIndex = 'auto';
+//             }
+//         } else {
+//             buttonText.textContent = 'Скрыть';
+//             buttonIcon.classList.add('rotate');
+//             if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 900) {
+//                 techSpecWrapperText.style.height = '210px';
+//                 buttontechcopied.style.display = 'block';
+//                 buttontech.style.display = 'none';
+//                 interior.style.zIndex = '-1';
+//             }
+//         }
+//         // Если блок .auto_park открыт, скрываем его
+//         if (!isAutoParkVisible) {
+//             toggleAutoParkSection();
+//         }
+//     });
+// });
 
 buttontechcopied.addEventListener('click', () => {
     buttontech.click();
@@ -188,6 +297,9 @@ function toggleAutoParkSection() {
         if (screenWidth <= 391 && screenHeight <= 845) {
             autoParkSection.style.transform = 'translateY(72%)';
             autoParkSection.style.margin = '0';
+        } else if (screenWidth <= 894 && screenHeight <= 391) {
+            autoParkSection.style.transform = 'translateY(72%)';
+            autoParkSection.style.margin = '0';
         } else {
             autoParkSection.style.transform = 'translateY(100%)';
         }
@@ -196,6 +308,11 @@ function toggleAutoParkSection() {
 
     // Инвертируем флаг видимости секции .auto_park
     isAutoParkVisible = !isAutoParkVisible;
+}
+
+if (screenWidth <= 894 && screenHeight <= 391) {
+    autoParkSection.style.transform = 'translateY(72%)';
+    autoParkSection.style.margin = '0';
 }
 
 interior.addEventListener('click', () => {
@@ -223,15 +340,91 @@ gallery_toggle.forEach((e) => {
     });
 });
 
-
-
-
-
-
-
 // Слайдер
 
 // Получаем элементы слайдера
+// const slider = document.querySelector('.auto_park_slider');
+// const sliderWrapper = slider.querySelector('.auto_park_slider-wrapper');
+// const prevButton = slider.querySelector('.prev_button');
+// const nextButton = slider.querySelector('.next_button');
+//
+// // Получаем все слайды внутри слайдера
+// const slides = sliderWrapper.querySelectorAll('.gallery_item');
+//
+// // Устанавливаем начальное значение индекса текущего слайда
+// let currentIndex = 0;
+//
+// // Проверяем и скрываем кнопку предыдущего слайда, если текущий слайд первый
+// function checkPrevButton() {
+//     if (currentIndex === 0) {
+//         prevButton.style.visibility = 'hidden';
+//     } else {
+//         prevButton.style.visibility = 'visible';
+//     }
+// }
+//
+// // Проверяем и скрываем кнопку следующего слайда, если текущий слайд последний
+// function checkNextButton() {
+//     if (currentIndex === slides.length - 1) {
+//         nextButton.style.visibility = 'hidden';
+//     } else {
+//         nextButton.style.visibility = 'visible';
+//     }
+// }
+//
+// // Перемещаемся на слайд влево
+// function slideToPrev() {
+//     if (currentIndex > 0) {
+//         currentIndex--;
+//         const slide = slides[currentIndex];
+//         const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
+//         const translateAmount = -slideWidth * currentIndex;
+//         sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+//     }
+//     checkPrevButton();
+//     checkNextButton();
+// }
+//
+//
+// // Перемещаемся на слайд вправо
+// function slideToNext() {
+//     if (currentIndex < slides.length - 1) {
+//         currentIndex++;
+//         const slide = slides[currentIndex];
+//         const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
+//         const translateAmount = -slideWidth * currentIndex;
+//         sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+//     }
+//     checkPrevButton();
+//     checkNextButton();
+//
+//     // Проверяем, является ли текущий слайд последним
+//     if (currentIndex === slides.length - 1) {
+//         // Если текущий слайд последний, скрываем кнопку следующего слайда
+//         nextButton.style.visibility = 'hidden';
+//     }
+//
+//     // Проверяем видимость последнего слайда
+//     const lastSlide = slides[slides.length - 1];
+//     const slideRect = lastSlide.getBoundingClientRect();
+//     const sliderRect = slider.getBoundingClientRect();
+//
+//     if (slideRect.right <= sliderRect.right) {
+//         nextButton.style.visibility = 'hidden';
+//     }
+// }
+//
+// // Добавляем обработчики событий на кнопки
+// prevButton.addEventListener('click', slideToPrev);
+// nextButton.addEventListener('click', slideToNext);
+//
+// // При загрузке страницы проверяем состояние кнопок
+// checkPrevButton();
+// checkNextButton();
+// if (currentIndex === slides.length - 1) {
+//     nextButton.style.visibility = 'hidden';
+// }
+
 const slider = document.querySelector('.auto_park_slider');
 const sliderWrapper = slider.querySelector('.auto_park_slider-wrapper');
 const prevButton = slider.querySelector('.prev_button');
@@ -275,26 +468,6 @@ function slideToPrev() {
 }
 
 // Перемещаемся на слайд вправо
-// function slideToNext() {
-//     if (currentIndex < slides.length - 1) {
-//         currentIndex++;
-//         const slide = slides[currentIndex];
-//         const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
-//         const translateAmount = -slideWidth * currentIndex;
-//         sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
-//     }
-//     checkPrevButton();
-//     checkNextButton();
-//
-//     // Проверяем, является ли текущий слайд последним
-//     if (currentIndex === slides.length - 1) {
-//         // Если текущий слайд последний, скрываем кнопку следующего слайда
-//         nextButton.style.visibility = 'hidden';
-//     }
-// }
-
-
-// Перемещаемся на слайд вправо
 function slideToNext() {
     if (currentIndex < slides.length - 1) {
         currentIndex++;
@@ -305,24 +478,7 @@ function slideToNext() {
     }
     checkPrevButton();
     checkNextButton();
-
-    // Проверяем, является ли текущий слайд последним
-    if (currentIndex === slides.length - 1) {
-        // Если текущий слайд последний, скрываем кнопку следующего слайда
-        nextButton.style.visibility = 'hidden';
-    }
-
-    // Проверяем видимость последнего слайда
-    const lastSlide = slides[slides.length - 1];
-    const slideRect = lastSlide.getBoundingClientRect();
-    const sliderRect = slider.getBoundingClientRect();
-
-    if (slideRect.right <= sliderRect.right) {
-        nextButton.style.visibility = 'hidden';
-    }
 }
-
-
 
 // Добавляем обработчики событий на кнопки
 prevButton.addEventListener('click', slideToPrev);
@@ -334,3 +490,33 @@ checkNextButton();
 if (currentIndex === slides.length - 1) {
     nextButton.style.visibility = 'hidden';
 }
+
+// Добавляем обработчики touch events на элемент слайдера
+let startPosX = 0;
+let currentPosX = 0;
+
+function handleTouchStart(event) {
+    startPosX = event.touches[0].clientX;
+}
+
+function handleTouchMove(event) {
+    event.preventDefault();
+    currentPosX = event.touches[0].clientX;
+    const diff = startPosX - currentPosX;
+    const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginLeft) + parseInt(getComputedStyle(slides[0]).marginRight);
+    const translateAmount = -slideWidth * currentIndex - diff;
+    sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+}
+
+function handleTouchEnd() {
+    const diff = startPosX - currentPosX;
+    if (diff > 0) {
+        slideToNext();
+    } else if (diff < 0) {
+        slideToPrev();
+    }
+}
+
+slider.addEventListener('touchstart', handleTouchStart);
+slider.addEventListener('touchmove', handleTouchMove);
+slider.addEventListener('touchend', handleTouchEnd);

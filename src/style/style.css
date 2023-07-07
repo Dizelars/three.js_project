@@ -13,11 +13,6 @@ a-scene {
     display: none;
 }
 
-.a-modal {
-    display: none !important;
-}
-
-
 /*control*/
 
 .control_wrapper {
@@ -110,11 +105,6 @@ a-scene {
     width: 142px;
     object-fit: cover;
 }
-
-
-/*main {*/
-/*    position: absolute;*/
-/*}*/
 
 /*tech_spec*/
 
@@ -308,7 +298,7 @@ a-scene {
     align-items: flex-end;
     justify-content: flex-end;
     border-radius: 20px;
-    background: url("../img/layout/amarok_prew.jpg") no-repeat center/cover;
+    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
     padding: 8px;
     cursor: pointer;
     margin-top: 20px;
@@ -317,6 +307,7 @@ a-scene {
 
 .tech_spec__interior.garage {
     background-image: url("../img/layout/slider/slide_amarok.png");
+    z-index: 1 !important;
 }
 
 .tech_spec__interior:hover .arrow-wrapper img {

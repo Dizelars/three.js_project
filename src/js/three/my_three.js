@@ -3,12 +3,13 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
-import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
+// import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 import gsap from "gsap";
 // import {func} from "three/nodes";
 import {createMaterialProperties} from './functions/create_material.js';
-
+// import * as AFRAME from "aframe";
+// require('aframe');
 
 // WebGLRenderer + настройки окружения
 //
@@ -37,8 +38,6 @@ import {createMaterialProperties} from './functions/create_material.js';
 // Измененение размера сцены под размер экрана
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 
-
-
 // WebGLRenderer + настройки окружения
 const renderer = new THREE.WebGLRenderer({
     // precision: "lowp",
@@ -59,8 +58,6 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отобр
 // THREE.VSMShadowMap
 document.body.appendChild(renderer.domElement);
 
-
-
 // Менеджер загрузки
 const LoadingManager = new THREE.LoadingManager();
 
@@ -72,7 +69,6 @@ const LoadingManager = new THREE.LoadingManager();
 // LoadingManager.onStart = function(url, index, total) {
 //     console.log(`Начало загрузки: ${url}`);
 // }
-
 // 2) onProgress - вызывается каждый раз, когда начинает загрузка одного из компонентов модели.
 // url-путь к загруженному файлу
 // loaded-игдекс загружаемого обьекта
@@ -86,10 +82,8 @@ LoadingManager.onProgress = function(url, loaded, total) {
     const progressPercent = Math.round((loaded / total) * 100);
     progressBar.value = progressPercent;
     progressLabel.textContent = `${progressPercent}%`;
-
     progressContainer.style.setProperty('--top-left-percentage', `${progressPercent}%`);
     progressContainer.style.setProperty('--bottom-right-percentage', `${progressPercent}%`);
-
     // Проверяем значение прогресса и выводим соответствующее сообщение
     if (progressPercent >= 50 && progressPercent < 70) {
         progressLoad.textContent = 'Экипируемся...';
@@ -103,20 +97,17 @@ LoadingManager.onProgress = function(url, loaded, total) {
 }
 
 // 3) onLoad - Запись по завершению загрузки.
-
 const progressBarContainer = document.querySelector('.progress-bar');
 LoadingManager.onLoad = function() {
-    progressBarContainer.style.display = 'none';
+    setTimeout( () => {
+        progressBarContainer.style.display = 'none';
+    }, 4000);
 }
 
 // 4) onError - когда при загрузке одного из файлов происходит ошибка.
 // LoadingManager.onError = function(url, loaded, total) {
 //     console.error(`Ошибка во время загрузки: ${url}`);
 // }
-
-// const gltfLoaderForManager = new GLTFLoader(LoadingManager);
-// const rgbeLoaderForManager = new RGBELoader(LoadingManager);
-
 
 let activeScene = 1;
 // Сцена экстерьера Амарок
@@ -125,13 +116,10 @@ const scene1 = new THREE.Scene();
 // 1) Фон и туман сцены экстерьер
 scene1.background = new THREE.Color(0x000000);
 scene1.fog = new THREE.Fog(0x000000, 290, 600);
-// scene1.fog = new THREE.FogExp2( 0xDFE9F3, 0.0005 );
-// console.log(new THREE.Fog(0xDFE9F3, 0.0, 500))
 
 //0xffffff
 //0x000000
 //0xB5B8B1
-
 
 // 2) Камера и управление камерой экстерьер
 
@@ -143,10 +131,10 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
-// controls1.enabled = true;
-// controls1.enablePan = false;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
+controls1.enabled = true;
+controls1.enablePan = false;
 controls1.update();
 
 
@@ -158,13 +146,6 @@ const lightPositions1 = [
     // [265.38149179418303, 29.66356022269588, 3.5128582340225742],
     // [197.0975889816967, 33.78571878903604, 156.13137890856612]
 ];
-// const lightPositions1 = [
-//     [-185.6241207481791, 32.07062433508278, 84.95199678588864],
-//     [-204.3011171303053, 30.934039929212076, 2.412388785758053],
-//     [-180.31006688957424, 33.01550961882396, -137.20319905907786],
-//     // [265.38149179418303, 29.66356022269588, 3.5128582340225742],
-//     // [197.0975889816967, 33.78571878903604, 156.13137890856612]
-// ];
 lightPositions1.forEach(position => {
     const light = new THREE.PointLight(0xffffff, 0.9);
     light.position.set(position[0], position[1], position[2]);
@@ -172,18 +153,6 @@ lightPositions1.forEach(position => {
     // const helper = new THREE.PointLightHelper(light);
     // scene1.add(helper);
 });
-
-// Create Ambient and Point lights for the scene
-// const ambientLight = new THREE.AmbientLight(0xededed, 0.01);
-// scene1.add(ambientLight);
-
-// const Hemilight = new THREE.HemisphereLight( 0xffffff, 5 );
-// Hemilight.position.set(32, 30, -58);
-// Hemilight.rotateY(200);
-// scene1.add( Hemilight );
-//
-// const helper = new THREE.HemisphereLightHelper( Hemilight, 10);
-// scene1.add( helper );
 
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
 SpotLight5.position.set(0, 470, -0);
@@ -202,24 +171,6 @@ SpotLight5.shadow.camera.bottom = -1;
 SpotLight5.angle = 0.5;
 SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
-
-// const SpotLight5 = new THREE.SpotLight(0xffffff, 8);
-// SpotLight5.position.set(-170, 160, 104);
-// SpotLight5.castShadow = true;
-// // SpotLight5.shadow.bias = 0.001;
-// SpotLight5.shadow.mapSize.height = 2048; // Разрешение отображения теней
-// SpotLight5.shadow.mapSize.width = 2048; // Разрешение отображения теней
-// SpotLight5.shadow.camera.near = 1.0;
-// SpotLight5.shadow.camera.far = 550;
-// SpotLight5.shadow.camera.left = 1;
-// SpotLight5.shadow.camera.right = -1;
-// SpotLight5.shadow.camera.top = 1;
-// SpotLight5.shadow.camera.bottom = -1;
-// // SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
-// // SpotLight5.shadow.focus = 1;
-// SpotLight5.angle = 0.5;
-// SpotLight5.penumbra = 0.3;
-// scene1.add(SpotLight5);
 
 // const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
 // directionalLight.position.set(63, 146, 145);
@@ -249,10 +200,6 @@ scene1.add( RectAreaLight2 );
 // const spothelper1 = new THREE.SpotLightHelper(SpotLight5);
 // scene1.add( spothelper1 );
 
-// const Pointlight = new THREE.PointLight( 0xffffff, 5, 100 );
-// Pointlight.position.set( 10, 1, -51 );
-// scene1.add( Pointlight );
-//
 // const sphereSize = 5;
 // const pointLightHelper = new THREE.PointLightHelper( Pointlight, sphereSize );
 // scene1.add( pointLightHelper );
@@ -267,8 +214,6 @@ dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
 let url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-// https://coddmac.store/THREE/3Dmodels/36/car6.gltf
-// http://89.208.211.133/models/36/car6.gltf
 
 
 // 5) Загрузка карты отражений на моделе экстерьер
@@ -426,6 +371,8 @@ const coordinates = [
 
 // Сцена интерьера Амарок
 
+
+
 // 1) Фон интерьер
 const scene2 = new THREE.Scene(LoadingManager);
 scene2.background = new THREE.Color(0x000000)
@@ -445,23 +392,6 @@ let ambientLightScene_2 = new THREE.AmbientLight(0xffffff,4);
 scene2.add(ambientLightScene_2);
 //0x40404  1500
 //0xfffff  8-10
-
-// Сфера
-// const textureLoader = new THREE.TextureLoader(LoadingManager);
-// https://coddmac.store/THREE/360/Amarok/amarok_interior.jpg
-// const textureLoader = new THREE.TextureLoader(LoadingManager);
-// const sphereGeometry = new THREE.SphereBufferGeometry(1000, 50, 50);
-// const sphereMaterial = new THREE.MeshBasicMaterial({
-//     map: textureLoader.load('https://coddmac.store/THREE/360/Amarok/amarok.jpg'),
-//     side: THREE.BackSide,
-// });
-// sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-// sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-// const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-// scene2.add(sphere);
-// sphere.position.set(0, 0, 0);
-// sphere.castShadow = true;
-
 
 // let loader = new THREE.ImageLoader();
 // let texture = new THREE.Texture();
@@ -495,26 +425,6 @@ scene2.add(ambientLightScene_2);
 //         sphere.rotation.y = Math.PI;
 //     }
 // );
-
-
-// const geometry = new THREE.SphereGeometry( 50, 32, 32 );
-// // geometry.scale( - 1, 1, 1 );
-//
-// const texture = new THREE.TextureLoader().load( 'https://coddmac.store/THREE/360/Amarok/amarok.jpg' );
-// texture.colorSpace = THREE.SRGBColorSpace;
-// const material = new THREE.MeshBasicMaterial({
-//     map: texture,
-//     side: THREE.DoubleSide,
-// });
-// material.map.wrapS = THREE.RepeatWrapping;
-// material.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-// const mesh = new THREE.Mesh( geometry, material );
-// scene2.add( mesh );
-
-
-
-
-
 
 // 4) Вывод в сферу картинки в формате hdr интерьер
 
