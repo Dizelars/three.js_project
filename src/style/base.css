@@ -22,3 +22,8 @@ body {
     padding: 0 5px;
     margin: 0 30px;
 }
+
+.my-stats canvas {
+    width: 100px !important;
+    height: 50px !important;
+}

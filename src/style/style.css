@@ -157,7 +157,7 @@ a-scene {
     max-height: 0; /* Устанавливаем максимальную высоту блока на 0 */
 }
 
-.tech_spec__titles, .tech_spec__mission {
+.tech_spec__titles .text_spec__texts, .tech_spec__mission {
     margin-bottom: 24px;
 }
 

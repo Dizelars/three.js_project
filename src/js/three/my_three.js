@@ -1,15 +1,15 @@
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
-import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
+import gsap from "gsap";
+import {createMaterialProperties} from './functions/create_material.js';
+import Stats from 'stats.js';
+// import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
-import gsap from "gsap";
 // import {func} from "three/nodes";
-import {createMaterialProperties} from './functions/create_material.js';
 // import * as AFRAME from "aframe";
-// require('aframe');
 
 // WebGLRenderer + настройки окружения
 //
@@ -37,19 +37,26 @@ import {createMaterialProperties} from './functions/create_material.js';
 // Переключение активной сцены
 // Измененение размера сцены под размер экрана
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
+let pixelRatio = window.devicePixelRatio
+let AA = true
+if (pixelRatio > 1) {
+    AA = false
+}
 
 // WebGLRenderer + настройки окружения
 const renderer = new THREE.WebGLRenderer({
-    // precision: "lowp",
-    antialias: true,
+    antialias: AA,
+    powerPreference: "high-performance",
+    precision: "lowp",
     physicallyCorrectLights: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.outputEncoding = THREE.sRGBEncoding; // Сопоставление цветов hdr фото
+// renderer.outputEncoding = THREE.sRGBEncoding; // Сопоставление цветов hdr фото
 renderer.toneMapping = THREE.ACESFilmicToneMapping;// Алгоритм отображения тонов
 renderer.toneMappingExposure = 0.1;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
+renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 // renderer.toneMapping = THREE.NoToneMapping;
 // Shadow Types
 // THREE.BasicShadowMap
@@ -57,6 +64,7 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отобр
 // THREE.PCFSoftShadowMap
 // THREE.VSMShadowMap
 document.body.appendChild(renderer.domElement);
+
 
 // Менеджер загрузки
 const LoadingManager = new THREE.LoadingManager();
@@ -109,6 +117,11 @@ LoadingManager.onLoad = function() {
 //     console.error(`Ошибка во время загрузки: ${url}`);
 // }
 
+let stats = new Stats();
+stats.showPanel(0, 1, 2); // 0: fps, 1: ms, 2: mb, 3+: custom
+stats.dom.classList.add('my-stats');
+document.body.appendChild( stats.dom );
+
 let activeScene = 1;
 // Сцена экстерьера Амарок
 const scene1 = new THREE.Scene();
@@ -122,6 +135,32 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 //0xB5B8B1
 
 // 2) Камера и управление камерой экстерьер
+
+// let FOV
+// let FAR
+// let NEAR = 400
+//
+// // Mobile camera
+// if (window.innerWidth <= 768) {
+//     FOV = 50
+//     FAR = 1200
+//     // 769px - 1080px screen width camera
+// } else if (window.innerWidth >= 769 && window.innerWidth <= 1080) {
+//     FOV = 50
+//     FAR = 1475
+//     // > 1080px screen width res camera
+// } else {
+//     FOV = 40
+//     FAR = 1800
+// }
+//
+// const initialCameraPosition1 = new THREE.PerspectiveCamera(
+//     FOV,
+//     window.innerWidth / window.innerHeight,
+//     NEAR,
+//     FAR
+// )
+
 
 // const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
 const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
@@ -172,14 +211,6 @@ SpotLight5.angle = 0.5;
 SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
 
-// const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-// directionalLight.position.set(63, 146, 145);
-// directionalLight.castShadow = false;
-// scene1.add( directionalLight );
-// //
-// const directionhelper1 = new THREE.DirectionalLightHelper( directionalLight, 6 );
-// scene1.add( directionhelper1 );
-
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
 RectAreaLight.position.set(10, 110, 120);
 RectAreaLight.castShadow = false;
@@ -196,13 +227,9 @@ scene1.add( RectAreaLight2 );
 //
 // const helper2 = new RectAreaLightHelper( RectAreaLight2 );
 // scene1.add( helper2 ); // helper must be added as a child of the light
-// //
+//
 // const spothelper1 = new THREE.SpotLightHelper(SpotLight5);
 // scene1.add( spothelper1 );
-
-// const sphereSize = 5;
-// const pointLightHelper = new THREE.PointLightHelper( Pointlight, sphereSize );
-// scene1.add( pointLightHelper );
 
 
 // 4) Настройка GLTFLoader и сжатия модели DRACOLoader экстерьер
@@ -215,14 +242,16 @@ gltfLoader.setDRACOLoader(dLoader);
 let obj;
 let url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
 
-
+// https://coddmac.store/THREE/3Dmodels/gltf_mobile_1/test5.gltf
+// https://coddmac.store/THREE/3Dmodels/47/test2.gltf
 // 5) Загрузка карты отражений на моделе экстерьер
 
 // ../img/studio.hdr  toneMappingExposure = 0.1
 // ../img/garage.hdr  toneMappingExposure = 0.1;
 // ../img/MR_INT-005_WhiteNeons_NAD.hdr   toneMappingExposure = 0.3
-const PhoneHDR = new URL('../../img/garage.hdr', import.meta.url);
-const rgbLoaderPhone = new RGBELoader(LoadingManager);
+const PhoneHDR = new URL('../../img/garage.jpg', import.meta.url);
+// const rgbLoaderPhone = new RGBELoader(LoadingManager);
+const rgbLoaderPhone = new THREE.TextureLoader(LoadingManager);
 rgbLoaderPhone.load(PhoneHDR, function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     // scene1.background = texture;
@@ -237,18 +266,27 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
-        let materialProperties = {};
+        // let materialProperties = {};
         for (let i = 0; i < obj.children.length; i++) {
             names.push(obj.children[i].name);
         }
-        for (let i = 0; i < names.length; i++) {
-            let name = names[i];
-            materialProperties[name] = createMaterialProperties(name);
-        }
+        // for (let i = 0; i < names.length; i++) {
+        //     let name = names[i];
+        //     materialProperties[name] = createMaterialProperties(name);
+        // }
+        const materialProperties = names.reduce(function(props, name) {
+            props[name] = createMaterialProperties(name);
+            return props;
+        }, {});
+
+        const namesSet = new Set(names);
 
         // 8) Функция с моими параметрами материалов экстерьер
         createMaterialProperties();
         console.log(materialProperties);
+
+        // names.includes(child.name) Старый вариант
+        // namesSet.has(child.name) Новый
 
         // 9) Обход загружаемой модели и замена материалов экстерьер
         obj.traverse(function(child) {
@@ -257,7 +295,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
                 // child.receiveShadow = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
-            if (child.isMesh && names.includes(child.name)) {
+            if (child.isMesh && namesSet.has(child.name)) {
                 const properties = materialProperties[child.name];
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
@@ -267,7 +305,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
                 }
             }
             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
-            else if (child.isGroup && names.includes(child.name)) {
+            else if (child.isGroup && namesSet.has(child.name)) {
                 const groupProperties = materialProperties[child.name];
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
@@ -369,10 +407,8 @@ const coordinates = [
 //     });
 // });
 
+
 // Сцена интерьера Амарок
-
-
-
 // 1) Фон интерьер
 const scene2 = new THREE.Scene(LoadingManager);
 scene2.background = new THREE.Color(0x000000)
@@ -448,14 +484,18 @@ scene2.add(ambientLightScene_2);
 
 // Переключение активной сцены
 function animate() {
+    stats.begin();
     if (activeScene === 1) {
         renderer.render(scene1, camera1);
+        // console.log("Number of Triangles :", renderer.info.render.triangles);
+        stats.end();
     } else {
         renderer.render(scene2, camera2);
+        // console.log("Number of Triangles :", renderer.info.render.triangles);
+        stats.end();
     }
 }
 renderer.setAnimationLoop(animate);
-
 
 // Измененение размера сцены под размер экрана
 window.addEventListener('resize', () => {

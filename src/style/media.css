@@ -1,3 +1,26 @@
+@media (max-width: 1200px) {
+    .tech_spec .tech_spec__description {
+        padding: 10px 30px 10px 30px;
+    }
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
+        margin-bottom: 20px;
+    }
+
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {
+        margin-bottom: 0;
+    }
+
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-img {
+        margin: 0 auto;
+        height: 60px;
+        width: 70px;
+    }
+
+    .tech_spec__titles .text_spec__texts, .tech_spec__mission {
+        margin-bottom: 20px !important;
+    }
+}
+
 @media (max-width: 835px) {
     .container {
         margin: 0 40px;
@@ -122,7 +145,7 @@
     }
 
     .auto_park .container {
-        margin-bottom: 0 !important;
+        margin: 0 !important;
     }
 }
 
@@ -163,7 +186,9 @@
     .tech_spec .tech_spec__description .tech_spec__btn {
         /*position: absolute;*/
         /*bottom: 30px;*/
-        width: fit-content;
+        /*width: fit-content;*/
+        position: relative;
+        bottom: 14px;
     }
 
     .tech_spec .tech_spec__description .tech_spec__titles {
