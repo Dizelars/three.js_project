@@ -17,7 +17,20 @@ const interiorText = document.querySelector('.tech_spec__interior-text');
 const interiorBlock = document.querySelector('.tech_spec__interior');
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
-const modalAframe = document.querySelector('.a-modal');
+// let elementHover = document.querySelectorAll('.tech_spec__btn, .tech_spec__btn img, .tech_spec__btn img.rotate, .tech_spec__interior .arrow-wrapper img, .auto_park__control img, .auto_park__control img.rotate, .gallery_item, .gallery_item.active, .gallery_item img, .gallery_item.active img');
+//
+// elementHover.forEach((e) => {
+//     e.addEventListener('touchstart', function() {
+//         e.classList.add('hover');
+//     });
+//
+//     e.addEventListener('touchend', function() {
+//         e.classList.remove('hover');
+//     });
+// });
+
+
+
 
 // function updateInteriorPosition() {
 //     const screenWidth2 = window.innerWidth;

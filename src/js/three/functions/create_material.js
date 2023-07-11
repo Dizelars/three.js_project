@@ -26,23 +26,23 @@ let mapTextureMain_2Url;
 
 if (screenWidth >= 850) {
     // Загрузка модели с другого пути для разрешения 850 и выше
-    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
-    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
-    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
     // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/47/kuzov.png';
-    mapTextureMainUrl = 'model/47/uv-1.png';
-    mapTextureFaraUrl = 'model/47/fara.png';
-    mapTextureMain_2Url = 'model/47/Main_texture_2.png';
+    // mapTextureMainUrl = 'model/47/uv-1.png';
+    // mapTextureFaraUrl = 'model/47/fara.png';
+    // mapTextureMain_2Url = 'model/47/Main_texture_2.png';
     // mapTextureKuzovUrl = 'model/47/kuzov.png';
 } else {
     // Загрузка модели с основного пути для разрешений ниже 850
-    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/48/uv-1.png';
-    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/48/fara.png';
-    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/48/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/48/uv-1.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/48/fara.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/48/Main_texture_2.png';
     // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/48/kuzov.png';
-    mapTextureMainUrl = 'model/48/uv-1.png';
-    mapTextureFaraUrl = 'model/48/fara.png';
-    mapTextureMain_2Url = 'model/48/Main_texture_2.png';
+    // mapTextureMainUrl = 'model/48/uv-1.png';
+    // mapTextureFaraUrl = 'model/48/fara.png';
+    // mapTextureMain_2Url = 'model/48/Main_texture_2.png';
     // mapTextureKuzovUrl = 'model/48/kuzov.png';
 }
 

@@ -5,6 +5,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
 import {createMaterialProperties} from './functions/create_material.js';
 import Stats from 'stats.js';
+// import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
@@ -89,13 +90,13 @@ const LoadingManager = new THREE.LoadingManager();
 const progressBar = document.getElementById('progress-bar');
 const progressLabel = document.getElementById('progress-label');
 const progressLoad = document.querySelector('.progress-bar-container > label');
-const progressContainer = document.querySelector('.progress-bar-container');
+// const progressContainer = document.querySelector('.progress-bar-container');
 LoadingManager.onProgress = function(url, loaded, total) {
     const progressPercent = Math.round((loaded / total) * 100);
     progressBar.value = progressPercent;
     progressLabel.textContent = `${progressPercent}%`;
-    progressContainer.style.setProperty('--top-left-percentage', `${progressPercent}%`);
-    progressContainer.style.setProperty('--bottom-right-percentage', `${progressPercent}%`);
+    // progressContainer.style.setProperty('--top-left-percentage', `${progressPercent}%`);
+    // progressContainer.style.setProperty('--bottom-right-percentage', `${progressPercent}%`);
     // Проверяем значение прогресса и выводим соответствующее сообщение
     if (progressPercent >= 50 && progressPercent < 70) {
         progressLoad.textContent = 'Экипируемся...';
@@ -175,10 +176,10 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
-controls1.enabled = true;
-controls1.enablePan = false;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
+// controls1.enabled = true;
+// controls1.enablePan = false;
 controls1.update();
 
 // Условие для версии модели и отбрасывание тени
@@ -186,19 +187,38 @@ let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
     // Загрузка модели с другого пути для разрешения 850 и выше
-    // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-    url = 'model/47/test2.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
+    // url = 'model/47/test2.gltf';
     ShadowSwitch = true
 } else {
     // Загрузка модели с основного пути для разрешений ниже 850
-    // url = 'https://coddmac.store/THREE/3Dmodels/48/test5.gltf';
-    url = 'model/48/test5.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/48/test5.gltf';
+    // url = 'model/48/test5.gltf';
     ShadowSwitch = false
 }
 
+// const laderRenderer = new CSS2DRenderer();
+// laderRenderer.setSize(window.innerWidth, window.innerHeight);
+// laderRenderer.domElement.style.position = 'absolute';
+// laderRenderer.domElement.style.top = '0';
+// laderRenderer.domElement.style.pointerEvents = 'none';
+// document.body.appendChild(laderRenderer.domElement);
+//
+// const p = document.createElement('p');
+// p.className = 'sceneText';
+// p.textContent = '[ ЦОДД ]'
+// // const cPointLabel = new CSS2DObject(p);
+// // scene1.add(cPointLabel);
+// // cPointLabel.position.set(-5, 23, 122);
+//
+// const div = document.createElement('div');
+// div.className = 'sceneTextWrapper';
+// div.appendChild(p);
+// const divContainer = new CSS2DObject(div);
+// scene1.add(divContainer);
+
 // model/47/test2.gltf
 // model/48/test5.gltf
-
 
 // 3) Свет экстерьер
 const lightPositions1 = [
@@ -365,14 +385,13 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
 });
 
 // 11) Пол + Загрузка текстуры бетона экстерьер
-const BetonMapJPG = new URL('../../img/beton/betonMap.jpg', import.meta.url);
+const betonMapJPG = new URL('../../img/beton/betonMap.jpg', import.meta.url);
 const betonDmapJPG = new URL('../../img/beton/betonDmap.jpg', import.meta.url);
+// const betonBmapJPG = new URL('../../img/beton/betonBmap.jpg', import.meta.url);
 const BetonLoader = new THREE.TextureLoader(LoadingManager);
-// const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton_1111.jpg');
-// const betonDmap= BetonLoader.load('https://coddmac.store/THREE/beton_displacement.jpg');
-const BetonMap = BetonLoader.load(BetonMapJPG);
-const betonDmap= BetonLoader.load(betonDmapJPG);
-// const betonBmap = BetonLoader.load('https://coddmac.store/THREE/beton_bump.jpg');
+const BetonMap = BetonLoader.load(betonMapJPG);
+const BetonDmap= BetonLoader.load(betonDmapJPG);
+// const BetonBmap= BetonLoader.load(betonBmapJPG);
 BetonMap.wrapS = THREE.RepeatWrapping; // Повторение текстуры по горизонтали
 BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры по вертикали
 BetonMap.repeat.set(8, 8); // Количество повторений текстуры
@@ -385,7 +404,7 @@ const planeMaterial = new THREE.MeshPhongMaterial({
     // bumpMap: betonBmap,
     bumpScale: 2,
     map: BetonMap,
-    displacementMap: betonDmap,
+    displacementMap: BetonDmap,
     displacementScale: 0.1,
     side: THREE.DoubleSide, // Применение к обеим сторонам
 });
@@ -459,6 +478,7 @@ scene2.add(ambientLightScene_2);
 function animate() {
     stats.begin();
     if (activeScene === 1) {
+        // laderRenderer.render(scene1, camera1);
         renderer.render(scene1, camera1);
         // console.log("Number of Triangles :", renderer.info.render.triangles);
         stats.end();
@@ -477,6 +497,7 @@ window.addEventListener('resize', () => {
     // camera2.aspect = window.innerWidth / window.innerHeight;
     // camera2.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    // laderRenderer.setSize(this.window.innerWidth, this.window.innerHeight);
 });
 
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
