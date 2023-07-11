@@ -1,20 +1,56 @@
 import * as THREE from "three";
 
+// Ширина экрана
+const screenWidth = window.innerWidth;
+
 const textures = {
     mapTexture: null,
     mapTextureFara: null,
     mapTexture2: null
 };
 
+// https://coddmac.store/THREE/3Dmodels/47/uv-1.png
+// https://coddmac.store/THREE/3Dmodels/47/fara.png
+// https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png
+// model/47/uv-1.png
+// model/47/fara.png
+// model/47/Main_texture_2.png
+// model/48/uv-1.png
+// model/48/fara.png
+// model/48/Main_texture_2.png
+
+let mapTextureMainUrl;
+let mapTextureFaraUrl;
+let mapTextureMain_2Url;
+// let mapTextureKuzovUrl;
+
+if (screenWidth >= 850) {
+    // Загрузка модели с другого пути для разрешения 850 и выше
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
+    // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/47/kuzov.png';
+    mapTextureMainUrl = 'model/47/uv-1.png';
+    mapTextureFaraUrl = 'model/47/fara.png';
+    mapTextureMain_2Url = 'model/47/Main_texture_2.png';
+    // mapTextureKuzovUrl = 'model/47/kuzov.png';
+} else {
+    // Загрузка модели с основного пути для разрешений ниже 850
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/48/uv-1.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/48/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/48/Main_texture_2.png';
+    // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/48/kuzov.png';
+    mapTextureMainUrl = 'model/48/uv-1.png';
+    mapTextureFaraUrl = 'model/48/fara.png';
+    mapTextureMain_2Url = 'model/48/Main_texture_2.png';
+    // mapTextureKuzovUrl = 'model/48/kuzov.png';
+}
+
 function loadTextures() {
     const textureLoader = new THREE.TextureLoader();
-    // textures.mapTexture = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/uv-1.png');
-    // textures.mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/fara.png');
-    // textures.mapTexture2 = textureLoader.load('https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png');
-    textures.mapTextureMain = textureLoader.load('https://coddmac.store/THREE/3Dmodels/gltf_mobile_2/uv-1.png');
-    textures.mapTextureFara = textureLoader.load('https://coddmac.store/THREE/3Dmodels/gltf_mobile_2/fara.png');
-    textures.mapTextureMain_2 = textureLoader.load('https://coddmac.store/THREE/3Dmodels/gltf_mobile_2/Main_texture_2.png');
-    // textures.mapTextureKuzov = textureLoader.load('https://coddmac.store/THREE/3Dmodels/gltf_mobile_2/kuzov.png');
+    textures.mapTextureMain = textureLoader.load(mapTextureMainUrl);
+    textures.mapTextureFara = textureLoader.load(mapTextureFaraUrl);
+    textures.mapTextureMain_2 = textureLoader.load(mapTextureMain_2Url);
     textures.mapTextureMain.flipY = false;
     textures.mapTextureMain_2.flipY = false;
     textures.mapTextureFara.flipY = false;

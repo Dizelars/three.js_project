@@ -37,6 +37,10 @@ import Stats from 'stats.js';
 // Переключение активной сцены
 // Измененение размера сцены под размер экрана
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
+
+// Ширина экрана
+const screenWidth = window.innerWidth;
+
 let pixelRatio = window.devicePixelRatio
 let AA = true
 if (pixelRatio > 1) {
@@ -130,6 +134,7 @@ const scene1 = new THREE.Scene();
 scene1.background = new THREE.Color(0x000000);
 scene1.fog = new THREE.Fog(0x000000, 290, 600);
 
+
 //0xffffff
 //0x000000
 //0xB5B8B1
@@ -176,14 +181,30 @@ controls1.enabled = true;
 controls1.enablePan = false;
 controls1.update();
 
+// Условие для версии модели и отбрасывание тени
+let url;
+let ShadowSwitch;
+if (screenWidth >= 850) {
+    // Загрузка модели с другого пути для разрешения 850 и выше
+    // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
+    url = 'model/47/test2.gltf';
+    ShadowSwitch = true
+} else {
+    // Загрузка модели с основного пути для разрешений ниже 850
+    // url = 'https://coddmac.store/THREE/3Dmodels/48/test5.gltf';
+    url = 'model/48/test5.gltf';
+    ShadowSwitch = false
+}
+
+// model/47/test2.gltf
+// model/48/test5.gltf
+
 
 // 3) Свет экстерьер
 const lightPositions1 = [
     [-203, 38, -112],
     [-219, 37, -2],
     [-199, 33, 83],
-    // [265.38149179418303, 29.66356022269588, 3.5128582340225742],
-    // [197.0975889816967, 33.78571878903604, 156.13137890856612]
 ];
 lightPositions1.forEach(position => {
     const light = new THREE.PointLight(0xffffff, 0.9);
@@ -195,7 +216,7 @@ lightPositions1.forEach(position => {
 
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
 SpotLight5.position.set(0, 470, -0);
-SpotLight5.castShadow = true;
+SpotLight5.castShadow = ShadowSwitch;
 // SpotLight5.shadow.bias = 0.001;
 SpotLight5.shadow.mapSize.height = 64; // Разрешение отображения теней
 SpotLight5.shadow.mapSize.width = 64; // Разрешение отображения теней
@@ -213,13 +234,13 @@ scene1.add(SpotLight5);
 
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
 RectAreaLight.position.set(10, 110, 120);
-RectAreaLight.castShadow = false;
+RectAreaLight.castShadow = ShadowSwitch;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
 const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
 RectAreaLight2.position.set(36, 56, -194);
-RectAreaLight2.castShadow = false;
+RectAreaLight2.castShadow = ShadowSwitch;
 RectAreaLight2.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight2 );
 // const helper = new RectAreaLightHelper( RectAreaLight );
@@ -240,19 +261,21 @@ dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/'
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
-let url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
 
-// https://coddmac.store/THREE/3Dmodels/gltf_mobile_1/test5.gltf
+// https://coddmac.store/THREE/3Dmodels/48/test5.gltf
 // https://coddmac.store/THREE/3Dmodels/47/test2.gltf
+// model/47/test2.gltf
+// model/48/test5.gltf
 // 5) Загрузка карты отражений на моделе экстерьер
 
 // ../img/studio.hdr  toneMappingExposure = 0.1
 // ../img/garage.hdr  toneMappingExposure = 0.1;
 // ../img/MR_INT-005_WhiteNeons_NAD.hdr   toneMappingExposure = 0.3
-const PhoneHDR = new URL('../../img/garage.jpg', import.meta.url);
+// const PhoneHDR = new URL('../../img/garage.jpg', import.meta.url);
 // const rgbLoaderPhone = new RGBELoader(LoadingManager);
+const PhoneJPG = new URL('../../img/garage.jpg', import.meta.url);
 const rgbLoaderPhone = new THREE.TextureLoader(LoadingManager);
-rgbLoaderPhone.load(PhoneHDR, function (texture) {
+rgbLoaderPhone.load(PhoneJPG, function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     // scene1.background = texture;
     scene1.environment = texture;
@@ -291,7 +314,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
         // 9) Обход загружаемой модели и замена материалов экстерьер
         obj.traverse(function(child) {
             if (child.isMesh) {
-                child.castShadow = true;
+                child.castShadow = ShadowSwitch;
                 // child.receiveShadow = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
@@ -315,7 +338,7 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
                         if (groupChild.isMesh) {
                             // Присваиваем материал из свойств groupChild.material
                             groupChild.material = groupProperties.material;
-                            groupChild.castShadow = true;
+                            groupChild.castShadow = ShadowSwitch;
                             // groupChild.receiveShadow = true;
                         }
                     });
@@ -323,7 +346,6 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
             }
         });
 
-        // setMaterialProperties();
         function setMaterialProperties(material, name) {
             const properties = materialProperties[name];
 
@@ -343,10 +365,14 @@ rgbLoaderPhone.load(PhoneHDR, function (texture) {
 });
 
 // 11) Пол + Загрузка текстуры бетона экстерьер
+const BetonMapJPG = new URL('../../img/beton/betonMap.jpg', import.meta.url);
+const betonDmapJPG = new URL('../../img/beton/betonDmap.jpg', import.meta.url);
 const BetonLoader = new THREE.TextureLoader(LoadingManager);
-const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton_1111.jpg');
+// const BetonMap = BetonLoader.load('https://coddmac.store/THREE/beton_1111.jpg');
+// const betonDmap= BetonLoader.load('https://coddmac.store/THREE/beton_displacement.jpg');
+const BetonMap = BetonLoader.load(BetonMapJPG);
+const betonDmap= BetonLoader.load(betonDmapJPG);
 // const betonBmap = BetonLoader.load('https://coddmac.store/THREE/beton_bump.jpg');
-const betonDmap= BetonLoader.load('https://coddmac.store/THREE/beton_displacement.jpg');
 BetonMap.wrapS = THREE.RepeatWrapping; // Повторение текстуры по горизонтали
 BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры по вертикали
 BetonMap.repeat.set(8, 8); // Количество повторений текстуры
@@ -368,7 +394,7 @@ const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 scene1.add(plane);
 plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
 plane.position.set(0, -2, 0) // Поворот плиты.
-plane.receiveShadow = true; // Плоскость получает тень, которую излучает модель
+plane.receiveShadow = ShadowSwitch; // Плоскость получает тень, которую излучает модель
 
 
 // 12) Вспомогательная система координат экстерьер
@@ -429,59 +455,6 @@ scene2.add(ambientLightScene_2);
 //0x40404  1500
 //0xfffff  8-10
 
-// let loader = new THREE.ImageLoader();
-// let texture = new THREE.Texture();
-//
-// loader.load(
-//     'https://coddmac.store/THREE/360/Amarok/amarok.jpg',
-//     function (image) {
-//         texture.image = image;
-//         texture.needsUpdate = true;
-//
-//         let sphereGeometry = new THREE.SphereGeometry(500, 32, 64);
-//         let sphereMaterial = new THREE.MeshPhysicalMaterial({
-//             map: texture,
-//             side: THREE.BackSide,
-//             color: '#fffff',
-//             opacity: 1,
-//             roughness: 0.5, // Нет отражений (матовый материал)
-//             metalness: 0, // Нет отражений (не металлический)
-//             transparent: false,
-//         });
-//         sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-//         sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-//         sphereGeometry.phiLength = 360;
-//         sphereGeometry.phiStart = 0;
-//         sphereGeometry.thetaLength = 180;
-//         sphereGeometry.thetaStart = 0;
-//         let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-//         scene2.add(sphere);
-//         sphere.position.set(0, 0, 0);
-//         sphere.castShadow = true;
-//         sphere.rotation.y = Math.PI;
-//     }
-// );
-
-// 4) Вывод в сферу картинки в формате hdr интерьер
-
-// const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
-// const rgbLoader = new RGBELoader(LoadingManager);
-// rgbLoader.load(hdrTextureURL, (texture) => {
-//     const sphereGeometry = new THREE.SphereGeometry(4, 60, 60); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
-//     const sphereMaterial = new THREE.MeshPhongMaterial({
-//         map: texture,
-//         // opacity: 1,
-//         // transparent: true,
-//         side: THREE.BackSide
-//     });
-//     sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-//     sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-//     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-//     sphere.position.set(0, 0, 0);
-//     scene2.add(sphere);
-// })
-
-
 // Переключение активной сцены
 function animate() {
     stats.begin();
@@ -537,3 +510,56 @@ interiorButton.addEventListener('click', () => {
         }, dur * 1000);
     }
 });
+
+
+// let loader = new THREE.ImageLoader();
+// let texture = new THREE.Texture();
+//
+// loader.load(
+//     'https://coddmac.store/THREE/360/Amarok/amarok.jpg',
+//     function (image) {
+//         texture.image = image;
+//         texture.needsUpdate = true;
+//
+//         let sphereGeometry = new THREE.SphereGeometry(500, 32, 64);
+//         let sphereMaterial = new THREE.MeshPhysicalMaterial({
+//             map: texture,
+//             side: THREE.BackSide,
+//             color: '#fffff',
+//             opacity: 1,
+//             roughness: 0.5, // Нет отражений (матовый материал)
+//             metalness: 0, // Нет отражений (не металлический)
+//             transparent: false,
+//         });
+//         sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+//         sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+//         sphereGeometry.phiLength = 360;
+//         sphereGeometry.phiStart = 0;
+//         sphereGeometry.thetaLength = 180;
+//         sphereGeometry.thetaStart = 0;
+//         let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+//         scene2.add(sphere);
+//         sphere.position.set(0, 0, 0);
+//         sphere.castShadow = true;
+//         sphere.rotation.y = Math.PI;
+//     }
+// );
+
+// 4) Вывод в сферу картинки в формате hdr интерьер
+
+// const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
+// const rgbLoader = new RGBELoader(LoadingManager);
+// rgbLoader.load(hdrTextureURL, (texture) => {
+//     const sphereGeometry = new THREE.SphereGeometry(4, 60, 60); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
+//     const sphereMaterial = new THREE.MeshPhongMaterial({
+//         map: texture,
+//         // opacity: 1,
+//         // transparent: true,
+//         side: THREE.BackSide
+//     });
+//     sphereMaterial.map.wrapS = THREE.RepeatWrapping;
+//     sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
+//     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+//     sphere.position.set(0, 0, 0);
+//     scene2.add(sphere);
+// })
