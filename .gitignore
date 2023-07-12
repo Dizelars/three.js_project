@@ -49,7 +49,8 @@ node_modules/
 jspm_packages/
 src/model/
 img/
-
+model/
+model
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -260,3 +261,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,phpstorm+all,node
+/src/model/
