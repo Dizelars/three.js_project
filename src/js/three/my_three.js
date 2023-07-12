@@ -176,28 +176,34 @@ camera1.position.copy(initialCameraPosition1);
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
-// controls1.enabled = true;
-// controls1.enablePan = false;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
+controls1.enabled = true;
+controls1.enablePan = false;
 controls1.update();
 
 // Условие для версии модели и отбрасывание тени
 let url;
-url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
+// url = 'model/optimize/opt.gltf';
 let ShadowSwitch;
-ShadowSwitch = false;
-// if (screenWidth >= 850) {
-//     // Загрузка модели с другого пути для разрешения 850 и выше
-//     url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
-//     // url = 'model/47/test2.gltf';
-//     ShadowSwitch = true
-// } else {
-//     // Загрузка модели с основного пути для разрешений ниже 850
-//     url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
-//     // url = 'model/48/test5.gltf';
-//     ShadowSwitch = false
-// }
+// ShadowSwitch = false;
+if (screenWidth >= 850) {
+    // Загрузка модели с другого пути для разрешения 850 и выше
+    // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
+    // url = 'model/47/test2.gltf';
+    url = 'model/desctopTest/test2.gltf';
+    ShadowSwitch = true;
+} else {
+    // Загрузка модели с основного пути для разрешений ниже 850
+    // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
+    // url = 'model/optimize/opt.gltf';
+    url = 'model/optimizeTest/opt.gltf';
+    ShadowSwitch = false;
+}
+
+//model/desctopTest/test2.gltf
+//model/optimizeTest/opt.gltf
+
 //https://coddmac.store/THREE/3Dmodels/47/test2.gltf
 //https://coddmac.store/THREE/3Dmodels/48/test5.gltf
 //https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf
@@ -242,7 +248,8 @@ lightPositions1.forEach(position => {
 });
 
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
-SpotLight5.position.set(0, 470, -0);
+// SpotLight5.position.set(0, 470, -0);
+SpotLight5.position.set(500, 470, 0);
 SpotLight5.castShadow = ShadowSwitch;
 // SpotLight5.shadow.bias = 0.001;
 SpotLight5.shadow.mapSize.height = 64; // Разрешение отображения теней
@@ -260,13 +267,15 @@ SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
 
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
-RectAreaLight.position.set(10, 110, 120);
+// RectAreaLight.position.set(10, 110, 120);
+RectAreaLight.position.set(10, 110, 240);
 RectAreaLight.castShadow = ShadowSwitch;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
 const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
-RectAreaLight2.position.set(36, 56, -194);
+// RectAreaLight2.position.set(36, 56, -194);
+RectAreaLight2.position.set(36, 56, -245);
 RectAreaLight2.castShadow = ShadowSwitch;
 RectAreaLight2.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight2 );
@@ -275,7 +284,7 @@ scene1.add( RectAreaLight2 );
 //
 // const helper2 = new RectAreaLightHelper( RectAreaLight2 );
 // scene1.add( helper2 ); // helper must be added as a child of the light
-//
+// //
 // const spothelper1 = new THREE.SpotLightHelper(SpotLight5);
 // scene1.add( spothelper1 );
 
@@ -316,20 +325,20 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
-        // let materialProperties = {};
+        let materialProperties = {};
         for (let i = 0; i < obj.children.length; i++) {
             names.push(obj.children[i].name);
         }
-        // for (let i = 0; i < names.length; i++) {
-        //     let name = names[i];
-        //     materialProperties[name] = createMaterialProperties(name);
-        // }
-        const materialProperties = names.reduce(function(props, name) {
-            props[name] = createMaterialProperties(name);
-            return props;
-        }, {});
+        for (let i = 0; i < names.length; i++) {
+            let name = names[i];
+            materialProperties[name] = createMaterialProperties(name);
+        }
+        // const materialProperties = names.reduce(function(props, name) {
+        //     props[name] = createMaterialProperties(name);
+        //     return props;
+        // }, {});
 
-        const namesSet = new Set(names);
+        // const namesSet = new Set(names);
 
         // 8) Функция с моими параметрами материалов экстерьер
         createMaterialProperties();
@@ -345,7 +354,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                 // child.receiveShadow = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
-            if (child.isMesh && namesSet.has(child.name)) {
+            if (child.isMesh && names.includes(child.name)) {
                 const properties = materialProperties[child.name];
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
@@ -355,7 +364,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                 }
             }
             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
-            else if (child.isGroup && namesSet.has(child.name)) {
+            else if (child.isGroup && names.includes(child.name)) {
                 const groupProperties = materialProperties[child.name];
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
