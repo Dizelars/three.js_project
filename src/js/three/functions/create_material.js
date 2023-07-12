@@ -18,6 +18,8 @@ const textures = {
 // model/48/uv-1.png
 // model/48/fara.png
 // model/48/Main_texture_2.png
+//https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf
+//model/Bake_optimize_1/opt.gltf
 
 let mapTextureMainUrl;
 let mapTextureFaraUrl;
@@ -26,9 +28,9 @@ let mapTextureMain_2Url;
 
 if (screenWidth >= 850) {
     // Загрузка модели с другого пути для разрешения 850 и выше
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/uv.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/fara.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/Main_texture_2.png';
     // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/47/kuzov.png';
     // mapTextureMainUrl = 'model/47/uv-1.png';
     // mapTextureFaraUrl = 'model/47/fara.png';
@@ -36,9 +38,9 @@ if (screenWidth >= 850) {
     // mapTextureKuzovUrl = 'model/47/kuzov.png';
 } else {
     // Загрузка модели с основного пути для разрешений ниже 850
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/48/uv-1.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/48/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/48/Main_texture_2.png';
+    mapTextureMainUrl = 'model/Bake_optimize_1/uv.png';
+    mapTextureFaraUrl = 'model/Bake_optimize_1/fara.png';
+    mapTextureMain_2Url = 'model/Bake_optimize_1/Main_texture_2.png';
     // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/48/kuzov.png';
     // mapTextureMainUrl = 'model/48/uv-1.png';
     // mapTextureFaraUrl = 'model/48/fara.png';
@@ -77,7 +79,23 @@ const materials = {
         map: textures.mapTextureMain_2,
         clipShadows: true
     },
-    main002: {
+    main001: {
+        roughness: 0.4,
+        metalness: 0.7,
+        clearcoat: 0.3,
+        clearcoatRoughness: 0.3,
+        map: textures.mapTextureMain,
+        clipShadows: true
+    },
+    tablo: {
+        roughness: 0.4,
+        metalness: 0.7,
+        clearcoat: 0.3,
+        clearcoatRoughness: 0.3,
+        map: textures.mapTextureMain,
+        clipShadows: true
+    },
+    main003: {
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,

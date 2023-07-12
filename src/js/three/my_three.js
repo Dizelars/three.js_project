@@ -114,7 +114,7 @@ const progressBarContainer = document.querySelector('.progress-bar');
 LoadingManager.onLoad = function() {
     setTimeout( () => {
         progressBarContainer.style.display = 'none';
-    }, 4000);
+    }, 0);
 }
 
 // 4) onError - когда при загрузке одного из файлов происходит ошибка.
@@ -184,18 +184,25 @@ controls1.update();
 
 // Условие для версии модели и отбрасывание тени
 let url;
+url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
 let ShadowSwitch;
-if (screenWidth >= 850) {
-    // Загрузка модели с другого пути для разрешения 850 и выше
-    url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-    // url = 'model/47/test2.gltf';
-    ShadowSwitch = true
-} else {
-    // Загрузка модели с основного пути для разрешений ниже 850
-    url = 'https://coddmac.store/THREE/3Dmodels/48/test5.gltf';
-    // url = 'model/48/test5.gltf';
-    ShadowSwitch = false
-}
+ShadowSwitch = false;
+// if (screenWidth >= 850) {
+//     // Загрузка модели с другого пути для разрешения 850 и выше
+//     url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
+//     // url = 'model/47/test2.gltf';
+//     ShadowSwitch = true
+// } else {
+//     // Загрузка модели с основного пути для разрешений ниже 850
+//     url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
+//     // url = 'model/48/test5.gltf';
+//     ShadowSwitch = false
+// }
+//https://coddmac.store/THREE/3Dmodels/47/test2.gltf
+//https://coddmac.store/THREE/3Dmodels/48/test5.gltf
+//https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf
+// model/Bake_optimize_1/opt.gltf
+
 
 // const laderRenderer = new CSS2DRenderer();
 // laderRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -480,7 +487,7 @@ function animate() {
     if (activeScene === 1) {
         // laderRenderer.render(scene1, camera1);
         renderer.render(scene1, camera1);
-        // console.log("Number of Triangles :", renderer.info.render.triangles);
+        console.log("Number of Triangles :", renderer.info.render.triangles);
         stats.end();
     } else {
         renderer.render(scene2, camera2);

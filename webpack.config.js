@@ -6,6 +6,15 @@ const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
 const devtool = devMode ? 'source-map' : undefined;
 
+let htmlPageNames = ['404'];
+let multipleHtmlPlugins = htmlPageNames.map(name => {
+    return new HtmlWebpackPlugin({
+        template: `./src/pages/${name}.html`, // относительный путь к HTML-файлам
+        filename: `${name}.html`, // выходные HTML-файлы
+        chunks: [`${name}`] // соответствующие JS-файлы
+    })
+});
+
 module.exports = {
     mode,
     target,
@@ -13,24 +22,39 @@ module.exports = {
     devServer: {
         open: true,
     },
+    // entry: {
+    //     main: './js/direction.js',
+    //     example1: './js/pages/404.js',
+    //     //... repeat until example 4
+    // },
+    // entry: 'index.js',
+    // output: {
+    //     path: __dirname + '/dist',
+    //     filename: 'direction.js'
+    // },
     entry: path.resolve(__dirname, 'src', 'index.js'),
     // entry: {
     //     index: './src/index.js',
-    //     aframe_interior: './src/pages/aframe_interior.js',
+    //     '404': './src/pages/404.js',
     // },
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        clean: true,
-        filename: 'script.js',
-    },
+    // output: {
+    //     path: path.resolve(__dirname, 'dist'),
+    //     clean: true,
+    //     filename: 'script.js',
+    // },
     plugins: [
+        // new HtmlWebpackPlugin({
+        //     template: "./src/index.html",
+        //     chunks: ['main']
+        // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html')
         }),
+        //
         // new HtmlWebpackPlugin({
-        //     filename: 'index.html',
-        //     template: './src/index.html',
-        //     // chunks: ['index'],
+        //     filename: '404.html',
+        //     template: './src/pages/404.html',
+        //     chunks: ['404']
         // }),
         // new HtmlWebpackPlugin({
         //     filename: 'aframe_interior.html',
@@ -41,6 +65,7 @@ module.exports = {
             filename: 'style.css',
         }),
     ],
+    // ].concat(multipleHtmlPlugins),
     module: {
         rules: [
             {
@@ -81,6 +106,18 @@ module.exports = {
                     filename: 'fonts/[name][ext]'
                 }
             },
+            // {
+            //     test: /\.html$/i,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 name: '[name].[ext]'
+            //             }
+            //         }
+            //     ],
+            //     exclude: path.resolve(__dirname, 'src', 'index.html')
+            // },
             // {
             //     test: /\.gltf$/,
             //     loader: '@vxna/gltf-loader',
