@@ -33,6 +33,9 @@ if (screenWidth >= 850) {
     // mapTextureMainUrl = 'model/desctopTest/uv-1.png';
     // mapTextureFaraUrl = 'model/desctopTest/fara.png';
     // mapTextureMain_2Url = 'model/desctopTest/Main_texture_2.png';
+    // mapTextureMainUrl = 'model/optimizeTest_2/uv.png';
+    // mapTextureFaraUrl = 'model/optimizeTest_2/fara.png';
+    // mapTextureMain_2Url = 'model/optimizeTest_2/Main_texture_2.png';
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
     // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
@@ -44,6 +47,9 @@ if (screenWidth >= 850) {
     mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/Main_texture_2.png';
 } else {
     // Загрузка модели с основного пути для разрешений ниже 850
+    // mapTextureMainUrl = 'model/optimizeTest_2/uv.png';
+    // mapTextureFaraUrl = 'model/optimizeTest_2/fara.png';
+    // mapTextureMain_2Url = 'model/optimizeTest_2/Main_texture_2.png';
     // mapTextureMainUrl = 'model/optimizeTest/uv_optimise.png';
     // mapTextureFaraUrl = 'model/optimizeTest/fara.png';
     // mapTextureMain_2Url = 'model/optimizeTest/Main_texture_2.png';
@@ -70,14 +76,19 @@ function loadTextures() {
 
 loadTextures();
 
+let CastomMaterial = 'MeshPhysicalMaterial';
+
 const materials = {
     Main_2: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
+        transparent: false,
+        depthWrite: true,
         map: textures.mapTextureMain_2,
+        side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch
     },
     main001: {
@@ -86,61 +97,77 @@ const materials = {
         metalness: 1
     },
     main: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
+        transparent: false,
+        depthWrite: true,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
     },
     main002: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
+        transparent: false,
+        depthWrite: true,
         map: textures.mapTextureMain,
+        side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch
     },
     main003: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
+        transparent: false,
+        depthWrite: true,
         map: textures.mapTextureMain,
+        side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch
     },
     main004: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
+        transparent: false,
+        depthWrite: true,
         map: textures.mapTextureMain,
+        side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch
     },
     tablo: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
+        transparent: false,
+        depthWrite: true,
         map: textures.mapTextureMain,
+        side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch
     },
     Stekla: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         color: 0xB8B8B8,
         roughness: 0.1,
         metalness: 0.8,
         transmission: 1,
-        ior: 1.450,
+        // ior: 1.450,
+        // transparent: false,
+        depthWrite: true,
     },
     Fari_perednie_stekla: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         color: 0xffffff,
         roughness: 0.2,
         metalness: 0.9,
@@ -149,6 +176,7 @@ const materials = {
         opacity: 0.4
     },
     Fari_nizhnie: {
+        material: CastomMaterial,
         color: 0xffffff,
         roughness: 0.2,
         metalness: 0.9,
@@ -168,7 +196,7 @@ const materials = {
         side: THREE.DoubleSide
     },
     Fari_zadnie: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         color: 0xA52019,
         roughness: 0.2,
         metalness: 0.9,
@@ -177,7 +205,7 @@ const materials = {
         opacity: 0.8
     },
     Ekran: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -187,6 +215,7 @@ const materials = {
         side: THREE.DoubleSide
     },
     Ekran2: {
+        material: CastomMaterial,
         color: 0x000000,
         roughness: 0.1,
         metalness: 0.8,
@@ -195,7 +224,7 @@ const materials = {
         clipShadows: clipShadowsSwitch
     },
     Mayachok: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         color: 0xffffff,
         roughness: 0.2,
         metalness: 0.9,
@@ -205,27 +234,28 @@ const materials = {
     },
     Mayachokvnutri: {
         color: 0xffffff,
-        roughness: 0,
-        metalness: 1
+        // roughness: 0,
+        // metalness: 1
     },
     Reylingi: {
         color: 0x000000,
-        roughness: 0.9,
-        metalness: 1
+        // roughness: 0.9,
+        // metalness: 1
     },
     Podnozhka: {
+        material: CastomMaterial,
         color: 0x000000,
         roughness: 0.2,
         metalness: 0.9
     },
     Dvorniki: {
         color: 0x000000,
-        roughness: 0.9,
-        metalness: 1
+        // roughness: 0.9,
+        // metalness: 1
     },
     Salon: {
         color: 0x000000,
-        roughness: 1
+        // roughness: 1
     },
     // Reshetka: {
     //     color: 0x000000,
@@ -233,32 +263,34 @@ const materials = {
     //     metalness: 1
     // },
     Reshetka_metal: {
+        material: CastomMaterial,
         color: 0xBCBCBC,
         roughness: 0.2,
         metalness: 1
     },
     Kolesa_diski: {
-        material: 'MeshPhysicalMaterial',
+        material: CastomMaterial,
         color: 0xBCBCBC,
         roughness: 0.2,
         metalness: 1
     },
     "Kolesa-shini": {
         color: 0x000000,
-        roughness: 0.35,
-        metalness: 0.0
+        // roughness: 0.35,
+        // metalness: 0.0
     },
     Tormoza: {
         color: 0x000000,
-        roughness: 0.2,
-        metalness: 0.0
+        // roughness: 0.2,
+        // metalness: 0.0
     },
     Brzgoviki: {
         color: 0x000000,
-        roughness: 0.2,
-        metalness: 0.9
+        // roughness: 0.2,
+        // metalness: 0.9
     },
     Krishka_pod_bazazhnikom: {
+        material: CastomMaterial,
         color: 0x000000,
         roughness: 0.9,
         metalness: 1
@@ -296,12 +328,14 @@ export function createMaterialProperties(name) {
         case 'MeshStandardMaterial':
             materialConstructor = THREE.MeshStandardMaterial;
             break;
+        case 'MeshPhongMaterial':
+            materialConstructor = THREE.MeshPhongMaterial;
+            break;
         default:
             materialConstructor = THREE.MeshBasicMaterial;
     }
 
     properties.material = new materialConstructor(properties);
-    console.log(properties.material);
     return properties;
 }
 

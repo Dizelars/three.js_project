@@ -58,14 +58,14 @@ if (screenWidth >= 850) {
     // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
     url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
     // url = 'model/47/test2.gltf';
-    // url = 'model/desctopTest/test2.gltf';
+    // url = 'model/optimizeTest_2/opt.gltf';
     ShadowSwitch = true;
 } else {
     // Загрузка модели с основного пути для разрешений ниже 850
     // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
     url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
     // url = 'model/optimize/opt.gltf';
-    // url = 'model/optimizeTest/opt.gltf';
+    // url = 'model/optimizeTest_2/opt.gltf';
     ShadowSwitch = false;
 }
 
@@ -83,7 +83,7 @@ renderer.toneMappingExposure = 0.1;
 renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
 renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
-renderer.localClippingEnabled = true; // соблюдает ли рендерер плоскости обрезания на уровне объекта
+// renderer.localClippingEnabled = true; // соблюдает ли рендерер плоскости обрезания на уровне объекта
 
 // renderer.useLegacyLights = false;
 // renderer.toneMapping = THREE.NoToneMapping;
@@ -169,20 +169,29 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 
 // 2) Камера и управление камерой экстерьер
 
-let FOV = 75;
-let FAR = 450;
-let NEAR = 0.1;
+// let FOV = 75;
+// let FAR = 1000;
+// let NEAR = 0.01;
 
-// Mobile camera
-// if (window.innerWidth <= 850) {
-//     FOV = 75
-//     FAR = 450
-//     // 769px - 1080px screen width camera
-// } else {
-//     FOV = 75
-//     FAR = 450
-//     // > 1080px screen width res camera
-// }
+// let FOV = 75;
+// let FAR = 450;
+// let NEAR = 0.1;
+
+let FOV;
+let FAR;
+let NEAR;
+
+if (window.innerWidth <= 850) {
+    FOV = 75
+    FAR = 450
+    NEAR = 0.1;
+    // 769px - 1080px screen width camera
+} else {
+    FOV = 75
+    FAR = 450
+    NEAR = 5;
+    // > 1080px screen width res camera
+}
 
 const camera1 = new THREE.PerspectiveCamera(
     FOV,
@@ -191,11 +200,23 @@ const camera1 = new THREE.PerspectiveCamera(
     FAR
 )
 
-
+// let width = window.innerWidth;
+// let height = window.innerHeight;
 // const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
-const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
+// const camera1 = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
 // const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
 camera1.position.copy(initialCameraPosition1);
+camera1.updateProjectionMatrix();
+
+// camera1.zoom = 1.5;
+// camera1.filmGauge = 2000;
+// camera1.filmOffset = 100;
+// camera1.focus = 50;
+
+// const helper = new THREE.CameraHelper( camera1 );
+// scene1.add( helper );
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
@@ -264,6 +285,7 @@ SpotLight5.shadow.camera.left = 1;
 SpotLight5.shadow.camera.right = -1;
 SpotLight5.shadow.camera.top = 1;
 SpotLight5.shadow.camera.bottom = -1;
+// SpotLight5.shadow.bias = 0.001;  // Должен убирать акртефакты тени.
 // SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
 // SpotLight5.shadow.focus = 1;
 SpotLight5.angle = 0.5;
@@ -355,6 +377,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         obj.traverse(function(child) {
             if (child.isMesh) {
                 child.castShadow = ShadowSwitch;
+                child.renderOrder = 1;
                 // child.receiveShadow = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
@@ -370,6 +393,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
             else if (child.isGroup && namesSet.has(child.name)) {
                 const groupProperties = materialProperties[child.name];
+                child.renderOrder = 2;
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
                 if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
@@ -379,6 +403,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                             // Присваиваем материал из свойств groupChild.material
                             groupChild.material = groupProperties.material;
                             groupChild.castShadow = ShadowSwitch;
+                            groupChild.renderOrder = 1;
                             // groupChild.receiveShadow = true;
                         }
                     });
@@ -503,7 +528,7 @@ function animate() {
     if (activeScene === 1) {
         // laderRenderer.render(scene1, camera1);
         renderer.render(scene1, camera1);
-        console.log("Количество полигонов :", renderer.info.render.triangles);
+        // console.log("Количество полигонов :", renderer.info.render.triangles);
         // console.log("Рендер :", renderer.info);
         stats.end();
     } else {
