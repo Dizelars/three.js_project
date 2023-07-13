@@ -4,7 +4,6 @@ import * as THREE from "three";
 const screenWidth = window.innerWidth;
 
 let clipShadowsSwitch;
-// ShadowSwitch = false;
 clipShadowsSwitch = screenWidth >= 850;
 
 const textures = {
@@ -28,14 +27,12 @@ const textures = {
 let mapTextureMainUrl;
 let mapTextureFaraUrl;
 let mapTextureMain_2Url;
-// let mapTextureKuzovUrl;
 
 if (screenWidth >= 850) {
     // Загрузка модели с другого пути для разрешения 850 и выше
     // mapTextureMainUrl = 'model/desctopTest/uv-1.png';
     // mapTextureFaraUrl = 'model/desctopTest/fara.png';
     // mapTextureMain_2Url = 'model/desctopTest/Main_texture_2.png';
-    // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/47/kuzov.png';
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
     // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
@@ -53,7 +50,6 @@ if (screenWidth >= 850) {
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/fara.png';
     // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/Main_texture_2.png';
-    // mapTextureKuzovUrl = 'https://coddmac.store/THREE/3Dmodels/48/kuzov.png';
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest/fara.png';
     // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest/Main_texture_2.png';
@@ -70,13 +66,13 @@ function loadTextures() {
     textures.mapTextureMain.flipY = false;
     textures.mapTextureMain_2.flipY = false;
     textures.mapTextureFara.flipY = false;
-    // textures.mapTextureKuzov.flipY = false;
 }
 
 loadTextures();
 
 const materials = {
     Main_2: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -90,15 +86,17 @@ const materials = {
         metalness: 1
     },
     main: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
-        clipShadows: clipShadowsSwitch
+        clipShadows: clipShadowsSwitch,
     },
     main002: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -107,6 +105,7 @@ const materials = {
         clipShadows: clipShadowsSwitch
     },
     main003: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -115,6 +114,7 @@ const materials = {
         clipShadows: clipShadowsSwitch
     },
     main004: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -123,6 +123,7 @@ const materials = {
         clipShadows: clipShadowsSwitch
     },
     tablo: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -131,6 +132,7 @@ const materials = {
         clipShadows: clipShadowsSwitch
     },
     Stekla: {
+        material: 'MeshPhysicalMaterial',
         color: 0xB8B8B8,
         roughness: 0.1,
         metalness: 0.8,
@@ -138,6 +140,7 @@ const materials = {
         ior: 1.450,
     },
     Fari_perednie_stekla: {
+        material: 'MeshPhysicalMaterial',
         color: 0xffffff,
         roughness: 0.2,
         metalness: 0.9,
@@ -165,6 +168,7 @@ const materials = {
         side: THREE.DoubleSide
     },
     Fari_zadnie: {
+        material: 'MeshPhysicalMaterial',
         color: 0xA52019,
         roughness: 0.2,
         metalness: 0.9,
@@ -173,6 +177,7 @@ const materials = {
         opacity: 0.8
     },
     Ekran: {
+        material: 'MeshPhysicalMaterial',
         roughness: 0.4,
         metalness: 0.7,
         clearcoat: 0.3,
@@ -190,6 +195,7 @@ const materials = {
         clipShadows: clipShadowsSwitch
     },
     Mayachok: {
+        material: 'MeshPhysicalMaterial',
         color: 0xffffff,
         roughness: 0.2,
         metalness: 0.9,
@@ -232,6 +238,7 @@ const materials = {
         metalness: 1
     },
     Kolesa_diski: {
+        material: 'MeshPhysicalMaterial',
         color: 0xBCBCBC,
         roughness: 0.2,
         metalness: 1
@@ -258,16 +265,46 @@ const materials = {
     }
 };
 
+// export function createMaterialProperties(name) {
+//     const materialData = materials[name];
+//     if (!materialData) {
+//         return {}; // Возвращаем пустой объект, если имя не найдено
+//     }
+//
+//     const properties = { ...materialData };
+//     // properties.material = new THREE.MeshPhysicalMaterial(properties);
+//     // properties.material = materialData.material;
+//     properties.material = new materialData.material(properties); // Создаем экземпляр материала, используя конструктор из materialData
+//     console.log(properties.material);
+//     return properties;
+// }
+
 export function createMaterialProperties(name) {
     const materialData = materials[name];
     if (!materialData) {
-        return {}; // Возвращаем пустой объект, если имя не найдено
+        return {};
     }
 
     const properties = { ...materialData };
-    properties.material = new THREE.MeshPhysicalMaterial(properties);
+    const materialType = materialData.material;
+
+    let materialConstructor;
+    switch (materialType) {
+        case 'MeshPhysicalMaterial':
+            materialConstructor = THREE.MeshPhysicalMaterial;
+            break;
+        case 'MeshStandardMaterial':
+            materialConstructor = THREE.MeshStandardMaterial;
+            break;
+        default:
+            materialConstructor = THREE.MeshBasicMaterial;
+    }
+
+    properties.material = new materialConstructor(properties);
+    console.log(properties.material);
     return properties;
 }
+
 
 // export function createMaterialProperties(name) {
 //     let properties = {};
