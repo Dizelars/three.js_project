@@ -48,10 +48,31 @@ if (pixelRatio > 1) {
     AA = false
 }
 
+// Условие для версии модели и отбрасывание тени
+let url;
+// url = 'model/optimize/opt.gltf';
+let ShadowSwitch;
+// ShadowSwitch = false;
+if (screenWidth >= 850) {
+    // Загрузка модели с другого пути для разрешения 850 и выше
+    // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
+    // url = 'model/47/test2.gltf';
+    // url = 'model/desctopTest/test2.gltf';
+    ShadowSwitch = true;
+} else {
+    // Загрузка модели с основного пути для разрешений ниже 850
+    // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
+    // url = 'model/optimize/opt.gltf';
+    // url = 'model/optimizeTest/opt.gltf';
+    ShadowSwitch = false;
+}
+
 // WebGLRenderer + настройки окружения
 const renderer = new THREE.WebGLRenderer({
     antialias: AA,
-    powerPreference: "high-performance",
+    // powerPreference: "high-performance",
     precision: "lowp",
     physicallyCorrectLights: true,
 });
@@ -59,9 +80,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.outputEncoding = THREE.sRGBEncoding; // Сопоставление цветов hdr фото
 renderer.toneMapping = THREE.ACESFilmicToneMapping;// Алгоритм отображения тонов
 renderer.toneMappingExposure = 0.1;
-renderer.shadowMap.enabled = true;
+renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
 renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
+renderer.localClippingEnabled = true; // соблюдает ли рендерер плоскости обрезания на уровне объекта
+
+// renderer.useLegacyLights = false;
 // renderer.toneMapping = THREE.NoToneMapping;
 // Shadow Types
 // THREE.BasicShadowMap
@@ -135,6 +159,9 @@ const scene1 = new THREE.Scene();
 scene1.background = new THREE.Color(0x000000);
 scene1.fog = new THREE.Fog(0x000000, 290, 600);
 
+// scene1.traverse( function( object ) {
+//     object.frustumCulled = false;
+// });
 
 //0xffffff
 //0x000000
@@ -142,35 +169,32 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 
 // 2) Камера и управление камерой экстерьер
 
-// let FOV
-// let FAR
-// let NEAR = 400
-//
-// // Mobile camera
-// if (window.innerWidth <= 768) {
-//     FOV = 50
-//     FAR = 1200
+let FOV = 75;
+let FAR = 450;
+let NEAR = 0.1;
+
+// Mobile camera
+// if (window.innerWidth <= 850) {
+//     FOV = 75
+//     FAR = 450
 //     // 769px - 1080px screen width camera
-// } else if (window.innerWidth >= 769 && window.innerWidth <= 1080) {
-//     FOV = 50
-//     FAR = 1475
-//     // > 1080px screen width res camera
 // } else {
-//     FOV = 40
-//     FAR = 1800
+//     FOV = 75
+//     FAR = 450
+//     // > 1080px screen width res camera
 // }
-//
-// const initialCameraPosition1 = new THREE.PerspectiveCamera(
-//     FOV,
-//     window.innerWidth / window.innerHeight,
-//     NEAR,
-//     FAR
-// )
+
+const camera1 = new THREE.PerspectiveCamera(
+    FOV,
+    window.innerWidth / window.innerHeight,
+    NEAR,
+    FAR
+)
 
 
 // const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
 const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
-const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera1.position.copy(initialCameraPosition1);
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
@@ -180,26 +204,8 @@ controls1.minDistance = 210;
 controls1.maxDistance = 260;
 controls1.enabled = true;
 controls1.enablePan = false;
+// controls1.addEventListener( 'change', animate );
 controls1.update();
-
-// Условие для версии модели и отбрасывание тени
-let url;
-// url = 'model/optimize/opt.gltf';
-let ShadowSwitch;
-// ShadowSwitch = false;
-if (screenWidth >= 850) {
-    // Загрузка модели с другого пути для разрешения 850 и выше
-    // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-    // url = 'model/47/test2.gltf';
-    url = 'model/desctopTest/test2.gltf';
-    ShadowSwitch = true;
-} else {
-    // Загрузка модели с основного пути для разрешений ниже 850
-    // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
-    // url = 'model/optimize/opt.gltf';
-    url = 'model/optimizeTest/opt.gltf';
-    ShadowSwitch = false;
-}
 
 //model/desctopTest/test2.gltf
 //model/optimizeTest/opt.gltf
@@ -230,8 +236,6 @@ if (screenWidth >= 850) {
 // const divContainer = new CSS2DObject(div);
 // scene1.add(divContainer);
 
-// model/47/test2.gltf
-// model/48/test5.gltf
 
 // 3) Свет экстерьер
 const lightPositions1 = [
@@ -248,8 +252,8 @@ lightPositions1.forEach(position => {
 });
 
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
-// SpotLight5.position.set(0, 470, -0);
-SpotLight5.position.set(500, 470, 0);
+SpotLight5.position.set(0, 470, -0);
+// SpotLight5.position.set(500, 470, 0);
 SpotLight5.castShadow = ShadowSwitch;
 // SpotLight5.shadow.bias = 0.001;
 SpotLight5.shadow.mapSize.height = 64; // Разрешение отображения теней
@@ -267,15 +271,15 @@ SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
 
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
-// RectAreaLight.position.set(10, 110, 120);
-RectAreaLight.position.set(10, 110, 240);
+RectAreaLight.position.set(10, 110, 120);
+// RectAreaLight.position.set(10, 110, 240);
 RectAreaLight.castShadow = ShadowSwitch;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
 const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
-// RectAreaLight2.position.set(36, 56, -194);
-RectAreaLight2.position.set(36, 56, -245);
+RectAreaLight2.position.set(36, 56, -194);
+// RectAreaLight2.position.set(36, 56, -245);
 RectAreaLight2.castShadow = ShadowSwitch;
 RectAreaLight2.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight2 );
@@ -325,20 +329,20 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
-        let materialProperties = {};
+        // let materialProperties = {};
         for (let i = 0; i < obj.children.length; i++) {
             names.push(obj.children[i].name);
         }
-        for (let i = 0; i < names.length; i++) {
-            let name = names[i];
-            materialProperties[name] = createMaterialProperties(name);
-        }
-        // const materialProperties = names.reduce(function(props, name) {
-        //     props[name] = createMaterialProperties(name);
-        //     return props;
-        // }, {});
+        // for (let i = 0; i < names.length; i++) {
+        //     let name = names[i];
+        //     materialProperties[name] = createMaterialProperties(name);
+        // }
+        const materialProperties = names.reduce(function(props, name) {
+            props[name] = createMaterialProperties(name);
+            return props;
+        }, {});
 
-        // const namesSet = new Set(names);
+        const namesSet = new Set(names);
 
         // 8) Функция с моими параметрами материалов экстерьер
         createMaterialProperties();
@@ -354,7 +358,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                 // child.receiveShadow = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
-            if (child.isMesh && names.includes(child.name)) {
+            if (child.isMesh && namesSet.has(child.name)) {
                 const properties = materialProperties[child.name];
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
@@ -364,7 +368,7 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                 }
             }
             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
-            else if (child.isGroup && names.includes(child.name)) {
+            else if (child.isGroup && namesSet.has(child.name)) {
                 const groupProperties = materialProperties[child.name];
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
@@ -410,7 +414,8 @@ const BetonDmap= BetonLoader.load(betonDmapJPG);
 // const BetonBmap= BetonLoader.load(betonBmapJPG);
 BetonMap.wrapS = THREE.RepeatWrapping; // Повторение текстуры по горизонтали
 BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры по вертикали
-BetonMap.repeat.set(8, 8); // Количество повторений текстуры
+// BetonMap.repeat.set(8, 8); // Количество повторений текстуры
+BetonMap.repeat.set(4, 4); // Количество повторений текстуры
 
 const planeMaterial = new THREE.MeshPhongMaterial({
     // color: 0x090909, // Цвет бетона
@@ -424,7 +429,8 @@ const planeMaterial = new THREE.MeshPhongMaterial({
     displacementScale: 0.1,
     side: THREE.DoubleSide, // Применение к обеим сторонам
 });
-const planeGeometry = new THREE.PlaneGeometry(1500, 1500, 40, 40); // Модель №2 Подложка
+// const planeGeometry = new THREE.PlaneGeometry(1500, 1500, 40, 40); // Модель №2 Подложка
+const planeGeometry = new THREE.PlaneGeometry(750, 750, 5, 5); // Модель №2 Подложка
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 scene1.add(plane);
 plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
@@ -437,7 +443,7 @@ plane.receiveShadow = ShadowSwitch; // Плоскость получает те�
 // scene1.add(axesHelper);
 
 
-// 13) Перемещение по координатам при клике на кнопки или интерьер экстерьер
+// 13) Перемещение по координатам при клике на кнопки интерьер или экстерьер
 function MyCoordinates(xPos, yPos, zPos, dur) {
     gsap.to(camera1.position, {
         x: xPos,
@@ -481,6 +487,7 @@ camera2.position.copy(initialCameraPosition2);
 
 const controls2 = new OrbitControls(camera2, renderer.domElement);
 controls2.enabled = false;
+// controls2.addEventListener( 'change', animate );
 controls2.update();
 
 // 3) Свет интерьер
@@ -496,7 +503,8 @@ function animate() {
     if (activeScene === 1) {
         // laderRenderer.render(scene1, camera1);
         renderer.render(scene1, camera1);
-        console.log("Number of Triangles :", renderer.info.render.triangles);
+        console.log("Количество полигонов :", renderer.info.render.triangles);
+        // console.log("Рендер :", renderer.info);
         stats.end();
     } else {
         renderer.render(scene2, camera2);
