@@ -51,19 +51,31 @@ if (pixelRatio > 1) {
 // Условие для версии модели и отбрасывание тени
 let url;
 // url = 'model/optimize/opt.gltf';
+
+//https://coddmac.store/THREE/3Dmodels/cube_gltf/gltf.gltf
+// url = 'https://coddmac.store/THREE/3Dmodels/cube_gltf/gltf.gltf';
+//https://coddmac.store/THREE/3Dmodels/cube_mini/untitled.gltf
+// https://coddmac.store/THREE/3Dmodels/cube_big/gltf.gltf
 let ShadowSwitch;
 // ShadowSwitch = false;
 if (screenWidth >= 850) {
     // Загрузка модели с другого пути для разрешения 850 и выше
-    // url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-    url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/sinihka/untitled.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
+    // url ='https://coddmac.store/THREE/3Dmodels/android/opt.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
     // url = 'model/47/test2.gltf';
     // url = 'model/optimizeTest_2/opt.gltf';
     ShadowSwitch = true;
 } else {
+    //sinihka/untitled.gltf
     // Загрузка модели с основного пути для разрешений ниже 850
     // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
-    url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/sinihka/untitled.gltf';
+    // url ='https://coddmac.store/THREE/3Dmodels/android/opt.gltf';
     // url = 'model/optimize/opt.gltf';
     // url = 'model/optimizeTest_2/opt.gltf';
     ShadowSwitch = false;
@@ -73,7 +85,8 @@ if (screenWidth >= 850) {
 const renderer = new THREE.WebGLRenderer({
     antialias: AA,
     // powerPreference: "high-performance",
-    precision: "lowp",
+    // logarithmicDepthBuffer: true, // логарифмический буфер глубины
+    // precision: "lowp",
     physicallyCorrectLights: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -84,6 +97,7 @@ renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
 renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 // renderer.localClippingEnabled = true; // соблюдает ли рендерер плоскости обрезания на уровне объекта
+// renderer.sortObjects = false;
 
 // renderer.useLegacyLights = false;
 // renderer.toneMapping = THREE.NoToneMapping;
@@ -174,41 +188,41 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 // let NEAR = 0.01;
 
 // let FOV = 75;
-// let FAR = 450;
+// let FAR = 0;
 // let NEAR = 0.1;
 
-let FOV;
-let FAR;
-let NEAR;
+// let FOV;
+// let FAR;
+// let NEAR;
 
-if (window.innerWidth <= 850) {
-    FOV = 75
-    FAR = 450
-    NEAR = 0.1;
-    // 769px - 1080px screen width camera
-} else {
-    FOV = 75
-    FAR = 450
-    NEAR = 5;
-    // > 1080px screen width res camera
-}
+// if (window.innerWidth <= 850) {
+//     FOV = 75
+//     FAR = 450
+//     NEAR = 0.01;
+//     // 769px - 1080px screen width camera
+// } else {
+//     FOV = 75
+//     FAR = 450
+//     NEAR = 5;
+//     // > 1080px screen width res camera
+// }
 
-const camera1 = new THREE.PerspectiveCamera(
-    FOV,
-    window.innerWidth / window.innerHeight,
-    NEAR,
-    FAR
-)
+// const camera1 = new THREE.PerspectiveCamera(
+//     FOV,
+//     window.innerWidth / window.innerHeight,
+//     NEAR,
+//     FAR
+// )
 
 // let width = window.innerWidth;
 // let height = window.innerHeight;
 // const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
 // const camera1 = new THREE.OrthographicCamera( width / - 2, width / 2, height / 2, height / - 2, 1, 1000 );
 // const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-// const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1);
 const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
 camera1.position.copy(initialCameraPosition1);
-camera1.updateProjectionMatrix();
+// camera1.updateProjectionMatrix();
 
 // camera1.zoom = 1.5;
 // camera1.filmGauge = 2000;
@@ -221,20 +235,12 @@ camera1.updateProjectionMatrix();
 const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.minPolarAngle = 0;
 controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
-controls1.enabled = true;
-controls1.enablePan = false;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
+// controls1.enabled = true;
+// controls1.enablePan = false;
 // controls1.addEventListener( 'change', animate );
 controls1.update();
-
-//model/desctopTest/test2.gltf
-//model/optimizeTest/opt.gltf
-
-//https://coddmac.store/THREE/3Dmodels/47/test2.gltf
-//https://coddmac.store/THREE/3Dmodels/48/test5.gltf
-//https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf
-// model/Bake_optimize_1/opt.gltf
 
 
 // const laderRenderer = new CSS2DRenderer();
@@ -271,6 +277,9 @@ lightPositions1.forEach(position => {
     // const helper = new THREE.PointLightHelper(light);
     // scene1.add(helper);
 });
+
+// const Ambient = new THREE.SpotLight(0xffffff, 3);
+// SpotLight5.position.set(0, 470, -0);
 
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
 SpotLight5.position.set(0, 470, -0);
@@ -324,10 +333,7 @@ dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
 let obj;
 
-// https://coddmac.store/THREE/3Dmodels/48/test5.gltf
-// https://coddmac.store/THREE/3Dmodels/47/test2.gltf
-// model/47/test2.gltf
-// model/48/test5.gltf
+
 // 5) Загрузка карты отражений на моделе экстерьер
 
 // ../img/studio.hdr  toneMappingExposure = 0.1
@@ -348,6 +354,12 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         scene1.add(obj);
         console.log(obj.children);
         obj.position.set(-35, -3, -27.5);
+        // obj.position.set(0, 0, 0);
+        // const box = new THREE.Box3().setFromObject(obj);
+        // const size = new THREE.Vector3();
+        // box.getSize(size);
+        // const linearSize = size.length();
+        // console.log('Linear size:', linearSize);
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
@@ -377,8 +389,10 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         obj.traverse(function(child) {
             if (child.isMesh) {
                 child.castShadow = ShadowSwitch;
-                child.renderOrder = 1;
+                // child.renderOrder = 1;
                 // child.receiveShadow = true;
+                child.frustumCulled = false;
+                // child.polygonOffset = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
             if (child.isMesh && namesSet.has(child.name)) {
@@ -388,12 +402,16 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                 if (properties && Object.keys(properties).length > 0 && properties.material) {
                     // Присваиваем материал из свойств child.material
                     child.material = properties.material;
+                    child.frustumCulled = false;
+                    // child.polygonOffset = true;
                 }
             }
             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
             else if (child.isGroup && namesSet.has(child.name)) {
                 const groupProperties = materialProperties[child.name];
-                child.renderOrder = 2;
+                // child.renderOrder = 2;
+                child.frustumCulled = false;
+                // child.polygonOffset = true;
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
                 if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
@@ -403,7 +421,9 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                             // Присваиваем материал из свойств groupChild.material
                             groupChild.material = groupProperties.material;
                             groupChild.castShadow = ShadowSwitch;
-                            groupChild.renderOrder = 1;
+                            groupChild.frustumCulled = false;
+                            // groupChild.polygonOffset = true;
+                            // groupChild.renderOrder = 1;
                             // groupChild.receiveShadow = true;
                         }
                     });
@@ -502,23 +522,23 @@ const coordinates = [
 
 // Сцена интерьера Амарок
 // 1) Фон интерьер
-const scene2 = new THREE.Scene(LoadingManager);
-scene2.background = new THREE.Color(0x000000)
+// const scene2 = new THREE.Scene(LoadingManager);
+// scene2.background = new THREE.Color(0x000000)
+// //
+// // // 2) Камера и управление камерой интерьер
+// const initialCameraPosition2 = new THREE.Vector3(-0.0006, -0.00006, 0.0001);
+// const camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// camera2.position.copy(initialCameraPosition2);
 //
-// // 2) Камера и управление камерой интерьер
-const initialCameraPosition2 = new THREE.Vector3(-0.0006, -0.00006, 0.0001);
-const camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera2.position.copy(initialCameraPosition2);
-
-const controls2 = new OrbitControls(camera2, renderer.domElement);
-controls2.enabled = false;
-// controls2.addEventListener( 'change', animate );
-controls2.update();
-
-// 3) Свет интерьер
-// let ambientLightScene_2 = new THREE.AmbientLight(0x40404,2000);
-let ambientLightScene_2 = new THREE.AmbientLight(0xffffff,4);
-scene2.add(ambientLightScene_2);
+// const controls2 = new OrbitControls(camera2, renderer.domElement);
+// controls2.enabled = false;
+// // controls2.addEventListener( 'change', animate );
+// controls2.update();
+//
+// // 3) Свет интерьер
+// // let ambientLightScene_2 = new THREE.AmbientLight(0x40404,2000);
+// let ambientLightScene_2 = new THREE.AmbientLight(0xffffff,4);
+// scene2.add(ambientLightScene_2);
 //0x40404  1500
 //0xfffff  8-10
 
@@ -532,7 +552,7 @@ function animate() {
         // console.log("Рендер :", renderer.info);
         stats.end();
     } else {
-        renderer.render(scene2, camera2);
+        // renderer.render(scene2, camera2);
         // console.log("Number of Triangles :", renderer.info.render.triangles);
         stats.end();
     }
@@ -542,7 +562,7 @@ renderer.setAnimationLoop(animate);
 // Измененение размера сцены под размер экрана
 window.addEventListener('resize', () => {
     camera1.aspect = window.innerWidth / window.innerHeight;
-    camera1.updateProjectionMatrix();
+    // camera1.updateProjectionMatrix();
     // camera2.aspect = window.innerWidth / window.innerHeight;
     // camera2.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -558,12 +578,12 @@ interiorButton.addEventListener('click', () => {
         const [x, y, z, dur] = coordinates[5];
         MyCoordinates(x, y, z, dur);
         setTimeout(() => {
-            activeScene = 2;
+            // activeScene = 2;
             aFrameScene.style.display = 'block';
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             controls1.enabled = false;
-            controls2.enabled = true;
+            // controls2.enabled = true;
             animate();
         }, dur * 1000);
     } else {
@@ -575,7 +595,7 @@ interiorButton.addEventListener('click', () => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             controls1.enabled = true;
-            controls2.enabled = false;
+            // controls2.enabled = false;
             animate();
         }, dur * 1000);
     }

@@ -36,15 +36,21 @@ if (screenWidth >= 850) {
     // mapTextureMainUrl = 'model/optimizeTest_2/uv.png';
     // mapTextureFaraUrl = 'model/optimizeTest_2/fara.png';
     // mapTextureMain_2Url = 'model/optimizeTest_2/Main_texture_2.png';
-    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
-    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
-    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/desctopTest/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/desctopTest/fara.png';
     // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/desctopTest/Main_texture_2.png';
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/uv.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/Main_texture_2.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/uv.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/Main_texture_2.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/49/Main_texture_2.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/android/uv.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/android/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/android/Main_texture_2.png';
 } else {
     // Загрузка модели с основного пути для разрешений ниже 850
     // mapTextureMainUrl = 'model/optimizeTest_2/uv.png';
@@ -59,9 +65,15 @@ if (screenWidth >= 850) {
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest/fara.png';
     // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest/Main_texture_2.png';
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/uv.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/Main_texture_2.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/uv.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/49/Main_texture_2.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/android/uv.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/android/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/android/Main_texture_2.png';
 }
 
 function loadTextures() {
@@ -78,6 +90,14 @@ loadTextures();
 
 let CastomMaterial = 'MeshPhysicalMaterial';
 
+//transparent: false,
+// depthWrite: true,
+
+// Whether to use polygon offset. Default is false. This corresponds to the GL_POLYGON_OFFSET_FILL WebGL feature. .polygonOffset = true;
+// depthWrite: false,
+// polygonOffset: true,
+// polygonOffsetFactor: -4
+
 const materials = {
     Main_2: {
         material: CastomMaterial,
@@ -85,11 +105,12 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        transparent: false,
-        depthWrite: true,
         map: textures.mapTextureMain_2,
         side: THREE.DoubleSide,
-        clipShadows: clipShadowsSwitch
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
     },
     main001: {
         color: 0x000000,
@@ -102,11 +123,25 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        transparent: false,
-        depthWrite: true,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
+    },
+    Main: {
+        material: CastomMaterial,
+        roughness: 0.4,
+        metalness: 0.7,
+        clearcoat: 0.3,
+        clearcoatRoughness: 0.3,
+        map: textures.mapTextureMain,
+        side: THREE.DoubleSide,
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
     },
     main002: {
         material: CastomMaterial,
@@ -114,11 +149,12 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        transparent: false,
-        depthWrite: true,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
-        clipShadows: clipShadowsSwitch
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
     },
     main003: {
         material: CastomMaterial,
@@ -126,11 +162,12 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        transparent: false,
-        depthWrite: true,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
-        clipShadows: clipShadowsSwitch
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
     },
     main004: {
         material: CastomMaterial,
@@ -138,11 +175,12 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        transparent: false,
-        depthWrite: true,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
-        clipShadows: clipShadowsSwitch
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
     },
     tablo: {
         material: CastomMaterial,
@@ -150,11 +188,12 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        transparent: false,
-        depthWrite: true,
         map: textures.mapTextureMain,
         side: THREE.DoubleSide,
-        clipShadows: clipShadowsSwitch
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
     },
     Stekla: {
         material: CastomMaterial,
@@ -162,9 +201,7 @@ const materials = {
         roughness: 0.1,
         metalness: 0.8,
         transmission: 1,
-        // ior: 1.450,
-        // transparent: false,
-        depthWrite: true,
+        ior: 1.450,
     },
     Fari_perednie_stekla: {
         material: CastomMaterial,
@@ -257,11 +294,11 @@ const materials = {
         color: 0x000000,
         // roughness: 1
     },
-    // Reshetka: {
-    //     color: 0x000000,
-    //     roughness: 0.9,
-    //     metalness: 1
-    // },
+    Reshetka: {
+        color: 0x000000,
+        roughness: 0.9,
+        metalness: 1
+    },
     Reshetka_metal: {
         material: CastomMaterial,
         color: 0xBCBCBC,
@@ -294,7 +331,7 @@ const materials = {
         color: 0x000000,
         roughness: 0.9,
         metalness: 1
-    }
+    },
 };
 
 // export function createMaterialProperties(name) {
