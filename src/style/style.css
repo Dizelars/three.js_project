@@ -360,9 +360,10 @@ a-scene {
     left: 0;
     right: 0;
     z-index: 1;
-    margin-bottom: 60px;
+    /*margin-bottom: 60px;*/
     transition: transform 0.3s ease;
-    transform: translateY(100%);
+    /*transform: translateY(100%);*/
+    transform: translateY(74%);
 }
 
 .auto_park .container {

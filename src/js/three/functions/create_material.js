@@ -90,13 +90,12 @@ loadTextures();
 
 let CastomMaterial = 'MeshPhysicalMaterial';
 
-//transparent: false,
-// depthWrite: true,
 
-// Whether to use polygon offset. Default is false. This corresponds to the GL_POLYGON_OFFSET_FILL WebGL feature. .polygonOffset = true;
+// Использовать ли смещение полигонов. По умолчанию значение false. Это соответствует WebGL-функции GL_POLYGON_OFFSET_FILL
 // depthWrite: false,
 // polygonOffset: true,
 // polygonOffsetFactor: -4
+// transparent: false,
 
 const materials = {
     Main_2: {

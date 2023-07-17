@@ -161,19 +161,27 @@ autoParkControl.addEventListener('click', () => {
 function toggleAutoParkSection() {
     if (isAutoParkVisible) {
         // Если секция .auto_park видима, скрываем ее
-        autoParkSection.style.transform = 'translateY(0)';
+        if (screenWidth <= 576 || (screenWidth <= 900 && window.matchMedia("(orientation: landscape)").matches)) {
+            autoParkSection.style.transform = 'translateY(20px)';
+        } else {
+            autoParkSection.style.transform = 'translateY(0)';
+        }
         buttonIcon2.classList.remove('rotate');
     } else {
         // Если секция .auto_park скрыта, возвращаем ее обратно
-        if (screenWidth <= 391 && screenHeight <= 845) {
-            autoParkSection.style.transform = 'translateY(72%)';
-            autoParkSection.style.margin = '0';
-        } else if (screenWidth <= 894 && screenHeight <= 391) {
-            autoParkSection.style.transform = 'translateY(72%)';
-            autoParkSection.style.margin = '0';
-        } else {
-            autoParkSection.style.transform = 'translateY(100%)';
-        }
+        // if (screenWidth <= 391 && screenHeight <= 845) {
+        //     // autoParkSection.style.transform = 'translateY(72%)';
+        //     autoParkSection.style.transform = 'translateY(74%)';
+        //     // autoParkSection.style.margin = '0';
+        // } else if (screenWidth <= 894 && screenHeight <= 391) {
+        //     // autoParkSection.style.transform = 'translateY(72%)';
+        //     autoParkSection.style.transform = 'translateY(74%)';
+        //     // autoParkSection.style.margin = '0';
+        // } else {
+        //     // autoParkSection.style.transform = 'translateY(100%)';
+        //     autoParkSection.style.transform = 'translateY(74%)';
+        // }
+        autoParkSection.style.transform = 'translateY(74%)';
         buttonIcon2.classList.add('rotate');
     }
 
@@ -181,10 +189,10 @@ function toggleAutoParkSection() {
     isAutoParkVisible = !isAutoParkVisible;
 }
 
-if (screenWidth <= 894 && screenHeight <= 391) {
-    autoParkSection.style.transform = 'translateY(72%)';
-    autoParkSection.style.margin = '0';
-}
+// if (screenWidth <= 894 && screenHeight <= 391) {
+//     autoParkSection.style.transform = 'translateY(72%)';
+//     autoParkSection.style.margin = '0';
+// }
 
 interior.addEventListener('click', () => {
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
@@ -195,11 +203,9 @@ interior.addEventListener('click', () => {
     });
     if (interiorText.textContent === 'В салон') {
         interiorText.textContent = 'В гараж';
-        // interiorBlock.style.background = 'url("../img/layout/slider/slide_amarok.png") no-repeat center/cover';
         interiorBlock.classList.toggle('garage');
     } else {
         interiorText.textContent = 'В салон';
-        // interiorBlock.style.background = 'url("../img/layout/amarok_prew.jpg") no-repeat center/cover';
         interiorBlock.classList.toggle('garage');
     }
 });

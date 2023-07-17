@@ -84,9 +84,11 @@ if (screenWidth >= 850) {
 // WebGLRenderer + настройки окружения
 const renderer = new THREE.WebGLRenderer({
     antialias: AA,
-    // powerPreference: "high-performance",
     // logarithmicDepthBuffer: true, // логарифмический буфер глубины
-    // precision: "lowp",
+    // precision: "highp", // Точность шейдера:
+    // 1. highp (по умолчанию) - Такстуры более детализированы и пропадают лаги исчезания модели
+    // 2. mediump - Лаги с пропаданием шейдеров возвращаются
+    // 3. lowp - Лаги с пропаданием шейдеров возвращаются
     physicallyCorrectLights: true,
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -101,6 +103,7 @@ renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 
 // renderer.useLegacyLights = false;
 // renderer.toneMapping = THREE.NoToneMapping;
+
 // Shadow Types
 // THREE.BasicShadowMap
 // THREE.PCFShadowMap
@@ -241,27 +244,6 @@ controls1.maxPolarAngle = Math.PI * 0.5;
 // controls1.enablePan = false;
 // controls1.addEventListener( 'change', animate );
 controls1.update();
-
-
-// const laderRenderer = new CSS2DRenderer();
-// laderRenderer.setSize(window.innerWidth, window.innerHeight);
-// laderRenderer.domElement.style.position = 'absolute';
-// laderRenderer.domElement.style.top = '0';
-// laderRenderer.domElement.style.pointerEvents = 'none';
-// document.body.appendChild(laderRenderer.domElement);
-//
-// const p = document.createElement('p');
-// p.className = 'sceneText';
-// p.textContent = '[ ЦОДД ]'
-// // const cPointLabel = new CSS2DObject(p);
-// // scene1.add(cPointLabel);
-// // cPointLabel.position.set(-5, 23, 122);
-//
-// const div = document.createElement('div');
-// div.className = 'sceneTextWrapper';
-// div.appendChild(p);
-// const divContainer = new CSS2DObject(div);
-// scene1.add(divContainer);
 
 
 // 3) Свет экстерьер
@@ -463,10 +445,6 @@ BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры 
 BetonMap.repeat.set(4, 4); // Количество повторений текстуры
 
 const planeMaterial = new THREE.MeshPhongMaterial({
-    // color: 0x090909, // Цвет бетона
-    // roughness: 1, // Шероховатость бетона
-    // metalness: 0.0, // Отсутствие металличности
-    // transmission: 0.0, // Непрозрачность (без прозрачности)
     // bumpMap: betonBmap,
     bumpScale: 2,
     map: BetonMap,
@@ -545,17 +523,24 @@ const coordinates = [
 // Переключение активной сцены
 function animate() {
     stats.begin();
-    if (activeScene === 1) {
-        // laderRenderer.render(scene1, camera1);
-        renderer.render(scene1, camera1);
-        // console.log("Количество полигонов :", renderer.info.render.triangles);
-        // console.log("Рендер :", renderer.info);
-        stats.end();
-    } else {
-        // renderer.render(scene2, camera2);
-        // console.log("Number of Triangles :", renderer.info.render.triangles);
-        stats.end();
-    }
+    renderer.render(scene1, camera1);
+    stats.end();
+    // if (activeScene === 1) {
+    //     // laderRenderer.render(scene1, camera1);
+    //     // setTimeout( function() {
+    //     //
+    //     //     requestAnimationFrame( animate );
+    //     //
+    //     // }, 1000 / 30 );
+    //     renderer.render(scene1, camera1);
+    //     // console.log("Количество полигонов :", renderer.info.render.triangles);
+    //     // console.log("Рендер :", renderer.info);
+    //     stats.end();
+    // } else {
+    //     // renderer.render(scene2, camera2);
+    //     // console.log("Number of Triangles :", renderer.info.render.triangles);
+    //     stats.end();
+    // }
 }
 renderer.setAnimationLoop(animate);
 
@@ -578,7 +563,7 @@ interiorButton.addEventListener('click', () => {
         const [x, y, z, dur] = coordinates[5];
         MyCoordinates(x, y, z, dur);
         setTimeout(() => {
-            // activeScene = 2;
+            activeScene = 2;
             aFrameScene.style.display = 'block';
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
@@ -653,3 +638,26 @@ interiorButton.addEventListener('click', () => {
 //     sphere.position.set(0, 0, 0);
 //     scene2.add(sphere);
 // })
+
+
+// Отображение текста в сцене
+
+// const laderRenderer = new CSS2DRenderer();
+// laderRenderer.setSize(window.innerWidth, window.innerHeight);
+// laderRenderer.domElement.style.position = 'absolute';
+// laderRenderer.domElement.style.top = '0';
+// laderRenderer.domElement.style.pointerEvents = 'none';
+// document.body.appendChild(laderRenderer.domElement);
+//
+// const p = document.createElement('p');
+// p.className = 'sceneText';
+// p.textContent = '[ ЦОДД ]'
+// // const cPointLabel = new CSS2DObject(p);
+// // scene1.add(cPointLabel);
+// // cPointLabel.position.set(-5, 23, 122);
+//
+// const div = document.createElement('div');
+// div.className = 'sceneTextWrapper';
+// div.appendChild(p);
+// const divContainer = new CSS2DObject(div);
+// scene1.add(divContainer);

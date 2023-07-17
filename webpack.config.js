@@ -32,11 +32,20 @@ module.exports = {
     //     path: __dirname + '/dist',
     //     filename: 'direction.js'
     // },
-    entry: path.resolve(__dirname, 'src', 'index.js'),
-    // entry: {
-    //     index: './src/index.js',
-    //     '404': './src/pages/404.js',
-    // },
+    // entry: path.resolve(__dirname, 'src', 'index.js'),
+    entry: {
+        // index: './src/index.js',
+        // '404': './src/pages/404.js',
+        index: {
+            // import: './src/js/direction.js',
+            import: './src/index.js',
+            filename: 'javascript/[name].[contenthash].js'
+        },
+        '404': {
+            import: './src/js/pages/404.js',
+            filename: 'javascript/[name].[contenthash].js'
+        },
+    },
     // output: {
     //     path: path.resolve(__dirname, 'dist'),
     //     clean: true,
@@ -48,14 +57,14 @@ module.exports = {
         //     chunks: ['main']
         // }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src', 'index.html')
+            template: path.resolve(__dirname, 'src', 'index.html'),
+            chunks: ['index']
         }),
-        //
-        // new HtmlWebpackPlugin({
-        //     filename: '404.html',
-        //     template: './src/pages/404.html',
-        //     chunks: ['404']
-        // }),
+        new HtmlWebpackPlugin({
+            filename: 'pages/404.html',
+            template: path.resolve(__dirname, 'src/pages', '404.html'),
+            chunks: ['404']
+        }),
         // new HtmlWebpackPlugin({
         //     filename: 'aframe_interior.html',
         //     template: './src/pages/aframe_interior.html',
