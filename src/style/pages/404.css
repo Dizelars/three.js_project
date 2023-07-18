@@ -1,3 +1,5 @@
+@import '../../../node_modules/reset-css/reset.css';
+
 .wrapper_404 {
     display: flex;
     align-items: center;
