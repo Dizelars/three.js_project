@@ -116,6 +116,8 @@ module.exports = {
         '404-style': './src/style/pages/404.css',
         vectary: './src/js/pages/vectary.js',
         'vectary-style': './src/style/pages/vectary.css',
+        solaris: './src/js/pages/solaris.js',
+        'solaris-style': './src/style/pages/solaris.css',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -151,6 +153,12 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'vectary.html'),
             filename: 'pages/vectary.html',
             chunks: ['vectary', 'vectary-style'],
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/pages', 'solaris.html'),
+            filename: 'pages/solaris.html',
+            chunks: ['solaris', 'solaris-style'],
             minify: false,
         }),
         new MiniCssExtractPlugin({

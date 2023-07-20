@@ -45,6 +45,35 @@ a-scene {
     background-color: #FF69B4;
 }
 
+/*.tooltip {*/
+/*    background-color: black;*/
+/*    color: white;*/
+/*    padding: 10px;*/
+/*    border-radius: 20px;*/
+/*    position: relative;*/
+/*    !*transform: translateY(-10px);*!*/
+/*    !*opacity: 0;*!*/
+/*    transition-duration: 0.2s;*/
+/*    transition-property: opacity, transform;*/
+/*}*/
+
+/*.tooltip.hide {*/
+/*    opacity: 0;*/
+/*    transform: translateY(-10px);*/
+/*}*/
+
+/*.tooltip.show {*/
+/*    opacity: 1;*/
+/*    transform: translateY(0);*/
+/*}*/
+
+/*.tooltip.hide {*/
+/*    display: none;*/
+/*}*/
+/*.tooltip.show {*/
+/*    display: block;*/
+/*}*/
+
 
 /*header*/
 
