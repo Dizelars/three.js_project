@@ -99,6 +99,9 @@ renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
 renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 renderer.domElement.id = 'myCanvas';
+const CanvasWrapper = document.getElementById('Canvas_wrapper');
+CanvasWrapper.appendChild(renderer.domElement);
+let bounds = CanvasWrapper.getBoundingClientRect();
 // renderer.localClippingEnabled = true; // соблюдает ли рендерер плоскости обрезания на уровне объекта
 // renderer.sortObjects = false;
 // renderer.useLegacyLights = false;
@@ -109,7 +112,6 @@ renderer.domElement.id = 'myCanvas';
 // THREE.PCFShadowMap
 // THREE.PCFSoftShadowMap
 // THREE.VSMShadowMap
-document.body.appendChild(renderer.domElement);
 
 
 
@@ -332,13 +334,17 @@ console.log(pContainer);
 const cPointLabel = new CSS2DObject(pContainer);
 scene1.add(cPointLabel);
 
-
-window.addEventListener('click', (event) => {
-    const moveY = -70;
+// Нужно использовать размеры canvas, но внутри родительского блока.
+// И считать ширину и высоту через offsetX и offsetY
+CanvasWrapper.addEventListener('click', (event) => {
+    // const moveY = 0;
     const mousePos = new THREE.Vector2(
-        (event.clientX / window.innerWidth) * 2 - 1,
-        -((event.clientY + moveY) / window.innerHeight) * 2 + 1
+        (event.offsetX / bounds.width) * 2 - 1,
+        -((event.offsetY) / bounds.height) * 2 + 1
     );
+    // console.log(event.clientX, event.clientY);
+    console.log(event.offsetX, event.offsetY);
+    // return;
 
     const raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mousePos, camera1);
@@ -675,14 +681,16 @@ renderer.setAnimationLoop(animate);
 
 // Измененение размера сцены под размер экрана
 window.addEventListener('resize', () => {
-    camera1.aspect = window.innerWidth / window.innerHeight;
-    // camera1.aspect = canvas.width / canvas.height;
+    bounds = CanvasWrapper.getBoundingClientRect();
+    // debugger;
+    // camera1.aspect = window.innerWidth / window.innerHeight;
+    camera1.aspect = bounds.width / bounds.height;
     // camera1.updateProjectionMatrix();
     // camera2.aspect = window.innerWidth / window.innerHeight;
     // camera2.updateProjectionMatrix();
     // labelRenderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    // renderer.setSize(canvas.width, canvas.height);
+    // renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(bounds.width, bounds.height);
 });
 
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
