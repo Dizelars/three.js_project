@@ -9,81 +9,81 @@
     <meta name="description" content="Smooth Cam movement"/>
     <link rel="stylesheet" href="../style/style.css">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-<script>
-    setTimeout(() => {
-        AFRAME.registerComponent("hotspots", {
-            init: function () {
-                this.el.addEventListener("reloadspots", function (evt) {
-                    //get the entire current spot group and scale it to 0
-                    let currspotgroup = document.getElementById(evt.detail.currspots);
-                    currspotgroup.setAttribute("scale", "0 0 0");
+    <script>
+        setTimeout(() => {
+            AFRAME.registerComponent("hotspots", {
+                init: function () {
+                    this.el.addEventListener("reloadspots", function (evt) {
+                        //get the entire current spot group and scale it to 0
+                        let currspotgroup = document.getElementById(evt.detail.currspots);
+                        currspotgroup.setAttribute("scale", "0 0 0");
 
-                    //get the entire new spot group and scale it to 1
-                    let newspotgroup = document.getElementById(evt.detail.newspots);
-                    newspotgroup.setAttribute("scale", "1 1 1");
-                });
-            }
-        });
+                        //get the entire new spot group and scale it to 1
+                        let newspotgroup = document.getElementById(evt.detail.newspots);
+                        newspotgroup.setAttribute("scale", "1 1 1");
+                    });
+                }
+            });
 
-        AFRAME.registerComponent("spot", {
-            schema: {
-                linkto: { type: "string", default: "" },
-                spotgroup: { type: "string", default: "" },
-                phiStart: { type: "string", default: "" }
-            },
-            init: function () {
-                this.el.addEventListener("click", () => {
-                    let cam = document.getElementById("cam");
-                    cam.emit("zoomin");
-
-                    let fp = document.getElementById("camfadeplane");
-                    fp.setAttribute("width", "2");
-                    fp.setAttribute("height", "2");
-                    fp.emit("camFadeIn");
-
-                    const reloadSpot = () => {
-                        //set the skybox source to the new image as per the spot
-                        let sky = document.getElementById("skybox");
-                        sky.setAttribute("src", this.data.linkto);
-                        //надобавлял говна но оно не пашет
-                        sky.setAttribute("phi-start", this.data.phiStart);
-
-                        let spotcomp = document.getElementById("spots");
-                        let currspots = this.el.parentElement.getAttribute("id");
-                        //create event for spots component to change the spots data
-                        spotcomp.emit("reloadspots", {
-                            newspots: this.data.spotgroup,
-                            currspots: currspots
-                        });
-
-                        //this.setAttribute("camera","fov",80);
-                        cam.emit("zoomout");
+            AFRAME.registerComponent("spot", {
+                schema: {
+                    linkto: { type: "string", default: "" },
+                    spotgroup: { type: "string", default: "" },
+                    phiStart: { type: "string", default: "" }
+                },
+                init: function () {
+                    this.el.addEventListener("click", () => {
+                        let cam = document.getElementById("cam");
+                        cam.emit("zoomin");
 
                         let fp = document.getElementById("camfadeplane");
-                        fp.emit("camFadeOut");
+                        fp.setAttribute("width", "2");
+                        fp.setAttribute("height", "2");
+                        fp.emit("camFadeIn");
 
-                        setTimeout(() => {
-                            fp.setAttribute("width", "0");
-                            fp.setAttribute("height", "0");
-                        }, 1000);
-                    };
-                    setTimeout(reloadSpot, 2000);
-                });
+                        const reloadSpot = () => {
+                            //set the skybox source to the new image as per the spot
+                            let sky = document.getElementById("skybox");
+                            sky.setAttribute("src", this.data.linkto);
+                            //надобавлял говна но оно не пашет
+                            sky.setAttribute("phi-start", this.data.phiStart);
 
-                // this.el.addEventListener("mouseleave", function () {
-                //   var cur = document.getElementById("cursor-visual");
-                //   cur.emit("stopFuse");
-                // });
+                            let spotcomp = document.getElementById("spots");
+                            let currspots = this.el.parentElement.getAttribute("id");
+                            //create event for spots component to change the spots data
+                            spotcomp.emit("reloadspots", {
+                                newspots: this.data.spotgroup,
+                                currspots: currspots
+                            });
 
-                //поменял mouseenter на click. какая то хуйня
-                // this.el.addEventListener("click", function (evt) {
-                //   var cur = document.getElementById("cursor-visual");
-                //   cur.emit("startFuse");
-                // });
-            }
-        });
-    }, 1500);
-</script>
+                            //this.setAttribute("camera","fov",80);
+                            cam.emit("zoomout");
+
+                            let fp = document.getElementById("camfadeplane");
+                            fp.emit("camFadeOut");
+
+                            setTimeout(() => {
+                                fp.setAttribute("width", "0");
+                                fp.setAttribute("height", "0");
+                            }, 1000);
+                        };
+                        setTimeout(reloadSpot, 2000);
+                    });
+
+                    // this.el.addEventListener("mouseleave", function () {
+                    //   var cur = document.getElementById("cursor-visual");
+                    //   cur.emit("stopFuse");
+                    // });
+
+                    //поменял mouseenter на click. какая то хуйня
+                    // this.el.addEventListener("click", function (evt) {
+                    //   var cur = document.getElementById("cursor-visual");
+                    //   cur.emit("startFuse");
+                    // });
+                }
+            });
+        }, 1500);
+    </script>
 
 </head>
 <body>
@@ -240,12 +240,12 @@
                             </a>
                         </div>
                         <div class="gallery_item">
-                            <a class="gallery_item_link" href="#">
+                            <a class="gallery_item_link" href="../pages/solaris.html">
                                 <img class="gallery_item-img" src="../img/layout/slider/slide_solara_1.png" alt="slide">
                             </a>
                         </div>
                         <div class="gallery_item">
-                            <a class="gallery_item_link" href="../pages/solaris_two.html">
+                            <a class="gallery_item_link" href="#">
                                 <img class="gallery_item-img" src="../img/layout/slider/slide_solara_2.png" alt="slide">
                             </a>
                         </div>
@@ -260,12 +260,12 @@
                             </a>
                         </div>
                         <div class="gallery_item">
-                            <a class="gallery_item_link" href="#">
+                            <a class="gallery_item_link" href="../pages/solaris.html">
                                 <img class="gallery_item-img" src="../img/layout/slider/slide_solara_1.png" alt="slide">
                             </a>
                         </div>
                         <div class="gallery_item">
-                            <a class="gallery_item_link" href="../pages/solaris_two.html">
+                            <a class="gallery_item_link" href="#">
                                 <img class="gallery_item-img" src="../img/layout/slider/slide_solara_2.png" alt="slide">
                             </a>
                         </div>
@@ -280,12 +280,12 @@
                             </a>
                         </div>
                         <div class="gallery_item">
-                            <a class="gallery_item_link" href="#">
+                            <a class="gallery_item_link" href="../pages/solaris.html">
                                 <img class="gallery_item-img" src="../img/layout/slider/slide_solara_1.png" alt="slide">
                             </a>
                         </div>
                         <div class="gallery_item">
-                            <a class="gallery_item_link" href="../pages/solaris_two.html">
+                            <a class="gallery_item_link" href="#">
                                 <img class="gallery_item-img" src="../img/layout/slider/slide_solara_2.png" alt="slide">
                             </a>
                         </div>
@@ -528,74 +528,74 @@
 </a-scene>
 
 <script>
-setTimeout(() => {
-    let currentInfoPanel = null;
+    setTimeout(() => {
+        let currentInfoPanel = null;
 
-    // Open the panel
-    document
-    .querySelectorAll('[mixin="info-sphere"]')
-        .forEach(function (sphere) {
-            sphere.addEventListener("click", function () {
-                console.log("Info sphere clicked: " + this.id);
+        // Open the panel
+        document
+            .querySelectorAll('[mixin="info-sphere"]')
+            .forEach(function (sphere) {
+                sphere.addEventListener("click", function () {
+                    console.log("Info sphere clicked: " + this.id);
 
-                const currentSphereIdNumber = this.id.replace("sphere", "");
+                    const currentSphereIdNumber = this.id.replace("sphere", "");
 
-                // Get the template for this info sphere
-                const template = document.querySelector(
-                    "#infoPanel" + currentSphereIdNumber
-                );
+                    // Get the template for this info sphere
+                    const template = document.querySelector(
+                        "#infoPanel" + currentSphereIdNumber
+                    );
 
-                // Get the info panel entity
-                const infoPanel = document.querySelector(
-                    "#infoPanelContainer" + currentSphereIdNumber
-                );
+                    // Get the info panel entity
+                    const infoPanel = document.querySelector(
+                        "#infoPanelContainer" + currentSphereIdNumber
+                    );
 
-                console.log("Current info panel: ", infoPanel);
+                    console.log("Current info panel: ", infoPanel);
 
-                // Instantiate the new info panel from the template
-                infoPanel.appendChild(document.importNode(template.content, true));
+                    // Instantiate the new info panel from the template
+                    infoPanel.appendChild(document.importNode(template.content, true));
 
-                const allInfoPanelContainerElements = document.querySelectorAll(
-                    "[id^=infoPanelContainer]"
-                );
+                    const allInfoPanelContainerElements = document.querySelectorAll(
+                        "[id^=infoPanelContainer]"
+                    );
 
-                document
-                    .querySelectorAll('[src="#crossIcon"]')
-                    .forEach(function (cross) {
-                        cross.addEventListener("click", function () {
-                            allInfoPanelContainerElements.forEach((container) => {
-                                if (container.id === infoPanel.id) {
-                                    container.innerHTML = "";
-                                    document
-                                        .querySelector("#sphere" + currentInfoPanel)
-                                        .setAttribute("visible", true);
-                                }
+                    document
+                        .querySelectorAll('[src="#crossIcon"]')
+                        .forEach(function (cross) {
+                            cross.addEventListener("click", function () {
+                                allInfoPanelContainerElements.forEach((container) => {
+                                    if (container.id === infoPanel.id) {
+                                        container.innerHTML = "";
+                                        document
+                                            .querySelector("#sphere" + currentInfoPanel)
+                                            .setAttribute("visible", true);
+                                    }
+                                });
                             });
                         });
+
+                    allInfoPanelContainerElements.forEach((container) => {
+                        if (container.id !== infoPanel.id) {
+                            container.innerHTML = "";
+                        }
+                        this.setAttribute("visible", true);
                     });
 
-                allInfoPanelContainerElements.forEach((container) => {
-                    if (container.id !== infoPanel.id) {
-                        container.innerHTML = "";
+                    // console.log("Current info panel insides: ", infoPanel.innerHTML);
+
+                    const idNumber = currentSphereIdNumber;
+                    if (currentInfoPanel) {
+                        document
+                            .querySelector("#sphere" + currentInfoPanel)
+                            .setAttribute("visible", true);
                     }
-                    this.setAttribute("visible", true);
+                    // document.querySelector("#info" + idNumber).style.display = "block";
+                    this.setAttribute("visible", false);
+                    currentInfoPanel = idNumber;
+                    console.log("Current info panel id: " + currentInfoPanel);
                 });
-
-                // console.log("Current info panel insides: ", infoPanel.innerHTML);
-
-                const idNumber = currentSphereIdNumber;
-                if (currentInfoPanel) {
-                    document
-                        .querySelector("#sphere" + currentInfoPanel)
-                        .setAttribute("visible", true);
-                }
-                // document.querySelector("#info" + idNumber).style.display = "block";
-                this.setAttribute("visible", false);
-                currentInfoPanel = idNumber;
-                console.log("Current info panel id: " + currentInfoPanel);
             });
-        });
-}, 1500);
+    }, 1500);
 </script>
 
 </body>

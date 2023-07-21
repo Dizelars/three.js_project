@@ -9,8 +9,18 @@
 
 /*scene interior a-frame*/
 
+/*a-scene {*/
+/*    display: none;*/
+/*}*/
+
 a-scene {
-    display: none;
+    opacity: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.a-enter-vr.fullscreen .a-enter-vr-button {
+    display: none !important;
 }
 
 /*control*/
@@ -45,31 +55,32 @@ a-scene {
     background-color: #FF69B4;
 }
 
-/*.tooltip {*/
-/*    background-color: black;*/
-/*    color: white;*/
-/*    padding: 10px;*/
-/*    border-radius: 20px;*/
-/*    position: relative;*/
-/*    !*transform: translateY(-10px);*!*/
-/*    !*opacity: 0;*!*/
-/*    transition-duration: 0.2s;*/
-/*    transition-property: opacity, transform;*/
-/*}*/
+.tooltip {
+    width: 500px;
+    height: 200px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    position: relative;
+    transition-duration: 0.2s;
+    transition-property: opacity, transform;
+}
 
-/*.tooltip.hide {*/
-/*    opacity: 0;*/
-/*    transform: translateY(-10px);*/
-/*}*/
+.tooltip.hide {
+    opacity: 0;
+    transform: translateY(-10px);
+}
 
-/*.tooltip.show {*/
-/*    opacity: 1;*/
-/*    transform: translateY(0);*/
-/*}*/
+.tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /*.tooltip.hide {*/
 /*    display: none;*/
 /*}*/
+
 /*.tooltip.show {*/
 /*    display: block;*/
 /*}*/

@@ -4,8 +4,8 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
 import {createMaterialProperties} from './functions/create_material.js';
-// import Stats from 'stats.js';
-// import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import Stats from 'stats.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
@@ -164,10 +164,10 @@ LoadingManager.onLoad = function() {
 //     console.error(`Ошибка во время загрузки: ${url}`);
 // }
 
-// let stats = new Stats();
-// stats.showPanel(0, 1, 2); // 0: fps, 1: ms, 2: mb, 3+: custom
-// stats.dom.classList.add('my-stats');
-// document.body.appendChild( stats.dom );
+let stats = new Stats();
+stats.showPanel(0, 1, 2); // 0: fps, 1: ms, 2: mb, 3+: custom
+stats.dom.classList.add('my-stats');
+document.body.appendChild( stats.dom );
 
 let activeScene = 1;
 // Сцена экстерьера Амарок
@@ -247,237 +247,131 @@ controls1.update();
 
 
 
-const mouse = new THREE.Vector2(); // Нормализованное положение курсора
-const intersectionPoint = new THREE.Vector3(); // Точка пересечения, где плоскость пересекается с лучем
-const planeNormal = new THREE.Vector3(); // Единичный вектор нормалей указывающий направление движения плоскости
-const planeTest = new THREE.Plane(); // Плоскость которая создается каждый раз при передвижении курсора
-const raycaster = new THREE.Raycaster(); // Передача лучей которые будут излучаться между камерой и курсором
-const canvas = document.getElementById('myCanvas');
-
-console.log(canvas);
-// console.log(mouse);
-// console.log(intersectionPoint);
-// console.log(planeNormal);
-// console.log(planeTest);
-// console.log(raycaster);
-
-window.addEventListener('mousemove', (e) => {
-    // const rect = canvas.getBoundingClientRect(); // Получение положения холста относительно области просмотра
-    // mouse.x = ((e.clientX - rect.left) / canvas.width) * 2 - 1;
-    // mouse.y = -((e.clientY - rect.top) / canvas.height) * 2 + 1;
-    // Постоянное обновление переменной мыши с помощью нормализованных координат курсора
-    // mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-    // mouse.y =  - ( e.clientY / window.innerHeight ) * 2 + 1;
-    // const moveX = 5; // Number of pixels to move horizontally (positive for right, negative for left)
-    const moveY = -70; // Number of pixels to move vertically (positive for down, negative for up)
-
-    mouse.x = (e.clientX) / window.innerWidth * 2 - 1;
-    mouse.y = -(e.clientY + moveY) / window.innerHeight * 2 + 1;
-    // console.log(mouse);
-    // console.log(intersectionPoint);
-    planeNormal.copy(camera1.position).normalize();
-    planeTest.setFromNormalAndCoplanarPoint(planeNormal, scene1.position);
-    raycaster.setFromCamera(mouse, camera1);
-    raycaster.ray.intersectPlane(planeTest, intersectionPoint);
-    // console.log(raycaster);
-});
-
-window.addEventListener('click', (e) => {
-    // console.log(mouse);
-    console.log(intersectionPoint);
-    // console.log(planeNormal);
-    // console.log(planeTest);
-    // console.log(raycaster);
-    const sphereGeo = new THREE.SphereGeometry(8, 30, 30);
-    const sphereMat = new THREE.MeshStandardMaterial({
-        color: 0xFFEA00,
-        metalness: 0,
-        roughness: 0
-    });
-    const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
-    scene1.add(sphereMesh);
-    sphereMesh.position.copy(intersectionPoint);
-});
-
-
-
-
+// const mouse = new THREE.Vector2(); // Нормализованное положение курсора
+// const intersectionPoint = new THREE.Vector3(); // Точка пересечения, где плоскость пересекается с лучем
+// const planeNormal = new THREE.Vector3(); // Единичный вектор нормалей указывающий направление движения плоскости
+// const planeTest = new THREE.Plane(); // Плоскость которая создается каждый раз при передвижении курсора
+// const raycaster = new THREE.Raycaster(); // Передача лучей которые будут излучаться между камерой и курсором
+// // const canvas = document.getElementById('myCanvas');
+//
+// // console.log(canvas);
+// // console.log(mouse);
+// // console.log(intersectionPoint);
+// // console.log(planeNormal);
+// // console.log(planeTest);
+// // console.log(raycaster);
+//
+// window.addEventListener('mousemove', (e) => {
+//     // const rect = canvas.getBoundingClientRect(); // Получение положения холста относительно области просмотра
+//     // mouse.x = ((e.clientX - rect.left) / canvas.width) * 2 - 1;
+//     // mouse.y = -((e.clientY - rect.top) / canvas.height) * 2 + 1;
+//     // Постоянное обновление переменной мыши с помощью нормализованных координат курсора
+//     // mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
+//     // mouse.y =  - ( e.clientY / window.innerHeight ) * 2 + 1;
+//     // const moveX = 5; // Number of pixels to move horizontally (positive for right, negative for left)
+//     const moveY = -70; // Number of pixels to move vertically (positive for down, negative for up)
+//
+//     mouse.x = (e.clientX) / window.innerWidth * 2 - 1;
+//     mouse.y = -(e.clientY + moveY) / window.innerHeight * 2 + 1;
+//     planeNormal.copy(camera1.position).normalize();
+//     planeTest.setFromNormalAndCoplanarPoint(planeNormal, scene1.position);
+//     raycaster.setFromCamera(mouse, camera1);
+//     raycaster.ray.intersectPlane(planeTest, intersectionPoint);
+// });
+//
+// window.addEventListener('click', (e) => {
+//     const sphereGeo = new THREE.SphereGeometry(8, 30, 30);
+//     const sphereMat = new THREE.MeshStandardMaterial({
+//         color: 0xFFEA00,
+//         metalness: 0,
+//         roughness: 0
+//     });
+//     const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
+//     scene1.add(sphereMesh);
+//     sphereMesh.position.copy(intersectionPoint);
+// });
 
 
 // ВАРИАНТ 2
 // Дотсы на кузов и интерьер автомобиля
-// const labelRenderer = new CSS2DRenderer();
-// labelRenderer.setSize(window.innerWidth, window.innerHeight);
-// labelRenderer.domElement.style.position = 'absolute';
-// labelRenderer.domElement.style.top = '0';
-// labelRenderer.domElement.style.pointerEvents = 'none';
-// document.body.appendChild(labelRenderer.domElement);
-//
-// function createCpointMesh(name, x, y, z) {
-//     const geo = new THREE.BoxBufferGeometry(4, 4, 4);
-//     const mat = new THREE.MeshBasicMaterial({color: 0xff0000});
-//     const mesh = new THREE.Mesh(geo, mat);
-//     mesh.position.set(x, y, z);
-//     mesh.name = name;
-//     return mesh;
-// }
-//
-// const group = new THREE.Group();
-//
-// const sphereMesh1 = createCpointMesh('sphereMesh1', -81, 45, -30);
-// group.add(sphereMesh1);
-// console.log(sphereMesh1)
-//
-// const sphereMesh2 = createCpointMesh('sphereMesh2', 10, 20, -50);
-// group.add(sphereMesh2);
-// console.log(sphereMesh2)
-//
-// scene1.add(group);
-// console.log(group)
-//
-// const p = document.createElement('p');
-// p.className = 'tooltip';
-// const pContainer = document.createElement('div');
-// pContainer.appendChild(p);
-// const cPointLabel = new CSS2DObject(pContainer);
-// scene1.add(cPointLabel);
-// console.log(cPointLabel)
-//
-// window.addEventListener('click', (event) => {
-//     const mousePos = new THREE.Vector2(
-//         (event.clientX / window.innerWidth) * 2 - 1,
-//         -(event.clientY / window.innerHeight) * 2 + 1
-//     );
-//
-//     const raycaster = new THREE.Raycaster();
-//     raycaster.setFromCamera(mousePos, camera1);
-//
-//     const intersects = raycaster.intersectObjects(group.children);
-//     console.log(intersects)
-//
-//     if (intersects.length > 0) {
-//         const clickedMesh = intersects[0].object;
-//         if (clickedMesh) {
-//             console.log('Кликнули на меш:', clickedMesh.name);
-//             // Здесь можно добавить логику для отображения описания
-//         }
-//     }
-// });
-//
-//
-// const mousePos = new THREE.Vector2();
-// const raycaster = new THREE.Raycaster();
-//
-// sphereMesh1.addEventListener('click', () => {
-//     console.log('Я меш 1')
-// });
-//
-// sphereMesh2.addEventListener('click', () => {
-//     console.log('Я меш 2')
-// });
-//
-// window.addEventListener('click', function(e) {
-//     mousePos.x = (e.clientX / window.innerWidth) * 2 - 1;
-//     mousePos.y = -(e.clientY / window.innerHeight) * 2 + 1;
-//
-//     raycaster.setFromCamera(mousePos, camera1);
-//     const intersects = raycaster.intersectObject(group);
-//     console.log(intersects);
-//     if (intersects.length > 0) {
-//         switch (intersects[0].object.name) {
-//             case 'sphereMesh1':
-//                 p.className = 'tooltip show';
-//                 cPointLabel.position.set(-81, 45.2, -30);
-//                 p.textContent = 'Это текст для дотса))';
-//                 console.log(p);
-//                 break;
-//             case 'sphereMesh2':
-//                 p.className = 'tooltip show';
-//                 cPointLabel.position.set(10, 20.2, -50);
-//                 p.textContent = 'Это текст для дотса 2))';
-//                 console.log(p);
-//                 break;
-//             default:
-//                 break;
-//         }
-//     } else {
-//         p.className = 'tooltip hide';
-//     }
-// });
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.domElement.style.position = 'absolute';
+labelRenderer.domElement.style.top = '0';
+labelRenderer.domElement.style.pointerEvents = 'none';
+document.body.appendChild(labelRenderer.domElement);
+
+function createCpointMesh(name, x, y, z) {
+    const geo = new THREE.SphereBufferGeometry(2);
+    // const geo = new THREE.BoxBufferGeometry(4, 4, 4);
+    const mat = new THREE.MeshBasicMaterial({color: 0xff0000});
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(x, y, z);
+    mesh.name = name;
+    return mesh;
+}
+
+const group = new THREE.Group();
+
+const sphereMesh1 = createCpointMesh('sphereMesh1', -81, 45, -30);
+group.add(sphereMesh1);
+
+const sphereMesh2 = createCpointMesh('sphereMesh2', 10, 20, -50);
+group.add(sphereMesh2);
+
+scene1.add(group);
+console.log(group);
+
+const p = document.createElement('p');
+p.className = 'tooltip';
+console.log(p);
+const pContainer = document.createElement('div');
+pContainer.className = 'Mytext';
+pContainer.appendChild(p);
+console.log(pContainer);
+const cPointLabel = new CSS2DObject(pContainer);
+scene1.add(cPointLabel);
 
 
-// ВАРИАНТ 3
+window.addEventListener('click', (event) => {
+    const moveY = -70;
+    const mousePos = new THREE.Vector2(
+        (event.clientX / window.innerWidth) * 2 - 1,
+        -((event.clientY + moveY) / window.innerHeight) * 2 + 1
+    );
 
-// Дотсы на кузов и интерьер автомобиля
-// const labelRenderer = new CSS2DRenderer();
-// labelRenderer.setSize(window.innerWidth, window.innerHeight);
-// labelRenderer.domElement.style.position = 'absolute';
-// labelRenderer.domElement.style.top = '0';
-// labelRenderer.domElement.style.pointerEvents = 'none';
-// document.body.appendChild(labelRenderer.domElement);
-//
-// // Функция для создания точек интереса и их описаний
-// function createCpoint(name, x, y, z, description) {
-//     const geo = new THREE.SphereBufferGeometry(2);
-//     const mat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-//     const mesh = new THREE.Mesh(geo, mat);
-//     mesh.position.set(x, y, z);
-//     mesh.name = name;
-//
-//     const p = document.createElement('p');
-//     p.className = 'tooltip hide';
-//     const pContainer = document.createElement('div');
-//     pContainer.appendChild(p);
-//     const cPointLabel = new CSS2DObject(pContainer);
-//     cPointLabel.position.set(x, y + 2, z); // Установите позицию описания
-//     scene1.add(cPointLabel);
-//
-//     mesh.addEventListener('click', () => {
-//         console.log('hello click');
-//         p.className = 'tooltip show';
-//         p.textContent = description;
-//     });
-//
-//     cPoints.push({ mesh, label: p }); // Добавляем объект и его описание в массив
-//
-//     return mesh;
-// }
-//
-// const group = new THREE.Group();
-// const cPoints = []; // Массив для хранения всех точек интереса
-//
-// // Пример создания нескольких точек интереса с описаниями
-// const sphereMesh1 = createCpoint('sphereMesh1', -81, 45, -30, 'Описание точки 1');
-// const sphereMesh2 = createCpoint('sphereMesh2', 10, 20, -50, 'Описание точки 2');
-//
-// group.add(sphereMesh1, sphereMesh2);
-//
-//
-// scene1.add(group);
-// console.log(group);
-// // Обработчик события клика
-// const mousePos = new THREE.Vector2();
-// const raycaster = new THREE.Raycaster();
-// window.addEventListener('click', function (e) {
-//     mousePos.x = (e.clientX / window.innerWidth) * 2 - 1;
-//     mousePos.y = -(e.clientY / window.innerHeight) * 2 + 1;
-//
-//     raycaster.setFromCamera(mousePos, camera1);
-//     const intersects = raycaster.intersectObjects(cPoints.map((cPoint) => cPoint.mesh));
-//
-//     cPoints.forEach((cPoint) => {
-//         cPoint.label.className = 'tooltip hide'; // Скрываем все описания перед проверкой клика
-//     });
-//
-//     if (intersects.length > 0) {
-//         const clickedCPoint = cPoints.find((cPoint) => cPoint.mesh === intersects[0].object);
-//         if (clickedCPoint) {
-//             clickedCPoint.label.className = 'tooltip show';
-//         }
-//     }
-// });
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mousePos, camera1);
 
+    const intersects = raycaster.intersectObjects(group.children);
 
+    if (intersects.length > 0) {
+        const clickedMesh = intersects[0].object;
+        if (clickedMesh) {
+            console.log('Кликнули на меш:', clickedMesh.name);
+            switch (clickedMesh.name) {
+                case 'sphereMesh1':
+                    p.className = 'tooltip show';
+                    cPointLabel.position.set(-81, 45.2, -30);
+                    p.textContent = 'Это текст для дотса))';
+                    console.log(p);
+                    console.log(pContainer);
+                    break;
+                case 'sphereMesh2':
+                    p.className = 'tooltip show';
+                    cPointLabel.position.set(10, 20.2, -50);
+                    p.textContent = 'Это текст для дотса 2))';
+                    console.log(p);
+                    console.log(pContainer);
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            p.className = 'tooltip hide';
+        }
+    }
+});
 
 
 // 3) Свет экстерьер
@@ -756,10 +650,10 @@ const coordinates = [
 
 // Переключение активной сцены
 function animate() {
-    // stats.begin();
+    stats.begin();
     // labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
-    // stats.end();
+    stats.end();
     // if (activeScene === 1) {
     //     // labelRenderer.render(scene1, camera1);
     //     // setTimeout( function() {
@@ -801,7 +695,9 @@ interiorButton.addEventListener('click', () => {
         MyCoordinates(x, y, z, dur);
         setTimeout(() => {
             activeScene = 2;
-            aFrameScene.style.display = 'block';
+            aFrameScene.style.opacity = '1';
+            aFrameScene.style.height = 'auto';
+            aFrameScene.style.pointerEvents = 'auto';
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             controls1.enabled = false;
@@ -812,7 +708,9 @@ interiorButton.addEventListener('click', () => {
         const [x, y, z, dur] = coordinates[4];
         MyCoordinates(x, y, z, dur);
         activeScene = 1;
-        aFrameScene.style.display = 'none';
+        aFrameScene.style.opacity = '0';
+        aFrameScene.style.height = '0';
+        aFrameScene.style.pointerEvents = 'none';
         setTimeout(() => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);

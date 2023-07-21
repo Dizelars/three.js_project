@@ -86,7 +86,7 @@ document.addEventListener('mousedown', (event) => {
 
 // Добавляем обработчик события на клик по кнопке .tech_spec__btn
 buttontech.addEventListener('click', () => {
-    console.log(techSpecWrapperText);
+    // console.log(techSpecWrapperText);
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleBlock.classList.toggle('hidden');
 
