@@ -224,7 +224,6 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 // const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
-// const initialCameraPosition1 = new THREE.Vector3(1, 1, 1);
 camera1.position.copy(initialCameraPosition1);
 // camera1.position.set(-216, 94, 109);
 // camera1.updateProjectionMatrix();
@@ -238,12 +237,12 @@ camera1.position.copy(initialCameraPosition1);
 // scene1.add( helper );
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
-// controls1.minPolarAngle = 0;
-// controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
-// controls1.enabled = true;
-// controls1.enablePan = false;
+controls1.minPolarAngle = 0;
+controls1.maxPolarAngle = Math.PI * 0.5;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
+controls1.enabled = true;
+controls1.enablePan = false;
 // controls1.addEventListener( 'change', animate );
 controls1.update();
 
@@ -255,13 +254,6 @@ controls1.update();
 // const planeTest = new THREE.Plane(); // Плоскость которая создается каждый раз при передвижении курсора
 // const raycaster = new THREE.Raycaster(); // Передача лучей которые будут излучаться между камерой и курсором
 // // const canvas = document.getElementById('myCanvas');
-//
-// // console.log(canvas);
-// // console.log(mouse);
-// // console.log(intersectionPoint);
-// // console.log(planeNormal);
-// // console.log(planeTest);
-// // console.log(raycaster);
 //
 // window.addEventListener('mousemove', (e) => {
 //     // const rect = canvas.getBoundingClientRect(); // Получение положения холста относительно области просмотра
@@ -305,8 +297,13 @@ document.body.appendChild(labelRenderer.domElement);
 
 function createCpointMesh(name, x, y, z) {
     const geo = new THREE.SphereBufferGeometry(2);
-    // const geo = new THREE.BoxBufferGeometry(4, 4, 4);
-    const mat = new THREE.MeshBasicMaterial({color: 0xff0000});
+    const mat = new THREE.MeshStandardMaterial({
+        color: 0xFC762B,
+        transparent: true,
+        opacity: 0.9,
+        emissive: 0xFC762B,
+        emissiveIntensity: 5,
+    });
     const mesh = new THREE.Mesh(geo, mat);
     mesh.position.set(x, y, z);
     mesh.name = name;
@@ -315,69 +312,140 @@ function createCpointMesh(name, x, y, z) {
 
 const group = new THREE.Group();
 
-const sphereMesh1 = createCpointMesh('sphereMesh1', -81, 45, -30);
+const sphereMesh1 = createCpointMesh('sphereMesh1', 106, 91, -0);
 group.add(sphereMesh1);
 
-const sphereMesh2 = createCpointMesh('sphereMesh2', 10, 20, -50);
+const sphereMesh2 = createCpointMesh('sphereMesh2', 26, 63, -0);
 group.add(sphereMesh2);
 
 scene1.add(group);
-console.log(group);
+
+// Function to handle mouseover event
+function handleMouseOver(event) {
+    const mesh = event.target;
+    mesh.material = new THREE.MeshStandardMaterial({
+        color: 0x00ff00, // Replace with the desired color for mouseover
+        transparent: true,
+        opacity: 0.9,
+        emissive: 0x00ff00, // Replace with the desired emissive color for mouseover
+        emissiveIntensity: 5,
+    });
+    labelRenderer.domElement.style.cursor = "pointer";
+}
+
+// Function to handle mouseout event
+function handleMouseOut(event) {
+    const mesh = event.target;
+    mesh.material = new THREE.MeshStandardMaterial({
+        color: 0xff0000,
+        transparent: true,
+        opacity: 0.9,
+        emissive: 0xFC762B,
+        emissiveIntensity: 5,
+    });
+    labelRenderer.domElement.style.cursor = "unset";
+}
+
+// Attach event listeners to each mesh
+group.children.forEach((mesh) => {
+    mesh.addEventListener("pointerenter", handleMouseOver);
+    mesh.addEventListener("pointerleave", handleMouseOut);
+});
+
 
 const p = document.createElement('p');
-p.className = 'tooltip';
-console.log(p);
+p.className = 'tooltip hide';
 const pContainer = document.createElement('div');
 pContainer.className = 'Mytext';
 pContainer.appendChild(p);
-console.log(pContainer);
 const cPointLabel = new CSS2DObject(pContainer);
 scene1.add(cPointLabel);
 
 // Нужно использовать размеры canvas, но внутри родительского блока.
 // И считать ширину и высоту через offsetX и offsetY
-CanvasWrapper.addEventListener('click', (event) => {
-    // const moveY = 0;
+
+function resetMeshMaterials() {
+    group.children.forEach((mesh) => {
+        mesh.material = new THREE.MeshStandardMaterial({
+            color: 0xFC762B,
+            transparent: true,
+            opacity: 0.9,
+            emissive: 0xFC762B,
+            emissiveIntensity: 5,
+        });
+    });
+    p.className = 'tooltip hide';
+}
+
+let lastClickedMesh = null;
+
+const raycaster = new THREE.Raycaster();
+
+CanvasWrapper.addEventListener("pointerdown", (event) => {
     const mousePos = new THREE.Vector2(
         (event.offsetX / bounds.width) * 2 - 1,
         -((event.offsetY) / bounds.height) * 2 + 1
     );
-    // console.log(event.clientX, event.clientY);
-    console.log(event.offsetX, event.offsetY);
-    // return;
 
-    const raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mousePos, camera1);
 
     const intersects = raycaster.intersectObjects(group.children);
 
     if (intersects.length > 0) {
         const clickedMesh = intersects[0].object;
+        console.log(clickedMesh);
         if (clickedMesh) {
             console.log('Кликнули на меш:', clickedMesh.name);
+
+            if (lastClickedMesh !== null) {
+                if (lastClickedMesh === clickedMesh) {
+                    p.className = 'tooltip hide';
+                    resetMeshMaterials();
+                    lastClickedMesh = null;
+                    return;
+                } else {
+                    lastClickedMesh.material = new THREE.MeshStandardMaterial({
+                        color: 0xFC762B,
+                        transparent: true,
+                        opacity: 0.9,
+                        emissive: 0xFC762B,
+                        emissiveIntensity: 5,
+                    });
+                }
+            }
+
+            clickedMesh.material = new THREE.MeshStandardMaterial({
+                color: 0xFC762B,
+                transparent: true,
+                opacity: 1,
+                emissive: 0xFC762B,
+                emissiveIntensity: 15,
+            });
+            lastClickedMesh = clickedMesh;
+
+            p.className = 'tooltip show';
             switch (clickedMesh.name) {
                 case 'sphereMesh1':
-                    p.className = 'tooltip show';
-                    cPointLabel.position.set(-81, 45.2, -30);
-                    p.textContent = 'Это текст для дотса))';
-                    console.log(p);
-                    console.log(pContainer);
+                    cPointLabel.position.set(106, 90, -0);
+                    p.textContent = 'Информационное табло';
                     break;
                 case 'sphereMesh2':
-                    p.className = 'tooltip show';
-                    cPointLabel.position.set(10, 20.2, -50);
-                    p.textContent = 'Это текст для дотса 2))';
-                    console.log(p);
-                    console.log(pContainer);
+                    cPointLabel.position.set(26, 62, -0);
+                    p.textContent = 'Дорожные знаки';
                     break;
                 default:
                     break;
             }
-        } else {
-            p.className = 'tooltip hide';
+        // }
         }
+    } else {
+        resetMeshMaterials();
+        lastClickedMesh = null;
     }
 });
+
+
+
 
 
 // 3) Свет экстерьер
@@ -559,9 +627,9 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         }
 
         // 10) Вывод текущих координат камеры в консоль экстерьер
-        // window.addEventListener('mouseup', () => {
-        //     console.log(camera1.position); // Выводим координаты камеры
-        // });
+        window.addEventListener('mouseup', () => {
+            console.log(camera1.position); // Выводим координаты камеры
+        });
     });
 });
 
@@ -596,8 +664,8 @@ plane.receiveShadow = ShadowSwitch; // Плоскость получает те�
 
 
 // 12) Вспомогательная система координат экстерьер
-const axesHelper = new THREE.AxesHelper(200);
-scene1.add(axesHelper);
+// const axesHelper = new THREE.AxesHelper(200);
+// scene1.add(axesHelper);
 
 
 // 13) Перемещение по координатам при клике на кнопки интерьер или экстерьер
@@ -657,7 +725,7 @@ const coordinates = [
 // Переключение активной сцены
 function animate() {
     stats.begin();
-    // labelRenderer.render(scene1, camera1);
+    labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
     stats.end();
     // if (activeScene === 1) {

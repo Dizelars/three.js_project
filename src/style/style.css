@@ -62,30 +62,42 @@ a-scene {
 }
 
 .tooltip {
-    width: 500px;
-    height: 200px;
-    background-color: red;
-    color: white;
-    padding: 10px;
-    border-radius: 20px;
+    display: none;
     position: relative;
-    transition-duration: 0.2s;
-    transition-property: opacity, transform;
+    font-family: 'MoscowSans', sans-serif;
+    font-weight: 300;
+    background: rgba(9, 9, 9, 0.50);
+    backdrop-filter: blur(6px);
+    color: white;
+    padding: 12px 10px;
+    border-radius: 20px;
+    /*position: relative;*/
+    /*transition-duration: 0.2s;*/
+    /*transition-property: opacity, transform;*/
 }
 
-.tooltip.hide {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
-.tooltip.show {
-    opacity: 1;
-    transform: translateY(0);
+.tooltip:before {
+    content: 'X';
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    cursor: pointer;
 }
 
 /*.tooltip.hide {*/
-/*    display: none;*/
+/*    opacity: 0;*/
+/*    transform: translateY(-10px);*/
 /*}*/
+
+.tooltip.show {
+    /*opacity: 1;*/
+    /*transform: translateY(0);*/
+    display: block;
+}
+
+.tooltip.hide {
+    display: none;
+}
 
 /*.tooltip.show {*/
 /*    display: block;*/
