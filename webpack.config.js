@@ -117,6 +117,8 @@ module.exports = {
         vectary: './src/js/pages/vectary.js',
         // 'vectary-style': './src/style/pages/vectary.css',
         'vectary-style': './src/style/style.css',
+        amarok: './src/js/pages/amarok.js',
+        'amarok-style': './src/style/style.css',
         solaris: './src/js/pages/solaris.js',
         // 'solaris-style': './src/style/pages/solaris.css',
         'solaris-style': './src/style/style.css',
@@ -160,6 +162,13 @@ module.exports = {
             filename: 'pages/vectary.html',
             chunks: ['vectary', 'vectary-style'],
             // chunks: ['vectary'],
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/pages', 'amarok.html'),
+            filename: 'pages/amarok.html',
+            chunks: ['amarok', 'amarok-style'],
+            // chunks: ['amarok'],
             minify: false,
         }),
         new HtmlWebpackPlugin({

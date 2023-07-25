@@ -1,0 +1,80 @@
+@import '../../node_modules/reset-css/reset.css';
+@import '../style/fonts.css';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: 'MoscowSans', sans-serif;
+    /*color: white;*/
+}
+
+.container {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+
+
+/*header*/
+
+.header {
+    position: relative;
+    z-index: 1;
+    background-color: #090909;
+
+}
+
+.header__wrapper, .header__logo, .header__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    max-width: 170px;
+    width: 100%;
+}
+
+.header__logo-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-left: 12px;
+}
+
+.header__info {
+    max-width: 300px;
+    width: 100%;
+}
+
+.header__info-descr {
+    width: 148px;
+    margin-left: 10px;
+}
+
+.header__logo-text, .header__info-text {
+    color: white;
+}
+
+.header__info-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.header__info-text:last-child {
+    font-family: 'MoscowSans', sans-serif;
+    margin-top: 4px;
+    font-weight: 300;
+    font-size: 12px;
+    opacity: 0.4;
+}
+
+.header__info-img {
+    width: 142px;
+    object-fit: cover;
+}
