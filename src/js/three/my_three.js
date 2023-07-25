@@ -339,12 +339,35 @@ const tooltipTexts = {
     sphereMesh2: 'Дорожные знаки',
 };
 
-// Создание HTML-элементов для отображения подсказки
-const p = document.createElement('p');
-p.className = 'tooltip hide';
+
+
 const pContainer = document.createElement('div');
 pContainer.className = 'Mytext';
-pContainer.appendChild(p);
+const tooltipWrapper = document.createElement('div');
+tooltipWrapper.className = 'tooltip_wrapper';
+pContainer.appendChild(tooltipWrapper);
+
+// Создание HTML-элементов для отображения подсказки
+const p = document.createElement('p');
+p.className = 'tooltip';
+
+// Создаем элемент svg
+const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+svgElement.setAttribute("width", "18");
+svgElement.setAttribute("height", "18");
+svgElement.setAttribute("viewBox", "0 0 18 18");
+svgElement.setAttribute("fill", "none");
+
+// Создаем элемент path
+const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
+pathElement.setAttribute("d", "M17.4 0.613783C16.88 0.0937829 16.04 0.0937829 15.52 0.613783L8.99996 7.12045L2.47996 0.600449C1.95996 0.0804492 1.11996 0.0804492 0.599961 0.600449C0.079961 1.12045 0.079961 1.96045 0.599961 2.48045L7.11996 9.00045L0.599961 15.5204C0.079961 16.0404 0.079961 16.8804 0.599961 17.4004C1.11996 17.9204 1.95996 17.9204 2.47996 17.4004L8.99996 10.8804L15.52 17.4004C16.04 17.9204 16.88 17.9204 17.4 17.4004C17.92 16.8804 17.92 16.0404 17.4 15.5204L10.88 9.00045L17.4 2.48045C17.9066 1.97378 17.9066 1.12045 17.4 0.613783Z");
+pathElement.setAttribute("fill", "white");
+
+// Вставляем элемент path в элемент svg
+svgElement.appendChild(pathElement);
+
+tooltipWrapper.appendChild(p);
+tooltipWrapper.appendChild(svgElement);
 const cPointLabel = new CSS2DObject(pContainer);
 scene1.add(cPointLabel);
 
@@ -353,7 +376,7 @@ function resetMeshMaterials() {
     group.children.forEach((mesh) => {
         setMeshMaterial(mesh, defaultMaterialProps);
     });
-    p.className = 'tooltip hide';
+    pContainer.className = 'Mytext hide';
 }
 
 let lastClickedMesh = null; // Переменная для хранения последнего выбранного меша
@@ -377,7 +400,7 @@ CanvasWrapper.addEventListener("pointerdown", (event) => {
         if (clickedMesh) {
             if (lastClickedMesh !== null) {
                 if (lastClickedMesh === clickedMesh) {
-                    p.className = 'tooltip hide'; // Скрытие подсказки, если уже кликнули на выбранный меш
+                    pContainer.className = 'Mytext hide'; // Скрытие подсказки, если уже кликнули на выбранный меш
                     resetMeshMaterials(); // Сброс настроек материала всех мешей
                     lastClickedMesh = null;
                     return;
@@ -396,11 +419,13 @@ CanvasWrapper.addEventListener("pointerdown", (event) => {
             });
             lastClickedMesh = clickedMesh; // Сохранение ссылки на выбранный меш
 
-            p.className = 'tooltip show'; // Показ подсказки
+            pContainer.className = 'Mytext show'; // Показ подсказки
             const tooltipText = tooltipTexts[clickedMesh.name]; // Получение текста подсказки для выбранного меша
             if (tooltipText) {
                 cPointLabel.position.set(clickedMesh.position.x, clickedMesh.position.y, clickedMesh.position.z); // Установка позиции подсказки над выбранным мешом
                 p.textContent = tooltipText; // Установка текста подсказки
+                tooltipWrapper.style.marginBottom = (p.getBoundingClientRect().height - 76) + "px";
+
             }
         }
     } else {
