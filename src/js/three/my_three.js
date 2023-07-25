@@ -50,18 +50,9 @@ if (pixelRatio > 1) {
 
 // Условие для версии модели и отбрасывание тени
 let url;
-// url = 'model/optimize/opt.gltf';
-
-//https://coddmac.store/THREE/3Dmodels/cube_gltf/gltf.gltf
-// url = 'https://coddmac.store/THREE/3Dmodels/cube_gltf/gltf.gltf';
-//https://coddmac.store/THREE/3Dmodels/cube_mini/untitled.gltf
-// https://coddmac.store/THREE/3Dmodels/cube_big/gltf.gltf
 let ShadowSwitch;
-// ShadowSwitch = false;
 if (screenWidth >= 850) {
-    // Загрузка модели с другого пути для разрешения 850 и выше
     url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-    // url = 'https://coddmac.store/THREE/3Dmodels/sinihka/untitled.gltf';
     // url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
     // url ='https://coddmac.store/THREE/3Dmodels/android/opt.gltf';
     // url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
@@ -69,12 +60,9 @@ if (screenWidth >= 850) {
     // url = 'model/optimizeTest_2/opt.gltf';
     ShadowSwitch = true;
 } else {
-    //sinihka/untitled.gltf
-    // Загрузка модели с основного пути для разрешений ниже 850
     // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
     // url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
     url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
-    // url = 'https://coddmac.store/THREE/3Dmodels/sinihka/untitled.gltf';
     // url ='https://coddmac.store/THREE/3Dmodels/android/opt.gltf';
     // url = 'model/optimize/opt.gltf';
     // url = 'model/optimizeTest_2/opt.gltf';
@@ -179,10 +167,6 @@ const scene1 = new THREE.Scene();
 scene1.background = new THREE.Color(0x000000);
 scene1.fog = new THREE.Fog(0x000000, 290, 600);
 
-// scene1.traverse( function( object ) {
-//     object.frustumCulled = false;
-// });
-
 //0xffffff
 //0x000000
 //0xB5B8B1
@@ -220,18 +204,10 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 //     FAR
 // )
 
-// const initialCameraPosition1 = new THREE.Vector3(-171.85716505033145, 74.93456415868356, 86.89998171402281);
-// const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
 camera1.position.copy(initialCameraPosition1);
-// camera1.position.set(-216, 94, 109);
 // camera1.updateProjectionMatrix();
-
-// camera1.zoom = 1.5;
-// camera1.filmGauge = 2000;
-// camera1.filmOffset = 100;
-// camera1.focus = 50;
 
 // const helper = new THREE.CameraHelper( camera1 );
 // scene1.add( helper );
@@ -257,14 +233,8 @@ controls1.update();
 //
 // window.addEventListener('mousemove', (e) => {
 //     // const rect = canvas.getBoundingClientRect(); // Получение положения холста относительно области просмотра
-//     // mouse.x = ((e.clientX - rect.left) / canvas.width) * 2 - 1;
-//     // mouse.y = -((e.clientY - rect.top) / canvas.height) * 2 + 1;
-//     // Постоянное обновление переменной мыши с помощью нормализованных координат курсора
-//     // mouse.x = ( e.clientX / window.innerWidth ) * 2 - 1;
-//     // mouse.y =  - ( e.clientY / window.innerHeight ) * 2 + 1;
 //     // const moveX = 5; // Number of pixels to move horizontally (positive for right, negative for left)
 //     const moveY = -70; // Number of pixels to move vertically (positive for down, negative for up)
-//
 //     mouse.x = (e.clientX) / window.innerWidth * 2 - 1;
 //     mouse.y = -(e.clientY + moveY) / window.innerHeight * 2 + 1;
 //     planeNormal.copy(camera1.position).normalize();
@@ -286,8 +256,8 @@ controls1.update();
 // });
 
 
-// ВАРИАНТ 2
-// Дотсы на кузов и интерьер автомобиля
+
+// Создание объекта для рендеринга CSS-элементов в трехмерной сцене
 const labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(window.innerWidth, window.innerHeight);
 labelRenderer.domElement.style.position = 'absolute';
@@ -295,64 +265,81 @@ labelRenderer.domElement.style.top = '0';
 labelRenderer.domElement.style.pointerEvents = 'none';
 document.body.appendChild(labelRenderer.domElement);
 
+// Функция для создания сферического меша (объекта) с заданными параметрами
 function createCpointMesh(name, x, y, z) {
+    // Создание геометрии сферы
     const geo = new THREE.SphereBufferGeometry(2);
+    // Создание материала для сферы
     const mat = new THREE.MeshStandardMaterial({
-        color: 0xFC762B,
+        color: 0xFC762B, // Основной цвет
         transparent: true,
-        opacity: 0.9,
-        emissive: 0xFC762B,
-        emissiveIntensity: 5,
+        opacity: 0.9, // Прозрачность
+        emissive: 0xFC762B, // Свечение
+        emissiveIntensity: 5, // Интенсивность свечения
     });
+    // Создание меша (объекта) на основе геометрии и материала
     const mesh = new THREE.Mesh(geo, mat);
-    mesh.position.set(x, y, z);
-    mesh.name = name;
-    return mesh;
+    mesh.position.set(x, y, z); // Установка позиции меша
+    mesh.name = name; // Присвоение имени мешу
+    return mesh; // Возврат созданного меша
 }
 
-const group = new THREE.Group();
+const group = new THREE.Group(); // Создание группы для хранения мешей
 
+// Создание сферических мешей и добавление их в группу
 const sphereMesh1 = createCpointMesh('sphereMesh1', 106, 91, -0);
 group.add(sphereMesh1);
 
 const sphereMesh2 = createCpointMesh('sphereMesh2', 26, 63, -0);
 group.add(sphereMesh2);
 
-scene1.add(group);
+scene1.add(group); // Добавление группы мешей на сцену
 
-// Function to handle mouseover event
-function handleMouseOver(event) {
-    const mesh = event.target;
-    mesh.material = new THREE.MeshStandardMaterial({
-        color: 0x00ff00, // Replace with the desired color for mouseover
-        transparent: true,
-        opacity: 0.9,
-        emissive: 0x00ff00, // Replace with the desired emissive color for mouseover
-        emissiveIntensity: 5,
-    });
-    labelRenderer.domElement.style.cursor = "pointer";
+// Объект с настройками материала по умолчанию для мешей
+const defaultMaterialProps = {
+    color: 0xFC762B,
+    transparent: true,
+    opacity: 0.9,
+    emissive: 0xFC762B,
+    emissiveIntensity: 5,
+};
+
+// Функция для установки свойств материала меша
+function setMeshMaterial(mesh, props) {
+    mesh.material = new THREE.MeshStandardMaterial(props);
 }
 
-// Function to handle mouseout event
-function handleMouseOut(event) {
+// Функция для обработки событий mouseover и mouseout на мешах
+function handleMouseEvents(event, isMouseOver) {
     const mesh = event.target;
-    mesh.material = new THREE.MeshStandardMaterial({
-        color: 0xff0000,
-        transparent: true,
-        opacity: 0.9,
-        emissive: 0xFC762B,
-        emissiveIntensity: 5,
-    });
-    labelRenderer.domElement.style.cursor = "unset";
+    // Определение настроек материала в зависимости от события (mouseover или mouseout)
+    const materialProps = isMouseOver
+        ? {
+            color: 0x00ff00, // Замените на желаемый цвет для события mouseover
+            transparent: true,
+            opacity: 0.9,
+            emissive: 0x00ff00, // Замените на желаемый цвет свечения для события mouseover
+            emissiveIntensity: 5,
+        }
+        : defaultMaterialProps; // Возврат настроек по умолчанию
+
+    setMeshMaterial(mesh, materialProps); // Применение настроек материала к мешу
+    labelRenderer.domElement.style.cursor = isMouseOver ? "pointer" : "unset"; // Изменение стиля курсора в зависимости от события
 }
 
-// Attach event listeners to each mesh
+// Добавление обработчиков событий для каждого меша в группе
 group.children.forEach((mesh) => {
-    mesh.addEventListener("pointerenter", handleMouseOver);
-    mesh.addEventListener("pointerleave", handleMouseOut);
+    mesh.addEventListener("pointerenter", (event) => handleMouseEvents(event, true));
+    mesh.addEventListener("pointerleave", (event) => handleMouseEvents(event, false));
 });
 
+// Объект с текстами подсказок для каждого меша
+const tooltipTexts = {
+    sphereMesh1: 'Информационное табло',
+    sphereMesh2: 'Дорожные знаки',
+};
 
+// Создание HTML-элементов для отображения подсказки
 const p = document.createElement('p');
 p.className = 'tooltip hide';
 const pContainer = document.createElement('div');
@@ -361,89 +348,66 @@ pContainer.appendChild(p);
 const cPointLabel = new CSS2DObject(pContainer);
 scene1.add(cPointLabel);
 
-// Нужно использовать размеры canvas, но внутри родительского блока.
-// И считать ширину и высоту через offsetX и offsetY
-
+// Функция для сброса настроек материала всех мешей в группе и скрытия подсказки
 function resetMeshMaterials() {
     group.children.forEach((mesh) => {
-        mesh.material = new THREE.MeshStandardMaterial({
-            color: 0xFC762B,
-            transparent: true,
-            opacity: 0.9,
-            emissive: 0xFC762B,
-            emissiveIntensity: 5,
-        });
+        setMeshMaterial(mesh, defaultMaterialProps);
     });
     p.className = 'tooltip hide';
 }
 
-let lastClickedMesh = null;
+let lastClickedMesh = null; // Переменная для хранения последнего выбранного меша
 
 const raycaster = new THREE.Raycaster();
 
+// Обработчик события pointerdown на элементе CanvasWrapper
 CanvasWrapper.addEventListener("pointerdown", (event) => {
+    const bounds = event.target.getBoundingClientRect();
     const mousePos = new THREE.Vector2(
         (event.offsetX / bounds.width) * 2 - 1,
         -((event.offsetY) / bounds.height) * 2 + 1
     );
 
-    raycaster.setFromCamera(mousePos, camera1);
+    raycaster.setFromCamera(mousePos, camera1); // Задание направления луча для raycaster
 
-    const intersects = raycaster.intersectObjects(group.children);
+    const intersects = raycaster.intersectObjects(group.children); // Поиск пересечений луча с мешами группы
 
     if (intersects.length > 0) {
         const clickedMesh = intersects[0].object;
-        console.log(clickedMesh);
         if (clickedMesh) {
-            console.log('Кликнули на меш:', clickedMesh.name);
-
             if (lastClickedMesh !== null) {
                 if (lastClickedMesh === clickedMesh) {
-                    p.className = 'tooltip hide';
-                    resetMeshMaterials();
+                    p.className = 'tooltip hide'; // Скрытие подсказки, если уже кликнули на выбранный меш
+                    resetMeshMaterials(); // Сброс настроек материала всех мешей
                     lastClickedMesh = null;
                     return;
                 } else {
-                    lastClickedMesh.material = new THREE.MeshStandardMaterial({
-                        color: 0xFC762B,
-                        transparent: true,
-                        opacity: 0.9,
-                        emissive: 0xFC762B,
-                        emissiveIntensity: 5,
-                    });
+                    setMeshMaterial(lastClickedMesh, defaultMaterialProps); // Восстановление настроек для предыдущего выбранного меша
                 }
             }
 
-            clickedMesh.material = new THREE.MeshStandardMaterial({
+            // Установка новых настроек материала для выбранного меша
+            setMeshMaterial(clickedMesh, {
                 color: 0xFC762B,
                 transparent: true,
                 opacity: 1,
                 emissive: 0xFC762B,
                 emissiveIntensity: 15,
             });
-            lastClickedMesh = clickedMesh;
+            lastClickedMesh = clickedMesh; // Сохранение ссылки на выбранный меш
 
-            p.className = 'tooltip show';
-            switch (clickedMesh.name) {
-                case 'sphereMesh1':
-                    cPointLabel.position.set(106, 90, -0);
-                    p.textContent = 'Информационное табло';
-                    break;
-                case 'sphereMesh2':
-                    cPointLabel.position.set(26, 62, -0);
-                    p.textContent = 'Дорожные знаки';
-                    break;
-                default:
-                    break;
+            p.className = 'tooltip show'; // Показ подсказки
+            const tooltipText = tooltipTexts[clickedMesh.name]; // Получение текста подсказки для выбранного меша
+            if (tooltipText) {
+                cPointLabel.position.set(clickedMesh.position.x, clickedMesh.position.y, clickedMesh.position.z); // Установка позиции подсказки над выбранным мешом
+                p.textContent = tooltipText; // Установка текста подсказки
             }
-        // }
         }
     } else {
-        resetMeshMaterials();
+        resetMeshMaterials(); // Если не выбрали ни один меш, сброс настроек всех мешей
         lastClickedMesh = null;
     }
 });
-
 
 
 
@@ -462,12 +426,8 @@ lightPositions1.forEach(position => {
     // scene1.add(helper);
 });
 
-// const Ambient = new THREE.SpotLight(0xffffff, 3);
-// SpotLight5.position.set(0, 470, -0);
-
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
 SpotLight5.position.set(0, 470, -0);
-// SpotLight5.position.set(500, 470, 0);
 SpotLight5.castShadow = ShadowSwitch;
 // SpotLight5.shadow.bias = 0.001;
 SpotLight5.shadow.mapSize.height = 64; // Разрешение отображения теней
@@ -487,14 +447,12 @@ scene1.add(SpotLight5);
 
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
 RectAreaLight.position.set(10, 110, 120);
-// RectAreaLight.position.set(10, 110, 240);
 RectAreaLight.castShadow = ShadowSwitch;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
 const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
 RectAreaLight2.position.set(36, 56, -194);
-// RectAreaLight2.position.set(36, 56, -245);
 RectAreaLight2.castShadow = ShadowSwitch;
 RectAreaLight2.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight2 );
@@ -529,7 +487,6 @@ const PhoneJPG = new URL('../../img/garage.jpg', import.meta.url);
 const rgbLoaderPhone = new THREE.TextureLoader(LoadingManager);
 rgbLoaderPhone.load(PhoneJPG, function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
-    // scene1.background = texture;
     scene1.environment = texture;
 
     // 6) Загрузка gltf 3D модели экстерьер
@@ -538,7 +495,6 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         scene1.add(obj);
         console.log(obj.children);
         obj.position.set(-35, -3, -27.5);
-        // obj.position.set(0, 0, 0);
         // const box = new THREE.Box3().setFromObject(obj);
         // const size = new THREE.Vector3();
         // box.getSize(size);
@@ -547,14 +503,9 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
-        // let materialProperties = {};
         for (let i = 0; i < obj.children.length; i++) {
             names.push(obj.children[i].name);
         }
-        // for (let i = 0; i < names.length; i++) {
-        //     let name = names[i];
-        //     materialProperties[name] = createMaterialProperties(name);
-        // }
         const materialProperties = names.reduce(function(props, name) {
             props[name] = createMaterialProperties(name);
             return props;
@@ -566,17 +517,10 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         createMaterialProperties();
         console.log(materialProperties);
 
-        // names.includes(child.name) Старый вариант
-        // namesSet.has(child.name) Новый
-
         // 9) Обход загружаемой модели и замена материалов экстерьер
         obj.traverse(function(child) {
             if (child.isMesh) {
                 child.castShadow = ShadowSwitch;
-                // child.renderOrder = 1;
-                // child.receiveShadow = true;
-                child.frustumCulled = false;
-                // child.polygonOffset = true;
             }
             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
             if (child.isMesh && namesSet.has(child.name)) {
@@ -586,16 +530,11 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                 if (properties && Object.keys(properties).length > 0 && properties.material) {
                     // Присваиваем материал из свойств child.material
                     child.material = properties.material;
-                    child.frustumCulled = false;
-                    // child.polygonOffset = true;
                 }
             }
             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
             else if (child.isGroup && namesSet.has(child.name)) {
                 const groupProperties = materialProperties[child.name];
-                // child.renderOrder = 2;
-                child.frustumCulled = false;
-                // child.polygonOffset = true;
                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
                 // Также проверяем, есть ли у свойств объект material
                 if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
@@ -605,10 +544,6 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
                             // Присваиваем материал из свойств groupChild.material
                             groupChild.material = groupProperties.material;
                             groupChild.castShadow = ShadowSwitch;
-                            groupChild.frustumCulled = false;
-                            // groupChild.polygonOffset = true;
-                            // groupChild.renderOrder = 1;
-                            // groupChild.receiveShadow = true;
                         }
                     });
                 }
@@ -636,25 +571,20 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
 // 11) Пол + Загрузка текстуры бетона экстерьер
 const betonMapJPG = new URL('../../img/beton/betonMap.jpg', import.meta.url);
 const betonDmapJPG = new URL('../../img/beton/betonDmap.jpg', import.meta.url);
-// const betonBmapJPG = new URL('../../img/beton/betonBmap.jpg', import.meta.url);
 const BetonLoader = new THREE.TextureLoader(LoadingManager);
 const BetonMap = BetonLoader.load(betonMapJPG);
 const BetonDmap= BetonLoader.load(betonDmapJPG);
-// const BetonBmap= BetonLoader.load(betonBmapJPG);
 BetonMap.wrapS = THREE.RepeatWrapping; // Повторение текстуры по горизонтали
 BetonMap.wrapT = THREE.RepeatWrapping; // Повторение текстуры по вертикали
-// BetonMap.repeat.set(8, 8); // Количество повторений текстуры
 BetonMap.repeat.set(4, 4); // Количество повторений текстуры
 
 const planeMaterial = new THREE.MeshPhongMaterial({
-    // bumpMap: betonBmap,
     bumpScale: 2,
     map: BetonMap,
     displacementMap: BetonDmap,
     displacementScale: 0.1,
     side: THREE.DoubleSide, // Применение к обеим сторонам
 });
-// const planeGeometry = new THREE.PlaneGeometry(1500, 1500, 40, 40); // Модель №2 Подложка
 const planeGeometry = new THREE.PlaneGeometry(750, 750, 5, 5); // Модель №2 Подложка
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 scene1.add(plane);
@@ -699,65 +629,23 @@ const coordinates = [
 //     });
 // });
 
-
-// Сцена интерьера Амарок
-// 1) Фон интерьер
-// const scene2 = new THREE.Scene(LoadingManager);
-// scene2.background = new THREE.Color(0x000000)
-// //
-// // // 2) Камера и управление камерой интерьер
-// const initialCameraPosition2 = new THREE.Vector3(-0.0006, -0.00006, 0.0001);
-// const camera2 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-// camera2.position.copy(initialCameraPosition2);
-//
-// const controls2 = new OrbitControls(camera2, renderer.domElement);
-// controls2.enabled = false;
-// // controls2.addEventListener( 'change', animate );
-// controls2.update();
-//
-// // 3) Свет интерьер
-// // let ambientLightScene_2 = new THREE.AmbientLight(0x40404,2000);
-// let ambientLightScene_2 = new THREE.AmbientLight(0xffffff,4);
-// scene2.add(ambientLightScene_2);
-//0x40404  1500
-//0xfffff  8-10
-
 // Переключение активной сцены
 function animate() {
     stats.begin();
     labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
     stats.end();
-    // if (activeScene === 1) {
-    //     // labelRenderer.render(scene1, camera1);
-    //     // setTimeout( function() {
-    //     //
-    //     //     requestAnimationFrame( animate );
-    //     //
-    //     // }, 1000 / 30 );
-    //     renderer.render(scene1, camera1);
-    //     // console.log("Количество полигонов :", renderer.info.render.triangles);
-    //     // console.log("Рендер :", renderer.info);
-    //     stats.end();
-    // } else {
-    //     // renderer.render(scene2, camera2);
-    //     // console.log("Number of Triangles :", renderer.info.render.triangles);
-    //     stats.end();
-    // }
 }
 renderer.setAnimationLoop(animate);
 
 // Измененение размера сцены под размер экрана
 window.addEventListener('resize', () => {
     bounds = CanvasWrapper.getBoundingClientRect();
-    // debugger;
-    // camera1.aspect = window.innerWidth / window.innerHeight;
     camera1.aspect = bounds.width / bounds.height;
     // camera1.updateProjectionMatrix();
     // camera2.aspect = window.innerWidth / window.innerHeight;
     // camera2.updateProjectionMatrix();
-    // labelRenderer.setSize(window.innerWidth, window.innerHeight);
-    // renderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.setSize(bounds.width, bounds.height);
     renderer.setSize(bounds.width, bounds.height);
 });
 
@@ -796,79 +684,3 @@ interiorButton.addEventListener('click', () => {
         }, dur * 1000);
     }
 });
-
-
-// let loader = new THREE.ImageLoader();
-// let texture = new THREE.Texture();
-//
-// loader.load(
-//     'https://coddmac.store/THREE/360/Amarok/amarok.jpg',
-//     function (image) {
-//         texture.image = image;
-//         texture.needsUpdate = true;
-//
-//         let sphereGeometry = new THREE.SphereGeometry(500, 32, 64);
-//         let sphereMaterial = new THREE.MeshPhysicalMaterial({
-//             map: texture,
-//             side: THREE.BackSide,
-//             color: '#fffff',
-//             opacity: 1,
-//             roughness: 0.5, // Нет отражений (матовый материал)
-//             metalness: 0, // Нет отражений (не металлический)
-//             transparent: false,
-//         });
-//         sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-//         sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-//         sphereGeometry.phiLength = 360;
-//         sphereGeometry.phiStart = 0;
-//         sphereGeometry.thetaLength = 180;
-//         sphereGeometry.thetaStart = 0;
-//         let sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-//         scene2.add(sphere);
-//         sphere.position.set(0, 0, 0);
-//         sphere.castShadow = true;
-//         sphere.rotation.y = Math.PI;
-//     }
-// );
-
-// 4) Вывод в сферу картинки в формате hdr интерьер
-
-// const hdrTextureURL = new URL('https://coddmac.store/THREE/360/Amarok/amarok.hdr', import.meta.url);
-// const rgbLoader = new RGBELoader(LoadingManager);
-// rgbLoader.load(hdrTextureURL, (texture) => {
-//     const sphereGeometry = new THREE.SphereGeometry(4, 60, 60); // Модель №3 Сфера В скобках радиус сферы и количество сегментов модели
-//     const sphereMaterial = new THREE.MeshPhongMaterial({
-//         map: texture,
-//         // opacity: 1,
-//         // transparent: true,
-//         side: THREE.BackSide
-//     });
-//     sphereMaterial.map.wrapS = THREE.RepeatWrapping;
-//     sphereMaterial.map.repeat.x = -1; // Инвертирование UV-координат на внутренней стороне сферы
-//     const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-//     sphere.position.set(0, 0, 0);
-//     scene2.add(sphere);
-// })
-
-
-// Отображение текста в сцене
-
-// const laderRenderer = new CSS2DRenderer();
-// laderRenderer.setSize(window.innerWidth, window.innerHeight);
-// laderRenderer.domElement.style.position = 'absolute';
-// laderRenderer.domElement.style.top = '0';
-// laderRenderer.domElement.style.pointerEvents = 'none';
-// document.body.appendChild(laderRenderer.domElement);
-//
-// const p = document.createElement('p');
-// p.className = 'sceneText';
-// p.textContent = '[ ЦОДД ]'
-// // const cPointLabel = new CSS2DObject(p);
-// // scene1.add(cPointLabel);
-// // cPointLabel.position.set(-5, 23, 122);
-//
-// const div = document.createElement('div');
-// div.className = 'sceneTextWrapper';
-// div.appendChild(p);
-// const divContainer = new CSS2DObject(div);
-// scene1.add(divContainer);

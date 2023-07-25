@@ -71,9 +71,6 @@ a-scene {
     color: white;
     padding: 12px 10px;
     border-radius: 20px;
-    /*position: relative;*/
-    /*transition-duration: 0.2s;*/
-    /*transition-property: opacity, transform;*/
 }
 
 .tooltip:before {
@@ -84,24 +81,13 @@ a-scene {
     cursor: pointer;
 }
 
-/*.tooltip.hide {*/
-/*    opacity: 0;*/
-/*    transform: translateY(-10px);*/
-/*}*/
-
 .tooltip.show {
-    /*opacity: 1;*/
-    /*transform: translateY(0);*/
     display: block;
 }
 
 .tooltip.hide {
     display: none;
 }
-
-/*.tooltip.show {*/
-/*    display: block;*/
-/*}*/
 
 
 /*header*/
