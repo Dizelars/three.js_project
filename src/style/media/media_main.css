@@ -1,22 +1,56 @@
-@media (max-width: 1110px) {
+@media (max-width: 1410px) {
     section.main .main_title {
-        font-size: 72px;
+        font-size: 7.2rem;
     }
 
-    section.main .main_title span:nth-child(2) {
+    section.main .main_title span.large_letter {
         padding: 16px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 1300px) {
+    section.main .main_title {
+        font-size: 6.2rem;
+    }
+
+    section.main .main_title span.large_letter {
+        padding: 12px;
+        max-width: 194px;
+    }
+
+    section.traffic_patrol .traffic_patrol-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+    }
+
+    section.traffic_patrol .traffic_patrol-title {
+        grid-column: 1/2;
+    }
+
+    section.traffic_patrol .traffic_patrol-descr {
+        grid-column: 2/5;
+    }
+
+    section.traffic_patrol .traffic_patrol_slider {
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid {
+        grid-column-start: 6;
     }
 }
 
 @media (max-width: 1024px) {
     section.main .main_title {
-        font-size: 62px;
-        line-height: 56px;
+        font-size: 4.6rem;
+        line-height: 46px;
     }
 
-    section.main .main_title span:nth-child(2) {
-        padding: 14px;
-        width: 189px;
+    section.main .main_title span.large_letter {
+        padding: 10px;
+        border: 8px solid white;
+        width: 174px;
     }
 
     section.main .main_info {
@@ -35,18 +69,70 @@
     section.main .main_info .main_info-descr .main_info-text:last-child {
         max-width: 340px;
     }
+
+    section.traffic_patrol .traffic_patrol-title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 24px;
+    }
+
+    section.traffic_patrol .traffic_patrol-text:nth-child(4) {
+        grid-column: 2/4;
+    }
+
+    section.traffic_patrol .traffic_patrol-wrapper img {
+        display: block;
+    }
+
+    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid {
+        max-width: 231px;
+        height: 280px;
+    }
+
+    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info {
+        padding: 10px 20px;
+    }
+
+    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-desc .slid_info-title {
+        font-size: 1.6rem;
+        line-height: 19px;
+        margin-bottom: 4px;
+    }
+
+    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-desc .slid_info-text {
+        font-size: 1.2rem;
+        line-height: 14px;
+    }
+
+    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-link svg {
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+@media (max-width: 800px) {
+    section.main .main_title {
+        font-size: 3.6rem;
+        line-height: 36px;
+    }
+
+    section.main .main_title span.large_letter {
+        padding: 8px;
+        border: 5px solid white;
+        width: 142px;
+    }
 }
 
 @media (max-width: 640px) {
     section.main .main_title {
-        font-size: 37px;
-        line-height: 38px;
+        font-size: 3rem;
+        line-height: 30px;
     }
 
-    section.main .main_title span:nth-child(2) {
-        padding: 10px;
-        border: 5px solid white;
-        width: 115px;
+    section.main .main_title span.large_letter {
+        width: 86px;
+        padding: 6px;
     }
 
     section.main .main_info {
@@ -60,5 +146,74 @@
 
     section.main .main_info .main_info-descr .main_info-text:last-child {
         max-width: 280px;
+    }
+}
+
+@media (max-width: 534px) {
+    section.main {
+        padding-bottom: 100px;
+    }
+
+    section.main .main_title {
+        font-size: 3.6rem;
+        line-height: 36px;
+        text-align: start;
+    }
+
+    section.main .main_title span:nth-child(1), section.main .main_title span:nth-child(2) {
+        text-align: inherit;
+        width: auto;
+    }
+
+    section.main .main_title span.large_letter {
+        width: 96px;
+        padding: 9px;
+    }
+
+    section.main .main_info .main_info-descr .main_info-text:first-child,
+    section.main .main_info .main_info-descr .main_info-text:last-child {
+        max-width: 50%;
+    }
+
+    .line {
+        padding: 0;
+    }
+}
+
+@media (max-width: 440px) {
+    section.main .main_bg {
+        padding: 0;
+    }
+
+    section.main .main_title {
+        margin-bottom: 128px;
+    }
+
+    section.main .main_info .main_info-descr {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    section.main .main_info .main_info-descr .main_info-text:first-child,
+    section.main .main_info .main_info-descr .main_info-text:last-child {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    section.main .main_title {
+        font-size: 2.8rem;
+        line-height: 28px;
+    }
+
+    section.main .main_title span.large_letter {
+        width: 64px;
+        padding: 6px;
+    }
+
+    section.main .main_info .main_info-link {
+        padding-top: 17px;
+        border: 4px solid white;
     }
 }
