@@ -62,7 +62,7 @@
         grid-column: 2/4;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid {
+    .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {
         /*grid-column: 2/4;*/
         max-width: 540px;
     }
@@ -111,30 +111,30 @@
         grid-column: 2/3;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid {
+    .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {
         height: 280px;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_img {
+    .traffic_patrol-card .slid_img, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_img {
         background: #090909 url("../../img/layout/pages/main/slider/amarok_slide_mini.png") no-repeat top center/cover;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info {
+    .traffic_patrol-card .slid_info, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info {
         padding: 10px 20px;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-desc .slid_info-title {
+    .traffic_patrol-card .slid_info .slid_info-desc .slid_info-title, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info .slid_info-desc .slid_info-title {
         font-size: 1.6rem;
         line-height: 19px;
         margin-bottom: 4px;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-desc .slid_info-text {
+    .traffic_patrol-card .slid_info .slid_info-desc .slid_info-text, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info .slid_info-desc .slid_info-text {
         font-size: 1.2rem;
         line-height: 14px;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-link svg {
+    .traffic_patrol-card .slid_info .slid_info-link svg, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info .slid_info-link svg {
         width: 28px;
         height: 28px;
     }
@@ -246,6 +246,7 @@
 
     section.traffic_patrol .traffic_patrol-descr.two {
         order: 1;
+        margin: 0;
     }
 
     section.traffic_patrol .traffic_patrol_slider-wrapper {
@@ -257,18 +258,18 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid {
+    .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {
         height: 336px;
         grid-column: 1/2;
         max-width: none;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-desc .slid_info-title {
+    .traffic_patrol-card .slid_info .slid_info-desc .slid_info-title, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info .slid_info-desc .slid_info-title{
         font-size: 1.7rem;
         max-width: 206px;
     }
 
-    section.traffic_patrol .traffic_patrol_slider .traffic_patrol-slid .slid_info .slid_info-desc .slid_info-text {
+    .traffic_patrol-card .slid_info .slid_info-desc .slid_info-text, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info .slid_info-desc .slid_info-text {
         max-width: 136px;
     }
 }
@@ -340,7 +341,7 @@
     section.traffic_patrol .traffic_patrol-text {
         font-size: 1.4rem;
         line-height: 21px;
-        margin-bottom: 20px;
+        /*margin-bottom: 20px;*/
     }
 
     section.traffic_patrol .traffic_patrol-descr .traffic_patrol-text:first-child {
@@ -358,7 +359,17 @@
     }
 
     section.main .main_title {
-        margin-bottom: 128px;
+        /*margin-bottom: 128px;*/
+        margin-bottom: 24px;
+    }
+
+    section.main .main_info-wrapper {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding: 0 20px;
     }
 
     section.main .main_info .main_info-descr {
@@ -389,3 +400,28 @@
         border: 4px solid white;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
