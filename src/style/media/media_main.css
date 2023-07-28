@@ -112,6 +112,26 @@
         max-width: 340px;
     }
 
+
+
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 168px 168px 280px;
+        grid-auto-columns: 1fr;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
+        ". traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
+        ". traffic_patrol-slide-6 . .";
+    }
+
+
+
+
+
     .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.4rem;
         font-weight: 700;
@@ -122,12 +142,17 @@
         grid-column: 2/4;
     }
 
+    section.traffic_patrol .traffic_patrol-wrapper {
+        grid-template-rows: 1fr 1fr 280px
+    }
+
     section.traffic_patrol .traffic_patrol_slider-wrapper {
         grid-column: 2/3;
     }
 
-    .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {
-        height: 280px;
+    .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider {
+        width: 100%;
+        height: 100%;
     }
 
     .traffic_patrol-card .slid_img, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_img {
@@ -161,9 +186,9 @@
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas:
-	"situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
-	"major_events-3 employ-4 slider-5 slider-5"
-	"bus-6 man_text-7 slider-5 slider-5";
+        "situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
+        "major_events-3 employ-4 slider-5 slider-5"
+        "bus-6 man_text-7 slider-5 slider-5";
     }
 
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
@@ -195,6 +220,53 @@
         line-height: 26px;
     }
 
+    section.help_desk .help_desk_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 293px 284px 120px 1fr;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "help_desk-1 slide-5 parkon-2 parkon-2"
+        ". slide-6 equipment-4 equipment-4"
+        ". driver-3 equipment-4 equipment-4"
+        ". . equipment-4 equipment-4";
+    }
+
+    section.help_desk .help_desk_grid-wrapper .equipment-4 {
+        grid-area: equipment-4;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 29px 151px 151px 151px 151px;
+        gap: 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "text text text"
+        "skill-1 skill-2 skill-3"
+        "skill-10 skill-5 skill-6"
+        "skill-7 skill-8 skill-9"
+        ". . skill-4";
+    }
+
+    section.help_desk .help_desk-title {
+        font-size: 2.3rem;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
+        font-size: 1.8rem;
+        line-height: 24px;
+        margin-bottom: 30px;
+        max-width: 336px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_descr {
+        flex-direction: column;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_descr .parkon_text:first-child {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -243,8 +315,25 @@
 }
 
 @media (max-width: 768px) {
+    section.traffic_patrol .traffic_patrol_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 48px 144px 64px 336px 264px;
+        grid-auto-columns: 1fr;
+        gap: 40px 40px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "traffic_patrol-1 ."
+        "traffic_patrol-text-2 traffic_patrol-text-4"
+        ". ."
+        "traffic_patrol-slide-6 ."
+        "traffic_patrol-text-3 traffic_patrol-text-5";
+    }
+
+
+
     section.situation_centre .container_main {
-        padding: 0 20px 100px 20px;
+        padding: 0 0 100px 0;
     }
 
     section.situation_centre .situation_centre_grid-wrapper {
@@ -254,11 +343,11 @@
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas:
-	"situation-1 ."
-	"brain_heart-2 brain_heart-2"
-	"slider-5 man_plus_major_events-8"
-    "slider-5 man_plus_major_events-8"
-    "employ-4 bus-6";
+        "situation-1 ."
+        "brain_heart-2 brain_heart-2"
+        "slider-5 man_plus_major_events-8"
+        "slider-5 man_plus_major_events-8"
+        "employ-4 bus-6";
     }
 
     section.situation_centre .situation_centre_grid-wrapper .man_text-7,
@@ -294,7 +383,7 @@
     }
 
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         line-height: 28px;
     }
 }
@@ -465,10 +554,6 @@
     section.main .main_info .main_info-descr .main_info-text:last-child {
         max-width: 50%;
     }
-
-    .line {
-        padding: 0;
-    }
 }
 
 @media (max-width: 492px) {
@@ -553,6 +638,40 @@
     section.main .main_info .main_info-descr .main_info-text:last-child {
         max-width: 100%;
     }
+
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 58px 199px 360px 241px;
+        grid-auto-columns: 1fr;
+        gap: 40px 40px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "traffic_patrol-1"
+        "traffic_patrol-text-mobile-1"
+        "traffic_patrol-slide-6"
+        "traffic_patrol-text-mobile-2";
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2 {
+        display: block;
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-4,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5 {
+        display: none;
+    }
+
+    section.traffic_patrol .traffic_patrol-text-mobile-1 .traffic_patrol-text:first-child,
+    section.traffic_patrol .traffic_patrol-text-mobile-2 .traffic_patrol-text:first-child {
+        margin-bottom: 14px;
+    }
+
+
 
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;

@@ -5,9 +5,9 @@
 /*header*/
 /*main*/
 /*traffic_patrol*/
-/*footer*/
 /*situation_centre*/
 /*help_desk*/
+/*footer*/
 
 
 
@@ -254,7 +254,7 @@ section.main .main_info .main_info-link:hover {
 /*traffic_patrol*/
 
 section.traffic_patrol {
-    position: relative;
+    /*position: relative;*/
     padding: 60px 20px 0 20px;
 }
 
@@ -262,11 +262,63 @@ section.traffic_patrol .container_main {
     padding-bottom: 120px;
 }
 
+
+
+section.traffic_patrol .traffic_patrol_grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 144px 144px 444px;
+    grid-auto-columns: 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
+        ". . traffic_patrol-text-4 traffic_patrol-text-5 ."
+        ". . traffic_patrol-slide-6 traffic_patrol-slide-6 .";
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 {
+    grid-area: traffic_patrol-1;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2 {
+    grid-area: traffic_patrol-text-2;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {
+    grid-area: traffic_patrol-text-3;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-4 {
+    grid-area: traffic_patrol-text-4;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5 {
+    grid-area: traffic_patrol-text-5;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
+    grid-area: traffic_patrol-slide-6;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1 {
+    grid-area: traffic_patrol-text-mobile-1 ;
+    display: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2 {
+    grid-area: traffic_patrol-text-mobile-2;
+    display: none;
+}
+
+
+
+
 section.traffic_patrol .traffic_patrol-wrapper {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(5, 1fr);
-    margin-bottom: 40px;
+    /*margin-bottom: 40px;*/
 }
 
 section.traffic_patrol .traffic_patrol-wrapper img {
@@ -309,23 +361,17 @@ section.traffic_patrol .traffic_patrol-descr.two {
     margin-bottom: 20px;
 }
 
-section.traffic_patrol .traffic_patrol_slider-wrapper {
-    /*display: grid;*/
-    /*grid-template-columns: repeat(5, 1fr);*/
-    /*gap: 20px;*/
-    grid-column: 3/5;
-}
-
-/*section.traffic_patrol .traffic_patrol_slider {*/
-/*    display: grid;*/
-/*    gap: 20px;*/
-/*    grid-template-columns: repeat(5, 1fr);*/
+/*section.traffic_patrol .traffic_patrol_slider-wrapper {*/
 /*    grid-column: 3/5;*/
 /*}*/
 
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
 .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card {
     display: flex;
-    /*grid-column: 3/5;*/
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -372,26 +418,6 @@ section.traffic_patrol .traffic_patrol_slider-wrapper {
 
 .traffic_patrol-card .slid_info .slid_info-link, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card .slid_info .slid_info-link {
     align-self: flex-end;
-}
-
-
-
-/*footer*/
-
-footer.footer_main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
-}
-
-footer.footer_main .footer_title {
-    color: #FFF;
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 32px;
-    text-transform: uppercase;
 }
 
 
@@ -701,6 +727,8 @@ section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .ski
     font-weight: 400;
     line-height: 16px;
     text-align: center;
+    width: 126px;
+    height: 32px;
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-1 {
@@ -754,3 +782,20 @@ section.help_desk .help_desk_grid-wrapper .slide-6 {
 
 
 
+/*footer*/
+
+footer.footer_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+footer.footer_main .footer_title {
+    color: #FFF;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 32px;
+    text-transform: uppercase;
+}
