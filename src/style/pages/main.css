@@ -7,6 +7,7 @@
 /*traffic_patrol*/
 /*footer*/
 /*situation_centre*/
+/*help_desk*/
 
 
 
@@ -276,7 +277,7 @@ section.traffic_patrol .traffic_patrol-wrapper img {
     top: 155px;
 }
 
-section.traffic_patrol .traffic_patrol-title {
+.title, section.traffic_patrol .traffic_patrol-title {
     grid-column: 1/3;
     font-family: 'MoscowSans', sans-serif;
     font-size: 3.2rem;
@@ -400,17 +401,17 @@ section.situation_centre {
 }
 
 section.situation_centre .container_main {
-    padding: 0 0 60px 0;
+    padding: 0 20px 120px 20px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr 188px 236px;
     gap: 20px 20px;
     grid-auto-flow: row;
     grid-template-areas:
-	"situation-1 . brain_heart-2 brain_heart-2 brain_heart-2"
+	"situation-1 situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
 	". major_events-3 employ-4 slider-5 slider-5"
 	". bus-6 man_text-7 slider-5 slider-5";
 }
@@ -419,37 +420,215 @@ section.situation_centre .situation_centre_grid-wrapper .situation-1 {
     grid-area: situation-1;
 }
 
+section.situation_centre .situation_centre_grid-wrapper .situation-1 .situation_centre-title {
+    max-width: 290px;
+}
+
 section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
     grid-area: brain_heart-2;
+    position: relative;
+    padding: 20px 200px 20px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 36px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .major_events-3 {
     grid-area: major_events-3;
+    padding: 10px;
+    border: 1px solid #62A744;
+    border-radius: 10px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 21px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .employ-4 {
     grid-area: employ-4;
+    border-radius: 10px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .slider-5 {
     grid-area: slider-5;
 }
 
+section.situation_centre .situation_centre_grid-wrapper .slider-5 .traffic_patrol-card {
+    height: 100%;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .slider-5 .traffic_patrol-card .slid_img {
+    background-position: top;
+}
+
 section.situation_centre .situation_centre_grid-wrapper .bus-6 {
     grid-area: bus-6;
+    border-radius: 10px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .employ-4 img,
+section.situation_centre .situation_centre_grid-wrapper .bus-6 img {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .man_text-7 {
     grid-area: man_text-7;
+    padding: 10px;
+    border: 1px solid #62A744;
+    border-radius: 10px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
+    grid-area: man_plus_major_events-8;
+    display: none;
+    padding: 10px;
+    border: 1px solid #62A744;
+    border-radius: 10px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 21px;
 }
 
 
 
+/*help_desk*/
 
+section.help_desk {
+    padding: 60px 0 0 0;
+}
 
+section.help_desk .container_main {
+    padding: 0 20px 120px 20px;
+}
 
+section.help_desk .help_desk_grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "help_desk-1 parkon-2 parkon-2 parkon-2 driver-3"
+        ". equipment-4 equipment-4 equipment-4 ."
+        ". slide-5 slide-5 slide-6 slide-6";
+}
 
+section.help_desk .help_desk_grid-wrapper .help_desk-1 {
+    grid-area: help_desk-1;
+}
 
+section.help_desk .help_desk_grid-wrapper .parkon-2 {
+    grid-area: parkon-2;
+}
+
+section.help_desk .help_desk_grid-wrapper .driver-3 {
+    grid-area: driver-3;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.4fr 1.3fr 1.3fr;
+    gap: 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "text text text text text"
+        "skill-1 skill-2 skill-3 skill-4 skill-5"
+        "skill-6 skill-7 skill-8 skill-9 skill-10";
+    grid-area: equipment-4;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .text {
+    grid-area: text;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-1 {
+    grid-area: skill-1;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-2 {
+    grid-area: skill-2;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-3 {
+    grid-area: skill-3;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-4 {
+    grid-area: skill-4;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-5 {
+    grid-area: skill-5;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-6 {
+    grid-area: skill-6;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-7 {
+    grid-area: skill-7;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-8 {
+    grid-area: skill-8;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-9 {
+    grid-area: skill-9;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-10 {
+    grid-area: skill-10;
+}
+
+section.help_desk .help_desk_grid-wrapper .slide-5 {
+    grid-area: slide-5;
+}
+
+section.help_desk .help_desk_grid-wrapper .slide-6 {
+    grid-area: slide-6;
+}
 
 
 

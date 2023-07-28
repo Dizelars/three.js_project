@@ -15,6 +15,14 @@
     }
 }
 
+@media (max-width: 1340px) {
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text,
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text {
+        font-size: 1.5rem;
+        line-height: 18px;
+    }
+}
+
 @media (max-width: 1300px) {
     section.main .main_title {
         font-size: 6.2rem;
@@ -45,7 +53,7 @@
         width: auto;
     }
 
-    section.traffic_patrol .traffic_patrol-title {
+    .title, section.traffic_patrol .traffic_patrol-title {
         grid-column: 1/2;
         font-size: 2.9rem;
     }
@@ -65,6 +73,13 @@
     .traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {
         /*grid-column: 2/4;*/
         max-width: 540px;
+    }
+}
+
+@media (max-width: 1100px) {
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text {
+        font-size: 1.4rem;
+        line-height: 17px;
     }
 }
 
@@ -97,7 +112,7 @@
         max-width: 340px;
     }
 
-    section.traffic_patrol .traffic_patrol-title {
+    .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.4rem;
         font-weight: 700;
         line-height: 24px;
@@ -139,6 +154,47 @@
         height: 28px;
     }
 
+    section.situation_centre .situation_centre_grid-wrapper {
+        display: grid;
+        grid-template-columns: 236px 236px 1fr 1fr;
+        grid-template-rows: 1fr 236px 284px;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+	"situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
+	"major_events-3 employ-4 slider-5 slider-5"
+	"bus-6 man_text-7 slider-5 slider-5";
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
+        padding: 20px 140px 20px 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
+        font-size: 1.8rem;
+        line-height: 24px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+        width: 254px;
+        height: 224px;
+        right: -86px;
+        top: 128px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .slider-5 .traffic_patrol-card .slid_img {
+        background: #090909 url(../../img/layout/pages/main/slider/amarok_prevue_big.png) no-repeat top center/cover;
+        height: 100%;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text {
+        line-height: 24px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text {
+        line-height: 26px;
+    }
+
 }
 
 @media (max-width: 800px) {
@@ -153,7 +209,7 @@
         width: 142px;
     }
 
-    section.traffic_patrol .traffic_patrol-title {
+    .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.1rem;
         line-height: 22px;
     }
@@ -183,6 +239,77 @@
 
     section.traffic_patrol .traffic_patrol_slider {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    section.situation_centre .container_main {
+        padding: 0 20px 100px 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 72px 260px 192px 192px 290px;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+	"situation-1 ."
+	"brain_heart-2 brain_heart-2"
+	"slider-5 man_plus_major_events-8"
+    "slider-5 man_plus_major_events-8"
+    "employ-4 bus-6";
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7,
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3 {
+        display: none;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .situation-1 .situation_centre-title {
+        max-width: 231px;
+        font-size: 2.4rem;
+        line-height: 24px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
+        padding: 20px 94px 20px 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
+        margin-bottom: 30px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+        right: -28px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text {
+        line-height: 21px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
+        display: block;
+        padding: 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
+        font-size: 1.8rem;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 764px) {
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
+        font-size: 1.6rem;
+        line-height: 26px;
     }
 }
 
@@ -235,7 +362,7 @@
         transform: scale(-1, 1);
     }
 
-    section.traffic_patrol .traffic_patrol-title {
+    .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.5rem;
         line-height: 25px;
     }
@@ -271,6 +398,45 @@
 
     .traffic_patrol-card .slid_info .slid_info-desc .slid_info-text, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid .slid_info .slid_info-desc .slid_info-text {
         max-width: 136px;
+    }
+}
+
+@media (max-width: 636px) {
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
+        padding: 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
+        margin-bottom: 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
+        font-size: 1.4rem;
+        line-height: 22px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text,
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text {
+        font-size: 1.5rem;
+        line-height: 21px;
+    }
+}
+
+@media (max-width: 584px) {
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
+        font-size: 1.4rem;
+        line-height: 22px;
+    }
+}
+
+@media (max-width: 552px) {
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
+        font-size: 1.6rem;
+        line-height: 21px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
+        line-height: 21px;
     }
 }
 
@@ -318,7 +484,7 @@
         grid-template-columns: 1fr;
     }
 
-    section.traffic_patrol .traffic_patrol-title {
+    .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.4rem;
         line-height: 24px;
         max-width: 246px;
@@ -351,6 +517,11 @@
     section.traffic_patrol .traffic_patrol_slider-wrapper {
         grid-column-start: 1;
     }
+
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
+        font-size: 1.2rem;
+        line-height: 18px;
+    }
 }
 
 @media (max-width: 440px) {
@@ -382,6 +553,37 @@
     section.main .main_info .main_info-descr .main_info-text:last-child {
         max-width: 100%;
     }
+
+    section.situation_centre .situation_centre_grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 87px 333px 320px 360px;
+        gap: 40px 40px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "situation-1"
+        "brain_heart-2"
+        "employ-4"
+        "slider-5"
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3,
+    section.situation_centre .situation_centre_grid-wrapper .bus-6,
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7,
+    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
+        display: none;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
+        padding: 20px 30px 20px 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+        width: 147px;
+        height: 130px;
+        right: -28px;
+        top: 244px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -398,6 +600,12 @@
     section.main .main_info .main_info-link {
         padding-top: 17px;
         border: 4px solid white;
+    }
+}
+
+@media (max-width: 360px) {
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
+        padding: 10px;
     }
 }
 
