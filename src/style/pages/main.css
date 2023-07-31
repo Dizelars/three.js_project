@@ -2,6 +2,7 @@
 @import '../../style/fonts.css';
 
 
+/*магия уголков*/
 /*header*/
 /*main*/
 /*traffic_patrol*/
@@ -39,6 +40,94 @@ body.main {
 
 
 
+/*магия уголков начата*/
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"],
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"],
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"],
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"] {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    border: 2px solid #545454;
+    transition: all .3s ease;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"],
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"] {
+    cursor: pointer;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] img,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] a,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"] a {
+    position: relative;
+    z-index: 2;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before,
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:after {
+    content: "";
+    z-index: -1;
+    display: block;
+    position: absolute;
+    background: #000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:before {
+    width: calc(100% + 5px);
+    height: 90%;
+    z-index: 1;
+    transition: height 0.6s;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:after {
+    height: calc(100% + 5px);
+    width: 90%;
+    z-index: 0;
+    transition: width 0.7s;
+}
+
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:after {
+    height: calc(100% + 6px);
+    width: 96.2%;
+    z-index: 0;
+    transition: width 0.7s;
+}
+
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:hover:before,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:focus:before {*/
+/*    height: 50%;*/
+/*}*/
+
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:hover:after,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:focus:after {*/
+/*    width: 74%;*/
+/*}*/
+
+/*магия уголков закончена*/
+
+
+
 /*header*/
 
 .header_main {
@@ -56,12 +145,14 @@ body.main {
     padding: 24px 0;
 }
 
-.header_main .header__logo {
+.header_main .header__logo,
+footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo {
     max-width: 170px;
     width: 100%;
 }
 
-.header_main .header__logo-text {
+.header_main .header__logo-text,
+footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 800;
     font-size: 2rem;
@@ -267,14 +358,15 @@ section.traffic_patrol .container_main {
 section.traffic_patrol .traffic_patrol_grid-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 144px 144px 444px;
+    grid-template-rows: 144px 144px 0 444px;
     grid-auto-columns: 1fr;
     gap: 20px 20px;
     grid-auto-flow: row;
     grid-template-areas:
         "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
-        ". . traffic_patrol-text-4 traffic_patrol-text-5 ."
-        ". . traffic_patrol-slide-6 traffic_patrol-slide-6 .";
+        "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
+        ". . . . ."
+        "traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6";
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 {
@@ -299,6 +391,16 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5 {
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
     grid-area: traffic_patrol-slide-6;
+    overflow: hidden;
+}
+
+section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
+    display: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {
+    grid-area: traffic_patrol-no-slide-7;
+    display: none;
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1 {
@@ -309,6 +411,31 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2 {
     grid-area: traffic_patrol-text-mobile-2;
     display: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons {
+    position: absolute;
+    bottom: -30px;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons button {
+    padding: 0;
+    background-color: black;
+    border: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons .btn_prev {
+    margin-right: 14px;
+}
+
+section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card {
+    max-width: 540px;
 }
 
 
@@ -557,6 +684,39 @@ section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8
     line-height: 21px;
 }
 
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider {
+    display: none;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card {
+    background-color: rgba(24, 24, 24, 0.70);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_img {
+    /*max-width: 335px;*/
+    height: 155px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_info {
+    padding: 10px 10px 28px 10px;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_info .slider-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 18px;
+}
+
 
 
 /*help_desk*/
@@ -567,6 +727,10 @@ section.help_desk {
 
 section.help_desk .container_main {
     padding: 0 0 120px 0;
+}
+
+section.help_desk .help_desk_grid-wrapper .mobile_text_combo {
+    display: none;
 }
 
 section.help_desk .help_desk_grid-wrapper {
@@ -648,65 +812,45 @@ section.help_desk .help_desk_grid-wrapper .equipment-4 .text {
     line-height: 24px;
 }
 
-
-/*магия уголков начата*/
-
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] {
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    border: 2px solid #545454;
-    transition: all .3s ease;
-    /*cursor: pointer;*/
+section.help_desk .help_desk_grid-wrapper .equipment_mobile {
+    grid-area: equipment_mobile;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content {
-    position: relative;
-    z-index: 2;
+section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {
+    grid-area: equipment_mobile-text;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before,
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after {
-    content: "";
-    z-index: -1;
-    display: block;
-    position: absolute;
-    background: #000;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-iteration-count: 1;
-    transform-origin: 50% 50%;
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
+    grid-area: equipment_mobile_control;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before {
-    width: calc(100% + 5px);
-    height: 90%;
-    z-index: 1;
-    transition: height 0.6s;
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
+    grid-area: equipment_mobile_skills;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after {
-    height: calc(100% + 5px);
-    width: 90%;
-    z-index: 0;
-    transition: width 0.7s;
+section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
+    grid-area: equipment_mobile-slide;
 }
 
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:hover:before,*/
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:focus:before {*/
-/*    height: 50%;*/
+section.help_desk .help_desk_grid-wrapper .equipment_mobile,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
+    display: none;
+}
+
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile {*/
+/*    background-color: #545454;*/
 /*}*/
 
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:hover:after,*/
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:focus:after {*/
-/*    width: 74%;*/
-/*}*/
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
 
-/*магия уголков закончена*/
-
-
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content {
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -716,12 +860,14 @@ section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .ski
     height: 100%;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img {
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content img {
     width: 48px;
     height: 48px;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text {
+section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content .skill_text {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
@@ -784,18 +930,175 @@ section.help_desk .help_desk_grid-wrapper .slide-6 {
 
 /*footer*/
 
+/*footer.footer_main {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 300px;*/
+/*}*/
+
+/*footer.footer_main .footer_title {*/
+/*    color: #FFF;*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    font-size: 3.2rem;*/
+/*    font-weight: 700;*/
+/*    line-height: 32px;*/
+/*    text-transform: uppercase;*/
+/*}*/
+
 footer.footer_main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 300px;
+    padding: 50px 0 60px 0;
 }
 
-footer.footer_main .footer_title {
-    color: #FFF;
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 32px;
-    text-transform: uppercase;
+footer.footer_main .container_main {
+    border: none;
+    padding: 0 20px;
 }
+
+
+footer.footer_main .footer_main_grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "footer-title-1 . footer-menu-2 . footer-contacts-3"
+        ". . footer-menu-2 . footer-contacts-3"
+        "footer-media-4 . footer-menu-2 . footer-contacts-3";
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-title-1 {
+    grid-area: footer-title-1;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-menu-2 {
+    grid-area: footer-menu-2;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-title {
+    margin-bottom: 34px;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .footer-menu-link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 24px;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .footer-menu-link:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 12px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "contacts-1"
+        "contacts-2"
+        "contacts-3";
+    grid-area: footer-contacts-3;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 .contacts-1 {
+    grid-area: contacts-1;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 .contacts-2 {
+    grid-area: contacts-2;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 .contacts-3 {
+    grid-area: contacts-3;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] {
+    display: flex;
+    align-items: center;
+    padding: 28px 30px;
+    /*justify-content: space-between;*/
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] img {
+    margin-right: 4px;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] a {
+    text-decoration: none;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
+    grid-area: footer-media-4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 .media-wrapper {
+    padding: 28px;
+    transition: all .4s;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 .media-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 .media-wrapper:not(:last-child) {
+    margin-right: 10px;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo {
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
