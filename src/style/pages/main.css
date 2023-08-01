@@ -44,8 +44,9 @@ body.main {
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"],
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"],
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"],
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"] {
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"],
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] {
     display: inline-block;
     width: 100%;
     position: relative;
@@ -53,16 +54,19 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"
     transition: all .3s ease;
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"],
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"] {
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"],
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"],
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
     cursor: pointer;
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content,
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content,
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] img,
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] a,
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"] a {
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control p,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img {
     position: relative;
     z-index: 2;
 }
@@ -71,10 +75,12 @@ section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:befo
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after,
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:before,
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:after,
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:before,
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:after {
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:after,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:after {
     content: "";
     z-index: -1;
     display: block;
@@ -89,25 +95,39 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before,
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:before,
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:before {
-    width: calc(100% + 5px);
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:before {
+    width: calc(100% + 6px);
     height: 90%;
+    z-index: 1;
+    transition: height 0.6s;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before {
+    width: calc(100% + 5px);
+    height: 82%;
     z-index: 1;
     transition: height 0.6s;
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after,
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 div[class^="media-"]:after {
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:after {
     height: calc(100% + 5px);
     width: 90%;
     z-index: 0;
     transition: width 0.7s;
 }
 
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:after {
+    height: calc(100% + 5px);
+    width: 98%;
+    z-index: 0;
+    transition: width 0.7s;
+}
 
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"]:after {
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:after {
     height: calc(100% + 6px);
     width: 96.2%;
     z-index: 0;
@@ -345,15 +365,12 @@ section.main .main_info .main_info-link:hover {
 /*traffic_patrol*/
 
 section.traffic_patrol {
-    /*position: relative;*/
     padding: 60px 20px 0 20px;
 }
 
 section.traffic_patrol .container_main {
     padding-bottom: 120px;
 }
-
-
 
 section.traffic_patrol .traffic_patrol_grid-wrapper {
     display: grid;
@@ -434,18 +451,10 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-butto
     margin-right: 14px;
 }
 
-section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card {
-    max-width: 540px;
-}
-
-
-
-
 section.traffic_patrol .traffic_patrol-wrapper {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(5, 1fr);
-    /*margin-bottom: 40px;*/
 }
 
 section.traffic_patrol .traffic_patrol-wrapper img {
@@ -488,16 +497,20 @@ section.traffic_patrol .traffic_patrol-descr.two {
     margin-bottom: 20px;
 }
 
-/*section.traffic_patrol .traffic_patrol_slider-wrapper {*/
-/*    grid-column: 3/5;*/
-/*}*/
-
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapper {
     width: 100%;
     height: 100%;
 }
 
-.traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card {
+
+
+/*cards start*/
+
+section.traffic_patrol .traffic_patrol_slider .garage_model_card {
+    max-width: 540px;
+}
+
+.garage_model_card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -508,7 +521,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
     height: 100%;
 }
 
-.traffic_patrol-card .slid_img, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card .slid_img {
+.garage_model_card .slid_img {
     max-width: 540px;
     width: 100%;
     height: 444px;
@@ -516,7 +529,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
     background: #090909 url("../../img/layout/pages/main/slider/amarok_slide.png") no-repeat bottom center/cover;
 }
 
-.traffic_patrol-card .slid_info, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card .slid_info {
+.garage_model_card .slid_info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -526,7 +539,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
     border-radius: 0 0 8px 8px;
 }
 
-.traffic_patrol-card .slid_info .slid_info-desc .slid_info-title, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card .slid_info .slid_info-desc .slid_info-title  {
+.garage_model_card .slid_info .slid_info-desc .slid_info-title {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
@@ -535,7 +548,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
     margin-bottom: 10px;
 }
 
-.traffic_patrol-card .slid_info .slid_info-desc .slid_info-text, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card .slid_info .slid_info-desc .slid_info-text {
+.garage_model_card .slid_info .slid_info-desc .slid_info-text {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
@@ -543,10 +556,11 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
     color: #787878;
 }
 
-.traffic_patrol-card .slid_info .slid_info-link, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card .slid_info .slid_info-link {
+.garage_model_card .slid_info .slid_info-link {
     align-self: flex-end;
 }
 
+/*cards end*/
 
 
 /*situation_centre*/
@@ -634,11 +648,11 @@ section.situation_centre .situation_centre_grid-wrapper .slider-5 {
     grid-area: slider-5;
 }
 
-section.situation_centre .situation_centre_grid-wrapper .slider-5 .traffic_patrol-card {
+section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card {
     height: 100%;
 }
 
-section.situation_centre .situation_centre_grid-wrapper .slider-5 .traffic_patrol-card .slid_img {
+section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card .slid_img {
     background-position: top;
 }
 
@@ -736,12 +750,13 @@ section.help_desk .help_desk_grid-wrapper .mobile_text_combo {
 section.help_desk .help_desk_grid-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 234px 352px 444px;
+    grid-template-rows: 234px 352px 0 444px;
     gap: 30px 20px;
     grid-auto-flow: row;
     grid-template-areas:
         "help_desk-1 parkon-2 parkon-2 parkon-2 driver-3"
         ". equipment-4 equipment-4 equipment-4 ."
+        ". . . . ."
         ". slide-5 slide-5 slide-6 slide-6";
 }
 
@@ -837,10 +852,6 @@ section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
 section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
     display: none;
 }
-
-/*section.help_desk .help_desk_grid-wrapper .equipment_mobile {*/
-/*    background-color: #545454;*/
-/*}*/
 
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
     display: flex;
@@ -1030,19 +1041,19 @@ footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 .contacts-3 {
     grid-area: contacts-3;
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] {
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {
     display: flex;
     align-items: center;
     padding: 28px 30px;
+    text-decoration: none;
     /*justify-content: space-between;*/
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] img {
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img {
     margin-right: 4px;
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 div[class^="contacts-"] a {
-    text-decoration: none;
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     font-weight: 300;
