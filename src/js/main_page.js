@@ -80,3 +80,57 @@ const swiper3 = new Swiper('.swiper3', {
     //     el: '.swiper-scrollbar',
     // },
 });
+
+
+// Получаем ссылки на элементы
+const controlBlock = document.querySelector('.equipment_mobile_control');
+const skillsBlock = document.querySelector('.equipment_mobile_skills');
+const equipmentMobileContainer = document.querySelector('.equipment_mobile');
+const helpDeskGrid = document.querySelector('.help_desk_grid-wrapper');
+
+// Скрываем блок skills по умолчанию
+skillsBlock.style.display = 'none';
+
+if (window.innerWidth <= 768) {
+    equipmentMobileContainer.style.gridTemplateRows = '84px auto';
+    helpDeskGrid.style.gridTemplateRows = '28px 388px 72px 84px';
+}
+
+// Добавляем обработчик клика на controlBlock
+controlBlock.addEventListener('click', () => {
+    // Проверяем текущее состояние блока skills
+    const isSkillsVisible = skillsBlock.style.display !== 'none';
+
+    // В зависимости от состояния, скрываем или показываем блок skills
+    if (isSkillsVisible) {
+        // Скрываем блок с использованием visibility: hidden
+        skillsBlock.style.display = 'none';
+
+        // Изменяем стили родительского grid контейнера
+        equipmentMobileContainer.style.gridTemplateRows = '84px 0';
+        helpDeskGrid.style.gridTemplateRows = '28px 388px 72px 84px';
+    } else {
+        // Показываем блок с использованием visibility: visible и display: grid
+        skillsBlock.style.visibility = 'visible';
+        skillsBlock.style.display = 'grid';
+
+        // Восстанавливаем стили родительского grid контейнера
+        equipmentMobileContainer.style.gridTemplateRows = '84px auto';
+        helpDeskGrid.style.gridTemplateRows = '28px 388px 72px 810px';
+    }
+});
+
+// Функция для обновления параметров gridTemplateRows в зависимости от ширины экрана
+function updateGridHeight() {
+    if (window.innerWidth <= 440) {
+        equipmentMobileContainer.style.gridTemplateRows = '84px auto';
+        helpDeskGrid.style.gridTemplateRows = '30px 332px 115px 940px 388px';
+    }
+    // } else {
+    //     equipmentMobileContainer.style.gridTemplateRows = '84px auto';
+    //     helpDeskGrid.style.gridTemplateRows = '28px 388px 72px 810px';
+    // }
+}
+
+// Добавляем обработчик на изменение размеров окна браузера
+window.addEventListener('resize', updateGridHeight);

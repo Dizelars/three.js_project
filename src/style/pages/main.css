@@ -134,15 +134,41 @@ footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contac
     transition: width 0.7s;
 }
 
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:hover:before,*/
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:focus:before {*/
-/*    height: 50%;*/
-/*}*/
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:hover,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:focus,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:hover:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:focus:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:hover:after,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:focus:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:hover,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:focus,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:hover:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:focus:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:hover:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:focus:after
+{
+    background-color: rgba(255, 255, 255, 0.10);
+}
 
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:hover:after,*/
-/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:focus:after {*/
-/*    width: 74%;*/
-/*}*/
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:hover:after,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:focus:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:hover:after,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:focus:after {
+    height: calc(100% + 0px);
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:hover:before,
+footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:focus:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:hover:before,
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:focus:before {
+    width: calc(100% + 0px);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+
 
 /*магия уголков закончена*/
 
@@ -451,6 +477,11 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-butto
     margin-right: 14px;
 }
 
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons .btn_prev,
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons .btn_next {
+    cursor: pointer;
+}
+
 section.traffic_patrol .traffic_patrol-wrapper {
     display: grid;
     gap: 20px;
@@ -511,6 +542,8 @@ section.traffic_patrol .traffic_patrol_slider .garage_model_card {
 }
 
 .garage_model_card {
+    text-decoration: none;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
