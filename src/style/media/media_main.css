@@ -121,7 +121,9 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 168px 168px 0 280px;
+        /*grid-template-rows: 168px 168px 0 280px;*/
+        /*grid-template-rows: repeat(4, min-content);*/
+        grid-template-rows: repeat(4, max-content);
         grid-auto-columns: 1fr;
         gap: 20px 20px;
         grid-auto-flow: row;
@@ -158,6 +160,10 @@
 
     section.traffic_patrol .traffic_patrol-wrapper {
         grid-template-rows: 1fr 1fr 280px
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {
+        max-height: 280px;
     }
 
     section.traffic_patrol .traffic_patrol_slider-wrapper {
@@ -206,7 +212,8 @@
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         grid-template-columns: 236px 236px 1fr 1fr;
-        grid-template-rows: 1fr 236px 284px;
+        /*grid-template-rows: 1fr 236px 284px;*/
+        grid-template-rows: repeat(3, min-content);
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -231,6 +238,10 @@
         top: 128px;
     }
 
+    section.situation_centre .situation_centre_grid-wrapper .slider-5 {
+        height: 100%;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card .slid_img {
         background: #090909 url(../../img/layout/pages/main/slider/amarok_prevue_big.png) no-repeat top center/cover;
         height: 100%;
@@ -249,7 +260,8 @@
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 293px 284px 120px 1fr;
+        /*grid-template-rows: 293px 284px 120px 1fr;*/
+        grid-template-rows: repeat(4, min-content);
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -263,7 +275,8 @@
         grid-area: equipment-4;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 29px 151px 151px 151px 151px;
+        /*grid-template-rows: 29px 151px 151px 151px 151px;*/
+        grid-template-rows: repeat(5, min-content);
         gap: 10px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -292,6 +305,11 @@
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_descr .parkon_text:first-child {
         margin-right: 0;
         margin-bottom: 10px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .slide-5,
+    section.help_desk .help_desk_grid-wrapper .slide-6 {
+        height: 284px;
     }
 
 
@@ -379,7 +397,8 @@
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: 124px 1fr 1fr 1fr;
-        grid-template-rows: 293px 284px 120px 1fr;
+        /*grid-template-rows: 293px 284px 120px 1fr;*/
+        grid-template-rows: repeat(4, min-content);
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -439,7 +458,9 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 48px 144px 0 336px 264px;
+        /*grid-template-rows: 48px 144px 0 336px 264px;*/
+        /*grid-template-rows: repeat(5, min-content);*/
+        grid-template-rows: repeat(5, max-content);
         grid-auto-columns: 1fr;
         gap: 40px 40px;
         grid-auto-flow: row;
@@ -468,6 +489,10 @@
         max-width: 290px;
     }
 
+    section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
+        justify-self: flex-end;
+    }
+
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons button {
         width: 64px;
         height: 64px;
@@ -478,9 +503,13 @@
         height: 100%;
     }
 
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons {
-        top: 236px;
-        right: 0;
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons {*/
+    /*    top: 236px;*/
+    /*    right: 0;*/
+    /*}*/
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
+        max-height: 336px;
     }
 
 
@@ -492,7 +521,8 @@
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 72px 260px 192px 192px 290px;
+        /*grid-template-rows: 72px 260px 192px 192px 290px;*/
+        grid-template-rows: repeat(5, min-content);
         gap: 20px 20px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -582,7 +612,8 @@
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 28px 388px 72px 810px;
+        /*grid-template-rows: 28px 388px 72px 810px;*/
+        grid-template-rows: repeat(4, min-content);
         gap: 40px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -603,7 +634,8 @@
         grid-area: equipment_mobile;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 84px 725px;
+        /*grid-template-rows: 84px 725px;*/
+        grid-template-rows: repeat(2, min-content);
         gap: 30px 0;
         grid-auto-flow: row;
         grid-template-areas:
@@ -622,7 +654,8 @@
         /*grid-area: equipment_mobile;*/
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 151px 151px 151px 151px;
+        /*grid-template-rows: 151px 151px 151px 151px;*/
+        grid-template-rows: repeat(4, min-content);
         gap: 20px 64px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -630,8 +663,8 @@
         "skill-1 skill-2 skill-4"
         "skill-3 skill-7 skill-9"
         "skill-8 . .";
-        padding-top: 22px;
-        border-top: 1px solid white;
+        /*padding-top: 22px;*/
+        /*border-top: 1px solid white;*/
     }
 
 
@@ -688,6 +721,11 @@
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-wrapper {
         align-items: flex-start;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {
+        padding: 28px 5px;
+        justify-content: center;
     }
 
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p {
@@ -832,6 +870,58 @@
     }
 }
 
+@media (max-width: 576px) {
+    footer.footer_main .footer_main_grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px 70px 266px 1fr;
+        grid-auto-columns: 1fr;
+        gap: 50px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "footer-title-1"
+        "footer-media-4"
+        "footer-menu-2"
+        "footer-contacts-3";
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 12px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "contacts-1"
+        "contacts-2"
+        "contacts-3";
+        grid-area: footer-contacts-3;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-title-1,
+    footer.footer_main .footer_main_grid-wrapper .footer-menu-2,
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3,
+    footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
+        justify-self: center;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {
+        align-self: center;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links {
+        align-items: center;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
+        width: 62%;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 552px) {
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
         font-size: 1.6rem;
@@ -840,6 +930,10 @@
 
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
         line-height: 21px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
+        gap: 20px;
     }
 }
 
@@ -957,7 +1051,9 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 58px 199px 380px 241px;
+        /*grid-template-rows: 58px 199px 380px 241px;*/
+        /*grid-template-rows: repeat(4, min-content);*/
+        grid-template-rows: repeat(4, max-content);
         grid-auto-columns: 1fr;
         gap: 40px 40px;
         grid-auto-flow: row;
@@ -987,6 +1083,17 @@
         margin-bottom: 14px;
     }
 
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
+        height: 374px;
+        max-height: none;
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapper .traffic_patrol_slider {
         height: 336px;
     }
@@ -1000,7 +1107,7 @@
 
     section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
         display: block;
-        margin-top: 20px;
+        /*margin-top: 20px;*/
     }
 
     .swiper-pagination-bullet {
@@ -1016,7 +1123,8 @@
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 87px 333px 330px 360px;
+        /*grid-template-rows: 87px 333px 330px 360px;*/
+        grid-template-rows: repeat(4, min-content);
         gap: 40px 40px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -1055,6 +1163,10 @@
         margin-top: 20px;
     }
 
+    section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card {
+        height: 336px;
+    }
+
 
 
 
@@ -1090,6 +1202,10 @@
         line-height: 24px;
     }
 
+    section.situation_centre .situation_centre_grid-wrapper .slider-5 {
+        height: clamp(366px, 444px, 444px);
+    }
+
     section.help_desk .help_desk_grid-wrapper .mobile_text_combo .mobile_text_combo-text {
         font-family: 'MoscowSans', sans-serif;
         font-size: 1.4rem;
@@ -1105,7 +1221,8 @@
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 30px 332px 115px 940px 388px;
+        /*grid-template-rows: 30px 332px 115px 940px 388px;*/
+        grid-template-rows: repeat(5, min-content);
         gap: 40px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -1120,7 +1237,8 @@
         /*grid-area: equipment_mobile;*/
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 151px 151px 151px 151px 151px;
+        /*grid-template-rows: 151px 151px 151px 151px 151px;*/
+        grid-template-rows: repeat(5, min-content);
         gap: 10px 20px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -1132,55 +1250,55 @@
     }
 
 
-    footer.footer_main .footer_main_grid-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 40px 70px 266px 1fr;
-        grid-auto-columns: 1fr;
-        gap: 50px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "footer-title-1"
-        "footer-media-4"
-        "footer-menu-2"
-        "footer-contacts-3";
-    }
+    /*footer.footer_main .footer_main_grid-wrapper {*/
+    /*    display: grid;*/
+    /*    grid-template-columns: 1fr;*/
+    /*    grid-template-rows: 40px 70px 266px 1fr;*/
+    /*    grid-auto-columns: 1fr;*/
+    /*    gap: 50px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "footer-title-1"*/
+    /*    "footer-media-4"*/
+    /*    "footer-menu-2"*/
+    /*    "footer-contacts-3";*/
+    /*}*/
 
-    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 12px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "contacts-1"
-        "contacts-2"
-        "contacts-3";
-        grid-area: footer-contacts-3;
-    }
+    /*footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {*/
+    /*    display: grid;*/
+    /*    grid-template-columns: 1fr;*/
+    /*    grid-template-rows: 1fr 1fr 1fr;*/
+    /*    gap: 12px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "contacts-1"*/
+    /*    "contacts-2"*/
+    /*    "contacts-3";*/
+    /*    grid-area: footer-contacts-3;*/
+    /*}*/
 
-    footer.footer_main .footer_main_grid-wrapper .footer-title-1,
-    footer.footer_main .footer_main_grid-wrapper .footer-menu-2,
-    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3,
-    footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
-        justify-self: center;
-    }
+    /*footer.footer_main .footer_main_grid-wrapper .footer-title-1,*/
+    /*footer.footer_main .footer_main_grid-wrapper .footer-menu-2,*/
+    /*footer.footer_main .footer_main_grid-wrapper .footer-contacts-3,*/
+    /*footer.footer_main .footer_main_grid-wrapper .footer-media-4 {*/
+    /*    justify-self: center;*/
+    /*}*/
 
-    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {
-        align-self: center;
-    }
+    /*footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {*/
+    /*    align-self: center;*/
+    /*}*/
 
-    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links {
-        align-items: center;
-    }
+    /*footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links {*/
+    /*    align-items: center;*/
+    /*}*/
 
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
         width: 100%;
     }
 
-    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {
-        justify-content: center;
-    }
+    /*footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {*/
+    /*    justify-content: center;*/
+    /*}*/
 
 }
 
