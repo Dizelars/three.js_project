@@ -363,8 +363,8 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 }
 
 .menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_wrapper_img {
-    width: 40px;
     height: 40px;
+    width: 40px;
     /*flex-shrink: 0;*/
     border-radius: 10px;
     background: #545454;
@@ -383,7 +383,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     text-decoration: none;
     font-family: 'MoscowSans', sans-serif;
     font-size: 3.2rem;
-    font-weight: 600;
+    font-weight: 800;
     line-height: 32px;
     color: #FFF;
     text-transform: uppercase;

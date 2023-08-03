@@ -90,6 +90,11 @@
 }
 
 @media (max-width: 1024px) {
+    .menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_navigation-link {
+        font-size: 2.4rem;
+        line-height: 24px;
+    }
+
     section.main .main_title {
         font-size: 4.6rem;
         line-height: 46px;
@@ -927,6 +932,17 @@
 }
 
 @media (max-width: 552px) {
+    .menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_navigation-link {
+        font-size: 1.6rem;
+        line-height: 16px;
+        font-weight: 600;
+    }
+
+    .menu .menu-media a[class^="media-"] {
+        width: 70px;
+        height: 70px;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
         font-size: 1.6rem;
         line-height: 21px;
@@ -1022,6 +1038,11 @@
 }
 
 @media (max-width: 440px) {
+    .menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(2) .menu_wrapper_img {
+        max-width: 40px;
+        width: 100%;
+    }
+
     section.main .main_bg {
         padding: 0;
     }
@@ -1304,6 +1325,12 @@
     /*    justify-content: center;*/
     /*}*/
 
+}
+
+@media (max-width: 420px) {
+    .menu .menu_navigation .menu_navigation-list .menu_navigation-item:not(:last-child) {
+        margin-right: 0;
+    }
 }
 
 @media (max-width: 400px) {
