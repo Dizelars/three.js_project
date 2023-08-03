@@ -1364,6 +1364,26 @@
 }
 
 
+/*media на высоту экрана*/
+
+@media only screen and (max-height: 740px) {
+    .menu {
+        padding: 24px;
+    }
+
+    .menu .menu__logo {
+        margin-bottom: 40px;
+    }
+
+    .menu .menu_navigation .menu_navigation-list .menu_navigation-item {
+        margin-bottom: 24px;
+    }
+
+    .menu .menu-media {
+        bottom: 24px;
+    }
+}
+
 
 
 
