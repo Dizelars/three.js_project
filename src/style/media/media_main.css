@@ -650,6 +650,10 @@
         text-align: center;
     }
 
+    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-img2 {
+        transition: transform .3s ease;
+    }
+
     section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
         /*grid-area: equipment_mobile;*/
         display: grid;

@@ -1,5 +1,6 @@
 // Получаем все элементы с классом "burger-menu"
 const burgerMenus = document.querySelectorAll(".burger-menu");
+const burgerClose = document.querySelectorAll(".burger-menu .bar");
 
 // Добавляем обработчик события "click" для каждого элемента
 burgerMenus.forEach((burgerMenu) => {
@@ -7,6 +8,9 @@ burgerMenus.forEach((burgerMenu) => {
         // Добавляем/удаляем классы "burger-menu--opened" и "burger-menu--closed"
         this.classList.toggle("burger-menu--opened");
         this.classList.toggle("burger-menu--closed");
+        burgerClose.forEach((e) => {
+            e.classList.toggle("close_width");
+        });
     });
 });
 
@@ -83,24 +87,82 @@ const swiper3 = new Swiper('.swiper3', {
 
 
 
+// Выпадание блока Инвентарь
+
 const controlBlock = document.querySelector('.equipment_mobile_control');
 const skillsBlock = document.querySelector('.equipment_mobile_skills');
 const equipmentArrow = document.querySelector('.equipment_mobile_control .equipment_mobile_control-img2');
 
 // Скрываем блок skills по умолчанию
-skillsBlock.style.display = 'none';
-// skillsBlock.style.transition = 'all 2s ease';
+skillsBlock.style.height = '0';
 equipmentArrow.style.transform = "rotate(0)";
 
 // Добавляем обработчик клика на controlBlock
 controlBlock.addEventListener('click', () => {
-    const isSkillsVisible = skillsBlock.style.display !== 'none';
+    const isSkillsVisible = skillsBlock.style.height === '100%';
+    console.log(isSkillsVisible);
 
     if (isSkillsVisible) {
-        skillsBlock.style.display = 'none';
+        skillsBlock.style.height = '0';
         equipmentArrow.style.transform = "rotate(0)";
     } else {
-        skillsBlock.style.display = 'grid';
+        skillsBlock.style.height = '100%';
         equipmentArrow.style.transform = "rotate(180deg)";
     }
 });
+
+
+// Появление и скрытие меню сайта
+let bodyOverflow = document.querySelector('body.main');
+let menuBtn = document.querySelector('.header__menu');
+let menu = document.querySelector('.menu');
+menuBtn.addEventListener('click', function(){
+    menu.classList.toggle('active');
+    bodyOverflow.classList.toggle('overflow');
+})
+
+
+// Замена цвета у других ссылок при наведении на одну из ниих
+
+document.addEventListener("DOMContentLoaded", function() {
+    const navigationLinks = document.querySelectorAll(".menu_navigation-link");
+
+    function addHoveredClass(link) {
+        link.classList.add("hovered");
+    }
+
+    function removeHoveredClass() {
+        navigationLinks.forEach(link => link.classList.remove("hovered"));
+    }
+
+    function handleLinkHover(event) {
+        const hoveredLink = event.target;
+        removeHoveredClass();
+
+        let prevSibling = hoveredLink.parentElement.previousElementSibling;
+        while (prevSibling) {
+            if (prevSibling.querySelector(".menu_navigation-link")) {
+                addHoveredClass(prevSibling.querySelector(".menu_navigation-link"));
+            }
+            prevSibling = prevSibling.previousElementSibling;
+        }
+
+        let nextSibling = hoveredLink.parentElement.nextElementSibling;
+        while (nextSibling) {
+            if (nextSibling.querySelector(".menu_navigation-link")) {
+                addHoveredClass(nextSibling.querySelector(".menu_navigation-link"));
+            }
+            nextSibling = nextSibling.nextElementSibling;
+        }
+    }
+
+    function handleLinkLeave() {
+        removeHoveredClass();
+    }
+
+    navigationLinks.forEach(link => {
+        link.addEventListener("mouseover", handleLinkHover);
+        link.addEventListener("mouseout", handleLinkLeave);
+    });
+});
+
