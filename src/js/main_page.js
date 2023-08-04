@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function smoothScrollTo(target) {
         const element = document.querySelector(target);
         if (element) {
-            const offset = element.getBoundingClientRect().top + window.scrollX;
+            const offset = element.getBoundingClientRect().top + window.scrollY;
 
             window.scroll({
                 top: offset,
@@ -33,9 +33,13 @@ document.addEventListener("DOMContentLoaded", function() {
     let bodyOverflow = document.querySelector('body.main');
     let menuBtn = document.querySelector('.header__menu');
     let menu = document.querySelector('.menu');
+    let blur = document.querySelector('.block_blur');
+    // let menuContainer = document.querySelector('.menu .container_main');
     menuBtn.addEventListener('click', function(){
         menu.classList.toggle('active');
         bodyOverflow.classList.toggle('overflow');
+        blur.classList.toggle('active');
+        // menuContainer.classList.toggle('blur');
     })
 
 
@@ -81,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const target = event.target.getAttribute("href"); // Получаем атрибут href якорной ссылки
         menu.classList.toggle('active');
         bodyOverflow.classList.toggle('overflow');
+        blur.classList.toggle('active');
         burgerMenus.forEach((burgerMenu) => {
             burgerMenu.classList.remove("burger-menu--opened");
             burgerMenu.classList.add("burger-menu--closed");
@@ -96,6 +101,17 @@ document.addEventListener("DOMContentLoaded", function() {
         link.addEventListener("mouseover", handleLinkHover);
         link.addEventListener("mouseout", handleLinkLeave);
         link.addEventListener("click", handleLinkCloseMenu);
+    });
+
+
+    // Получаем ссылки футера для плавного скролла
+    const footerLinks = document.querySelectorAll('footer.footer_main .footer-menu-links a');
+    footerLinks.forEach((link) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Предотвращаем переход по ссылке
+            const target2 = link.getAttribute("href"); // Используем link.getAttribute("href") вместо link.target.getAttribute("href")
+            smoothScrollTo(target2);
+        });
     });
 
 

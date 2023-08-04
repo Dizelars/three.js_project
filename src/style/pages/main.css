@@ -30,6 +30,7 @@ body.main {
 
 body.main.overflow {
     overflow: hidden;
+    /*filter: blur(5px);*/
 }
 
 .container_main {
@@ -41,6 +42,23 @@ body.main.overflow {
 
 .line {
     padding: 0 20px 0 20px;
+}
+
+.block_blur {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+    backdrop-filter: blur(10px);
+}
+
+.block_blur.active {
+    display: block;
 }
 
 
@@ -324,11 +342,16 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 .menu.active {
     transform: translateY(0);
     z-index: 10;
+    height: 100vh;
 }
 
 .menu .container_main {
     border: none;
 }
+
+/*.menu .container_main.blur {*/
+/*    filter: blur(5px);*/
+/*}*/
 
 .menu .menu__logo {
     display: flex;
@@ -467,43 +490,45 @@ section.main .main_title span.large_letter {
     border-radius: 50px;
 }
 
-section.main .main_info-wrapper {
+section.main .main_grid-wrapper {
     display: grid;
-    gap: 20px;
     grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    grid-auto-columns: 1fr;
+    gap: 24px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+	". . main_text-1 main_text-2 ."
+	". . main_button-3 main_button-3 .";
 }
 
-section.main .main_info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    grid-column: 3/5;
+section.main .main_grid-wrapper .main_text-1 {
+    grid-area: main_text-1;
 }
 
-section.main .main_info .main_info-descr {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 24px;
+section.main .main_grid-wrapper .main_text-2 {
+    grid-area: main_text-2;
 }
 
-section.main .main_info .main_info-descr .main_info-text {
+section.main .main_grid-wrapper .main_button-3 {
+    grid-area: main_button-3;
+}
+
+section.main .main_grid-wrapper .main_text-mobile {
+    grid-area: main_text-mobile;
+    display: none;
+}
+
+
+section.main .main_grid-wrapper .main_info-text,
+section.main .main_grid-wrapper .main_info-text {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 18px;
 }
 
-section.main .main_info .main_info-descr .main_info-text:first-child {
-    max-width: 240px;
-}
-
-section.main .main_info .main_info-descr .main_info-text:last-child {
-    max-width: 260px;
-}
-
-section.main .main_info .main_info-link {
+section.main .main_grid-wrapper .main_button-3 .main_info-link {
     cursor: pointer;
     display: inline-block;
     padding-top: 15px;
@@ -523,7 +548,7 @@ section.main .main_info .main_info-link {
     transition: all .4s;
 }
 
-section.main .main_info .main_info-link:hover {
+section.main .main_grid-wrapper .main_button-3 .main_info-link:hover {
     background-color: #FFFFFF;
     color: #090909;
 }
@@ -545,10 +570,10 @@ section.traffic_patrol .traffic_patrol_grid-wrapper {
     /*grid-template-columns: repeat(5, 1fr);*/
     /*grid-template-rows: 144px 144px 0 444px;*/
     grid-template-columns: repeat(5, 1fr);
-    /*grid-template-rows: repeat(4, min-content);*/
-    grid-template-rows: repeat(4, max-content);
+    grid-template-rows: repeat(4, min-content);
+    /*grid-template-rows: repeat(4, max-content);*/
     grid-auto-columns: 1fr;
-    gap: 20px 20px;
+    gap: 20px;
     grid-auto-flow: row;
     grid-template-areas:
         "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
@@ -757,7 +782,7 @@ section.situation_centre .situation_centre_grid-wrapper {
     grid-template-columns: repeat(5, 1fr);
     /*grid-template-rows: 1fr 188px 236px;*/
     grid-template-rows: repeat(3, min-content);
-    gap: 20px 20px;
+    gap: 20px;
     grid-auto-flow: row;
     grid-template-areas:
 	"situation-1 situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
@@ -879,7 +904,9 @@ section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8
     line-height: 21px;
 }
 
-section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider {
+section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider,
+section.situation_centre .situation_centre_grid-wrapper .employ_text,
+section.situation_centre .situation_centre_grid-wrapper .bus_text {
     display: none;
 }
 
@@ -888,11 +915,12 @@ section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider 
     border-radius: 10px;
     backdrop-filter: blur(5px);
     min-height: 300px;
+    display: grid;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_img {
     /*max-width: 335px;*/
-    height: 155px;
+    height: 300px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_img img {
@@ -905,7 +933,7 @@ section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider 
 section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_info {
     display: flex;
     align-items: center;
-    height: 144px;
+    /*height: 144px;*/
     padding: 10px 18px 28px 18px;
 }
 
@@ -995,7 +1023,8 @@ section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text {
 section.help_desk .help_desk_grid-wrapper .equipment-4 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 29px 151px 151px;
+    /*grid-template-rows: 29px 151px 151px;*/
+    grid-template-rows: repeat(3, min-content);
     gap: 10px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -1160,10 +1189,10 @@ footer.footer_main .container_main {
 
 footer.footer_main .footer_main_grid-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, min-content);
     grid-auto-columns: 1fr;
-    gap: 20px 20px;
+    gap: 20px;
     grid-auto-flow: row;
     grid-template-areas:
         "footer-title-1 . footer-menu-2 footer-menu-2 footer-contacts-3"
@@ -1210,7 +1239,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, min-content);
     gap: 12px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -1259,16 +1288,24 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
     align-items: center;
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 .media-wrapper {
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] {
     padding: 28px;
     transition: all .4s;
+    width: 80px;
+    height: 80px;
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 .media-wrapper:hover {
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:hover {
     background-color: rgba(255, 255, 255, 0.10);
 }
 
-footer.footer_main .footer_main_grid-wrapper .footer-media-4 .media-wrapper:not(:last-child) {
+footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:not(:last-child) {
     margin-right: 10px;
 }
 

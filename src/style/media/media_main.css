@@ -33,7 +33,7 @@
         max-width: 194px;
     }
 
-    section.main .main_info-wrapper {
+    section.main .main_grid-wrapper {
         grid-template-columns: repeat(4, 1fr);
     }
 
@@ -72,6 +72,19 @@
 }
 
 @media (max-width: 1200px) {
+
+    section.main .main_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, min-content);
+        grid-auto-columns: 1fr;
+        gap: 24px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        ". . main_text-1 main_text-2 main_text-2"
+        ". . main_button-3 main_button-3 main_button-3";
+    }
+
     section.traffic_patrol .traffic_patrol-text {
         font-size: 1.4rem;
         line-height: 20px;
@@ -106,20 +119,19 @@
         width: 174px;
     }
 
-    section.main .main_info {
-        grid-column: 2/5;
-        align-items: baseline;
-    }
-
-    section.main .main_info .main_info-descr {
+    section.main .main_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, min-content);
+        grid-auto-columns: 1fr;
         gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        ". main_text-1 main_text-2 main_text-2"
+        ". main_button-3 main_button-3 main_button-3";
     }
 
-    section.main .main_info .main_info-descr .main_info-text:first-child {
-        max-width: 230px;
-    }
-
-    section.main .main_info .main_info-descr .main_info-text:last-child {
+    section.main .main_grid-wrapper .main_text-2 {
         max-width: 340px;
     }
 
@@ -127,10 +139,10 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         /*grid-template-rows: 168px 168px 0 280px;*/
-        /*grid-template-rows: repeat(4, min-content);*/
-        grid-template-rows: repeat(4, max-content);
+        grid-template-rows: repeat(4, min-content);
+        /*grid-template-rows: repeat(4, max-content);*/
         grid-auto-columns: 1fr;
-        gap: 20px 20px;
+        gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
@@ -216,10 +228,11 @@
 
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
-        grid-template-columns: 236px 236px 1fr 1fr;
+        /*grid-template-columns: 236px 236px 1fr 1fr;*/
+        grid-template-columns: repeat(4, 1fr);
         /*grid-template-rows: 1fr 236px 284px;*/
         grid-template-rows: repeat(3, min-content);
-        gap: 20px 20px;
+        gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
@@ -267,12 +280,12 @@
         grid-template-columns: repeat(4, 1fr);
         /*grid-template-rows: 293px 284px 120px 1fr;*/
         grid-template-rows: repeat(4, min-content);
-        gap: 20px 20px;
+        gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "help_desk-1 slide-5 parkon-2 parkon-2"
-        ". slide-6 equipment-4 equipment-4"
         ". driver-3 equipment-4 equipment-4"
+        ". . equipment-4 equipment-4"
         ". . equipment-4 equipment-4";
     }
 
@@ -290,6 +303,10 @@
         "skill-10 skill-5 skill-6"
         "skill-7 skill-8 skill-9"
         ". . skill-4";
+    }
+
+    section.help_desk .help_desk_grid-wrapper .slide-6 {
+        display: none;
     }
 
     section.help_desk .help_desk-title {
@@ -322,10 +339,10 @@
 
     footer.footer_main .footer_main_grid-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, min-content);
         grid-auto-columns: 1fr;
-        gap: 20px 20px;
+        gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "footer-title-1 footer-menu-2 footer-menu-2 footer-contacts-3"
@@ -342,7 +359,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        /*justify-content: space-between;*/
     }
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {
@@ -357,6 +374,117 @@
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .footer-menu-link:not(:last-child) {
         margin-bottom: 24px;
     }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+
+@media (max-width: 946px) {
+    section.situation_centre .situation_centre_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, min-content);
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "situation-1 brain_heart-2 brain_heart-2 brain_heart-2"
+        "bus_text bus_text employ_text employ_text"
+        "bus_text bus_text employ_text employ_text"
+        ". slider-5 slider-5 slider-5";
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ-4,
+    section.situation_centre .situation_centre_grid-wrapper .bus-6,
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3,
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 {
+        display: none;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_text {
+        grid-area: employ_text;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .bus_text {
+        grid-area: bus_text;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_text,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text {
+        display: block;
+        background-color: rgba(24, 24, 24, 0.70);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text-wrapper,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text-wrapper {
+        display: grid;
+        height: 100%;
+        background-color: rgba(24, 24, 24, 0.70);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text_img,
+    section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text_img img,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_img,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_img img {
+        border-radius: 10px 10px 0 0;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_img img,
+    section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text_img img {
+        width: 100%;
+        max-height: 247px;
+        object-fit: cover;
+        object-position: bottom;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text_info,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_info {
+        padding: 24px;
+        background-color: rgba(24, 24, 24, 0.70);
+        backdrop-filter: blur(5px);
+        border-radius: 0 0 10px 10px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text_info .employ_descr,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_info .bus_descr {
+        font-family: 'MoscowSans', sans-serif;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .situation-1 .situation_centre-title {
+        font-size: 1.9rem;
+    }
+
+    /*section.situation_centre .situation_centre_grid-wrapper .slider-5 {*/
+    /*    height: clamp(366px, 444px, 444px);*/
+    /*}*/
+
+
+
+    section.help_desk .help_desk_grid-wrapper .equipment-4 {
+        grid-area: equipment-4;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /*grid-template-rows: 29px 151px 151px 151px 151px;*/
+        grid-template-rows: repeat(6, min-content);
+        gap: 10px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "text text"
+        "skill-1 skill-2"
+        "skill-3 skill-10"
+        "skill-5 skill-6"
+        "skill-7 skill-8"
+        "skill-9 skill-4";
+    }
 }
 
 @media (max-width: 860px) {
@@ -365,9 +493,9 @@
         line-height: 20px;
     }
 
-    section.help_desk .help_desk_grid-wrapper {
-        grid-template-columns: 140px repeat(3, 1fr);
-    }
+    /*section.help_desk .help_desk_grid-wrapper {*/
+    /*    grid-template-columns: 140px repeat(3, 1fr);*/
+    /*}*/
 
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,
     section.help_desk .help_desk_grid-wrapper .equipment-4 .text,
@@ -399,19 +527,20 @@
         line-height: 20px;
     }
 
-    section.help_desk .help_desk_grid-wrapper {
-        display: grid;
-        grid-template-columns: 124px 1fr 1fr 1fr;
-        /*grid-template-rows: 293px 284px 120px 1fr;*/
-        grid-template-rows: repeat(4, min-content);
-        gap: 20px 20px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "help_desk-1 slide-5 parkon-2 parkon-2"
-        ". slide-6 equipment-4 equipment-4"
-        ". driver-3 equipment-4 equipment-4"
-        ". . equipment-4 equipment-4";
-    }
+    /*section.help_desk .help_desk_grid-wrapper {*/
+    /*    display: grid;*/
+    /*    !*grid-template-columns: 124px 1fr 1fr 1fr;*!*/
+    /*    grid-template-columns: repeat(4, 1fr);*/
+    /*    !*grid-template-rows: 293px 284px 120px 1fr;*!*/
+    /*    grid-template-rows: repeat(4, min-content);*/
+    /*    gap: 20px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "help_desk-1 slide-5 parkon-2 parkon-2"*/
+    /*    ". slide-6 equipment-4 equipment-4"*/
+    /*    ". driver-3 equipment-4 equipment-4"*/
+    /*    ". . equipment-4 equipment-4";*/
+    /*}*/
 }
 
 @media (max-width: 800px) {
@@ -431,43 +560,60 @@
         line-height: 22px;
     }
 
-    section.main .main_info-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    /*section.main .main_grid-wrapper {*/
+    /*    grid-template-columns: repeat(3, 1fr);*/
+    /*}*/
 
-    section.traffic_patrol .traffic_patrol-wrapper img {
-        width: 180px;
-    }
+    /*section.traffic_patrol .traffic_patrol-wrapper img {*/
+    /*    width: 180px;*/
+    /*}*/
 
-    section.traffic_patrol .traffic_patrol-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    /*section.traffic_patrol .traffic_patrol-wrapper {*/
+    /*    grid-template-columns: repeat(3, 1fr);*/
+    /*}*/
 
-    section.traffic_patrol .traffic_patrol-descr {
-        /*height: 700px;*/
-        gap: 12px;
-        grid-column-start: 2;
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /*section.traffic_patrol .traffic_patrol-descr {*/
+    /*    !*height: 700px;*!*/
+    /*    gap: 12px;*/
+    /*    grid-column-start: 2;*/
+    /*    grid-template-columns: repeat(2, 1fr);*/
+    /*}*/
 
-    section.traffic_patrol .traffic_patrol-wrapper img {
-        width: 210px;
-    }
+    /*section.traffic_patrol .traffic_patrol-wrapper img {*/
+    /*    width: 210px;*/
+    /*}*/
 
-    section.traffic_patrol .traffic_patrol_slider {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    /*section.traffic_patrol .traffic_patrol_slider {*/
+    /*    grid-template-columns: repeat(3, 1fr);*/
+    /*}*/
 }
 
 @media (max-width: 768px) {
+    section.main .main_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, min-content);
+        grid-auto-columns: 1fr;
+        gap: 24px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "main_text-1 main_text-2"
+        "main_button-3 main_button-3";
+    }
+
+    section.main .main_grid-wrapper .main_button-3 {
+        display: flex;
+        justify-content: center;
+    }
+
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         /*grid-template-rows: 48px 144px 0 336px 264px;*/
-        /*grid-template-rows: repeat(5, min-content);*/
-        grid-template-rows: repeat(5, max-content);
+        grid-template-rows: repeat(5, min-content);
+        /*grid-template-rows: repeat(5, max-content);*/
         grid-auto-columns: 1fr;
-        gap: 40px 40px;
+        gap: 40px 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "traffic_patrol-1 ."
@@ -525,10 +671,10 @@
 
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         /*grid-template-rows: 72px 260px 192px 192px 290px;*/
         grid-template-rows: repeat(5, min-content);
-        gap: 20px 20px;
+        gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "situation-1 ."
@@ -538,10 +684,20 @@
         "employ-4 bus-6";
     }
 
-    section.situation_centre .situation_centre_grid-wrapper .man_text-7,
-    section.situation_centre .situation_centre_grid-wrapper .major_events-3 {
+    section.situation_centre .situation_centre_grid-wrapper .employ_text,
+    section.situation_centre .situation_centre_grid-wrapper .bus_text {
         display: none;
     }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ-4,
+    section.situation_centre .situation_centre_grid-wrapper .bus-6 {
+        display: block;
+    }
+
+    /*section.situation_centre .situation_centre_grid-wrapper .man_text-7,*/
+    /*section.situation_centre .situation_centre_grid-wrapper .major_events-3 {*/
+    /*    display: none;*/
+    /*}*/
 
     section.situation_centre .situation_centre_grid-wrapper .situation-1 .situation_centre-title {
         max-width: 231px;
@@ -605,7 +761,8 @@
     /*}*/
 
     section.help_desk .help_desk_grid-wrapper .equipment_mobile,
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {
+    section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
+    section.help_desk .help_desk_grid-wrapper .slide-6 {
         display: block;
     }
 
@@ -619,7 +776,7 @@
         grid-template-columns: repeat(2, 1fr);
         /*grid-template-rows: 28px 388px 72px 810px;*/
         grid-template-rows: repeat(4, min-content);
-        gap: 40px;
+        gap: 40px 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "help_desk-1 ."
@@ -679,10 +836,10 @@
 
     footer.footer_main .footer_main_grid-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr 1fr 1fr 0 0 1fr;
         grid-auto-columns: 1fr;
-        gap: 20px 20px;
+        gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
         "footer-title-1 footer-menu-2"
@@ -716,7 +873,7 @@
 
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
         gap: 12px;
         grid-auto-flow: row;
@@ -778,26 +935,26 @@
         background-position: left;
     }
 
-    section.main .main_info-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    /*section.main .main_grid-wrapper {*/
+    /*    grid-template-columns: repeat(2, 1fr);*/
+    /*}*/
 
-    section.main .main_info {
-        grid-column: 1/3;
-        align-items: center;
-    }
+    /*section.main .main_info {*/
+    /*    grid-column: 1/3;*/
+    /*    align-items: center;*/
+    /*}*/
 
-    section.main .main_info .main_info-link {
-        max-width: none;
-    }
+    /*section.main .main_info .main_info-link {*/
+    /*    max-width: none;*/
+    /*}*/
 
-    section.main .main_info .main_info-descr .main_info-text:first-child {
-        max-width: 290px;
-    }
+    /*section.main .main_info .main_info-descr .main_info-text:first-child {*/
+    /*    max-width: 290px;*/
+    /*}*/
 
-    section.main .main_info .main_info-descr .main_info-text:last-child {
-        max-width: 280px;
-    }
+    /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
+    /*    max-width: 280px;*/
+    /*}*/
 
     section.traffic_patrol .traffic_patrol-wrapper {
         grid-template-columns: repeat(2, 1fr);
@@ -883,7 +1040,8 @@
     footer.footer_main .footer_main_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 40px 70px 266px 1fr;
+        /*grid-template-rows: 40px 70px 266px 1fr;*/
+        grid-template-rows: repeat(4, min-content);
         grid-auto-columns: 1fr;
         gap: 50px;
         grid-auto-flow: row;
@@ -897,7 +1055,7 @@
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: repeat(3, min-content);
         gap: 12px;
         grid-auto-flow: row;
         grid-template-areas:
@@ -978,10 +1136,10 @@
         padding: 9px;
     }
 
-    section.main .main_info .main_info-descr .main_info-text:first-child,
-    section.main .main_info .main_info-descr .main_info-text:last-child {
-        max-width: 50%;
-    }
+    /*section.main .main_info .main_info-descr .main_info-text:first-child,*/
+    /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
+    /*    max-width: 50%;*/
+    /*}*/
 }
 
 @media (max-width: 492px) {
@@ -1027,9 +1185,9 @@
         margin-bottom: 20px;
     }
 
-    section.traffic_patrol .traffic_patrol_slider-wrapper {
-        grid-column-start: 1;
-    }
+    /*section.traffic_patrol .traffic_patrol_slider-wrapper {*/
+    /*    grid-column-start: 1;*/
+    /*}*/
 
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
         font-size: 1.2rem;
@@ -1052,7 +1210,7 @@
         margin-bottom: 24px;
     }
 
-    section.main .main_info-wrapper {
+    section.main .main_grid-wrapper {
         position: absolute;
         bottom: 24px;
         left: 50%;
@@ -1061,26 +1219,51 @@
         padding: 0 20px;
     }
 
-    section.main .main_info .main_info-descr {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+    section.main .main_grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+        grid-auto-columns: 1fr;
+        gap: 24px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "main_text-mobile"
+        "main_button-3";
     }
 
-    section.main .main_info .main_info-descr .main_info-text:first-child,
-    section.main .main_info .main_info-descr .main_info-text:last-child {
-        max-width: 100%;
+    section.main .main_grid-wrapper .main_text-1,
+    section.main .main_grid-wrapper .main_text-2 {
+        display: none;
     }
+
+    section.main .main_grid-wrapper .main_text-mobile {
+        display: block;
+    }
+
+    section.main .main_grid-wrapper .main_text-mobile .main_info-text:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    /*section.main .main_info .main_info-descr {*/
+    /*    flex-direction: column;*/
+    /*    align-items: center;*/
+    /*    gap: 10px;*/
+    /*}*/
+
+    /*section.main .main_info .main_info-descr .main_info-text:first-child,*/
+    /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
+    /*    max-width: 100%;*/
+    /*}*/
 
 
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
         /*grid-template-rows: 58px 199px 380px 241px;*/
-        /*grid-template-rows: repeat(4, min-content);*/
-        grid-template-rows: repeat(4, max-content);
+        grid-template-rows: repeat(4, min-content);
+        /*grid-template-rows: repeat(4, max-content);*/
         grid-auto-columns: 1fr;
-        gap: 40px 40px;
+        gap: 40px;
         grid-auto-flow: row;
         grid-template-areas:
         "traffic_patrol-1"
@@ -1150,7 +1333,7 @@
         grid-template-columns: 1fr;
         /*grid-template-rows: 87px 333px 330px 360px;*/
         grid-template-rows: repeat(4, min-content);
-        gap: 40px 40px;
+        gap: 40px;
         grid-auto-flow: row;
         grid-template-areas:
         "situation-1"
