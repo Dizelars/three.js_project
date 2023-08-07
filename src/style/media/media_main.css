@@ -1,3 +1,105 @@
+@media (min-width: 2500px) {
+    .container_main {
+        max-width: 2000px;
+    }
+
+    section.main .main_title {
+        font-size: 12rem;
+        line-height: 114px;
+    }
+
+    section.main .main_title span.large_letter {
+        padding: 28px;
+        border: 16px solid white;
+    }
+
+    section.main .main_grid-wrapper .main_info-text, section.main .main_grid-wrapper .main_info-text {
+        font-size: 2rem;
+        line-height: 22px;
+    }
+
+    section.main .main_grid-wrapper .main_button-3 .main_info-link {
+        max-width: none;
+        font-size: 1.8rem;
+    }
+
+    section.traffic_patrol .traffic_patrol-text {
+        font-size: 2rem;
+        line-height: 26px;
+    }
+
+    .title {
+        font-size: 3.8rem;
+        line-height: 34px;
+    }
+
+    section.traffic_patrol .traffic_patrol-text {
+        font-size: 1.8rem;
+    }
+
+    .garage_model_card .slid_info .slid_info-desc .slid_info-title {
+        font-size: 2rem;
+    }
+
+    .garage_model_card .slid_info .slid_info-desc .slid_info-text {
+        font-size: 1.6rem;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3,
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 {
+        display: flex;
+        align-items: center;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text,
+    section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text {
+        font-size: 2.2rem;
+        line-height: 32px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title {
+        font-size: 2.4rem;
+        line-height: 26px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
+        font-size: 2rem;
+        line-height: 26px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
+        font-size: 2.2rem;
+        line-height: 26px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,
+    section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text {
+        font-size: 2rem;
+        line-height: 24px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .equipment-4 .text {
+        font-size: 1.8rem;
+        line-height: 24px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text, section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content .skill_text {
+        font-size: 1.6rem;
+        line-height: 18px;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-title {
+        font-size: 2.2rem;
+        line-height: 30px;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .footer-menu-link,
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p{
+        font-size: 2rem;
+        line-height: 24px;
+    }
+}
+
 @media (max-width: 1500px) {
     section.traffic_patrol .traffic_patrol-wrapper img {
         width: 500px;
@@ -226,6 +328,10 @@
         height: 100%;
     }
 
+    section.traffic_patrol .traffic_patrol_slider .garage_model_card {
+        height: 280px;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         /*grid-template-columns: 236px 236px 1fr 1fr;*/
@@ -331,7 +437,8 @@
 
     section.help_desk .help_desk_grid-wrapper .slide-5,
     section.help_desk .help_desk_grid-wrapper .slide-6 {
-        height: 284px;
+        /*height: 284px;*/
+        height: 100%;
     }
 
 
@@ -415,7 +522,7 @@
     section.situation_centre .situation_centre_grid-wrapper .bus_text {
         display: block;
         background-color: rgba(24, 24, 24, 0.70);
-        backdrop-filter: blur(5px);
+        /*backdrop-filter: blur(5px);*/
         border-radius: 10px;
     }
 
@@ -424,7 +531,7 @@
         display: grid;
         height: 100%;
         background-color: rgba(24, 24, 24, 0.70);
-        backdrop-filter: blur(5px);
+        /*backdrop-filter: blur(5px);*/
         border-radius: 10px;
     }
 
@@ -447,7 +554,7 @@
     section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_info {
         padding: 24px;
         background-color: rgba(24, 24, 24, 0.70);
-        backdrop-filter: blur(5px);
+        /*backdrop-filter: blur(5px);*/
         border-radius: 0 0 10px 10px;
     }
 
@@ -463,9 +570,9 @@
         font-size: 1.9rem;
     }
 
-    /*section.situation_centre .situation_centre_grid-wrapper .slider-5 {*/
-    /*    height: clamp(366px, 444px, 444px);*/
-    /*}*/
+    section.situation_centre .situation_centre_grid-wrapper .slider-5 {
+        height: 444px;
+    }
 
 
 
@@ -638,6 +745,7 @@
 
     section.traffic_patrol .traffic_patrol_slider .garage_model_card {
         max-width: 290px;
+        height: 336px;
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
@@ -762,11 +870,11 @@
 
     section.help_desk .help_desk_grid-wrapper .equipment_mobile,
     section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
-    section.help_desk .help_desk_grid-wrapper .slide-6 {
+    section.help_desk .help_desk_grid-wrapper .slide-5 {
         display: block;
     }
 
-    section.help_desk .help_desk_grid-wrapper .slide-5,
+    section.help_desk .help_desk_grid-wrapper .slide-6,
     section.help_desk .help_desk_grid-wrapper .equipment-4 {
         display: none;
     }
@@ -780,7 +888,7 @@
         grid-auto-flow: row;
         grid-template-areas:
         "help_desk-1 ."
-        "parkon-2 slide-6"
+        "parkon-2 slide-5"
         "driver-3 equipment_mobile-text"
         "equipment_mobile equipment_mobile";
     }
@@ -798,7 +906,7 @@
         grid-template-columns: repeat(2, 1fr);
         /*grid-template-rows: 84px 725px;*/
         grid-template-rows: repeat(2, min-content);
-        gap: 30px 0;
+        /*gap: 30px 0;*/
         grid-auto-flow: row;
         grid-template-areas:
         "equipment_mobile_control equipment_mobile_control"
@@ -832,6 +940,14 @@
         /*padding-top: 22px;*/
         /*border-top: 1px solid white;*/
     }
+
+    /*section.help_desk .help_desk_grid-wrapper .slide-6 {*/
+    /*    height: 100%*/
+    /*}*/
+
+    /*section.help_desk .help_desk_grid-wrapper .slide-6 .garage_model_card {*/
+    /*    height: 384px;*/
+    /*}*/
 
 
     footer.footer_main .footer_main_grid-wrapper {
@@ -1005,6 +1121,14 @@
 
     .garage_model_card .slid_info .slid_info-desc .slid_info-text {
         max-width: 136px;
+    }
+
+    /*section.help_desk .help_desk_grid-wrapper .slide-6 .garage_model_card {*/
+    /*    height: 384px;*/
+    /*}*/
+
+    section.help_desk .help_desk_grid-wrapper .slide-5 .garage_model_card {
+        height: 100%;
     }
 }
 
@@ -1236,6 +1360,10 @@
         display: none;
     }
 
+    section.main .main_grid-wrapper .main_button-3 {
+        margin-bottom: 20px;
+    }
+
     section.main .main_grid-wrapper .main_text-mobile {
         display: block;
     }
@@ -1371,6 +1499,10 @@
         margin-top: 20px;
     }
 
+    section.situation_centre .situation_centre_grid-wrapper .slider-5 {
+        height: 100%;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card {
         height: 336px;
     }
@@ -1380,7 +1512,7 @@
 
     section.help_desk .help_desk_grid-wrapper .driver-3,
     section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
-    section.help_desk .help_desk_grid-wrapper .slide-6 {
+    section.help_desk .help_desk_grid-wrapper .slide-5 {
         display: none;
     }
 

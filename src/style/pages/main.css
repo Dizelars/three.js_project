@@ -40,10 +40,6 @@ body.main.overflow {
     border-bottom: 1px solid white;
 }
 
-.line {
-    padding: 0 20px 0 20px;
-}
-
 .block_blur {
     display: none;
     width: 100%;
@@ -66,8 +62,8 @@ body.main.overflow {
 /*магия уголков начата*/
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"],
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"],
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"],*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"],
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"],
 .menu .menu-media a[class^="media-"] {
@@ -80,15 +76,16 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"],
 
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"],
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"],
-.menu .menu-media a[class^="media-"],
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
+.menu .menu-media a[class^="media-"]
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control */
+{
     cursor: pointer;
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control p,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control p,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img,
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p,
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img,
@@ -99,10 +96,10 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] 
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before,
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:after,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:after,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:before,
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:after,
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:before,
@@ -122,8 +119,8 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:before,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:before,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before,*/
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:before,
 .menu .menu-media a[class^="media-"]:before,
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:before {
@@ -133,15 +130,15 @@ footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contac
     transition: height 0.6s;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before {
-    width: calc(100% + 5px);
-    height: 82%;
-    z-index: 1;
-    transition: height 0.6s;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:before {*/
+/*    width: calc(100% + 5px);*/
+/*    height: 82%;*/
+/*    z-index: 1;*/
+/*    transition: height 0.6s;*/
+/*}*/
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"]:after,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"]:after,*/
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:after,
 .menu .menu-media a[class^="media-"]:after {
     height: calc(100% + 5px);
@@ -150,12 +147,12 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:
     transition: width 0.7s;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:after {
-    height: calc(100% + 5px);
-    width: 98%;
-    z-index: 0;
-    transition: width 0.7s;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control:after {*/
+/*    height: calc(100% + 5px);*/
+/*    width: 98%;*/
+/*    z-index: 0;*/
+/*    transition: width 0.7s;*/
+/*}*/
 
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"]:after {
     height: calc(100% + 6px);
@@ -452,7 +449,7 @@ section.main {
 }
 
 section.main .container_main {
-    border: none;
+    height: 100%;
 }
 
 section.main .main_bg {
@@ -559,6 +556,21 @@ section.main .main_grid-wrapper .main_button-3 .main_info-link:hover {
 
 section.traffic_patrol {
     padding: 60px 20px 0 20px;
+    position: relative;
+    overflow: hidden; /* Обязательно добавьте это свойство для скрытия части элемента before за пределами секции */
+}
+
+section.traffic_patrol:before {
+    content: ' ';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
+    right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 6s ease, right 6s ease; /* Добавляем анимацию перемещения через свойства top и right */
 }
 
 section.traffic_patrol .container_main {
@@ -640,7 +652,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons button {
     padding: 0;
-    background-color: black;
+    background-color: transparent;
     border: none;
 }
 
@@ -710,6 +722,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
 
 section.traffic_patrol .traffic_patrol_slider .garage_model_card {
     max-width: 540px;
+    height: 444px;
 }
 
 .garage_model_card {
@@ -725,10 +738,46 @@ section.traffic_patrol .traffic_patrol_slider .garage_model_card {
     height: 100%;
 }
 
+.garage_model_card,
+.garage_model_card .slid_info,
+.garage_model_card .slid_info .slid_info-desc .slid_info-title,
+.garage_model_card .slid_info .slid_info-desc .slid_info-text,
+.garage_model_card .slid_info .slid_info-link svg,
+.garage_model_card .slid_info .slid_info-link svg path {
+    transition: all .3s;
+}
+
+.garage_model_card:hover {
+    cursor: pointer;
+    border-color: #303030;
+}
+
+.garage_model_card:hover .slid_info {
+    background-color: #303030;
+}
+
+.garage_model_card:hover .slid_info .slid_info-desc .slid_info-title {
+    color: #FFFFFF;
+}
+
+.garage_model_card:hover .slid_info .slid_info-desc .slid_info-text{
+    color: #D1D1D1;
+}
+
+.garage_model_card:hover .slid_info .slid_info-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.garage_model_card:hover .slid_info .slid_info-link svg path {
+    fill: #FFFFFF;
+}
+
 .garage_model_card .slid_img {
     max-width: 540px;
     width: 100%;
-    height: 444px;
+    /*height: 444px;*/
+    height: 100%;
     border-radius: 10px;
     background: #090909 url("../../img/layout/pages/main/slider/amarok_slide.png") no-repeat bottom center/cover;
 }
@@ -841,7 +890,7 @@ section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_e
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 24px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .employ-4 {
@@ -851,7 +900,7 @@ section.situation_centre .situation_centre_grid-wrapper .employ-4 {
 
 section.situation_centre .situation_centre_grid-wrapper .slider-5 {
     grid-area: slider-5;
-    height: clamp(366px, 444px, 444px);
+    /*height: clamp(366px, 444px, 444px);*/
 }
 
 section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card {
@@ -886,7 +935,7 @@ section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-te
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 24px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
@@ -901,7 +950,7 @@ section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
-    line-height: 21px;
+    line-height: 24px;
 }
 
 section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider,
@@ -1058,7 +1107,7 @@ section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_sk
     grid-area: equipment_mobile_skills;
     /*height: 0;*/
     overflow: hidden;
-    transition: height .3s ease;
+    transition: all .3s ease;
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
@@ -1071,11 +1120,89 @@ section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
     display: none;
 }
 
+section.help_desk .help_desk_grid-wrapper .equipment_mobile {
+    position: relative;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(6px);
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    top: 0;
+    right: -20px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(6px);
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    top: 0;
+    left: -20px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(6px);
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
+    box-sizing: border-box;
+    padding: 50px 0 20px 0;
+}
+
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 20px;
+    position: relative;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] {
+    position: relative;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: 0;
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-2,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-2 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-3,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-3 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    left: 0;
+    transform: rotate(270deg);
+}
+
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-4,
+section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-4 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content,
