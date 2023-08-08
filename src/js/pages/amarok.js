@@ -659,6 +659,7 @@ function animate() {
     stats.begin();
     labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
+    console.log( renderer.info.render.triangles );
     stats.end();
 }
 renderer.setAnimationLoop(animate);

@@ -33,6 +33,10 @@ body.main.overflow {
     /*filter: blur(5px);*/
 }
 
+main.gradient_move {
+    overflow: hidden;
+}
+
 .container_main {
     width: 100%;
     max-width: 1380px;
@@ -466,16 +470,19 @@ section.main .main_title {
     margin-bottom: 24px;
 }
 
-section.main .main_title span:nth-child(1) {
+section.main .main_title span {
     display: inline-block;
+}
+
+section.main .main_title span:nth-child(1) {
     text-align: end;
     width: 100%;
 }
 
 section.main .main_title span:nth-child(2) {
-    display: inline-block;
     width: 100%;
-    text-align: center;
+    /*text-align: center;*/
+    text-align: start;
 }
 
 section.main .main_title span.large_letter {
@@ -483,8 +490,9 @@ section.main .main_title span.large_letter {
     padding: 19px;
     border: 10px solid white;
     max-width: 350px;
-    width: 100%;
+    width: 3%;
     border-radius: 50px;
+    animation: LargeLetter 1s linear 2s forwards;
 }
 
 section.main .main_grid-wrapper {
@@ -550,6 +558,51 @@ section.main .main_grid-wrapper .main_button-3 .main_info-link:hover {
     color: #090909;
 }
 
+section.main .main_title span.main_title-animation-1,
+section.main .main_title span.main_title-animation-2,
+section.main .main_title span.main_title-animation-3,
+section.main .main_grid-wrapper .main_text-1 .main_info-text,
+section.main .main_grid-wrapper .main_text-2 .main_info-text,
+section.main .main_grid-wrapper .main_button-3 .main_info-link,
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-1,
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-2,
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-3,
+section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-1,
+section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-2,
+section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-3 {
+    backface-visibility: hidden;
+    opacity: 0;
+    display: inline-block;
+}
+
+section.main .main_title span.main_title-animation-1 {
+    animation: TopToBottom 0.2s linear 0.2s forwards;
+}
+
+section.main .main_title span.main_title-animation-2 {
+    animation: TopToBottom 0.2s linear 0.5s forwards;
+}
+
+section.main .main_title span.main_title-animation-3 {
+    animation: TopToBottom 0.2s linear 0.8s forwards;
+}
+
+section.main .main_grid-wrapper .main_text-1 .main_info-text {
+    animation: TopToBottom 0.2s linear 1.1s forwards;
+}
+
+section.main .main_grid-wrapper .main_text-2 .main_info-text {
+    animation: TopToBottom 0.2s linear 1.4s forwards;
+}
+
+section.main .main_grid-wrapper .main_button-3 .main_info-link  {
+    animation: BottomToTop 0.2s linear 1.7s forwards;
+}
+
+/*section.main .main_title span.title-animation-1 .large_letter {*/
+/*    animation: LargeLetter 0.2s linear 2s forwards;*/
+/*}*/
+
 
 
 /*traffic_patrol*/
@@ -557,7 +610,6 @@ section.main .main_grid-wrapper .main_button-3 .main_info-link:hover {
 section.traffic_patrol {
     padding: 60px 20px 0 20px;
     position: relative;
-    overflow: hidden; /* Обязательно добавьте это свойство для скрытия части элемента before за пределами секции */
 }
 
 section.traffic_patrol:before {
@@ -570,7 +622,7 @@ section.traffic_patrol:before {
     border-radius: 100%;
     opacity: 0.3;
     background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
-    transition: top 6s ease, right 6s ease; /* Добавляем анимацию перемещения через свойства top и right */
+    transition: top 4s ease, right 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
 }
 
 section.traffic_patrol .container_main {
@@ -716,6 +768,18 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapp
     height: 100%;
 }
 
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-1 {
+    animation: BottomToTop 0.2s linear 0.2s forwards;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-2 {
+    animation: BottomToTop 0.2s linear 0.5s forwards;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-3 {
+    animation: BottomToTop 0.2s linear 0.8s forwards;
+}
+
 
 
 /*cards start*/
@@ -765,8 +829,8 @@ section.traffic_patrol .traffic_patrol_slider .garage_model_card {
 }
 
 .garage_model_card:hover .slid_info .slid_info-link svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
 }
 
 .garage_model_card:hover .slid_info .slid_info-link svg path {
@@ -993,9 +1057,21 @@ section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider 
     line-height: 18px;
 }
 
+section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-1 {
+    animation: BottomToTop 0.2s linear 0.2s forwards;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-2 {
+    animation: BottomToTop 0.2s linear 0.5s forwards;
+}
+
+section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-3 {
+    animation: BottomToTop 0.2s linear 0.8s forwards;
+}
 
 
-/*help_desk*/
+
+    /*help_desk*/
 
 section.help_desk {
     padding: 60px 20px 0 20px;
@@ -1160,6 +1236,7 @@ section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_co
     align-items: center;
     padding: 30px 20px;
     position: relative;
+    cursor: pointer;
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] {

@@ -22,14 +22,17 @@ if (pixelRatio > 1) {
     AA = false
 }
 
+// https://coddmac.store/THREE/3Dmodels/solaris_1/Solaris_Low.gltf
+// solaris_3
+
 // Условие для версии модели и отбрасывание тени
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/solaris_5/Solaris_Green_Textures.gltf';
     ShadowSwitch = true;
 } else {
-    url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/solaris_5/Solaris_Green_Textures.gltf';
     ShadowSwitch = false;
 }
 
@@ -45,6 +48,7 @@ renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
 renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 renderer.domElement.id = 'myCanvas';
+
 
 document.body.appendChild(renderer.domElement);
 
@@ -94,12 +98,12 @@ camera1.position.copy(initialCameraPosition1);
 
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
-controls1.minPolarAngle = 0;
-controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
-controls1.enabled = true;
-controls1.enablePan = false;
+// controls1.minPolarAngle = 0;
+// controls1.maxPolarAngle = Math.PI * 0.5;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
+// controls1.enabled = true;
+// controls1.enablePan = false;
 controls1.update();
 
 
@@ -201,6 +205,12 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         scene1.add(obj);
         console.log(obj.children);
         obj.position.set(-35, -3, -27.5);
+
+        const box = new THREE.Box3().setFromObject(obj);
+        const size = new THREE.Vector3();
+        box.getSize(size);
+        const linearSize = size.length();
+        console.log('Linear size:', linearSize);
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];
@@ -308,6 +318,7 @@ const coordinates = [
 function animate() {
     stats.begin();
     renderer.render(scene1, camera1);
+    console.log( renderer.info.render.triangles );
     stats.end();
 }
 renderer.setAnimationLoop(animate);

@@ -324,6 +324,11 @@
         height: 28px;
     }
 
+    .garage_model_card:hover .slid_info .slid_info-link svg {
+        width: 30px;
+        height: 30px;
+    }
+
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapper .traffic_patrol_slider {
         height: 100%;
     }
