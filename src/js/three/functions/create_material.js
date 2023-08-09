@@ -50,11 +50,11 @@ const materials = {
     Fara_glass: {
         material: CastomMaterial,
         color: 0xffffff,
-        roughness: 0.2,
+        roughness: 0.4,
         metalness: 0.9,
         transmission: 1,
         transparent: true,
-        opacity: 0.4
+        opacity: 0.6
     },
     Main_2: {
         material: CastomMaterial,

@@ -4,7 +4,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
-import {createMaterialProperties} from '../three/functions/create_material.js';
+import {createMaterialProperties} from '../three/functions/create_material_solaris_green.js';
 import Stats from 'stats.js';
 // import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
@@ -29,12 +29,13 @@ if (pixelRatio > 1) {
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/solaris_5/Solaris_Green_Textures.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/solaris_11/Solaris_Green_Textures.gltf';
     ShadowSwitch = true;
-} else {
-    url = 'https://coddmac.store/THREE/3Dmodels/solaris_5/Solaris_Green_Textures.gltf';
-    ShadowSwitch = false;
 }
+// else {
+//     url = 'https://coddmac.store/THREE/3Dmodels/solaris_7/Solaris_Green_Textures.gltf';
+//     ShadowSwitch = false;
+// }
 
 // WebGLRenderer + настройки окружения
 const renderer = new THREE.WebGLRenderer({

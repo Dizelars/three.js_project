@@ -302,5 +302,52 @@ document.addEventListener("DOMContentLoaded", function() {
 // Настроить скорость анимации: Вы можете регулировать скорость анимации, добавляя трансишены, изменяя интервалы обновления или используя CSS-анимации.
 
 
+
+
+    // Анимации появления контента на странице:
+
+    // Функция, которая проверяет, находится ли элемент в области видимости экрана
+    function isElementInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Функция для применения анимаций к элементам секции
+    function animateElementsOnScroll(sectionSelector) {
+        const elements = document.querySelectorAll(sectionSelector + ' [class*="-animation-"]');
+        elements.forEach(element => {
+            if (!element.classList.contains('animated') && isElementInViewport(element)) {
+                const animationDelay = parseFloat(window.getComputedStyle(element).animationDelay);
+                element.style.animation = 'none'; // Отключаем анимацию, чтобы перезапустить ее
+                element.style.opacity = '0';
+                setTimeout(() => {
+                    element.style.animation = ''; // Включаем анимацию
+                    element.classList.add('animated'); // Добавляем класс для пометки анимации
+                }, animationDelay);
+            }
+        });
+    }
+
+// Обработчик события прокрутки
+    function handleScroll() {
+        animateElementsOnScroll('section.traffic_patrol');
+        animateElementsOnScroll('section.situation_centre');
+        animateElementsOnScroll('section.help_desk');
+    }
+
+// Добавляем обработчик события прокрутки окна
+    window.addEventListener('scroll', handleScroll);
+
+// Вызываем обработчик события прокрутки в начале для проверки видимости элементов при загрузке страницы
+    handleScroll();
+
+
+
+
 });
 
