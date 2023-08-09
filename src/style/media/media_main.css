@@ -218,7 +218,7 @@
     section.main .main_title span.large_letter {
         padding: 10px;
         border: 8px solid white;
-        width: 174px;
+        max-width: 174px;
     }
 
     section.main .main_grid-wrapper {
@@ -664,7 +664,7 @@
     section.main .main_title span.large_letter {
         padding: 8px;
         border: 5px solid white;
-        width: 142px;
+        max-width: 142px;
     }
 
     .title, section.traffic_patrol .traffic_patrol-title {
@@ -1048,7 +1048,7 @@
     }
 
     section.main .main_title span.large_letter {
-        width: 86px;
+        max-width: 86px;
         padding: 6px;
     }
 
