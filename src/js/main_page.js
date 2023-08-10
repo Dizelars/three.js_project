@@ -34,11 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
     let menuBtn = document.querySelector('.header__menu');
     let menu = document.querySelector('.menu');
     let blur = document.querySelector('.block_blur');
+    const menuAnimationAdd = document.querySelectorAll('.menu .menu_navigation .menu_navigation-list li[class^="menu_navigation-"], .menu .menu-media a[class^="media-"]');
     // let menuContainer = document.querySelector('.menu .container_main');
     menuBtn.addEventListener('click', function(){
         menu.classList.toggle('active');
         bodyOverflow.classList.toggle('overflow');
         blur.classList.toggle('active');
+        menuAnimationAdd.forEach(e => {
+            e.classList.toggle('animation');
+        });
         // menuContainer.classList.toggle('blur');
     })
 
@@ -182,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
             skillsBlock.style.height = '0';
             skillsBlock.style.padding = '0';
             equipmentArrow.style.transform = "rotate(0)";
+
         } else {
             skillsBlock.style.height = '100%';
             skillsBlock.style.padding = '50px 0 20px 0';
@@ -192,114 +197,120 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Анимация перемещения градиентов при скролле
-
-    // Функция для проверки, находится ли элемент в области видимости
-    // function isElementInViewport(element) {
-    //     const rect = element.getBoundingClientRect();
-    //     return (
-    //         rect.top >= 0 &&
-    //         rect.left >= 0 &&
-    //         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    //         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    //     );
-    // }
-
-    // // Функция для перемещения псевдоэлемента before при скролле страницы, когда секция видима
-    // function moveBeforeElement() {
-    //     const section = document.querySelector('section.traffic_patrol');
-    //
-    //     // Проверяем, находится ли секция в области видимости
-    //     if (isElementInViewport(section)) {
-    //         // Получаем высоту и ширину секции и текущую позицию скролла
-    //         const sectionHeight = section.offsetHeight;
-    //         const sectionWidth = section.offsetWidth;
-    //         const scrollPosition = window.scrollY;
-    //
-    //         // Вычисляем новые позиции элемента before в зависимости от скролла страницы
-    //         const newPositionX = (scrollPosition / sectionHeight) * 100;
-    //         const newPositionY = (scrollPosition / sectionWidth) * 100;
-    //
-    //         // Изменяем свойства top и right для анимации перемещения псевдоэлемента before
-    //         section.style.setProperty('--before-top', `${newPositionY}%`);
-    //         section.style.setProperty('--before-right', `${newPositionX}%`);
-    //     }
-    // }
-    //
-    // // Обработчик события скролла, который вызывает функцию перемещения псевдоэлемента before
-    // window.addEventListener('scroll', moveBeforeElement);
-    //
-    // // Вызов функции перемещения псевдоэлемента при загрузке страницы, чтобы элемент начинал перемещаться сразу, если секция видима
-    // moveBeforeElement();
-
-
-
     // Функция, которая перемещает псевдоэлемент "before" внутри секции
-    function moveBeforeElement() {
-        const section = document.querySelector('section.traffic_patrol');
+//     function moveBeforeElement() {
+//         const section = document.querySelector('section.traffic_patrol');
+//
+//         // Получаем высоту и положение секции относительно окна просмотра
+//         const sectionRect = section.getBoundingClientRect();
+//         const sectionHeight = section.offsetHeight;
+//         const sectionTop = sectionRect.top;
+//
+//         // Вычисляем текущую позицию скролла и процент видимости секции
+//         const scrollPosition = window.scrollY;
+//         const visibilityPercent = Math.min(
+//             (scrollPosition - sectionTop) / sectionHeight * 100,
+//             100
+//         );
+//
+//         // Вычисляем новые позиции элемента before в зависимости от скролла страницы и видимости секции
+//         let newPositionX, newPositionY;
+//         if (scrollPosition > lastScrollPosition) {
+//             // Прокрутка вниз
+//             newPositionX = 100 - visibilityPercent;
+//             newPositionY = 100 - visibilityPercent;
+//         } else {
+//             // Прокрутка вверх
+//             newPositionX = visibilityPercent;
+//             newPositionY = visibilityPercent;
+//         }
+//
+//         // Изменяем свойства top и right для анимации перемещения псевдоэлемента "before"
+//         section.style.setProperty('--before-top', `${newPositionY}%`);
+//         section.style.setProperty('--before-right', `${newPositionX}%`);
+//
+//         // Сохраняем текущую позицию скролла
+//         lastScrollPosition = scrollPosition;
+//     }
+//
+// // Переменная для хранения последней позиции скролла (используется для определения направления прокрутки)
+//     let lastScrollPosition = 0;
+//
+// // Обработчик события скролла, который вызывает функцию перемещения псевдоэлемента "before"
+//     window.addEventListener('scroll', moveBeforeElement);
+//
+// // Вызов функции перемещения псевдоэлемента при загрузке страницы, чтобы элемент начинал перемещаться сразу, если секция видима
+//     moveBeforeElement();
 
-        // Получаем высоту и положение секции относительно окна просмотра
-        const sectionRect = section.getBoundingClientRect();
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = sectionRect.top;
 
-        // Вычисляем текущую позицию скролла и процент видимости секции
-        const scrollPosition = window.scrollY;
-        const visibilityPercent = Math.min(
-            (scrollPosition - sectionTop) / sectionHeight * 100,
-            100
-        );
+//     function moveBeforeElement() {
+//         const section = document.querySelector('section.traffic_patrol');
+//
+//         // Генерируем случайные координаты для всех четырех сторон (0-100)
+//         const newPositionTop = Math.random() * 100;
+//         const newPositionRight = Math.random() * 100;
+//         const newPositionBottom = Math.random() * 100;
+//         const newPositionLeft = Math.random() * 100;
+//
+//         // Изменяем свойства для анимации перемещения псевдоэлемента "before"
+//         section.style.setProperty('--before-top', `${newPositionTop}%`);
+//         section.style.setProperty('--before-right', `${newPositionRight}%`);
+//         section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
+//         section.style.setProperty('--before-left', `${newPositionLeft}%`);
+//     }
+//
+// // Обработчик для вызова функции перемещения псевдоэлемента через интервал
+//     setInterval(moveBeforeElement, 1800);
 
-        // Вычисляем новые позиции элемента before в зависимости от скролла страницы и видимости секции
-        let newPositionX, newPositionY;
-        if (scrollPosition > lastScrollPosition) {
-            // Прокрутка вниз
-            newPositionX = 100 - visibilityPercent;
-            newPositionY = 100 - visibilityPercent;
-        } else {
-            // Прокрутка вверх
-            newPositionX = visibilityPercent;
-            newPositionY = visibilityPercent;
-        }
+    function moveBeforeElement(section) {
+        // Генерируем случайные координаты для всех четырех сторон (0-100)
+        const newPositionTop = Math.random() * 100;
+        const newPositionRight = Math.random() * 100;
+        const newPositionBottom = Math.random() * 100;
+        const newPositionLeft = Math.random() * 100;
 
-        // Изменяем свойства top и right для анимации перемещения псевдоэлемента "before"
-        section.style.setProperty('--before-top', `${newPositionY}%`);
-        section.style.setProperty('--before-right', `${newPositionX}%`);
-
-        // Сохраняем текущую позицию скролла
-        lastScrollPosition = scrollPosition;
+        // Изменяем свойства для анимации перемещения псевдоэлемента "before"
+        section.style.setProperty('--before-top', `${newPositionTop}%`);
+        section.style.setProperty('--before-right', `${newPositionRight}%`);
+        section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
+        section.style.setProperty('--before-left', `${newPositionLeft}%`);
     }
 
-// Переменная для хранения последней позиции скролла (используется для определения направления прокрутки)
-    let lastScrollPosition = 0;
+// Список секций, к которым применяется анимация
+    const sections = document.querySelectorAll('section.traffic_patrol, section.situation_centre, section.help_desk');
 
-// Обработчик события скролла, который вызывает функцию перемещения псевдоэлемента "before"
-    window.addEventListener('scroll', moveBeforeElement);
+// Обработчик для вызова функции перемещения псевдоэлемента через интервал для каждой секции
+    sections.forEach(section => {
+        setInterval(() => {
+            moveBeforeElement(section);
+        }, 1800);
+    });
 
-// Вызов функции перемещения псевдоэлемента при загрузке страницы, чтобы элемент начинал перемещаться сразу, если секция видима
-    moveBeforeElement();
 
 
-// Что можно еще сделать с элементом, который двигается?
-//
-// Изменить анимацию: В данном коде элемент "before" перемещается с помощью изменения свойств "top" и "right". Вы можете экспериментировать с другими свойствами, такими как "transform" или "opacity", чтобы создать различные анимационные эффекты.
-//
-// Добавить разные движения: Вместо линейного движения элемента вы можете добавить кривые или инерционное движение для более естественного и интересного эффекта.
-//
-// Изменить направление движения: В данном коде элемент двигается по диагонали в зависимости от направления прокрутки. Вы можете изменить направление движения элемента, чтобы он перемещался горизонтально или вертикально в зависимости от вашего предпочтения.
-//
-// Добавить переходы: Вы можете добавить плавные переходы, чтобы анимация перемещения выглядела более плавно и эффектно.
-//
-// Изменить условия анимации: В данном коде элемент перемещается только в пределах видимости секции. Вы можете изменить условия анимации, чтобы элемент двигался по-разному в зависимости от его положения на странице или других параметров.
-//
-// Создать параллакс-эффект: Если у вас есть несколько элементов на странице, которые двигаются при прокрутке, вы можете использовать различные коэффициенты движения, чтобы создать эффект параллакса.
-//
-// Использовать другие события: Вместо события "scroll" вы можете использовать другие события, такие как "mousemove" или "click", чтобы анимировать элементы в зависимости от действий пользователя.
-//
-// Использовать другие элементы: Вместо псевдоэлемента "before" вы можете анимировать реальные элементы DOM, добавив их динамически или управляя их стилями и позицией.
-//
-// Ограничить анимацию: Вы можете добавить условия, чтобы анимация не происходила, если элемент находится за пределами определенной области или видимости.
-//
-// Настроить скорость анимации: Вы можете регулировать скорость анимации, добавляя трансишены, изменяя интервалы обновления или используя CSS-анимации.
+
+
+    const container = document.querySelector('footer.footer_main .container_main');
+
+    container.addEventListener('mousemove', (e) => {
+        const { left, top, width, height } = container.getBoundingClientRect();
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const offsetX = e.clientX - left;
+        const offsetY = e.clientY - top;
+        const distance = Math.sqrt((offsetX - centerX) ** 2 + (offsetY - centerY) ** 2);
+
+        const maxOpacity = 1.0;
+        const minOpacity = 0.3;
+        const opacityRange = maxOpacity - minOpacity;
+
+        const beforeOpacity = Math.max(minOpacity, maxOpacity - (distance / centerX) * opacityRange);
+        const afterOpacity = Math.max(minOpacity, (distance / centerX) * opacityRange);
+
+        container.style.setProperty('--before-opacity', beforeOpacity);
+        container.style.setProperty('--after-opacity', afterOpacity);
+    });
+
 
 
 
@@ -345,9 +356,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Вызываем обработчик события прокрутки в начале для проверки видимости элементов при загрузке страницы
     handleScroll();
-
-
-
-
 });
 

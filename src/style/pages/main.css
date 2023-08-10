@@ -348,6 +348,32 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     height: 100vh;
 }
 
+.menu:before {
+    content: ' ';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 0; /* Используем CSS переменную для изменения свойства top */
+    right: 0; /* Используем CSS переменную для изменения свойства right */
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+}
+
+.menu:after {
+    content: ' ';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    top: 0; /* Используем CSS переменную для изменения свойства top */
+    left: 0; /* Используем CSS переменную для изменения свойства right */
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+}
+
 .menu .container_main {
     border: none;
 }
@@ -446,24 +472,93 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     transform: translate(-50%, -50%);
 }
 
+.menu .menu_navigation .menu_navigation-list li[class^="menu_navigation-"],
+.menu .menu-media a[class^="media-"] {
+    backface-visibility: hidden;
+    opacity: 0;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item.animation:nth-child(1) {
+    animation: TopToBottom 0.2s linear 0.2s forwards;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item.animation:nth-child(2) {
+    animation: TopToBottom 0.2s linear 0.5s forwards;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item.animation:nth-child(3) {
+    animation: TopToBottom 0.2s linear 0.8s forwards;
+}
+
+.menu .menu-media .media-wrapper.animation:nth-child(1) {
+    animation: TopToBottom 0.2s linear 1.1s forwards;
+}
+
+.menu .menu-media .media-wrapper.animation:nth-child(2) {
+    animation: TopToBottom 0.2s linear 1.4s forwards;
+}
+
+.menu .menu-media .media-wrapper.animation:nth-child(3) {
+    animation: TopToBottom 0.2s linear 1.7s forwards;
+}
 
 
 
-/* main */
+
+    /* main */
 
 section.main {
     padding: 60px 20px 0 20px;
     height: 100vh;
+    position: relative;
+}
+
+section.main .main_intro_media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black url("../../img/layout/pages/main/main_bg.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+section.main .main_intro_media:before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, .5);
+}
+
+section.main .main_intro_media .preview_video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+section.main .main_intro_content {
+    position: relative;
+    height: 100%;
+    z-index: 2;
 }
 
 section.main .container_main {
     height: 100%;
 }
 
-section.main .main_bg {
-    padding-bottom: 233px;
-    background: url("../../img/layout/pages/main/main_bg.jpg") no-repeat bottom center/cover;
-}
+/*section.main .main_bg {*/
+/*    padding-bottom: 233px;*/
+/*    background: url("../../img/layout/pages/main/main_bg.jpg") no-repeat bottom center/cover;*/
+/*}*/
 
 section.main .main_title {
     text-transform: uppercase;
@@ -562,6 +657,7 @@ section.main .main_grid-wrapper .main_button-3 .main_info-link:hover {
     color: #090909;
 }
 
+
 section.main .main_title span.main_title-animation-1,
 section.main .main_title span.main_title-animation-2,
 section.main .main_title span.main_title-animation-3,
@@ -625,11 +721,16 @@ section.traffic_patrol:before {
     height: 500px;
     top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
     right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
+    bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
+    left: var(--before-left, 0); /* Используем CSS переменную для изменения свойства left */
     border-radius: 100%;
     opacity: 0.3;
     background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
-    transition: top 4s ease, right 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
 }
+
+
+
 
 section.traffic_patrol .container_main {
     padding-bottom: 120px;
@@ -890,6 +991,22 @@ section.traffic_patrol .traffic_patrol_slider .garage_model_card {
 
 section.situation_centre {
     padding: 60px 20px 0 20px;
+    position: relative;
+}
+
+section.situation_centre:before {
+    content: ' ';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
+    right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
+    bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
+    left: var(--before-left, 0); /* Используем CSS переменную для изменения свойства left */
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
 }
 
 section.situation_centre .container_main {
@@ -1081,6 +1198,22 @@ section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation
 
 section.help_desk {
     padding: 60px 20px 0 20px;
+    position: relative;
+}
+
+section.help_desk:before {
+    content: ' ';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
+    right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
+    bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
+    left: var(--before-left, 0); /* Используем CSS переменную для изменения свойства left */
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
 }
 
 section.help_desk .container_main {
@@ -1422,32 +1555,27 @@ footer.footer_main {
     /*overflow: hidden;*/
 }
 
-footer.footer_main .container_main:before {
-    content: ' ';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    border-radius: 100% 0 0 0;
-    opacity: 0.3;
-    background: linear-gradient(to top left, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 50%);
-    transition: top 4s ease, right 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
-}
-
+footer.footer_main .container_main:before,
 footer.footer_main .container_main:after {
     content: ' ';
     position: absolute;
     width: 500px;
     height: 500px;
     bottom: 0;
-    left: 0;
     z-index: -1;
-    border-radius: 0 100% 0 0;
-    opacity: 0.3;
+    transition: opacity 0.4s ease;
+}
+
+footer.footer_main .container_main:before {
+    right: 0;
+    background: linear-gradient(to top left, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 50%);
+    opacity: var(--before-opacity, 0.3);
+}
+
+footer.footer_main .container_main:after {
+    left: 0;
     background: linear-gradient(to top right, #FC762B 0%, rgba(9, 9, 9, 0.00) 50%);
-    transition: top 4s ease, right 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+    opacity: var(--after-opacity, 0.3);
 }
 
 footer.footer_main .container_main {

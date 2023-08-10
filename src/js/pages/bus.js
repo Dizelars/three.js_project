@@ -26,10 +26,10 @@ if (pixelRatio > 1) {
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/ford/FORD.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/ford_1/progect.gltf';
     ShadowSwitch = true;
 } else {
-    url = 'https://coddmac.store/THREE/3Dmodels/ford/FORD.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/ford_1/progect.gltf';
     ShadowSwitch = false;
 }
 

@@ -834,14 +834,26 @@
         line-height: 21px;
     }
 
+    /*section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {*/
+    /*    display: block;*/
+    /*    padding: 20px;*/
+    /*}*/
+
+    /*section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {*/
+    /*    font-size: 1.6rem;*/
+    /*    line-height: 28px;*/
+    /*}*/
+
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
-        display: block;
-        padding: 20px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
     }
 
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
         font-size: 1.6rem;
-        line-height: 28px;
+        line-height: 26px;
     }
 
 
@@ -1027,19 +1039,19 @@
     }
 }
 
-@media (max-width: 764px) {
-    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
-        padding: 10px;
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-    }
+/*@media (max-width: 764px) {*/
+/*    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {*/
+/*        padding: 10px;*/
+/*        display: flex;*/
+/*        justify-content: space-evenly;*/
+/*        flex-direction: column;*/
+/*    }*/
 
-    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
-        font-size: 1.6rem;
-        line-height: 26px;
-    }
-}
+/*    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {*/
+/*        font-size: 1.6rem;*/
+/*        line-height: 26px;*/
+/*    }*/
+/*}*/
 
 @media (max-width: 640px) {
     section.main .main_title {
@@ -1261,7 +1273,7 @@
     }
 
     section.main .main_title span.large_letter {
-        width: 96px;
+        max-width: 96px;
         padding: 9px;
     }
 
@@ -1660,7 +1672,7 @@
     }
 
     section.main .main_title span.large_letter {
-        width: 64px;
+        max-width: 64px;
         padding: 6px;
     }
 
