@@ -83,6 +83,8 @@ document.addEventListener("DOMContentLoaded", function() {
         removeHoveredClass();
     }
 
+
+
     // Измененная функция обработчика события для ссылок
     function handleLinkCloseMenu(event) {
         event.preventDefault();
@@ -106,6 +108,45 @@ document.addEventListener("DOMContentLoaded", function() {
         link.addEventListener("mouseout", handleLinkLeave);
         link.addEventListener("click", handleLinkCloseMenu);
     });
+
+
+
+
+// ПОЯВЛЕНИЕ видео превью при наведении на список меню.
+
+    // Получаем все элементы списка
+    const menuItems = document.querySelectorAll('.menu_navigation-item');
+
+    // Для каждого элемента списка добавляем обработчики событий
+    menuItems.forEach(menuItem => {
+        const previewBlock = menuItem.querySelector('.menu_preview-block');
+
+        menuItem.addEventListener('mouseenter', () => {
+            previewBlock.style.display = 'block';
+        });
+
+        menuItem.addEventListener('mouseleave', () => {
+            previewBlock.style.display = 'none';
+        });
+
+        menuItem.addEventListener('mousemove', (event) => {
+            const xRelativeToItem = event.clientX - menuItem.getBoundingClientRect().left;
+            const yRelativeToItem = event.clientY - menuItem.getBoundingClientRect().top;
+
+            const previewBlockWidth = previewBlock.offsetWidth;
+            const previewBlockHeight = previewBlock.offsetHeight;
+
+            const x = xRelativeToItem - previewBlockWidth / 2; // Центрирование по X относительно курсора
+            const y = yRelativeToItem - previewBlockHeight - 10; // Смещение чуть выше курсора
+
+            previewBlock.style.left = x + 'px';
+            previewBlock.style.top = y + 'px';
+        });
+    });
+
+
+
+
 
 
     // Получаем ссылки футера для плавного скролла

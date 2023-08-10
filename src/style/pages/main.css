@@ -348,30 +348,30 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     height: 100vh;
 }
 
-.menu:before {
-    content: ' ';
-    position: absolute;
-    width: 800px;
-    height: 800px;
-    top: 0; /* Используем CSS переменную для изменения свойства top */
-    right: 0; /* Используем CSS переменную для изменения свойства right */
-    border-radius: 100%;
-    opacity: 0.3;
-    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
-    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
-}
-
+.menu:before,
 .menu:after {
     content: ' ';
     position: absolute;
     width: 800px;
     height: 800px;
-    top: 0; /* Используем CSS переменную для изменения свойства top */
-    left: 0; /* Используем CSS переменную для изменения свойства right */
     border-radius: 100%;
     opacity: 0.3;
-    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    pointer-events: none;
     transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+}
+
+.menu:before {
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+    bottom: 0; /* Используем CSS переменную для изменения свойства top */
+    right: 0; /* Используем CSS переменную для изменения свойства right */
+}
+
+.menu:after {
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    top: 0; /* Используем CSS переменную для изменения свойства top */
+    left: 0; /* Используем CSS переменную для изменения свойства right */
 }
 
 .menu .container_main {
@@ -500,6 +500,32 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 
 .menu .menu-media .media-wrapper.animation:nth-child(3) {
     animation: TopToBottom 0.2s linear 1.7s forwards;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_preview-block {
+    width: 200px;
+    height: 100px;
+    padding: 4px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: none;
+    position: absolute; /* Блок с видео ОБЯЗАТЕЛЬНО должен быть абсолютно спозиционирован, чтобы не выбивать элементы из верстки */
+    z-index: 1000;
+}
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_preview-block .block-wrapper-video {
+    width: 100%;
+    height: 100%;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_preview-block .menu_preview-video {
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 
@@ -717,8 +743,10 @@ section.traffic_patrol {
 section.traffic_patrol:before {
     content: ' ';
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
+    z-index: 2;
+    pointer-events: none;
     top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
     right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
     bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
@@ -997,8 +1025,10 @@ section.situation_centre {
 section.situation_centre:before {
     content: ' ';
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
+    z-index: 2;
+    pointer-events: none;
     top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
     right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
     bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
@@ -1204,8 +1234,10 @@ section.help_desk {
 section.help_desk:before {
     content: ' ';
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
+    z-index: 2;
+    pointer-events: none;
     top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
     right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
     bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
