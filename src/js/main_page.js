@@ -146,6 +146,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+    // ВИДЕО при ховере на карточку .garage_model_card
+
+    const modelCards = document.querySelectorAll('.garage_model_card');
+
+    modelCards.forEach(card => {
+        let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
+        let mediaWrap = card.querySelector('.garage_model_card .slid_img');
+
+        card.addEventListener('mouseenter', () => {
+            modelCardVideo.style.display = 'block';
+            mediaWrap.style.background = '#090909 ';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            modelCardVideo.style.display = 'none';
+            mediaWrap.style.background = '';
+        });
+    });
 
 
 
@@ -205,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
             el: '.swiper-pagination3',
         },
     });
+
 
 
     // Выпадание блока Инвентарь
@@ -283,26 +302,6 @@ document.addEventListener("DOMContentLoaded", function() {
 // // Вызов функции перемещения псевдоэлемента при загрузке страницы, чтобы элемент начинал перемещаться сразу, если секция видима
 //     moveBeforeElement();
 
-
-//     function moveBeforeElement() {
-//         const section = document.querySelector('section.traffic_patrol');
-//
-//         // Генерируем случайные координаты для всех четырех сторон (0-100)
-//         const newPositionTop = Math.random() * 100;
-//         const newPositionRight = Math.random() * 100;
-//         const newPositionBottom = Math.random() * 100;
-//         const newPositionLeft = Math.random() * 100;
-//
-//         // Изменяем свойства для анимации перемещения псевдоэлемента "before"
-//         section.style.setProperty('--before-top', `${newPositionTop}%`);
-//         section.style.setProperty('--before-right', `${newPositionRight}%`);
-//         section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
-//         section.style.setProperty('--before-left', `${newPositionLeft}%`);
-//     }
-//
-// // Обработчик для вызова функции перемещения псевдоэлемента через интервал
-//     setInterval(moveBeforeElement, 1800);
-
     function moveBeforeElement(section) {
         // Генерируем случайные координаты для всех четырех сторон (0-100)
         const newPositionTop = Math.random() * 100;
@@ -330,6 +329,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+    // Анимация градиента в фетере, изменение интенсивности при движении курсора
 
     const container = document.querySelector('footer.footer_main .container_main');
 
@@ -353,10 +353,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-
-
-
-    // Анимации появления контента на странице:
+    // Анимации появления контента на странице при скролле:
 
     // Функция, которая проверяет, находится ли элемент в области видимости экрана
     function isElementInViewport(element) {

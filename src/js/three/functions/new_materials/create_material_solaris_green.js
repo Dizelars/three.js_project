@@ -12,18 +12,32 @@ const textures = {
     mapTexture2: null
 };
 
+// map
 let mapTextureMainUrl;
 let mapTextureFaraUrl;
 let mapTextureMain_2Url;
 
+// metalnessMap
+let metalnessMapMainUrl;
+
+// normalMap
+let normalMapMainUrl;
+
+
 if (screenWidth >= 850) {
     mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
     mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor.png';
+
+    metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
+    normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
 } else {
     mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
     mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/49/Main_texture_2.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor.png';
+
+    metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
+    normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
 }
 
 function loadTextures() {
@@ -31,9 +45,15 @@ function loadTextures() {
     textures.mapTextureMain = textureLoader.load(mapTextureMainUrl);
     textures.mapTextureFara = textureLoader.load(mapTextureFaraUrl);
     textures.mapTextureMain_2 = textureLoader.load(mapTextureMain_2Url);
+
+    textures.metalnessMap = textureLoader.load(metalnessMapMainUrl);
+    textures.normalMap = textureLoader.load(normalMapMainUrl);
+
     textures.mapTextureMain.flipY = false;
     textures.mapTextureMain_2.flipY = false;
     textures.mapTextureFara.flipY = false;
+    textures.metalnessMap.flipY = false;
+    textures.normalMap.flipY = false;
 }
 
 loadTextures();
@@ -47,37 +67,134 @@ let CastomMaterial = 'MeshPhysicalMaterial';
 // transparent: false,
 
 const materials = {
-    Fara_glass: {
-        material: CastomMaterial,
-        color: 0xffffff,
-        roughness: 0.4,
-        metalness: 0.9,
-        transmission: 1,
-        transparent: true,
-        opacity: 0.6
-    },
-    'Fara_glass001': {
-        material: CastomMaterial,
-        color: 0xffffff,
-        roughness: 0.4,
-        metalness: 0.9,
-        transmission: 1,
-        transparent: true,
-        opacity: 0.6
-    },
-    // Main_2: {
+    // Windows: {
     //     material: CastomMaterial,
-    //     roughness: 0.4,
-    //     metalness: 0.7,
-    //     clearcoat: 0.3,
-    //     clearcoatRoughness: 0.3,
-    //     map: textures.mapTextureMain_2,
-    //     side: THREE.DoubleSide,
-    //     clipShadows: clipShadowsSwitch,
-    //     // depthWrite: false,
-    //     polygonOffset: true,
-    //     // polygonOffsetFactor: -4
+    //     // color: 0xB8B8B8,
+    //     // 333331
+    //     // color: 0x1F1F1D,
+    //     color: 0x333331,
+    //     roughness: 0.3,
+    //     // metalness: 0,
+    //     transmission: 1,
+    //     clearcoat: 0.5,
+    //     clearcoatRoughness: 0.01,
+    //     thickness: 0.6,
+    //     ior: 1.450,
+    //     transparent: true,
+    //     opacity: 0.3,
     // },
+    Windows: {
+        material: CastomMaterial,
+        color: 0xB8B8B8,
+        roughness: 0.1,
+        metalness: 0.8,
+        transmission: 1,
+        ior: 1.450,
+    },
+    // Fara_glass: {
+    //     material: CastomMaterial,
+    //     color: 0xffffff,
+    //     roughness: 0.4,
+    //     metalness: 0.9,
+    //     transmission: 1,
+    //     transparent: true,
+    //     opacity: 0.6
+    // },
+    // Glass: {
+    //     material: CastomMaterial,
+    //     color: 0xffffff,
+    //
+    //     roughness: 0.4,
+    //     metalness: 0.9,
+    //
+    //     transmission: 1,
+    //     transparent: true,
+    //
+    //     opacity: 0.3,
+    //
+    //     // clearcoat: 0.5,
+    //     clearcoatRoughness: 0.1,
+    // },
+    Glass: {
+        material: CastomMaterial,
+        color: 0xB8B8B8,
+        roughness: 0,
+        metalness: 0,
+        transmission: 1,
+        transparent: false,
+        thickness: 0.6,
+        clearcoat: 0.5,
+        clearcoatRoughness: 0.01,
+        // opacity: 0.4
+    },
+    Glass_1: {
+        material: CastomMaterial,
+        color: 0xffffff,
+        roughness: 0.4,
+        metalness: 0.5,
+        transmission: 1,
+        ior: 1.450,
+    },
+    // Front_Headlights: {
+    //     material: CastomMaterial,
+    //     color: 0xffffff,
+    //     roughness: 0.4,
+    //     metalness: 0.9,
+    //     transmission: 1,
+    //     transparent: true,
+    //     opacity: 0.6
+    // },
+    // Back_Headlights: {
+    //     material: CastomMaterial,
+    //     color: 0xA52019,
+    //     roughness: 0.2,
+    //     metalness: 0.9,
+    //     transmission: 1,
+    //     transparent: true,
+    //     opacity: 0.8
+    // },
+    Body: {
+        material: CastomMaterial,
+        // color: 0x12CE16,
+        roughness: 0.6,
+        metalness: 0.7,
+        clearcoat: 0.5,
+        clearcoatRoughness: 0.1,
+        map: textures.mapTextureMain_2,
+        // metalnessMap: textures.metalnessMap,
+        normalMap: textures.normalMap,
+        // side: THREE.DoubleSide,
+        side: THREE.FrontSide,
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
+    },
+    Metal: {
+        material: CastomMaterial,
+        color: 0xBCBCBC,
+        roughness: 0.2,
+        metalness: 1
+    },
+    Radiator: {
+        material: CastomMaterial,
+        map: textures.mapTextureMain_2,
+        color: 0xBCBCBC,
+        roughness: 0.2,
+        metalness: 1
+    },
+    Interior: {
+        material: CastomMaterial,
+        color: 0x626262,
+        // roughness: 1
+    },
+    Tires: {
+        material: CastomMaterial,
+        color: 0x232323,
+        normalMap: textures.normalMap,
+        roughness: 0.6,
+        // metalness: 0.0
+    },
     // main001: {
     //     color: 0x000000,
     //     roughness: 0.9,
@@ -161,14 +278,6 @@ const materials = {
     //     polygonOffset: true,
     //     // polygonOffsetFactor: -4
     // },
-    // Stekla: {
-    //     material: CastomMaterial,
-    //     color: 0xB8B8B8,
-    //     roughness: 0.1,
-    //     metalness: 0.8,
-    //     transmission: 1,
-    //     ior: 1.450,
-    // },
     // Fari_perednie_stekla: {
     //     material: CastomMaterial,
     //     color: 0xffffff,
@@ -197,15 +306,6 @@ const materials = {
     //     metalness: 0,
     //     map: textures.mapTextureFara,
     //     side: THREE.DoubleSide
-    // },
-    // Fari_zadnie: {
-    //     material: CastomMaterial,
-    //     color: 0xA52019,
-    //     roughness: 0.2,
-    //     metalness: 0.9,
-    //     transmission: 1,
-    //     transparent: true,
-    //     opacity: 0.8
     // },
     // Ekran: {
     //     material: CastomMaterial,
@@ -256,10 +356,6 @@ const materials = {
     //     // roughness: 0.9,
     //     // metalness: 1
     // },
-    // Salon: {
-    //     color: 0x000000,
-    //     // roughness: 1
-    // },
     // Reshetka: {
     //     color: 0x000000,
     //     roughness: 0.9,
@@ -270,17 +366,6 @@ const materials = {
     //     color: 0xBCBCBC,
     //     roughness: 0.2,
     //     metalness: 1
-    // },
-    // Kolesa_diski: {
-    //     material: CastomMaterial,
-    //     color: 0xBCBCBC,
-    //     roughness: 0.2,
-    //     metalness: 1
-    // },
-    // "Kolesa-shini": {
-    //     color: 0x000000,
-    //     // roughness: 0.35,
-    //     // metalness: 0.0
     // },
     // Tormoza: {
     //     color: 0x000000,

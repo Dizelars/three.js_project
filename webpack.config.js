@@ -178,6 +178,8 @@ module.exports = {
         'solaris_two-style': './src/style/style.css',
         bus: './src/js/pages/bus.js',
         'bus-style': './src/style/style.css',
+        ford: './src/js/pages/ford.js',
+        'ford-style': './src/style/style.css',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -242,6 +244,13 @@ module.exports = {
             filename: 'pages/bus.html',
             chunks: ['bus', 'bus-style'],
             // chunks: ['bus'],
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/pages', 'ford.html'),
+            filename: 'pages/ford.html',
+            chunks: ['ford', 'ford-style'],
+            // chunks: ['ford'],
             minify: false,
         }),
         new MiniCssExtractPlugin({

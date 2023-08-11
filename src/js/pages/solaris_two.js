@@ -4,7 +4,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
-import {createMaterialProperties} from '../three/functions/create_material_solaris_green.js';
+import {createMaterialProperties} from '../three/functions/new_materials/create_material_solaris_green.js';
 import Stats from 'stats.js';
 // import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
@@ -29,7 +29,7 @@ if (pixelRatio > 1) {
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/solaris_15/untitled.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/untitled.gltf';
     ShadowSwitch = true;
 }
 // else {
@@ -205,7 +205,9 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         obj = gltf.scene;
         scene1.add(obj);
         console.log(obj.children);
-        obj.position.set(-35, -3, -27.5);
+        // obj.position.set(-35, -3, -27.5);
+        obj.position.set(-15, 0, 25);
+        obj.rotation.y += -1.55;
 
         const box = new THREE.Box3().setFromObject(obj);
         const size = new THREE.Vector3();
@@ -292,6 +294,11 @@ scene1.add(plane);
 plane.rotation.x = -0.5 * Math.PI; // Поворот плиты.
 plane.position.set(0, -2, 0) // Поворот плиты.
 plane.receiveShadow = ShadowSwitch; // Плоскость получает тень, которую излучает модель
+
+
+// 12) Вспомогательная система координат экстерьер
+// const axesHelper = new THREE.AxesHelper(200);
+// scene1.add(axesHelper);
 
 // 13) Перемещение по координатам при клике на кнопки интерьер или экстерьер
 function MyCoordinates(xPos, yPos, zPos, dur) {

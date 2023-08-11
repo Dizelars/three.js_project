@@ -3,7 +3,7 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
-import {createMaterialProperties} from './functions/create_material.js';
+import {createMaterialProperties} from './functions/new_materials/create_material.js';
 import Stats from 'stats.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
