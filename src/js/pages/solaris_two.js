@@ -47,7 +47,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;// Алгоритм отоб�
 renderer.toneMappingExposure = 0.1;
 renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
-renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
+// renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 renderer.domElement.id = 'myCanvas';
 
 
@@ -162,10 +162,10 @@ SpotLight5.shadow.mapSize.height = 64; // Разрешение отображе�
 SpotLight5.shadow.mapSize.width = 64; // Разрешение отображения теней
 SpotLight5.shadow.camera.near = 1.0;
 SpotLight5.shadow.camera.far = 550;
-SpotLight5.shadow.camera.left = 1;
-SpotLight5.shadow.camera.right = -1;
-SpotLight5.shadow.camera.top = 1;
-SpotLight5.shadow.camera.bottom = -1;
+// SpotLight5.shadow.camera.left = 1;
+// SpotLight5.shadow.camera.right = -1;
+// SpotLight5.shadow.camera.top = 1;
+// SpotLight5.shadow.camera.bottom = -1;
 SpotLight5.angle = 0.5;
 SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
@@ -208,12 +208,13 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
         // obj.position.set(-35, -3, -27.5);
         obj.position.set(-15, 0, 25);
         obj.rotation.y += -1.55;
+        // console.log(url);
 
-        const box = new THREE.Box3().setFromObject(obj);
-        const size = new THREE.Vector3();
-        box.getSize(size);
-        const linearSize = size.length();
-        console.log('Linear size:', linearSize);
+        // const box = new THREE.Box3().setFromObject(obj);
+        // const size = new THREE.Vector3();
+        // box.getSize(size);
+        // const linearSize = size.length();
+        // console.log('Linear size:', linearSize);
 
         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
         let names = [];

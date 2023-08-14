@@ -10,79 +10,84 @@
     <link rel="stylesheet" href="../style/style.css">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script>
-        setTimeout(() => {
-            AFRAME.registerComponent("hotspots", {
-                init: function () {
-                    this.el.addEventListener("reloadspots", function (evt) {
-                        //get the entire current spot group and scale it to 0
-                        let currspotgroup = document.getElementById(evt.detail.currspots);
-                        currspotgroup.setAttribute("scale", "0 0 0");
+        AFRAME.registerComponent("hotspots", {
+            init: function () {
+                this.el.addEventListener("reloadspots", function (evt) {
+                    //get the entire current spot group and scale it to 0
+                    var currspotgroup = document.getElementById(evt.detail.currspots);
+                    currspotgroup.setAttribute("scale", "0 0 0");
 
-                        //get the entire new spot group and scale it to 1
-                        let newspotgroup = document.getElementById(evt.detail.newspots);
-                        newspotgroup.setAttribute("scale", "1 1 1");
-                    });
-                }
-            });
+                    //get the entire new spot group and scale it to 1
+                    var newspotgroup = document.getElementById(evt.detail.newspots);
+                    newspotgroup.setAttribute("scale", "1 1 1");
+                });
+            }
+        });
 
-            AFRAME.registerComponent("spot", {
-                schema: {
-                    linkto: { type: "string", default: "" },
-                    spotgroup: { type: "string", default: "" },
-                    phiStart: { type: "string", default: "" }
-                },
-                init: function () {
-                    this.el.addEventListener("click", () => {
-                        let cam = document.getElementById("cam");
-                        cam.emit("zoomin");
+        AFRAME.registerComponent("spot", {
+            schema: {
+                linkto: { type: "string", default: "" },
+                spotgroup: { type: "string", default: "" },
+                phiStart: { type: "string", default: "" }
+            },
+            init: function () {
+                //add image source of hotspot icon
+                // this.el.setAttribute("src", "#hotspot");
+                //make the icon look at the camera all the time
+                // this.el.setAttribute("look-at", "#cam");
 
-                        let fp = document.getElementById("camfadeplane");
-                        fp.setAttribute("width", "2");
-                        fp.setAttribute("height", "2");
-                        fp.emit("camFadeIn");
+                this.el.addEventListener("click", () => {
+                    var cam = document.getElementById("cam");
+                    cam.emit("zoomin");
 
-                        const reloadSpot = () => {
-                            //set the skybox source to the new image as per the spot
-                            let sky = document.getElementById("skybox");
-                            sky.setAttribute("src", this.data.linkto);
-                            //надобавлял говна но оно не пашет
-                            sky.setAttribute("phi-start", this.data.phiStart);
+                    var fp = document.getElementById("camfadeplane");
+                    fp.setAttribute("width", "2");
+                    fp.setAttribute("height", "2");
+                    fp.emit("camFadeIn");
 
-                            let spotcomp = document.getElementById("spots");
-                            let currspots = this.el.parentElement.getAttribute("id");
-                            //create event for spots component to change the spots data
-                            spotcomp.emit("reloadspots", {
-                                newspots: this.data.spotgroup,
-                                currspots: currspots
-                            });
+                    //alert("Start zoom");
 
-                            //this.setAttribute("camera","fov",80);
-                            cam.emit("zoomout");
+                    const reloadSpot = () => {
+                        //set the skybox source to the new image as per the spot
+                        var sky = document.getElementById("skybox");
+                        sky.setAttribute("src", this.data.linkto);
+                        //надобавлял говна но оно не пашет
+                        sky.setAttribute("phi-start", this.data.phiStart);
 
-                            let fp = document.getElementById("camfadeplane");
-                            fp.emit("camFadeOut");
+                        var spotcomp = document.getElementById("spots");
+                        var currspots = this.el.parentElement.getAttribute("id");
+                        //create event for spots component to change the spots data
+                        spotcomp.emit("reloadspots", {
+                            newspots: this.data.spotgroup,
+                            currspots: currspots
+                        });
 
-                            setTimeout(() => {
-                                fp.setAttribute("width", "0");
-                                fp.setAttribute("height", "0");
-                            }, 1000);
-                        };
-                        setTimeout(reloadSpot, 2000);
-                    });
+                        //this.setAttribute("camera","fov",80);
+                        cam.emit("zoomout");
 
-                    // this.el.addEventListener("mouseleave", function () {
-                    //   var cur = document.getElementById("cursor-visual");
-                    //   cur.emit("stopFuse");
-                    // });
+                        var fp = document.getElementById("camfadeplane");
+                        fp.emit("camFadeOut");
 
-                    //поменял mouseenter на click. какая то хуйня
-                    // this.el.addEventListener("click", function (evt) {
-                    //   var cur = document.getElementById("cursor-visual");
-                    //   cur.emit("startFuse");
-                    // });
-                }
-            });
-        }, 1500);
+                        setTimeout(() => {
+                            fp.setAttribute("width", "0");
+                            fp.setAttribute("height", "0");
+                        }, 1000);
+                    };
+                    setTimeout(reloadSpot, 2000);
+                });
+
+                // this.el.addEventListener("mouseleave", function () {
+                //   var cur = document.getElementById("cursor-visual");
+                //   cur.emit("stopFuse");
+                // });
+
+                //поменял mouseenter на click. какая то хуйня
+                // this.el.addEventListener("click", function (evt) {
+                //   var cur = document.getElementById("cursor-visual");
+                //   cur.emit("startFuse");
+                // });
+            }
+        });
     </script>
 
 </head>
@@ -134,7 +139,7 @@
                                 <img src="../img/layout/icon-arrow.svg" alt="icon-arrow">
                             </a>
                         </div>
-                        <div class="tech_spec__visible hidden">
+                        <div class="tech_spec__visible">
                             <div class="tech_spec__mission">
                                 <p class="tech_spec__text">Задача:</p>
                                 <p class="tech_spec__text-descr">Регулировать движение на сложных участках, помогать водителям при поломке или аварии.</p>
@@ -207,8 +212,9 @@
                         </div>
                     </div>
                     <a class="tech_spec__btn">
-                        <span>Подробнее</span>
-                        <img src="../img/layout/icon-arrow.svg" alt="icon-arrow">
+<!--                        <span>Подробнее</span>-->
+                        <span>Скрыть</span>
+                        <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow">
                     </a>
                 </div>
             </div>
@@ -317,37 +323,41 @@
             gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
           }
         </script>
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- Начало применения правок к коду -->
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
         <img
                 id="room1"
-                src="https://coddmac.store/THREE/360/amarok/Interior.jpg"
+                src="https://coddmac.store/codd_garage/360/transit_green/1.jpg"
                 crossorigin="anonymous"
                 importance="high"
         />
         <img
                 id="room2"
-                src="https://coddmac.store/THREE/360/largus/Interior.jpg"
+                src="https://coddmac.store/codd_garage/360/transit_green/2.jpg"
                 crossorigin="anonymous"
                 importance="low"
+        />
+        <!-- <img
+          id="room3"
+          src="https://coddmac.store/codd_garage/360/bus_black/3.jpg"
+          crossorigin="anonymous"
+          importance="low"
+        /> -->
+
+        <!-- <img
+          id="room4"
+          src="https://coddmac.store/BKL/360/Varshavskaya/4.jpg"
+          crossorigin="anonymous"
+          importance="low"
         />
         <img
-                id="room3"
-                src="https://coddmac.store/BKL/360/Varshavskaya/3.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="room4"
-                src="https://coddmac.store/BKL/360/Varshavskaya/4.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="room5"
-                src="https://coddmac.store/BKL/360/Varshavskaya/5.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
+          id="room5"
+          src="https://coddmac.store/BKL/360/Varshavskaya/5.jpg"
+          crossorigin="anonymous"
+          importance="low"
+        /> -->
         <img
                 id="hotspot"
                 src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"
@@ -438,69 +448,73 @@
         <a-entity id="group-room1">
             <a-image
                     src="#hotspot"
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:0"
-                    position="0 -2 8"
+                    spot="linkto:#room2;spotgroup:group-room2;phiStart:176"
+                    position="0.5 2 10"
                     look-at
             ></a-image>
 
-            <a-entity position="0 1 6" look-at rotation="180 0 180">
-                <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
-                <a-entity id="infoPanelContainer1"></a-entity>
+            <!-- <a-entity position="0 1 6" look-at rotation="180 0 180">
+              <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
+              <a-entity id="infoPanelContainer1"></a-entity>
             </a-entity>
 
             <a-entity position="-4.5 -1.75 -8" look-at>
-                <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
-                <a-entity id="infoPanelContainer2"></a-entity>
-            </a-entity>
+              <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
+              <a-entity id="infoPanelContainer2"></a-entity>
+            </a-entity> -->
         </a-entity>
 
         <a-entity id="group-room2" scale="0 0 0">
+            <!-- возврат в первую комнату -->
             <a-image
-                    spot="linkto:#room1;spotgroup:group-room1;phiStart:175"
+                    spot="linkto:#room1;spotgroup:group-room1;phiStart:88"
                     src="#hotspot"
-                    position="0 1 8"
+                    position="0 0 -8"
                     look-at
             ></a-image>
+            <!-- переход в третью комнату -->
+            <!-- <a-image
+              spot="linkto:#room3;spotgroup:group-room3;phiStart:275"
+              src="#hotspot"
+              position="0 0 -10"
+              look-at
+            ></a-image> -->
         </a-entity>
 
-        <a-entity id="group-room3" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:146"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 -8"
-                    look-at
-            ></a-image>
-        </a-entity>
+        <!-- <a-entity id="group-room3" scale="0 0 0"> -->
+        <!-- возврат во вторую комнату -->
+        <!-- <a-image
+          spot="linkto:#room2;spotgroup:group-room2;phiStart:272"
+          src="#hotspot"
+          position="0 1 10"
+          look-at
+        ></a-image>
 
-        <a-entity id="group-room4" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
+      </a-entity> -->
+
+        <!-- <a-entity id="group-room4" scale="0 0 0">
+          <a-image
+            spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
+            src="#hotspot"
+            position="0 1 8"
+            look-at
+          ></a-image>
+          <a-image
+            spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
+            src="#hotspot"
+            position="0 1 8"
+            look-at
+          ></a-image>
         </a-entity>
 
         <a-entity id="group-room5" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
+          <a-image
+            spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
+            src="#hotspot"
+            position="0 1 8"
+            look-at
+          ></a-image>
+        </a-entity> -->
     </a-entity>
 
     <a-entity
@@ -524,78 +538,79 @@
         ></a-plane>
     </a-entity>
 
-    <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="175"></a-sky>
+    <!-- тут где написано phi-start подбираем точку начала первого кадра
+(куда будет повёрнута камера при загрузке страницы) -->
+
+    <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="88"></a-sky>
 </a-scene>
 
 <script>
-    setTimeout(() => {
-        let currentInfoPanel = null;
+    let currentInfoPanel = null;
 
-        // Open the panel
-        document
-            .querySelectorAll('[mixin="info-sphere"]')
-            .forEach(function (sphere) {
-                sphere.addEventListener("click", function () {
-                    console.log("Info sphere clicked: " + this.id);
+    // Open the panel
+    document
+        .querySelectorAll('[mixin="info-sphere"]')
+        .forEach(function (sphere) {
+            sphere.addEventListener("click", function () {
+                console.log("Info sphere clicked: " + this.id);
 
-                    const currentSphereIdNumber = this.id.replace("sphere", "");
+                const currentSphereIdNumber = this.id.replace("sphere", "");
 
-                    // Get the template for this info sphere
-                    const template = document.querySelector(
-                        "#infoPanel" + currentSphereIdNumber
-                    );
+                // Get the template for this info sphere
+                const template = document.querySelector(
+                    "#infoPanel" + currentSphereIdNumber
+                );
 
-                    // Get the info panel entity
-                    const infoPanel = document.querySelector(
-                        "#infoPanelContainer" + currentSphereIdNumber
-                    );
+                // Get the info panel entity
+                const infoPanel = document.querySelector(
+                    "#infoPanelContainer" + currentSphereIdNumber
+                );
 
-                    console.log("Current info panel: ", infoPanel);
+                console.log("Current info panel: ", infoPanel);
 
-                    // Instantiate the new info panel from the template
-                    infoPanel.appendChild(document.importNode(template.content, true));
+                // Instantiate the new info panel from the template
+                infoPanel.appendChild(document.importNode(template.content, true));
 
-                    const allInfoPanelContainerElements = document.querySelectorAll(
-                        "[id^=infoPanelContainer]"
-                    );
+                const allInfoPanelContainerElements = document.querySelectorAll(
+                    "[id^=infoPanelContainer]"
+                );
 
-                    document
-                        .querySelectorAll('[src="#crossIcon"]')
-                        .forEach(function (cross) {
-                            cross.addEventListener("click", function () {
-                                allInfoPanelContainerElements.forEach((container) => {
-                                    if (container.id === infoPanel.id) {
-                                        container.innerHTML = "";
-                                        document
-                                            .querySelector("#sphere" + currentInfoPanel)
-                                            .setAttribute("visible", true);
-                                    }
-                                });
+                document
+                    .querySelectorAll('[src="#crossIcon"]')
+                    .forEach(function (cross) {
+                        cross.addEventListener("click", function () {
+                            allInfoPanelContainerElements.forEach((container) => {
+                                if (container.id == infoPanel.id) {
+                                    container.innerHTML = "";
+                                    document
+                                        .querySelector("#sphere" + currentInfoPanel)
+                                        .setAttribute("visible", true);
+                                }
                             });
                         });
-
-                    allInfoPanelContainerElements.forEach((container) => {
-                        if (container.id !== infoPanel.id) {
-                            container.innerHTML = "";
-                        }
-                        this.setAttribute("visible", true);
                     });
 
-                    // console.log("Current info panel insides: ", infoPanel.innerHTML);
-
-                    const idNumber = currentSphereIdNumber;
-                    if (currentInfoPanel) {
-                        document
-                            .querySelector("#sphere" + currentInfoPanel)
-                            .setAttribute("visible", true);
+                allInfoPanelContainerElements.forEach((container) => {
+                    if (container.id !== infoPanel.id) {
+                        container.innerHTML = "";
                     }
-                    // document.querySelector("#info" + idNumber).style.display = "block";
-                    this.setAttribute("visible", false);
-                    currentInfoPanel = idNumber;
-                    console.log("Current info panel id: " + currentInfoPanel);
+                    this.setAttribute("visible", true);
                 });
+
+                // console.log("Current info panel insides: ", infoPanel.innerHTML);
+
+                const idNumber = currentSphereIdNumber;
+                if (currentInfoPanel) {
+                    document
+                        .querySelector("#sphere" + currentInfoPanel)
+                        .setAttribute("visible", true);
+                }
+                // document.querySelector("#info" + idNumber).style.display = "block";
+                this.setAttribute("visible", false);
+                currentInfoPanel = idNumber;
+                console.log("Current info panel id: " + currentInfoPanel);
             });
-    }, 1500);
+        });
 </script>
 
 </body>

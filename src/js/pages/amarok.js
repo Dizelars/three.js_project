@@ -86,7 +86,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;// Алгоритм отоб�
 renderer.toneMappingExposure = 0.1;
 renderer.shadowMap.enabled = ShadowSwitch;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Качество отображения теней
-renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
+// renderer.setPixelRatio( window.devicePixelRatio * 0.9 );
 renderer.domElement.id = 'myCanvas';
 const CanvasWrapper = document.getElementById('Canvas_wrapper');
 CanvasWrapper.appendChild(renderer.domElement);
@@ -214,12 +214,12 @@ camera1.position.copy(initialCameraPosition1);
 // scene1.add( helper );
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
-controls1.minPolarAngle = 0;
-controls1.maxPolarAngle = Math.PI * 0.5;
-controls1.minDistance = 210;
-controls1.maxDistance = 260;
-controls1.enabled = true;
-controls1.enablePan = false;
+// controls1.minPolarAngle = 0;
+// controls1.maxPolarAngle = Math.PI * 0.5;
+// controls1.minDistance = 210;
+// controls1.maxDistance = 260;
+// controls1.enabled = true;
+// controls1.enablePan = false;
 // controls1.addEventListener( 'change', animate );
 controls1.update();
 
@@ -258,6 +258,291 @@ controls1.update();
 
 
 
+// ТИПОНЫ В СЦЕНЕ
+
+// Создание объекта для рендеринга CSS-элементов в трехмерной сцене
+// const labelRenderer = new CSS2DRenderer();
+// labelRenderer.setSize(window.innerWidth, window.innerHeight);
+// labelRenderer.domElement.style.position = 'absolute';
+// labelRenderer.domElement.style.top = '0';
+// labelRenderer.domElement.style.pointerEvents = 'none';
+// document.body.appendChild(labelRenderer.domElement);
+//
+// // Функция для создания сферического меша (объекта) с заданными параметрами
+// function createCpointMesh(name, x, y, z) {
+//     // Создание геометрии сферы
+//     const geo = new THREE.SphereBufferGeometry(2);
+//     // Создание материала для сферы
+//     const mat = new THREE.MeshStandardMaterial({
+//         color: 0xFC762B, // Основной цвет
+//         transparent: true,
+//         opacity: 0.9, // Прозрачность
+//         emissive: 0xFC762B, // Свечение
+//         emissiveIntensity: 5, // Интенсивность свечения
+//     });
+//     // Создание меша (объекта) на основе геометрии и материала
+//     const mesh = new THREE.Mesh(geo, mat);
+//     mesh.position.set(x, y, z); // Установка позиции меша
+//     mesh.name = name; // Присвоение имени мешу
+//     return mesh; // Возврат созданного меша
+// }
+//
+// const group = new THREE.Group(); // Создание группы для хранения мешей
+//
+// // Создание сферических мешей и добавление их в группу
+// const sphereMesh1 = createCpointMesh('sphereMesh1', 106, 91, -0);
+// group.add(sphereMesh1);
+//
+// const sphereMesh2 = createCpointMesh('sphereMesh2', 26, 63, -0);
+// group.add(sphereMesh2);
+//
+// scene1.add(group); // Добавление группы мешей на сцену
+//
+// // Объект с настройками материала по умолчанию для мешей
+// const defaultMaterialProps = {
+//     color: 0xFC762B,
+//     transparent: true,
+//     opacity: 0.9,
+//     emissive: 0xFC762B,
+//     emissiveIntensity: 5,
+// };
+//
+// // Функция для установки свойств материала меша
+// function setMeshMaterial(mesh, props) {
+//     mesh.material = new THREE.MeshStandardMaterial(props);
+// }
+//
+// // Функция для обработки событий mouseover и mouseout на мешах
+// function handleMouseEvents(event, isMouseOver) {
+//     const mesh = event.target;
+//     // Определение настроек материала в зависимости от события (mouseover или mouseout)
+//     const materialProps = isMouseOver
+//         ? {
+//             color: 0x00ff00, // Замените на желаемый цвет для события mouseover
+//             transparent: true,
+//             opacity: 0.9,
+//             emissive: 0x00ff00, // Замените на желаемый цвет свечения для события mouseover
+//             emissiveIntensity: 5,
+//         }
+//         : defaultMaterialProps; // Возврат настроек по умолчанию
+//
+//     setMeshMaterial(mesh, materialProps); // Применение настроек материала к мешу
+//     labelRenderer.domElement.style.cursor = isMouseOver ? "pointer" : "unset"; // Изменение стиля курсора в зависимости от события
+// }
+//
+// // Добавление обработчиков событий для каждого меша в группе
+// group.children.forEach((mesh) => {
+//     mesh.addEventListener("pointerenter", (event) => handleMouseEvents(event, true));
+//     mesh.addEventListener("pointerleave", (event) => handleMouseEvents(event, false));
+// });
+//
+// // Объект с текстами подсказок для каждого меша
+// const tooltipTexts = {
+//     sphereMesh1: 'Информационное табло',
+//     sphereMesh2: 'Дорожные знаки',
+// };
+//
+// const pContainer = document.createElement('div');
+// pContainer.className = 'Mytext';
+// const tooltipWrapper = document.createElement('div');
+// tooltipWrapper.className = 'tooltip_wrapper';
+// pContainer.appendChild(tooltipWrapper);
+//
+// // Создание HTML-элементов для отображения подсказки
+// const p = document.createElement('p');
+// p.className = 'tooltip';
+//
+// // Создаем элемент svg
+// const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+// svgElement.setAttribute("width", "18");
+// svgElement.setAttribute("height", "18");
+// svgElement.setAttribute("viewBox", "0 0 18 18");
+// svgElement.setAttribute("fill", "none");
+//
+// // Создаем элемент path
+// const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
+// pathElement.setAttribute("d", "M17.4 0.613783C16.88 0.0937829 16.04 0.0937829 15.52 0.613783L8.99996 7.12045L2.47996 0.600449C1.95996 0.0804492 1.11996 0.0804492 0.599961 0.600449C0.079961 1.12045 0.079961 1.96045 0.599961 2.48045L7.11996 9.00045L0.599961 15.5204C0.079961 16.0404 0.079961 16.8804 0.599961 17.4004C1.11996 17.9204 1.95996 17.9204 2.47996 17.4004L8.99996 10.8804L15.52 17.4004C16.04 17.9204 16.88 17.9204 17.4 17.4004C17.92 16.8804 17.92 16.0404 17.4 15.5204L10.88 9.00045L17.4 2.48045C17.9066 1.97378 17.9066 1.12045 17.4 0.613783Z");
+// pathElement.setAttribute("fill", "white");
+//
+// // Вставляем элемент path в элемент svg
+// svgElement.appendChild(pathElement);
+//
+// tooltipWrapper.appendChild(p);
+// tooltipWrapper.appendChild(svgElement);
+// const cPointLabel = new CSS2DObject(pContainer);
+// scene1.add(cPointLabel);
+//
+// // Функция для сброса настроек материала всех мешей в группе и скрытия подсказки
+// function resetMeshMaterials() {
+//     group.children.forEach((mesh) => {
+//         setMeshMaterial(mesh, defaultMaterialProps);
+//     });
+//     pContainer.className = 'Mytext hide';
+// }
+//
+// let lastClickedMesh = null; // Переменная для хранения последнего выбранного меша
+//
+// const raycaster = new THREE.Raycaster();
+//
+// // Обработчик события pointerdown на элементе CanvasWrapper
+// CanvasWrapper.addEventListener("pointerdown", (event) => {
+//     const bounds = event.target.getBoundingClientRect();
+//     const mousePos = new THREE.Vector2(
+//         (event.offsetX / bounds.width) * 2 - 1,
+//         -((event.offsetY) / bounds.height) * 2 + 1
+//     );
+//
+//     raycaster.setFromCamera(mousePos, camera1); // Задание направления луча для raycaster
+//
+//     const intersects = raycaster.intersectObjects(group.children); // Поиск пересечений луча с мешами группы
+//
+//     if (intersects.length > 0) {
+//         const clickedMesh = intersects[0].object;
+//         if (clickedMesh) {
+//             if (lastClickedMesh !== null) {
+//                 if (lastClickedMesh === clickedMesh) {
+//                     pContainer.className = 'Mytext hide'; // Скрытие подсказки, если уже кликнули на выбранный меш
+//                     resetMeshMaterials(); // Сброс настроек материала всех мешей
+//                     lastClickedMesh = null;
+//                     return;
+//                 } else {
+//                     setMeshMaterial(lastClickedMesh, defaultMaterialProps); // Восстановление настроек для предыдущего выбранного меша
+//                 }
+//             }
+//
+//             // Установка новых настроек материала для выбранного меша
+//             setMeshMaterial(clickedMesh, {
+//                 color: 0xFC762B,
+//                 transparent: true,
+//                 opacity: 1,
+//                 emissive: 0xFC762B,
+//                 emissiveIntensity: 15,
+//             });
+//             lastClickedMesh = clickedMesh; // Сохранение ссылки на выбранный меш
+//
+//             pContainer.className = 'Mytext show'; // Показ подсказки
+//             const tooltipText = tooltipTexts[clickedMesh.name]; // Получение текста подсказки для выбранного меша
+//             if (tooltipText) {
+//                 cPointLabel.position.set(clickedMesh.position.x, clickedMesh.position.y, clickedMesh.position.z); // Установка позиции подсказки над выбранным мешом
+//                 p.textContent = tooltipText; // Установка текста подсказки
+//                 tooltipWrapper.style.marginBottom = (p.getBoundingClientRect().height - 76) + "px";
+//
+//             }
+//         }
+//     } else {
+//         resetMeshMaterials(); // Если не выбрали ни один меш, сброс настроек всех мешей
+//         lastClickedMesh = null;
+//     }
+// });
+
+// ТИПОНЫ В СЦЕНЕ ЗАКОНЧЕНЫ
+
+
+// КОД ТИПОНОВ ОТ ГЛЕБА
+
+// // Create the inner glowing sphere
+// const innerSphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+// const innerSphereMaterial = new THREE.MeshBasicMaterial({ color: 0xFF922D });
+// const innerSphere = new THREE.Mesh(innerSphereGeometry, innerSphereMaterial);
+// innerSphere.position.set(106, 91, -0);
+// scene1.add(innerSphere);
+//
+// // Create the outer semi-transparent sphere
+// const outerSphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+// const outerSphereMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, opacity: 0.5, transparent: true });
+// const outerSphere = new THREE.Mesh(outerSphereGeometry, outerSphereMaterial);
+// outerSphere.position.set(106, 91, -0);
+// scene1.add(outerSphere);
+//
+//
+// // Create the inner glowing sphere
+// const innerSphereGeometry2 = new THREE.SphereGeometry(1, 32, 32);
+// const innerSphereMaterial2 = new THREE.MeshBasicMaterial({ color: 0xFF922D });
+// const innerSphere2 = new THREE.Mesh(innerSphereGeometry, innerSphereMaterial);
+// innerSphere2.position.set(26, 63, -0);
+// scene1.add(innerSphere2);
+//
+// // Create the outer semi-transparent sphere
+// const outerSphereGeometry2 = new THREE.SphereGeometry(1, 32, 32);
+// const outerSphereMaterial2 = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, opacity: 0.5, transparent: true });
+// const outerSphere2 = new THREE.Mesh(outerSphereGeometry, outerSphereMaterial);
+// outerSphere2.position.set(26, 63, -0);
+// scene1.add(outerSphere2);
+//
+//
+// // Create a clock to control the animation timing
+// const clock = new THREE.Clock();
+// const duration = 1.5; // Animation duration in seconds
+//
+// // Setup Raycaster and mouse
+// const raycaster = new THREE.Raycaster();
+// const mouse = new THREE.Vector2();
+let isAnimationPaused = false;
+//
+// // Function to handle mouse move event
+// function onMouseMove(event) {
+//     event.preventDefault();
+//
+//     // Calculate mouse position in normalized device coordinates (-1 to +1) for both components
+//     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+//     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+//
+//     // Update the picking ray with the camera and mouse position
+//     raycaster.setFromCamera(mouse, camera1);
+//
+//     // Calculate objects intersecting the picking ray
+//     const intersects = raycaster.intersectObjects(scene1.children);
+//
+//     // If the innerSphere is among the intersected objects, make it glow more strongly
+//     if (intersects.some(object => object.object === innerSphere)) {
+//         innerSphereMaterial.color.set(0xFFA500); // Change color to a more intense orange
+//     } else {
+//         innerSphereMaterial.color.set(0xFF922D); // Reset color to original
+//     }
+// }
+//
+// // Function to handle mouse click event
+// function onMouseClick(event) {
+//     event.preventDefault();
+//
+//     // Update the picking ray with the camera and mouse position
+//     raycaster.setFromCamera(mouse, camera1);
+//
+//     // Calculate objects intersecting the picking ray
+//     const intersects = raycaster.intersectObjects(scene1.children);
+//
+//     // If the innerSphere is among the intersected objects, toggle the animation pause state
+//     if (intersects.some(object => object.object === innerSphere)) {
+//         isAnimationPaused = !isAnimationPaused;
+//
+//         if (isAnimationPaused) {
+//             // Reset outerSphere to initial state
+//             outerSphere.scale.set(1, 1, 1);
+//             outerSphere.material.opacity = 0.5;
+//             outerSphere2.scale.set(1, 1, 1);
+//             outerSphere2.material.opacity = 0.5;
+//         } else {
+//             // If animation is unpaused, restart the clock
+//             clock.start();
+//         }
+//     }
+// }
+//
+// // Add event listeners for mouse move and click
+// window.addEventListener('mousemove', onMouseMove, false);
+// window.addEventListener('click', onMouseClick, false);
+
+// КОД ТИПОНОВ ОТ ГЛЕБА ЗАКОНЧЕНЫ
+
+
+
+
+
+// ТЕСТ ТИПОНОВ
+
+
+// ТИПОНЫ В СЦЕНЕ
+
 // Создание объекта для рендеринга CSS-элементов в трехмерной сцене
 const labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(window.innerWidth, window.innerHeight);
@@ -269,14 +554,35 @@ document.body.appendChild(labelRenderer.domElement);
 // Функция для создания сферического меша (объекта) с заданными параметрами
 function createCpointMesh(name, x, y, z) {
     // Создание геометрии сферы
-    const geo = new THREE.SphereBufferGeometry(2);
+    const geo = new THREE.SphereGeometry(1, 32, 32);
+    // const geo = new THREE.CircleGeometry(5, 5);
     // Создание материала для сферы
-    const mat = new THREE.MeshStandardMaterial({
-        color: 0xFC762B, // Основной цвет
+    const mat = new THREE.MeshBasicMaterial({
+        // color: 0xFF922D,
+        color: 0xFFBA00
+        // color: 0xFFCF48
+
+    });
+    // const mat = new THREE.MeshPhysicalMaterial({
+    //     color: 0xFF922D,
+    //     // color: 0xF5A623
+    //     emissiveIntensity: 2,
+    // });
+    // Создание меша (объекта) на основе геометрии и материала
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(x, y, z); // Установка позиции меша
+    mesh.name = name; // Присвоение имени мешу
+    return mesh; // Возврат созданного меша
+}
+
+function createCpointMeshAnimate(name, x, y, z) {
+    // Создание геометрии сферы
+    const geo = new THREE.SphereGeometry(1, 32, 32);
+    // Создание материала для сферы
+    const mat = new THREE.MeshBasicMaterial({
+        color: 0xFFFFFF,
+        // opacity: 1,
         transparent: true,
-        opacity: 0.9, // Прозрачность
-        emissive: 0xFC762B, // Свечение
-        emissiveIntensity: 5, // Интенсивность свечения
     });
     // Создание меша (объекта) на основе геометрии и материала
     const mesh = new THREE.Mesh(geo, mat);
@@ -291,56 +597,55 @@ const group = new THREE.Group(); // Создание группы для хра�
 const sphereMesh1 = createCpointMesh('sphereMesh1', 106, 91, -0);
 group.add(sphereMesh1);
 
+const sphereMeshAnimate1 = createCpointMeshAnimate('sphereMeshAnimate1', 106, 91, -0);
+group.add(sphereMeshAnimate1);
+
 const sphereMesh2 = createCpointMesh('sphereMesh2', 26, 63, -0);
 group.add(sphereMesh2);
 
+const sphereMeshAnimate2 = createCpointMeshAnimate('sphereMeshAnimate2', 26, 63, -0);
+group.add(sphereMeshAnimate2);
+
 scene1.add(group); // Добавление группы мешей на сцену
+console.log(group);
 
 // Объект с настройками материала по умолчанию для мешей
-const defaultMaterialProps = {
-    color: 0xFC762B,
-    transparent: true,
-    opacity: 0.9,
-    emissive: 0xFC762B,
-    emissiveIntensity: 5,
-};
+// const defaultMaterialProps = {
+//     color: 0xFF922D
+// };
 
 // Функция для установки свойств материала меша
-function setMeshMaterial(mesh, props) {
-    mesh.material = new THREE.MeshStandardMaterial(props);
-}
+// function setMeshMaterial(mesh, props) {
+//     mesh.material = new THREE.MeshBasicMaterial(props);
+// }
 
 // Функция для обработки событий mouseover и mouseout на мешах
-function handleMouseEvents(event, isMouseOver) {
-    const mesh = event.target;
-    // Определение настроек материала в зависимости от события (mouseover или mouseout)
-    const materialProps = isMouseOver
-        ? {
-            color: 0x00ff00, // Замените на желаемый цвет для события mouseover
-            transparent: true,
-            opacity: 0.9,
-            emissive: 0x00ff00, // Замените на желаемый цвет свечения для события mouseover
-            emissiveIntensity: 5,
-        }
-        : defaultMaterialProps; // Возврат настроек по умолчанию
-
-    setMeshMaterial(mesh, materialProps); // Применение настроек материала к мешу
-    labelRenderer.domElement.style.cursor = isMouseOver ? "pointer" : "unset"; // Изменение стиля курсора в зависимости от события
-}
+// function handleMouseEvents(event, isMouseOver) {
+//     const mesh = event.target;
+//     // Определение настроек материала в зависимости от события (mouseover или mouseout)
+//     const materialProps = isMouseOver
+//         ? {
+//             color: 0xFF922D
+//         }
+//         : defaultMaterialProps; // Возврат настроек по умолчанию
+//
+//     setMeshMaterial(mesh, materialProps); // Применение настроек материала к мешу
+//     labelRenderer.domElement.style.cursor = isMouseOver ? "pointer" : "unset"; // Изменение стиля курсора в зависимости от события
+// }
 
 // Добавление обработчиков событий для каждого меша в группе
-group.children.forEach((mesh) => {
-    mesh.addEventListener("pointerenter", (event) => handleMouseEvents(event, true));
-    mesh.addEventListener("pointerleave", (event) => handleMouseEvents(event, false));
-});
+// group.children.forEach((mesh) => {
+//     mesh.addEventListener("pointerenter", (event) => handleMouseEvents(event, true));
+//     mesh.addEventListener("pointerleave", (event) => handleMouseEvents(event, false));
+// });
 
 // Объект с текстами подсказок для каждого меша
 const tooltipTexts = {
     sphereMesh1: 'Информационное табло',
+    sphereMeshAnimate1: 'Информационное табло',
     sphereMesh2: 'Дорожные знаки',
+    sphereMeshAnimate2: 'Дорожные знаки',
 };
-
-
 
 const pContainer = document.createElement('div');
 pContainer.className = 'Mytext';
@@ -374,9 +679,9 @@ scene1.add(cPointLabel);
 
 // Функция для сброса настроек материала всех мешей в группе и скрытия подсказки
 function resetMeshMaterials() {
-    group.children.forEach((mesh) => {
-        setMeshMaterial(mesh, defaultMaterialProps);
-    });
+    // group.children.forEach((mesh) => {
+    //     setMeshMaterial(mesh);
+    // });
     pContainer.className = 'Mytext hide';
 }
 
@@ -402,22 +707,19 @@ CanvasWrapper.addEventListener("pointerdown", (event) => {
             if (lastClickedMesh !== null) {
                 if (lastClickedMesh === clickedMesh) {
                     pContainer.className = 'Mytext hide'; // Скрытие подсказки, если уже кликнули на выбранный меш
-                    resetMeshMaterials(); // Сброс настроек материала всех мешей
+                    // resetMeshMaterials(); // Сброс настроек материала всех мешей
                     lastClickedMesh = null;
                     return;
-                } else {
-                    setMeshMaterial(lastClickedMesh, defaultMaterialProps); // Восстановление настроек для предыдущего выбранного меша
                 }
+                // else {
+                //     setMeshMaterial(lastClickedMesh); // Восстановление настроек для предыдущего выбранного меша
+                // }
             }
 
             // Установка новых настроек материала для выбранного меша
-            setMeshMaterial(clickedMesh, {
-                color: 0xFC762B,
-                transparent: true,
-                opacity: 1,
-                emissive: 0xFC762B,
-                emissiveIntensity: 15,
-            });
+            // setMeshMaterial(clickedMesh, {
+            //     color: 0xFF922D
+            // });
             lastClickedMesh = clickedMesh; // Сохранение ссылки на выбранный меш
 
             pContainer.className = 'Mytext show'; // Показ подсказки
@@ -435,6 +737,108 @@ CanvasWrapper.addEventListener("pointerdown", (event) => {
     }
 });
 
+// ТИПОНЫ В СЦЕНЕ ЗАКОНЧЕНЫ
+
+
+// КОД ТИПОНОВ ОТ ГЛЕБА
+
+// // Create the inner glowing sphere
+// const innerSphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+// const innerSphereMaterial = new THREE.MeshBasicMaterial({ color: 0xFF922D });
+// const innerSphere = new THREE.Mesh(innerSphereGeometry, innerSphereMaterial);
+// innerSphere.position.set(106, 91, -0);
+// scene1.add(innerSphere);
+//
+// // Create the outer semi-transparent sphere
+// const outerSphereGeometry = new THREE.SphereGeometry(1, 32, 32);
+// const outerSphereMaterial = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, opacity: 0.5, transparent: true });
+// const outerSphere = new THREE.Mesh(outerSphereGeometry, outerSphereMaterial);
+// outerSphere.position.set(106, 91, -0);
+// scene1.add(outerSphere);
+//
+//
+// // Create the inner glowing sphere
+// const innerSphereGeometry2 = new THREE.SphereGeometry(1, 32, 32);
+// const innerSphereMaterial2 = new THREE.MeshBasicMaterial({ color: 0xFF922D });
+// const innerSphere2 = new THREE.Mesh(innerSphereGeometry, innerSphereMaterial);
+// innerSphere2.position.set(26, 63, -0);
+// scene1.add(innerSphere2);
+//
+// // Create the outer semi-transparent sphere
+// const outerSphereGeometry2 = new THREE.SphereGeometry(1, 32, 32);
+// const outerSphereMaterial2 = new THREE.MeshBasicMaterial({ color: 0xFFFFFF, opacity: 0.5, transparent: true });
+// const outerSphere2 = new THREE.Mesh(outerSphereGeometry, outerSphereMaterial);
+// outerSphere2.position.set(26, 63, -0);
+// scene1.add(outerSphere2);
+//
+//
+// // Create a clock to control the animation timing
+const clock = new THREE.Clock();
+const duration = 1.5; // Animation duration in seconds
+//
+// // Setup Raycaster and mouse
+// const raycaster = new THREE.Raycaster();
+// const mouse = new THREE.Vector2();
+// let isAnimationPaused = false;
+//
+// // Function to handle mouse move event
+// function onMouseMove(event) {
+//     event.preventDefault();
+//
+//     // Calculate mouse position in normalized device coordinates (-1 to +1) for both components
+//     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+//     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+//
+//     // Update the picking ray with the camera and mouse position
+//     raycaster.setFromCamera(mouse, camera1);
+//
+//     // Calculate objects intersecting the picking ray
+//     const intersects = raycaster.intersectObjects(scene1.children);
+//
+//     // If the innerSphere is among the intersected objects, make it glow more strongly
+//     if (intersects.some(object => object.object === innerSphere)) {
+//         innerSphereMaterial.color.set(0xFFA500); // Change color to a more intense orange
+//     } else {
+//         innerSphereMaterial.color.set(0xFF922D); // Reset color to original
+//     }
+// }
+//
+// // Function to handle mouse click event
+// function onMouseClick(event) {
+//     event.preventDefault();
+//
+//     // Update the picking ray with the camera and mouse position
+//     raycaster.setFromCamera(mouse, camera1);
+//
+//     // Calculate objects intersecting the picking ray
+//     const intersects = raycaster.intersectObjects(scene1.children);
+//
+//     // If the innerSphere is among the intersected objects, toggle the animation pause state
+//     if (intersects.some(object => object.object === innerSphere)) {
+//         isAnimationPaused = !isAnimationPaused;
+//
+//         if (isAnimationPaused) {
+//             // Reset outerSphere to initial state
+//             outerSphere.scale.set(1, 1, 1);
+//             outerSphere.material.opacity = 0.5;
+//             outerSphere2.scale.set(1, 1, 1);
+//             outerSphere2.material.opacity = 0.5;
+//         } else {
+//             // If animation is unpaused, restart the clock
+//             clock.start();
+//         }
+//     }
+// }
+//
+// // Add event listeners for mouse move and click
+// window.addEventListener('mousemove', onMouseMove, false);
+// window.addEventListener('click', onMouseClick, false);
+
+// КОД ТИПОНОВ ОТ ГЛЕБА ЗАКОНЧЕНЫ
+
+
+// ТЕСТ ТИПОНОВ ЗАКОНЧЕН
+
 
 
 // 3) Свет экстерьер
@@ -445,6 +849,7 @@ const lightPositions1 = [
 ];
 lightPositions1.forEach(position => {
     const light = new THREE.PointLight(0xffffff, 0.9);
+    // const light = new THREE.PointLight(0xffffff, 0.1);
     light.position.set(position[0], position[1], position[2]);
     scene1.add(light);
     // const helper = new THREE.PointLightHelper(light);
@@ -452,6 +857,7 @@ lightPositions1.forEach(position => {
 });
 
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
+// const SpotLight5 = new THREE.SpotLight(0xffffff, 0.1);
 SpotLight5.position.set(0, 470, -0);
 SpotLight5.castShadow = ShadowSwitch;
 // SpotLight5.shadow.bias = 0.001;
@@ -459,10 +865,10 @@ SpotLight5.shadow.mapSize.height = 64; // Разрешение отображе�
 SpotLight5.shadow.mapSize.width = 64; // Разрешение отображения теней
 SpotLight5.shadow.camera.near = 1.0;
 SpotLight5.shadow.camera.far = 550;
-SpotLight5.shadow.camera.left = 1;
-SpotLight5.shadow.camera.right = -1;
-SpotLight5.shadow.camera.top = 1;
-SpotLight5.shadow.camera.bottom = -1;
+// SpotLight5.shadow.camera.left = 1;
+// SpotLight5.shadow.camera.right = -1;
+// SpotLight5.shadow.camera.top = 1;
+// SpotLight5.shadow.camera.bottom = -1;
 // SpotLight5.shadow.bias = 0.001;  // Должен убирать акртефакты тени.
 // SpotLight5.shadow.needsUpdate = true; // При анимации тени будут рендериться постоянно
 // SpotLight5.shadow.focus = 1;
@@ -471,12 +877,14 @@ SpotLight5.penumbra = 1;
 scene1.add(SpotLight5);
 
 const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 50);
+// const RectAreaLight = new THREE.RectAreaLight(0xffffff, 100, 100, 0.1);
 RectAreaLight.position.set(10, 110, 120);
 RectAreaLight.castShadow = ShadowSwitch;
 RectAreaLight.lookAt( 0, 0, 0 );
 scene1.add( RectAreaLight );
 
 const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 100);
+// const RectAreaLight2 = new THREE.RectAreaLight(0xffffff, 50, 150, 0.1);
 RectAreaLight2.position.set(36, 56, -194);
 RectAreaLight2.castShadow = ShadowSwitch;
 RectAreaLight2.lookAt( 0, 0, 0 );
@@ -658,9 +1066,45 @@ const coordinates = [
 function animate() {
     stats.begin();
     labelRenderer.render(scene1, camera1);
+
+
+    // Для типонов от Глеба
+    // Only animate outerSphere if the animation is not paused
+    if (!isAnimationPaused) {
+        // Get the elapsed time in seconds
+        const elapsedTime = clock.getElapsedTime();
+
+        // Calculate the current scale and opacity based on the elapsed time
+        let scale = 1 + elapsedTime / duration;
+        let opacity = 0.5 * (2 - scale);
+
+        // If the animation has completed, reset the clock, scale, and opacity
+        if (elapsedTime >= duration) {
+            clock.start(); // Reset the clock
+            scale = 1;
+            opacity = 0.5;
+        }
+
+        // Set the outer sphere scale and opacity
+        sphereMeshAnimate1.scale.set(scale, scale, scale);
+        sphereMeshAnimate1.material.opacity = opacity;
+        sphereMeshAnimate2.scale.set(scale, scale, scale);
+        sphereMeshAnimate2.material.opacity = opacity;
+    }
+
+    // Rotate the spheres
+    // sphereMesh1.rotation.y += 0.01;
+    // sphereMeshAnimate1.rotation.y += 0.01;
+    // sphereMesh2.rotation.y += 0.01;
+    // sphereMeshAnimate2.rotation.y += 0.01;
+    sphereMesh1.toneMapping = 1;
+    sphereMesh2.toneMapping = 1;
+
+
     renderer.render(scene1, camera1);
     console.log( renderer.info.render.triangles );
     stats.end();
+
 }
 renderer.setAnimationLoop(animate);
 

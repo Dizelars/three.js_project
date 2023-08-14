@@ -13,8 +13,8 @@ const textures = {
 };
 
 // map
-let mapTextureMainUrl;
-let mapTextureFaraUrl;
+// let mapTextureMainUrl;
+// let mapTextureFaraUrl;
 let mapTextureMain_2Url;
 
 // metalnessMap
@@ -25,15 +25,15 @@ let normalMapMainUrl;
 
 
 if (screenWidth >= 850) {
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
     mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor.png';
 
     metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
     normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
 } else {
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
     mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor.png';
 
     metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
@@ -42,16 +42,16 @@ if (screenWidth >= 850) {
 
 function loadTextures() {
     const textureLoader = new THREE.TextureLoader();
-    textures.mapTextureMain = textureLoader.load(mapTextureMainUrl);
-    textures.mapTextureFara = textureLoader.load(mapTextureFaraUrl);
+    // textures.mapTextureMain = textureLoader.load(mapTextureMainUrl);
+    // textures.mapTextureFara = textureLoader.load(mapTextureFaraUrl);
     textures.mapTextureMain_2 = textureLoader.load(mapTextureMain_2Url);
 
     textures.metalnessMap = textureLoader.load(metalnessMapMainUrl);
     textures.normalMap = textureLoader.load(normalMapMainUrl);
 
-    textures.mapTextureMain.flipY = false;
+    // textures.mapTextureMain.flipY = false;
     textures.mapTextureMain_2.flipY = false;
-    textures.mapTextureFara.flipY = false;
+    // textures.mapTextureFara.flipY = false;
     textures.metalnessMap.flipY = false;
     textures.normalMap.flipY = false;
 }
@@ -67,22 +67,6 @@ let CastomMaterial = 'MeshPhysicalMaterial';
 // transparent: false,
 
 const materials = {
-    // Windows: {
-    //     material: CastomMaterial,
-    //     // color: 0xB8B8B8,
-    //     // 333331
-    //     // color: 0x1F1F1D,
-    //     color: 0x333331,
-    //     roughness: 0.3,
-    //     // metalness: 0,
-    //     transmission: 1,
-    //     clearcoat: 0.5,
-    //     clearcoatRoughness: 0.01,
-    //     thickness: 0.6,
-    //     ior: 1.450,
-    //     transparent: true,
-    //     opacity: 0.3,
-    // },
     Windows: {
         material: CastomMaterial,
         color: 0xB8B8B8,
@@ -91,30 +75,6 @@ const materials = {
         transmission: 1,
         ior: 1.450,
     },
-    // Fara_glass: {
-    //     material: CastomMaterial,
-    //     color: 0xffffff,
-    //     roughness: 0.4,
-    //     metalness: 0.9,
-    //     transmission: 1,
-    //     transparent: true,
-    //     opacity: 0.6
-    // },
-    // Glass: {
-    //     material: CastomMaterial,
-    //     color: 0xffffff,
-    //
-    //     roughness: 0.4,
-    //     metalness: 0.9,
-    //
-    //     transmission: 1,
-    //     transparent: true,
-    //
-    //     opacity: 0.3,
-    //
-    //     // clearcoat: 0.5,
-    //     clearcoatRoughness: 0.1,
-    // },
     Glass: {
         material: CastomMaterial,
         color: 0xB8B8B8,
@@ -161,11 +121,11 @@ const materials = {
         clearcoat: 0.5,
         clearcoatRoughness: 0.1,
         map: textures.mapTextureMain_2,
-        // metalnessMap: textures.metalnessMap,
+        metalnessMap: textures.metalnessMap,
         normalMap: textures.normalMap,
-        // side: THREE.DoubleSide,
         side: THREE.FrontSide,
         clipShadows: clipShadowsSwitch,
+        opacity: 0,
         // depthWrite: false,
         polygonOffset: true,
         // polygonOffsetFactor: -4
@@ -176,10 +136,26 @@ const materials = {
         roughness: 0.2,
         metalness: 1
     },
-    Radiator: {
+    // Radiator: {
+    //     material: CastomMaterial,
+    //     map: textures.mapTextureMain_2,
+    //     color: 0xBCBCBC,
+    //     roughness: 0.2,
+    //     metalness: 1
+    // },
+    Radiator_1: {
         material: CastomMaterial,
-        map: textures.mapTextureMain_2,
-        color: 0xBCBCBC,
+        // map: textures.mapTextureMain_2,
+        color: 0x000000,
+        roughness: 0.5,
+    },
+    Radiator_2: {
+        material: CastomMaterial,
+        color: 0x000000,
+        roughness: 0.2,
+    },
+    Radiator_3: {
+        material: CastomMaterial,
         roughness: 0.2,
         metalness: 1
     },

@@ -89,6 +89,8 @@ buttontech.addEventListener('click', () => {
     // console.log(techSpecWrapperText);
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleBlock.classList.toggle('hidden');
+    // buttonText.textContent = 'Скрыть';
+    // buttonIcon.classList.add('rotate');
 
     if (visibleBlock.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';

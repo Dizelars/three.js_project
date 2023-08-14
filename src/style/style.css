@@ -200,12 +200,14 @@ a-scene {
     pointer-events: auto; /* Включаем обработку событий мыши по умолчанию */
     overflow: hidden; /* Скрываем содержимое, которое не помещается в высоту блока */
     max-height: 1000px; /* Максимальная высота блока */
-    transition: opacity 0.5s ease, max-height 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5);
+    /*transition: opacity 0.5s ease, max-height 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5);*/
+    transition: all .8s ease;
 }
 .tech_spec__visible.hidden {
-    display: none;
+    /*display: none;*/
     opacity: 0;
     max-height: 0; /* Устанавливаем максимальную высоту блока на 0 */
+    transition: all .8s ease;
 }
 
 .tech_spec__titles .text_spec__texts, .tech_spec__mission {
