@@ -78,32 +78,75 @@
 
 
 
-/*@keyframes moveBefore {*/
+/*Анимация меню и футера на мобильных устройствах*/
+
+/*@keyframes movingTopBottom {*/
 /*    0%, 100% {*/
-/*        transform: translate(0, 0);*/
-/*    }*/
-/*    25% {*/
-/*        transform: translate(25%, 25%);*/
+/*        top: 0;*/
 /*    }*/
 /*    50% {*/
-/*        transform: translate(50%, 50%);*/
+/*        top: 0;*/
 /*    }*/
-/*    75% {*/
-/*        transform: translate(100%, 100%);*/
+/*    0% {*/
+/*        top: 100%;*/
 /*    }*/
 /*}*/
 
-/*@keyframes moveBefore {*/
-/*    0%, 100% {*/
-/*        transform: translate(0, 0);*/
-/*    }*/
-/*    50% {*/
-/*        transform: translate(100%, 100%);*/
-/*    }*/
-/*}*/
+@keyframes movingTopBottom {
+    0%, 100% {
+        transform: translateY(100%);
+    }
+    50% {
+        transform: translateY(-50%);
+    }
+}
 
+@keyframes movingBottomTop {
+    0%, 100% {
+        transform: translateY(-100%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+}
 
+@keyframes footerMovingTopBottom {
+    0%, 100% {
+        transform: translateY(-125%);
+    }
+    50% {
+        transform: translateY(-25%);
+    }
+}
 
+@keyframes footerMovingBottomTop {
+    0%, 100% {
+        transform: translateY(25%);
+    }
+    50% {
+        transform: translateY(-75%);
+    }
+}
+
+@media (max-width: 578px)  {
+    @keyframes footerMovingTopBottom {
+        0%, 100% {
+            transform: translateY(-175%);
+        }
+        50% {
+            transform: translateY(-25%);
+        }
+    }
+
+    @keyframes footerMovingBottomTop {
+        0%, 100% {
+            transform: translateY(100%);
+        }
+        50% {
+            transform: translateY(-75%);
+        }
+    }
+}
 
 
 

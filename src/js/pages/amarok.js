@@ -554,13 +554,15 @@ document.body.appendChild(labelRenderer.domElement);
 // Функция для создания сферического меша (объекта) с заданными параметрами
 function createCpointMesh(name, x, y, z) {
     // Создание геометрии сферы
-    const geo = new THREE.SphereGeometry(1, 32, 32);
+    const geo = new THREE.SphereGeometry(1.5, 32, 32);
     // const geo = new THREE.CircleGeometry(5, 5);
     // Создание материала для сферы
     const mat = new THREE.MeshBasicMaterial({
         // color: 0xFF922D,
-        color: 0xFFBA00
-        // color: 0xFFCF48
+        color: 0xFFA500
+        // 0xFFBA00
+        // 0xFFCF48
+        // 0xFFA500
 
     });
     // const mat = new THREE.MeshPhysicalMaterial({
@@ -577,11 +579,10 @@ function createCpointMesh(name, x, y, z) {
 
 function createCpointMeshAnimate(name, x, y, z) {
     // Создание геометрии сферы
-    const geo = new THREE.SphereGeometry(1, 32, 32);
+    const geo = new THREE.SphereGeometry(3, 32, 32);
     // Создание материала для сферы
     const mat = new THREE.MeshBasicMaterial({
         color: 0xFFFFFF,
-        // opacity: 1,
         transparent: true,
     });
     // Создание меша (объекта) на основе геометрии и материала
@@ -590,6 +591,8 @@ function createCpointMeshAnimate(name, x, y, z) {
     mesh.name = name; // Присвоение имени мешу
     return mesh; // Возврат созданного меша
 }
+
+
 
 const group = new THREE.Group(); // Создание группы для хранения мешей
 
