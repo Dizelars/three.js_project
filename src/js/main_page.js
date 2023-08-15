@@ -153,14 +153,17 @@ document.addEventListener("DOMContentLoaded", function() {
     modelCards.forEach(card => {
         let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
         let mediaWrap = card.querySelector('.garage_model_card .slid_img');
+        let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
 
         card.addEventListener('mouseenter', () => {
             modelCardVideo.style.display = 'block';
+            modelCardImage.style.display = 'none';
             mediaWrap.style.background = '#090909 ';
         });
 
         card.addEventListener('mouseleave', () => {
             modelCardVideo.style.display = 'none';
+            modelCardImage.style.display = 'block';
             mediaWrap.style.background = '';
         });
     });

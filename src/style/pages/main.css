@@ -737,8 +737,37 @@ section.main .main_grid-wrapper .main_button-3 .main_info-link  {
 
 section.traffic_patrol {
     padding: 60px 20px 0 20px;
+    /*padding: 60px 0 0 0;*/
     position: relative;
 }
+
+section.traffic_patrol .container_main {
+    padding-bottom: 120px;
+}
+
+/*section.traffic_patrol .container_main {*/
+/*    border: none;*/
+/*    padding: 0 20px 0 20px;*/
+/*}*/
+
+/*section.traffic_patrol .container_main_slider {*/
+/*    max-width: none;*/
+/*    margin: unset;*/
+/*    !*padding-bottom: 120px;*!*/
+/*    padding: 0 0 120px 20px;*/
+/*}*/
+
+/*section.traffic_patrol .container_main_line {*/
+/*    width: 100%;*/
+/*    max-width: 1380px;*/
+/*    margin: 0 auto;*/
+/*    padding: 0 20px;*/
+/*    border-bottom: 1px solid white;*/
+/*}*/
+
+/*section.traffic_patrol .container_main.slider .traffic_patrol_slider {*/
+/*    justify-content: center;*/
+/*}*/
 
 section.traffic_patrol:before {
     content: ' ';
@@ -746,6 +775,7 @@ section.traffic_patrol:before {
     width: 600px;
     height: 600px;
     /*z-index: 2;*/
+    z-index: -1;
     pointer-events: none;
     top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
     right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
@@ -758,11 +788,6 @@ section.traffic_patrol:before {
 }
 
 
-
-
-section.traffic_patrol .container_main {
-    padding-bottom: 120px;
-}
 
 section.traffic_patrol .traffic_patrol_grid-wrapper {
     display: grid;
@@ -778,7 +803,8 @@ section.traffic_patrol .traffic_patrol_grid-wrapper {
         "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
-        "traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6";
+        /*"traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6";*/
+        "traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER";
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 {
@@ -802,8 +828,33 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5 {
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
+    display: none;
     grid-area: traffic_patrol-slide-6;
     overflow: hidden;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER {
+    grid-area: traffic_patrol-new_NOSLIDER;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, min-content);
+    grid-auto-columns: 1fr;
+    gap: 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "NOSLIDE_1 NOSLIDE_2 NOSLIDE_3";
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER .NOSLIDE_1 {
+    grid-area: NOSLIDE_1;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER .NOSLIDE_2 {
+    grid-area: NOSLIDE_2;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER .NOSLIDE_3 {
+    grid-area: NOSLIDE_3;
 }
 
 section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
@@ -812,6 +863,16 @@ section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {
     grid-area: traffic_patrol-no-slide-7;
+    display: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
+    grid-area: traffic_patrol-no-slide-8;
+    display: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 {
+    grid-area: traffic_patrol-no-slide-9;
     display: none;
 }
 
@@ -826,10 +887,11 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
+    display: none;
     grid-area: slider_button-wrapper;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
+    /*position: relative;*/
+    /*display: flex;*/
+    /*align-items: flex-end;*/
 }
 
 /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons {*/
@@ -919,7 +981,8 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_p
 
 /*cards start*/
 
-section.traffic_patrol .traffic_patrol_slider .garage_model_card {
+section.traffic_patrol .traffic_patrol_slider .garage_model_card,
+section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     max-width: 540px;
     height: 444px;
 }
@@ -980,7 +1043,16 @@ section.traffic_patrol .traffic_patrol_slider .garage_model_card {
     display: flex;
     align-items: center;
     border-radius: 10px 10px 0 0;
-    background: #090909 url("../../img/layout/pages/main/slider/amarok_slide.png") no-repeat bottom center/cover;
+    /*background: #090909 url("../../img/layout/pages/main/slider/amarok_slide.png") no-repeat bottom center/cover;*/
+}
+
+.garage_model_card .slid_img img.menu_preview-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    background-color: black;
 }
 
 .garage_model_card .slid_img .menu_preview-video {
