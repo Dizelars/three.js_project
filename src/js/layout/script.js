@@ -14,7 +14,7 @@ const buttonIcon2 = document.querySelector('.auto_park__control img');
 const interior = document.querySelector('.tech_spec__interior');
 const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
-const interiorBlock = document.querySelector('.tech_spec__interior');
+// const interiorBlock = document.querySelector('.tech_spec__interior');
 const screenWidth = window.innerWidth;
 const screenHeight = window.innerHeight;
 // let elementHover = document.querySelectorAll('.tech_spec__btn, .tech_spec__btn img, .tech_spec__btn img.rotate, .tech_spec__interior .arrow-wrapper img, .auto_park__control img, .auto_park__control img.rotate, .gallery_item, .gallery_item.active, .gallery_item img, .gallery_item.active img');
@@ -196,6 +196,23 @@ function toggleAutoParkSection() {
 //     autoParkSection.style.margin = '0';
 // }
 
+// interior.addEventListener('click', () => {
+//     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
+//     visibleDescr.classList.toggle('hidden');
+//     visibleSlide.classList.toggle('hidden');
+//     sliderButton.forEach(e => {
+//         e.classList.toggle('hidden');
+//     });
+//     if (interiorText.textContent === 'В салон') {
+//         interiorText.textContent = 'В гараж';
+//         if (interior)
+//         interior.classList.toggle('garage');
+//     } else {
+//         interiorText.textContent = 'В салон';
+//         interior.classList.toggle('garage');
+//     }
+// });
+
 interior.addEventListener('click', () => {
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleDescr.classList.toggle('hidden');
@@ -203,14 +220,39 @@ interior.addEventListener('click', () => {
     sliderButton.forEach(e => {
         e.classList.toggle('hidden');
     });
+
+    // Получаем значение атрибута id элемента interior
+    const idValue = interior.getAttribute('id');
+
     if (interiorText.textContent === 'В салон') {
         interiorText.textContent = 'В гараж';
-        interiorBlock.classList.toggle('garage');
+
+        // Применяем класс в зависимости от значения атрибута id
+        if (idValue === 'amarok') {
+            interior.classList.toggle('garage_amarok');
+        } else if (idValue === 'ford') {
+            interior.classList.toggle('garage_ford');
+        } else if (idValue === 'solaris_green') {
+            interior.classList.toggle('garage_solaris_green');
+        } else if (idValue === 'bus') {
+            interior.classList.toggle('garage_bus');
+        }
     } else {
         interiorText.textContent = 'В салон';
-        interiorBlock.classList.toggle('garage');
+
+        // Убираем классы в зависимости от значения атрибута id
+        if (idValue === 'amarok') {
+            interior.classList.toggle('garage_amarok');
+        } else if (idValue === 'ford') {
+            interior.classList.toggle('garage_ford');
+        } else if (idValue === 'solaris_green') {
+            interior.classList.toggle('garage_solaris_green');
+        } else if (idValue === 'bus') {
+            interior.classList.toggle('garage_bus');
+        }
     }
 });
+
 
 gallery_toggle.forEach((e) => {
     e.addEventListener('click', () => {

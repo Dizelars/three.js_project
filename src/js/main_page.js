@@ -99,6 +99,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.classList.remove("close_width");
             });
         });
+        menuAnimationAdd.forEach(e => {
+            e.classList.toggle('animation');
+        });
         // Вызываем функцию плавного скроллинга к якорю
         smoothScrollTo(target);
     }
@@ -185,8 +188,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const swiper = new Swiper('.swiper', {
         // Optional parameters
         // loop: true,
-        slidesPerView: "auto",
-        spaceBetween: 20,
+        slidesPerView: 1,
+        spaceBetween: 0,
 
         // If we need pagination
         pagination: {
@@ -198,6 +201,16 @@ document.addEventListener("DOMContentLoaded", function() {
             nextEl: '.btn_next',
             prevEl: '.btn_prev',
         },
+
+        breakpoints: {
+            441: { // when window width is >= 440px
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            770: { // when window width is >= 768px
+                slidesPerView: "auto",
+            },
+        }
 
         // And if we need scrollbar
         // scrollbar: {
@@ -218,13 +231,20 @@ document.addEventListener("DOMContentLoaded", function() {
     const swiper3 = new Swiper('.swiper3', {
         // Optional parameters
         // loop: true,
-        slidesPerView: "auto",
-        spaceBetween: 20,
+        slidesPerView: 1,
+        spaceBetween: 0,
 
         // If we need pagination
         pagination: {
             el: '.swiper-pagination3',
         },
+
+        breakpoints: {
+            440: { // when window width is >= 440px
+                slidesPerView: "auto",
+                spaceBetween: 20,
+            },
+        }
     });
 
 

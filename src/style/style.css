@@ -115,6 +115,8 @@ a-scene {
 .header__logo {
     max-width: 170px;
     width: 100%;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .header__logo-text {
@@ -351,16 +353,44 @@ a-scene {
     align-items: flex-end;
     justify-content: flex-end;
     border-radius: 20px;
-    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
+    /*background: url("../img/layout/amarok_prew.png") no-repeat center/cover;*/
     padding: 8px;
     cursor: pointer;
     margin-top: 20px;
     margin-right: 60px;
+    z-index: 1 !important;
 }
 
-.tech_spec__interior.garage {
-    background-image: url("../img/layout/slider/slide_amarok.png");
-    z-index: 1 !important;
+.tech_spec__interior#amarok {
+    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
+}
+
+.tech_spec__interior#amarok.garage_amarok {
+    background-image: url("../img/layout/slider/amarok.png");
+}
+
+.tech_spec__interior#ford {
+    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
+}
+
+.tech_spec__interior#ford.garage_ford {
+    background-image: url("../img/layout/slider/ford.png");
+}
+
+.tech_spec__interior#solaris_green {
+    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
+}
+
+.tech_spec__interior#solaris_green.garage_solaris_green {
+    background-image: url("../img/layout/slider/solaris_green.png");
+}
+
+.tech_spec__interior#bus {
+    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
+}
+
+.tech_spec__interior#bus.garage_bus {
+    background-image: url("../img/layout/slider/bus.png");
 }
 
 /*.tech_spec__interior:hover .arrow-wrapper img {*/

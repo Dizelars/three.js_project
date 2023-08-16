@@ -550,6 +550,30 @@ labelRenderer.domElement.style.position = 'absolute';
 labelRenderer.domElement.style.top = '0';
 labelRenderer.domElement.style.pointerEvents = 'none';
 document.body.appendChild(labelRenderer.domElement);
+let DotsTextureYellow = 'https://coddmac.store/THREE/3Dmodels/47/yellow_new.svg';
+let DotsTextureWhite = 'https://coddmac.store/THREE/3Dmodels/47/white.jpg';
+let DotsTextureOrange = 'https://coddmac.store/THREE/3Dmodels/47/orange.jpg';
+
+const textures = {
+    mapTexture: null,
+    mapTextureFara: null,
+    mapTexture2: null
+};
+
+function loadTextures() {
+    const textureLoader = new THREE.TextureLoader();
+    textures.DotsTextureYellow = textureLoader.load(DotsTextureYellow);
+    textures.DotsTextureYellow.flipY = false;
+
+    textures.DotsTextureWhite = textureLoader.load(DotsTextureWhite);
+    textures.DotsTextureWhite.flipY = false;
+
+    textures.DotsTextureOrange = textureLoader.load(DotsTextureOrange);
+    textures.DotsTextureOrange.flipY = false;
+
+}
+
+loadTextures();
 
 // Функция для создания сферического меша (объекта) с заданными параметрами
 function createCpointMesh(name, x, y, z) {
@@ -559,11 +583,11 @@ function createCpointMesh(name, x, y, z) {
     // Создание материала для сферы
     const mat = new THREE.MeshBasicMaterial({
         // color: 0xFF922D,
-        color: 0xFFA500
+        // color: 0xFFA500,
         // 0xFFBA00
         // 0xFFCF48
         // 0xFFA500
-
+        map: textures.DotsTextureYellow,
     });
     // const mat = new THREE.MeshPhysicalMaterial({
     //     color: 0xFF922D,
@@ -582,8 +606,9 @@ function createCpointMeshAnimate(name, x, y, z) {
     const geo = new THREE.SphereGeometry(3, 32, 32);
     // Создание материала для сферы
     const mat = new THREE.MeshBasicMaterial({
-        color: 0xFFFFFF,
+        // color: 0xFFFFFF,
         transparent: true,
+        map: textures.DotsTextureWhite,
     });
     // Создание меша (объекта) на основе геометрии и материала
     const mesh = new THREE.Mesh(geo, mat);
