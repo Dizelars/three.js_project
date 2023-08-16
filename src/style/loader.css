@@ -9,121 +9,8 @@
     background-color: rgba(0, 0, 0);
 }
 
-/*.progress-bar-container {*/
-/*    position: absolute;*/
-/*    z-index: 5;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    padding: 5px 20px;*/
-/*    !*background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*!*/
-/*    !*            radial-gradient(50% 50.00% at top left, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);*!*/
-/*    !*animation: gradientAnimation 1.5s ease infinite;*!*/
-/*    transition: background-color 5s cubic-bezier(0.8, 0, 1, 1);*/
-/*    !*background: radial-gradient(50% 50% at 0 100%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*!*/
-/*    !*            radial-gradient(50% 50% at 100% 0, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*!*/
-/*    !*            radial-gradient(50% 50% at 0 0, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),*!*/
-/*    !*            radial-gradient(50% 50% at 100% 100%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);*!*/
-/*    animation: gradientAnimation 5s ease-in-out infinite;*/
-/*    background-size: 100% 100%;*/
-/*}*/
-
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background: radial-gradient(50% 50% at 0% 0%, #FC762B -50%, rgba(9, 9, 9, 0) 100%),*/
-/*                    radial-gradient(50% 50% at 100% 100%, #FC762B -50%, rgba(9, 9, 9, 0) 100%);*/
-/*    }*/
-/*    25% {*/
-/*        background: radial-gradient(50% 50% at 0% 25%, #FC762B -50%, rgba(9, 9, 9, 0) 100%),*/
-/*                    radial-gradient(50% 50% at 100% 75%, #FC762B -50%, rgba(9, 9, 9, 0) 100%);*/
-/*    }*/
-/*    50% {*/
-/*        background: radial-gradient(50% 50% at 0% 50%, #62A744 -50%, rgba(9, 9, 9, 0) 100%),*/
-/*                    radial-gradient(50% 50% at 100% 50%, #62A744 -50%, rgba(9, 9, 9, 0) 100%);*/
-/*    }*/
-/*    75% {*/
-/*        background: radial-gradient(50% 50% at 0% 75%, #62A744 -50%, rgba(9, 9, 9, 0) 100%),*/
-/*                    radial-gradient(50% 50% at 100% 25%, #62A744 -50%, rgba(9, 9, 9, 0) 100%);*/
-/*    }*/
-/*    100% {*/
-/*        background: radial-gradient(50% 50% at 0% 100%, #62A744 -50%, rgba(9, 9, 9, 0) 100%),*/
-/*                    radial-gradient(50% 50% at 100% 0%, #62A744 -50%, rgba(9, 9, 9, 0) 100%);*/
-/*    }*/
-/*}*/
-
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background-color: blue;*/
-/*    }*/
-/*    25% {*/
-/*        background-color: white;*/
-/*    }*/
-/*    50% {*/
-/*        background-color: green;*/
-/*    }*/
-/*    75% {*/
-/*        background-color: yellow;*/
-/*    }*/
-/*    100% {*/
-/*        background-color: hotpink;*/
-/*    }*/
-/*}*/
-
-/*.progress-bar-container {*/
-/*    position: absolute;*/
-/*    z-index: 5;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    padding: 5px 20px;*/
-/*    background: radial-gradient(50% 50% at 0% 0%, #FC762B -50%, rgba(9, 9, 9, 0) 100%),*/
-/*    radial-gradient(50% 50% at 100% 100%, #FC762B -50%, rgba(9, 9, 9, 0) 100%);*/
-/*    background-size: 200% 200%;*/
-/*    animation: gradientAnimation 1s linear infinite;*/
-/*}*/
-
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background-position: 0 0, 100% 100%;*/
-/*    }*/
-/*    50% {*/
-/*        background-position: 100% 0, 0 100%;*/
-/*    }*/
-/*    100% {*/
-/*        background-position: 0 0, 100% 100%;*/
-/*    }*/
-/*}*/
-
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background-position: 0 100%;*/
-/*    }*/
-/*    25% {*/
-/*        background-position: 0 75%;*/
-/*    }*/
-/*    50% {*/
-/*        background-position: 0 50%;*/
-/*    }*/
-/*    75% {*/
-/*        background-position: 0 25%;*/
-/*    }*/
-/*    100% {*/
-/*        background-position: 0 0;*/
-/*    }*/
-/*}*/
-
+/*ЗАРЕШАЛО ПО АНИМАЦИИ*/
+/*Для плавной анимации на загрузочном экране, нужно вешать анимируемые элементы на псевдоэлементы соответствующего блока*/
 
 .progress-bar-container {
     position: absolute;
@@ -144,136 +31,44 @@
 
 .progress-bar-container::before,
 .progress-bar-container::after {
-    content: "";
+    content: ' ';
     position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /*background-color: #62a744;*/
-    /*background: radial-gradient(50% 50% at 0 100%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);*/
-    /*            radial-gradient(50% 50% at 100% 0, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*/
-    /*            radial-gradient(50% 50% at 0 0, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),*/
-    /*            radial-gradient(50% 50% at 100% 100%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);*/
-    /*animation: gradientAnimation 2s ease-in-out infinite;*/
-    /*animation: 1s ease-out 0s infinite gradientAnimation;*/
-    /*transition: background-position 2s ease-in-out;*/
+    width: 800px;
+    height: 800px;
+    border-radius: 100%;
+    opacity: 0.3;
+    pointer-events: none;
+    transition: all 4s ease;
 }
 
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        transform: translateY(0);*/
-/*    }*/
-/*    !*25% {*!*/
-/*    !*    background-color: white;*!*/
-/*    !*}*!*/
-/*    !*50% {*!*/
-/*    !*    background-color: green;*!*/
-/*    !*}*!*/
-/*    !*75% {*!*/
-/*    !*    background-color: yellow;*!*/
-/*    !*}*!*/
-/*    100% {*/
-/*        transform: translateY(500px);*/
-/*    }*/
-/*}*/
+.progress-bar-container::before {
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
+    right: -15%;
+    animation: movingTopBottomLoader 3s linear infinite;
+}
+.progress-bar-container::after {
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    left: -15%;
+    animation: movingBottomTopLoader 3s linear infinite;
+}
 
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background-position: 0 100%, 100% 0, 0 0, 100% 100%;*/
-/*    }*/
-/*    25% {*/
-/*        background-position: 0 75%, 100% 25%, 0 25%, 100% 75%;*/
-/*    }*/
-/*    50% {*/
-/*        background-position: 0 50%, 100% 50%, 0 50%, 100% 50%;*/
-/*    }*/
-/*    75% {*/
-/*        background-position: 0 25%, 100% 75%, 0 75%, 100% 25%;*/
-/*    }*/
-/*    100% {*/
-/*        background-position: 0 0, 100% 100%, 0 100%, 100% 0;*/
-/*    }*/
-/*}*/
+@keyframes movingTopBottomLoader {
+    0%, 100% {
+        transform: translateY(100%);
+    }
+    50% {
+        transform: translateY(-100%);
+    }
+}
 
-
-/*.progress-bar-container {*/
-/*    position: absolute;*/
-/*    z-index: 5;*/
-/*    top: 50%;*/
-/*    left: 50%;*/
-/*    -webkit-transform: translate(-50%, -50%);*/
-/*    -ms-transform: translate(-50%, -50%);*/
-/*    transform: translate(-50%, -50%);*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    display: -webkit-box;*/
-/*    display: -ms-flexbox;*/
-/*    display: flex;*/
-/*    -webkit-box-orient: vertical;*/
-/*    -webkit-box-direction: normal;*/
-/*    -ms-flex-direction: column;*/
-/*    flex-direction: column;*/
-/*    -webkit-box-pack: center;*/
-/*    -ms-flex-pack: center;*/
-/*    justify-content: center;*/
-/*    -webkit-box-align: center;*/
-/*    -ms-flex-align: center;*/
-/*    align-items: center;*/
-/*    padding: 5px 20px;*/
-/*    background: -o-radial-gradient(0 100%, 50% 50%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*/
-/*    -o-radial-gradient(100% 0, 50% 50%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*/
-/*    -o-radial-gradient(0 0, 50% 50%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),*/
-/*    -o-radial-gradient(100% 100%, 50% 50%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);*/
-/*    background: radial-gradient(50% 50% at 0 100%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*/
-/*    radial-gradient(50% 50% at 100% 0, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%),*/
-/*    radial-gradient(50% 50% at 0 0, #62A744 0%, rgba(9, 9, 9, 0.00) 100%),*/
-/*    radial-gradient(50% 50% at 100% 100%, #62A744 0%, rgba(9, 9, 9, 0.00) 100%);*/
-/*    -webkit-animation: gradientAnimation 5s ease-in-out infinite;*/
-/*    animation: gradientAnimation 5s ease-in-out infinite;*/
-/*    -webkit-transition: background-position 5s ease-in-out;*/
-/*    -o-transition: background-position 5s ease-in-out;*/
-/*    transition: background-position 5s ease-in-out;*/
-/*}*/
-
-/*@-webkit-keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background-position: 0 100%, 100% 0, 0 0, 100% 100%;*/
-/*    }*/
-/*    25% {*/
-/*        background-position: 0 75%, 100% 25%, 0 25%, 100% 75%;*/
-/*    }*/
-/*    50% {*/
-/*        background-position: 0 50%, 100% 50%, 0 50%, 100% 50%;*/
-/*    }*/
-/*    75% {*/
-/*        background-position: 0 25%, 100% 75%, 0 75%, 100% 25%;*/
-/*    }*/
-/*    100% {*/
-/*        background-position: 0 0, 100% 100%, 0 100%, 100% 0;*/
-/*    }*/
-/*}*/
-
-/*@keyframes gradientAnimation {*/
-/*    0% {*/
-/*        background-position: 0 100%, 100% 0, 0 0, 100% 100%;*/
-/*    }*/
-/*    25% {*/
-/*        background-position: 0 75%, 100% 25%, 0 25%, 100% 75%;*/
-/*    }*/
-/*    50% {*/
-/*        background-position: 0 50%, 100% 50%, 0 50%, 100% 50%;*/
-/*    }*/
-/*    75% {*/
-/*        background-position: 0 25%, 100% 75%, 0 75%, 100% 25%;*/
-/*    }*/
-/*    100% {*/
-/*        background-position: 0 0, 100% 100%, 0 100%, 100% 0;*/
-/*    }*/
-/*}*/
-
-
+@keyframes movingBottomTopLoader {
+    0%, 100% {
+        transform: translateY(-100%);
+    }
+    50% {
+        transform: translateY(100%);
+    }
+}
 
 
 
@@ -339,4 +134,55 @@ label {
     font-family: 'MoscowSans', sans-serif;
     font-size: 16px;
     font-weight: 400;
+}
+
+
+@media (max-width: 1444px) {
+    .progress-bar-container::before {
+        right: -30%;
+    }
+
+    .progress-bar-container::after {
+        left: -30%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .progress-bar-container::before {
+        right: -50%;
+    }
+
+    .progress-bar-container::after {
+        left: -50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .progress-bar-container::before {
+        right: -75%;
+    }
+
+    .progress-bar-container::after {
+        left: -75%;
+    }
+}
+
+@media (max-width: 440px) {
+    .progress-bar-container::before {
+        right: -130%;
+    }
+
+    .progress-bar-container::after {
+        left: -130%;
+    }
+}
+
+@media (max-width: 375px) {
+    .progress-bar-container::before {
+        right: -145%;
+    }
+
+    .progress-bar-container::after {
+        left: -145%;
+    }
 }
