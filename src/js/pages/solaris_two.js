@@ -108,41 +108,6 @@ const controls1 = new OrbitControls(camera1, renderer.domElement);
 controls1.update();
 
 
-// const mouse = new THREE.Vector2(); // Нормализованное положение курсора
-// const intersectionPoint = new THREE.Vector3(); // Точка пересечения, где плоскость пересекается с лучем
-// const planeNormal = new THREE.Vector3(); // Единичный вектор нормалей указывающий направление движения плоскости
-// const planeTest = new THREE.Plane(); // Плоскость которая создается каждый раз при передвижении курсора
-// const raycaster = new THREE.Raycaster(); // Передача лучей которые будут излучаться между камерой и курсором
-// // const canvas = document.getElementById('myCanvas');
-//
-// window.addEventListener('mousemove', (e) => {
-//     // const rect = canvas.getBoundingClientRect(); // Получение положения холста относительно области просмотра
-//     // mouse.x = ((e.clientX - rect.left) / canvas.width) * 2 - 1;
-//     // mouse.y = -((e.clientY - rect.top) / canvas.height) * 2 + 1;
-//     // const moveX = 5; // Number of pixels to move horizontally (positive for right, negative for left)
-//     const moveY = -70; // Number of pixels to move vertically (positive for down, negative for up)
-//
-//     mouse.x = (e.clientX) / window.innerWidth * 2 - 1;
-//     mouse.y = -(e.clientY + moveY) / window.innerHeight * 2 + 1;
-//     planeNormal.copy(camera1.position).normalize();
-//     planeTest.setFromNormalAndCoplanarPoint(planeNormal, scene1.position);
-//     raycaster.setFromCamera(mouse, camera1);
-//     raycaster.ray.intersectPlane(planeTest, intersectionPoint);
-// });
-//
-// window.addEventListener('click', (e) => {
-//     const sphereGeo = new THREE.SphereGeometry(8, 30, 30);
-//     const sphereMat = new THREE.MeshStandardMaterial({
-//         color: 0xFFEA00,
-//         metalness: 0,
-//         roughness: 0
-//     });
-//     const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
-//     scene1.add(sphereMesh);
-//     sphereMesh.position.copy(intersectionPoint);
-// });
-
-
 // 3) Свет экстерьер
 const lightPositions1 = [
     [-203, 38, -112],

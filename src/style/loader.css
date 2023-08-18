@@ -75,19 +75,39 @@
 
 .progress-bar-container .image {
     position: relative;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     overflow: hidden;
+
+    /*Для видео:*/
+    /*height: 310px;*/
+    /*width: 310px;*/
+
+    /*Для gif:*/
+    height: 260px;
+    width: 260px;
 }
 
-.progress-bar-container .image img {
-    animation: rotate-scale-translate 2s infinite ease-in-out;
-    margin-left: 5px;
+/*.progress-bar-container .image img.animated {*/
+/*    animation: rotate-scale-translate 2s infinite ease-in-out;*/
+/*    margin-left: 5px;*/
+/*}*/
+
+.progress-bar-container .image img.no_animated {
+    object-fit: cover;
 }
 
 .progress-bar-container .image-text {
     color: #FFFFFF;
     margin-top: 10px;
 }
+
+/*.progress-bar-container video {*/
+/*    min-height: 100%;*/
+/*    min-width: 100%;*/
+/*    object-fit: cover;*/
+/*    filter: contrast(110%);*/ /*Нужен, чтобы спрятать задний фон видео (работает только если background родителя статичен)*/
+/*}*/
+
 
 @keyframes rotate-scale-translate {
     0% {
