@@ -40,6 +40,14 @@ import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer
 // Измененение размера сцены под размер экрана
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 
+
+
+// Тест использования одной функции
+const myFunction = require('../three/functions/testFunction.js');
+myFunction('Первый');
+
+
+
 // Ширина экрана
 const screenWidth = window.innerWidth;
 
@@ -1118,7 +1126,7 @@ function animate() {
 
 
     renderer.render(scene1, camera1);
-    console.log( renderer.info.render.triangles );
+    // console.log( renderer.info.render.triangles );
     stats.end();
 
 }

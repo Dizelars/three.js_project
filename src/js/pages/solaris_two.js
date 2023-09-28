@@ -13,6 +13,12 @@ import Stats from 'stats.js';
 // import {func} from "three/nodes";
 // import * as AFRAME from "aframe";
 
+
+const myFunction = require('../three/functions/testFunction.js');
+myFunction('Второй');
+
+
+
 // Ширина экрана
 const screenWidth = window.innerWidth;
 
@@ -292,7 +298,7 @@ const coordinates = [
 function animate() {
     stats.begin();
     renderer.render(scene1, camera1);
-    console.log( renderer.info.render.triangles );
+    // console.log( renderer.info.render.triangles );
     stats.end();
 }
 renderer.setAnimationLoop(animate);
