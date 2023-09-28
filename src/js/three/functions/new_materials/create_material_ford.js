@@ -19,17 +19,17 @@ let mapNormalKrilo;
 let mapNormalWheel;
 
 if (screenWidth >= 850) {
-    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/Ford_last/base_clr.png';
-    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/Ford_last/base_nrm.png';
-    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/Ford_last/sides.png';
-    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/Ford_last/sides_nrm.png';
-    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/Ford_last/wheel_nrm.png';
+    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_clr.png';
+    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_nrm.png';
+    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides.png';
+    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides_nrm.png';
+    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/wheel_nrm.png';
 } else {
-    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/Ford_last/base_clr.png';
-    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/Ford_last/base_nrm.png';
-    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/Ford_last/sides.png';
-    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/Ford_last/sides_nrm.png';
-    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/Ford_last/wheel_nrm.png';
+    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_clr.png';
+    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_nrm.png';
+    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides.png';
+    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides_nrm.png';
+    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/wheel_nrm.png';
 }
 
 function loadTextures() {

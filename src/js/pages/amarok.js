@@ -53,20 +53,12 @@ if (pixelRatio > 1) {
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/47/test2.gltf';
-    // url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
-    // url ='https://coddmac.store/THREE/3Dmodels/android/opt.gltf';
-    // url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
-    // url = 'model/47/test2.gltf';
-    // url = 'model/optimizeTest_2/opt.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarok_opt_last/Amarok_Export.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/test2.gltf';
     ShadowSwitch = true;
 } else {
-    // url = 'https://coddmac.store/THREE/3Dmodels/Bake_optimize_1/opt.gltf';
-    // url = 'https://coddmac.store/THREE/3Dmodels/optimizeTest_2/opt.gltf';
-    url = 'https://coddmac.store/THREE/3Dmodels/49/opt.gltf';
-    // url ='https://coddmac.store/THREE/3Dmodels/android/opt.gltf';
-    // url = 'model/optimize/opt.gltf';
-    // url = 'model/optimizeTest_2/opt.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarok_opt_last/Amarok_Export.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/amarok/49/opt.gltf';
     ShadowSwitch = false;
 }
 
@@ -214,13 +206,13 @@ camera1.position.copy(initialCameraPosition1);
 // scene1.add( helper );
 
 const controls1 = new OrbitControls(camera1, renderer.domElement);
-// controls1.minPolarAngle = 0;
-// controls1.maxPolarAngle = Math.PI * 0.5;
-// controls1.minDistance = 210;
-// controls1.maxDistance = 260;
-// controls1.enabled = true;
-// controls1.enablePan = false;
-// controls1.addEventListener( 'change', animate );
+controls1.minPolarAngle = 0;
+controls1.maxPolarAngle = Math.PI * 0.5;
+controls1.minDistance = 210;
+controls1.maxDistance = 260;
+controls1.enabled = true;
+controls1.enablePan = false;
+controls1.addEventListener( 'change', animate );
 controls1.update();
 
 
@@ -539,8 +531,6 @@ let isAnimationPaused = false;
 
 
 // ТЕСТ ТИПОНОВ
-
-
 // ТИПОНЫ В СЦЕНЕ
 
 // Создание объекта для рендеринга CSS-элементов в трехмерной сцене
@@ -616,8 +606,6 @@ function createCpointMeshAnimate(name, x, y, z) {
     mesh.name = name; // Присвоение имени мешу
     return mesh; // Возврат созданного меша
 }
-
-
 
 const group = new THREE.Group(); // Создание группы для хранения мешей
 

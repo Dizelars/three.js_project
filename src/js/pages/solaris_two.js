@@ -29,7 +29,7 @@ if (pixelRatio > 1) {
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/untitled.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/untitled.gltf';
     ShadowSwitch = true;
 }
 // else {

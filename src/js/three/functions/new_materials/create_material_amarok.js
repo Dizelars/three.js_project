@@ -17,15 +17,17 @@ let mapTextureFaraUrl;
 let mapTextureMain_2Url;
 
 if (screenWidth >= 850) {
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/47/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/uv-1.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/fara.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/Main_texture_2.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarok_opt_last/Amarok_low_Material_BaseColor.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/THREE/3Dmodels/amarok/amarok_opt_last/Amarok_low_Material_BaseColor.png';
 } else {
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/49/Main_texture_2.png';
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/49/uv.png';
+    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/49/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarok_opt_last/Amarok_low_Material_BaseColor.png';
 }
-
+// sftp://design@62.109.20.91/var/www/html/THREE/3Dmodels/amarok/47/Main_texture_2.png
 function loadTextures() {
     const textureLoader = new THREE.TextureLoader();
     textures.mapTextureMain = textureLoader.load(mapTextureMainUrl);
@@ -47,6 +49,20 @@ let CastomMaterial = 'MeshPhysicalMaterial';
 // transparent: false,
 
 const materials = {
+    Main_low: {
+        material: CastomMaterial,
+        roughness: 0.4,
+        metalness: 0.7,
+        clearcoat: 0.3,
+        clearcoatRoughness: 0.3,
+        map: textures.mapTextureMain_2,
+        // color: 0xff0000,
+        side: THREE.DoubleSide,
+        clipShadows: clipShadowsSwitch,
+        // depthWrite: false,
+        polygonOffset: true,
+        // polygonOffsetFactor: -4
+    },
     Main_2: {
         material: CastomMaterial,
         roughness: 0.4,

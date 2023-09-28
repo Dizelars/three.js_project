@@ -22,22 +22,23 @@ let metalnessMapMainUrl;
 
 // normalMap
 let normalMapMainUrl;
-
+// Solaris_low_1_Solaris_Texture_BaseColor.png
+// Solaris_low_1_Solaris_Texture_BaseColor2.png
 
 if (screenWidth >= 850) {
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/47/uv-1.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/47/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor4.png';
 
-    metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
-    normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
+    metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
+    normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
 } else {
     // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/49/uv.png';
     // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/49/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/Solaris_low_1_Solaris_Texture_BaseColor4.png';
 
-    metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
-    normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
+    metalnessMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/Solaris_low_1_Solaris_Texture_Metallic-Solaris_low_1_Solaris_Texture_Roughness.png';
+    normalMapMainUrl = 'https://coddmac.store/THREE/3Dmodels/solaris_green/solaris_18/Solaris_low_1_Solaris_Texture_Normal.png';
 }
 
 function loadTextures() {
@@ -121,8 +122,8 @@ const materials = {
         clearcoat: 0.5,
         clearcoatRoughness: 0.1,
         map: textures.mapTextureMain_2,
-        metalnessMap: textures.metalnessMap,
-        normalMap: textures.normalMap,
+        // metalnessMap: textures.metalnessMap,
+        // normalMap: textures.normalMap,
         side: THREE.FrontSide,
         clipShadows: clipShadowsSwitch,
         opacity: 0,
