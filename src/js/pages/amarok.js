@@ -9,7 +9,7 @@ import Stats from 'stats.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
-// import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
+import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 // import {func} from "three/nodes";
 // import * as AFRAME from "aframe";
 
@@ -43,9 +43,9 @@ import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer
 
 
 // Тест использования одной функции
-const myFunction = require('../three/functions/testFunction.js');
-myFunction('Первый');
-
+// const myFunction = require('../three/functions/testFunction.js');
+// myFunction('Первый');
+const changeModel = require('../three/functions/testFunction.js');
 
 
 // Ширина экрана
@@ -224,7 +224,6 @@ controls1.addEventListener( 'change', animate );
 controls1.update();
 
 
-
 // const mouse = new THREE.Vector2(); // Нормализованное положение курсора
 // const intersectionPoint = new THREE.Vector3(); // Точка пересечения, где плоскость пересекается с лучем
 // const planeNormal = new THREE.Vector3(); // Единичный вектор нормалей указывающий направление движения плоскости
@@ -255,8 +254,6 @@ controls1.update();
 //     scene1.add(sphereMesh);
 //     sphereMesh.position.copy(intersectionPoint);
 // });
-
-
 
 // ТИПОНЫ В СЦЕНЕ
 
@@ -548,9 +545,9 @@ labelRenderer.domElement.style.position = 'absolute';
 labelRenderer.domElement.style.top = '0';
 labelRenderer.domElement.style.pointerEvents = 'none';
 document.body.appendChild(labelRenderer.domElement);
-let DotsTextureYellow = 'https://coddmac.store/THREE/3Dmodels/47/yellow_new.svg';
-let DotsTextureWhite = 'https://coddmac.store/THREE/3Dmodels/47/white.jpg';
-let DotsTextureOrange = 'https://coddmac.store/THREE/3Dmodels/47/orange.jpg';
+let DotsTextureYellow = 'https://coddmac.store/THREE/3Dmodels/amarok/47/yellow_new.svg';
+let DotsTextureWhite = 'https://coddmac.store/THREE/3Dmodels/amarok/47/white.jpg';
+let DotsTextureOrange = 'https://coddmac.store/THREE/3Dmodels/amarok/47/orange.jpg';
 
 const textures = {
     mapTexture: null,
@@ -930,7 +927,8 @@ const dLoader = new DRACOLoader();
 dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
 dLoader.setDecoderConfig({type: 'js'});
 gltfLoader.setDRACOLoader(dLoader);
-let obj;
+let objectModelPosition = '-35, -3, -27.5';
+// let obj;
 
 
 // 5) Загрузка карты отражений на моделе экстерьер
@@ -940,89 +938,102 @@ let obj;
 // ../img/MR_INT-005_WhiteNeons_NAD.hdr   toneMappingExposure = 0.3
 // const PhoneHDR = new URL('../../img/garage.jpg', import.meta.url);
 // const rgbLoaderPhone = new RGBELoader(LoadingManager);
-const PhoneJPG = new URL('../../img/garage.jpg', import.meta.url);
-const rgbLoaderPhone = new THREE.TextureLoader(LoadingManager);
-rgbLoaderPhone.load(PhoneJPG, function (texture) {
-    texture.mapping = THREE.EquirectangularReflectionMapping;
-    scene1.environment = texture;
+// const PhoneJPG = new URL('../../img/garage.jpg', import.meta.url);
+// const rgbLoaderPhone = new THREE.TextureLoader(LoadingManager);
+// rgbLoaderPhone.load(PhoneJPG, function (texture) {
+//     texture.mapping = THREE.EquirectangularReflectionMapping;
+//     scene1.environment = texture;
+//
+//     // 6) Загрузка gltf 3D модели экстерьер
+//     gltfLoader.load(url, function(gltf) {
+//         obj = gltf.scene;
+//         scene1.add(obj);
+//         console.log(obj.children);
+//         obj.position.set(-35, -3, -27.5);
+//         // const box = new THREE.Box3().setFromObject(obj);
+//         // const size = new THREE.Vector3();
+//         // box.getSize(size);
+//         // const linearSize = size.length();
+//         // console.log('Linear size:', linearSize);
+//
+//         // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
+//         let names = [];
+//         for (let i = 0; i < obj.children.length; i++) {
+//             names.push(obj.children[i].name);
+//         }
+//         const materialProperties = names.reduce(function(props, name) {
+//             props[name] = createMaterialProperties(name);
+//             return props;
+//         }, {});
+//
+//         const namesSet = new Set(names);
+//
+//         // 8) Функция с моими параметрами материалов экстерьер
+//         createMaterialProperties();
+//         console.log(materialProperties);
+//
+//         // 9) Обход загружаемой модели и замена материалов экстерьер
+//         obj.traverse(function(child) {
+//             if (child.isMesh) {
+//                 child.castShadow = ShadowSwitch;
+//             }
+//             // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
+//             if (child.isMesh && namesSet.has(child.name)) {
+//                 const properties = materialProperties[child.name];
+//                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
+//                 // Также проверяем, есть ли у свойств объект material
+//                 if (properties && Object.keys(properties).length > 0 && properties.material) {
+//                     // Присваиваем материал из свойств child.material
+//                     child.material = properties.material;
+//                 }
+//             }
+//             // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
+//             else if (child.isGroup && namesSet.has(child.name)) {
+//                 const groupProperties = materialProperties[child.name];
+//                 // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
+//                 // Также проверяем, есть ли у свойств объект material
+//                 if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
+//                     child.traverse(function(groupChild) {
+//                         // Проверяем, является ли объект groupChild мешем внутри группы
+//                         if (groupChild.isMesh) {
+//                             // Присваиваем материал из свойств groupChild.material
+//                             groupChild.material = groupProperties.material;
+//                             groupChild.castShadow = ShadowSwitch;
+//                         }
+//                     });
+//                 }
+//             }
+//         });
+//
+//         function setMaterialProperties(material, name) {
+//             const properties = materialProperties[name];
+//
+//             if (properties) {
+//                 if (properties.color) material.color.set(properties.color);
+//                 if (properties.roughness) material.roughness = properties.roughness;
+//                 if (properties.metalness) material.metalness = properties.metalness;
+//                 // и другие свойства
+//             }
+//         }
+//
+//         // 10) Вывод текущих координат камеры в консоль экстерьер
+//         window.addEventListener('mouseup', () => {
+//             console.log(camera1.position); // Выводим координаты камеры
+//         });
+//     });
+// });
 
-    // 6) Загрузка gltf 3D модели экстерьер
-    gltfLoader.load(url, function(gltf) {
-        obj = gltf.scene;
-        scene1.add(obj);
-        console.log(obj.children);
-        obj.position.set(-35, -3, -27.5);
-        // const box = new THREE.Box3().setFromObject(obj);
-        // const size = new THREE.Vector3();
-        // box.getSize(size);
-        // const linearSize = size.length();
-        // console.log('Linear size:', linearSize);
+changeModel(
+    scene1,
+    gltfLoader,
+    url,
+    objectModelPosition,
+    ShadowSwitch,
+    LoadingManager
+);
 
-        // 7) Меняем Mesh-материал модели как отдельно, так и внутри Group экстерьер
-        let names = [];
-        for (let i = 0; i < obj.children.length; i++) {
-            names.push(obj.children[i].name);
-        }
-        const materialProperties = names.reduce(function(props, name) {
-            props[name] = createMaterialProperties(name);
-            return props;
-        }, {});
-
-        const namesSet = new Set(names);
-
-        // 8) Функция с моими параметрами материалов экстерьер
-        createMaterialProperties();
-        console.log(materialProperties);
-
-        // 9) Обход загружаемой модели и замена материалов экстерьер
-        obj.traverse(function(child) {
-            if (child.isMesh) {
-                child.castShadow = ShadowSwitch;
-            }
-            // Проверяем, является ли объект child мешем и имеет ли он имя, содержащееся в массиве names
-            if (child.isMesh && namesSet.has(child.name)) {
-                const properties = materialProperties[child.name];
-                // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
-                // Также проверяем, есть ли у свойств объект material
-                if (properties && Object.keys(properties).length > 0 && properties.material) {
-                    // Присваиваем материал из свойств child.material
-                    child.material = properties.material;
-                }
-            }
-            // Проверяем, является ли объект child группой и имеет ли он имя, содержащееся в массиве names
-            else if (child.isGroup && namesSet.has(child.name)) {
-                const groupProperties = materialProperties[child.name];
-                // Проверяем, есть ли свойства для данного имени и не является ли пустым массив свойств
-                // Также проверяем, есть ли у свойств объект material
-                if (groupProperties && Object.keys(groupProperties).length > 0 && groupProperties.material) {
-                    child.traverse(function(groupChild) {
-                        // Проверяем, является ли объект groupChild мешем внутри группы
-                        if (groupChild.isMesh) {
-                            // Присваиваем материал из свойств groupChild.material
-                            groupChild.material = groupProperties.material;
-                            groupChild.castShadow = ShadowSwitch;
-                        }
-                    });
-                }
-            }
-        });
-
-        function setMaterialProperties(material, name) {
-            const properties = materialProperties[name];
-
-            if (properties) {
-                if (properties.color) material.color.set(properties.color);
-                if (properties.roughness) material.roughness = properties.roughness;
-                if (properties.metalness) material.metalness = properties.metalness;
-                // и другие свойства
-            }
-        }
-
-        // 10) Вывод текущих координат камеры в консоль экстерьер
-        window.addEventListener('mouseup', () => {
-            console.log(camera1.position); // Выводим координаты камеры
-        });
-    });
+window.addEventListener('mouseup', () => {
+    console.log(camera1.position); // Выводим координаты камеры
 });
 
 // 11) Пол + Загрузка текстуры бетона экстерьер
@@ -1090,25 +1101,20 @@ const coordinates = [
 function animate() {
     stats.begin();
     labelRenderer.render(scene1, camera1);
-
-
     // Для типонов от Глеба
     // Only animate outerSphere if the animation is not paused
     if (!isAnimationPaused) {
         // Get the elapsed time in seconds
         const elapsedTime = clock.getElapsedTime();
-
         // Calculate the current scale and opacity based on the elapsed time
         let scale = 1 + elapsedTime / duration;
         let opacity = 0.5 * (2 - scale);
-
         // If the animation has completed, reset the clock, scale, and opacity
         if (elapsedTime >= duration) {
             clock.start(); // Reset the clock
             scale = 1;
             opacity = 0.5;
         }
-
         // Set the outer sphere scale and opacity
         sphereMeshAnimate1.scale.set(scale, scale, scale);
         sphereMeshAnimate1.material.opacity = opacity;
@@ -1123,13 +1129,12 @@ function animate() {
     // sphereMeshAnimate2.rotation.y += 0.01;
     sphereMesh1.toneMapping = 1;
     sphereMesh2.toneMapping = 1;
-
-
     renderer.render(scene1, camera1);
     // console.log( renderer.info.render.triangles );
     stats.end();
 
 }
+
 renderer.setAnimationLoop(animate);
 
 // Измененение размера сцены под размер экрана
@@ -1152,6 +1157,8 @@ interiorButton.addEventListener('click', () => {
         const [x, y, z, dur] = coordinates[5];
         MyCoordinates(x, y, z, dur);
         setTimeout(() => {
+            // Отключаем рендер сцены three.js при переходе в aframe
+            renderer.setAnimationLoop(null);
             activeScene = 2;
             aFrameScene.style.opacity = '1';
             aFrameScene.style.height = 'auto';
@@ -1163,6 +1170,8 @@ interiorButton.addEventListener('click', () => {
             animate();
         }, dur * 1000);
     } else {
+        // Включаем рендер сцены three.js при переходе из aframe
+        renderer.setAnimationLoop(animate);
         const [x, y, z, dur] = coordinates[4];
         MyCoordinates(x, y, z, dur);
         activeScene = 1;

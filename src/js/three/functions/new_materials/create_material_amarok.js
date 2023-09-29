@@ -25,7 +25,7 @@ if (screenWidth >= 850) {
 } else {
     mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/49/uv.png';
     mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/49/fara.png';
-    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarok_opt_last/Amarok_low_Material_BaseColor.png';
+    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/49/Main_texture_2.png';
 }
 // sftp://design@62.109.20.91/var/www/html/THREE/3Dmodels/amarok/47/Main_texture_2.png
 function loadTextures() {
@@ -60,7 +60,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     Main_2: {
@@ -73,7 +73,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     main001: {
@@ -91,7 +91,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     Main: {
@@ -104,7 +104,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     main002: {
@@ -117,7 +117,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     main003: {
@@ -130,7 +130,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     main004: {
@@ -143,7 +143,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     tablo: {
@@ -156,7 +156,7 @@ const materials = {
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
-        polygonOffset: true,
+        // polygonOffset: true,
         // polygonOffsetFactor: -4
     },
     Stekla: {
