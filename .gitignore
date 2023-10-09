@@ -47,10 +47,10 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-src/model/
-img/
-model/
-model
+#src/model/
+#img/
+#model/
+#model
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
