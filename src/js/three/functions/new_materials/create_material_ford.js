@@ -19,17 +19,17 @@ let mapNormalKrilo;
 let mapNormalWheel;
 
 if (screenWidth >= 850) {
-    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_clr.png';
-    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_nrm.png';
-    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides.png';
-    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides_nrm.png';
-    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/wheel_nrm.png';
+    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/base_clr.png';
+    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/base_nrm.png';
+    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/sides.png';
+    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/sides_nrm.png';
+    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/wheel_nrm.png';
 } else {
-    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_clr.png';
-    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/base_nrm.png';
-    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides.png';
-    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/sides_nrm.png';
-    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/wheel_nrm.png';
+    mapTextureKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/base_clr.png';
+    mapNormalKuzov = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/base_nrm.png';
+    mapTextureKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/sides.png';
+    mapNormalKrilo = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/sides_nrm.png';
+    mapNormalWheel = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/wheel_nrm.png';
 }
 
 function loadTextures() {
@@ -132,11 +132,11 @@ const materials = {
         // color: 0xff0000,
         roughness: 0.5,
     },
-    // Others: {
-    //     material: CastomMaterial,
-    //     // color: 0xff0000,
-    //     // roughness: 0.5,
-    // },
+    Others: {
+        material: CastomMaterial,
+        color: 0xff0000,
+        // roughness: 0.5,
+    },
     // Interior: {
     //     material: CastomMaterial,
     //     color: 0x626262,

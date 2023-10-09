@@ -8,7 +8,7 @@ function changeModel(scene, modelLoader, urlModel, modelPosition, ShadowOnOff, m
         texture.mapping = THREE.EquirectangularReflectionMapping;
         scene.environment = texture;
         let obj;
-        let positionArray = modelPosition.split(',')
+        let positionArray = modelPosition.split(',');
         let x = parseFloat(positionArray[0]);
         let y = parseFloat(positionArray[1]);
         let z = parseFloat(positionArray[2]);

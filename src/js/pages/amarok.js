@@ -4,12 +4,12 @@ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
-import {createMaterialProperties} from '../three/functions/new_materials/create_material_amarok.js';
+// import {createMaterialProperties} from '../three/functions/new_materials/create_material_amarok.js';
 import Stats from 'stats.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
-import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
+// import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 // import {func} from "three/nodes";
 // import * as AFRAME from "aframe";
 
@@ -45,7 +45,7 @@ import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
 // Тест использования одной функции
 // const myFunction = require('../three/functions/testFunction.js');
 // myFunction('Первый');
-const changeModel = require('../three/functions/testFunction.js');
+const changeModel = require('../three/functions/scanModel.js');
 
 
 // Ширина экрана
@@ -1151,14 +1151,16 @@ window.addEventListener('resize', () => {
 // Переключение между сценами при клике на кнопку с классом ".tech_spec__interior"
 const interiorButton = document.querySelector('.tech_spec__interior');
 const aFrameScene = document.querySelector('a-scene');
+// const Aframerenderer = aFrameScene.renderer;
+// console.log(Aframerenderer);
+// Aframerenderer.setAnimationLoop(null);
+aFrameScene.pause();
 
 interiorButton.addEventListener('click', () => {
     if (activeScene === 1) {
         const [x, y, z, dur] = coordinates[5];
         MyCoordinates(x, y, z, dur);
         setTimeout(() => {
-            // Отключаем рендер сцены three.js при переходе в aframe
-            renderer.setAnimationLoop(null);
             activeScene = 2;
             aFrameScene.style.opacity = '1';
             aFrameScene.style.height = 'auto';
@@ -1166,18 +1168,26 @@ interiorButton.addEventListener('click', () => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             controls1.enabled = false;
+
+            // Отключаем рендер сцены three.js при переходе в aframe
+            aFrameScene.play();
+            // Aframerenderer.setAnimationLoop(aFrameScene.render);
+            renderer.setAnimationLoop(null);
             // controls2.enabled = true;
             animate();
         }, dur * 1000);
     } else {
-        // Включаем рендер сцены three.js при переходе из aframe
-        renderer.setAnimationLoop(animate);
         const [x, y, z, dur] = coordinates[4];
         MyCoordinates(x, y, z, dur);
         activeScene = 1;
         aFrameScene.style.opacity = '0';
         aFrameScene.style.height = '0';
         aFrameScene.style.pointerEvents = 'none';
+
+        // Включаем рендер сцены three.js при переходе из aframe
+        renderer.setAnimationLoop(animate);
+        aFrameScene.pause();
+        // Aframerenderer.setAnimationLoop(null);
         setTimeout(() => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);

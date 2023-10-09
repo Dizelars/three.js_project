@@ -14,8 +14,8 @@ import Stats from 'stats.js';
 // import * as AFRAME from "aframe";
 
 
-const myFunction = require('../three/functions/testFunction.js');
-myFunction('Второй');
+// const myFunction = require('../three/functions/dataMaterials.js');
+// myFunction('Второй');
 
 
 

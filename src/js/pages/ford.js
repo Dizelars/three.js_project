@@ -26,10 +26,12 @@ if (pixelRatio > 1) {
 let url;
 let ShadowSwitch;
 if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/ford.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/ford.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/ford.gltf';
     ShadowSwitch = true;
 } else {
-    url = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/ford.gltf';
+    // url = 'https://coddmac.store/THREE/3Dmodels/ford/Ford_last/ford.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/ford/ford_last_2/ford.gltf';
     ShadowSwitch = false;
 }
 
