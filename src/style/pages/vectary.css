@@ -351,6 +351,8 @@ a-scene {
 }
 
 .auto_park .container {
+    display: flex;
+    justify-content: center;
     position: relative;
     z-index: 1;
 }
@@ -362,6 +364,8 @@ a-scene {
     border-radius: 12px;
     height: 224px;
     padding: 20px;
+    width: min-content;
+    max-width: 100%;
 }
 
 .auto_park__control {

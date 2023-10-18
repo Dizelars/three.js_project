@@ -1,3 +1,5 @@
+import { isAutoplayVideoScreenSize, isElementInViewport, isElementVisible } from "../utils";
+
 document.addEventListener("DOMContentLoaded", function() {
     // Получаем все элементы с классом "burger-menu"
     const burgerMenus = document.querySelectorAll(".burger-menu");
@@ -153,25 +155,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const modelCards = document.querySelectorAll('.garage_model_card');
 
-    modelCards.forEach(card => {
-        let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
-        let mediaWrap = card.querySelector('.garage_model_card .slid_img');
-        let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
+    if (isAutoplayVideoScreenSize()) {
+        setInterval(() => {
+            modelCards.forEach(card => {
+                // Так как метод вызывается в интервале, стоит оптимизировать 2 вызова getBoundingClientRect в методах на один, передавая например опционально в методы проверки готовый rect
+                if (isElementVisible(card) && isElementInViewport(card)) {
+                    let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
+                    let mediaWrap = card.querySelector('.garage_model_card .slid_img');
+                    let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
 
-        card.addEventListener('mouseenter', () => {
-            modelCardVideo.style.display = 'block';
-            modelCardImage.style.display = 'none';
-            mediaWrap.style.background = '#090909 ';
+                    modelCardVideo.style.display = 'block';
+                    modelCardImage.style.display = 'none';
+                    mediaWrap.style.background = '#090909 ';
+                } else {
+                    let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
+                    let mediaWrap = card.querySelector('.garage_model_card .slid_img');
+                    let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
+
+                    modelCardVideo.style.display = 'none';
+                    modelCardImage.style.display = 'block';
+                    mediaWrap.style.background = '';
+                }
+            });
+        }, 200);
+    } else {
+        modelCards.forEach(card => {
+            let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
+            let mediaWrap = card.querySelector('.garage_model_card .slid_img');
+            let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
+    
+            card.addEventListener('mouseenter', () => {
+                modelCardVideo.style.display = 'block';
+                modelCardImage.style.display = 'none';
+                mediaWrap.style.background = '#090909 ';
+            });
+    
+            card.addEventListener('mouseleave', () => {
+                modelCardVideo.style.display = 'none';
+                modelCardImage.style.display = 'block';
+                mediaWrap.style.background = '';
+            });
         });
-
-        card.addEventListener('mouseleave', () => {
-            modelCardVideo.style.display = 'none';
-            modelCardImage.style.display = 'block';
-            mediaWrap.style.background = '';
-        });
-    });
-
-
+    }
 
     // Получаем ссылки футера для плавного скролла
     const footerLinks = document.querySelectorAll('footer.footer_main .footer-menu-links a');
@@ -377,18 +402,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Анимации появления контента на странице при скролле:
-
-    // Функция, которая проверяет, находится ли элемент в области видимости экрана
-    function isElementInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
     // Функция для применения анимаций к элементам секции
     function animateElementsOnScroll(sectionSelector) {
         const elements = document.querySelectorAll(sectionSelector + ' [class*="-animation-"]');

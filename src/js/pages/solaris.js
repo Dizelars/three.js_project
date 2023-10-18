@@ -6,6 +6,7 @@ import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 import gsap from "gsap";
 import {createMaterialProperties} from '../three/functions/new_materials/create_material_solaris_gray.js';
 import Stats from 'stats.js';
+import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper.js';
 // import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
@@ -77,9 +78,9 @@ LoadingManager.onLoad = function() {
 }
 
 let stats = new Stats();
-stats.showPanel(0, 1, 2);
-stats.dom.classList.add('my-stats');
-document.body.appendChild( stats.dom );
+// stats.showPanel(0, 1, 2);
+// stats.dom.classList.add('my-stats');
+// document.body.appendChild( stats.dom );
 
 let activeScene = 1;
 const scene1 = new THREE.Scene();
@@ -322,7 +323,14 @@ window.addEventListener('resize', () => {
 const interiorButton = document.querySelector('.tech_spec__interior');
 const aFrameScene = document.querySelector('a-scene');
 
+const transitionHelper = new InteriorTransitionHelper(interiorButton);
 interiorButton.addEventListener('click', () => {
+    if (transitionHelper.isTransition()) {
+        return;
+    }
+
+    transitionHelper.startTransition();
+
     if (activeScene === 1) {
         const [x, y, z, dur] = coordinates[5];
         MyCoordinates(x, y, z, dur);
@@ -334,6 +342,7 @@ interiorButton.addEventListener('click', () => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             animate();
+            transitionHelper.endTransition();
         }, dur * 1000);
     } else {
         const [x, y, z, dur] = coordinates[4];
@@ -346,6 +355,7 @@ interiorButton.addEventListener('click', () => {
             const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             MyCoordinates(x2, y2, z2, dur2);
             animate();
+            transitionHelper.endTransition();
         }, dur * 1000);
     }
 });

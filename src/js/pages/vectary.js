@@ -1,3 +1,6 @@
+import { GallerySwitchHook } from "../../helpers/gallerySwitchHook";
+import { InteriorTransitionHelper } from "../../helpers/interiorTransitionHelper";
+
 const visibleBlock = document.querySelector('.tech_spec__visible');
 const visibleDescr = document.querySelector('.tech_spec__description');
 const visibleSlide = document.querySelector('.auto_park_wrapper');
@@ -110,7 +113,11 @@ function toggleAutoParkSection() {
     isAutoParkVisible = !isAutoParkVisible;
 }
 
+const transitionHelper = new InteriorTransitionHelper(interior);
 interior.addEventListener('click', () => {
+    if (transitionHelper.isTextChangedOnTransition()) {
+        return;
+    }
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     visibleDescr.classList.toggle('hidden');
     visibleSlide.classList.toggle('hidden');
@@ -124,6 +131,7 @@ interior.addEventListener('click', () => {
         interiorText.textContent = 'В салон';
         interiorBlock.classList.toggle('garage');
     }
+    transitionHelper.onTextChange();
 });
 
 gallery_toggle.forEach((e) => {
@@ -133,99 +141,102 @@ gallery_toggle.forEach((e) => {
     });
 });
 
-// Слайдер
-const slider = document.querySelector('.auto_park_slider');
-const sliderWrapper = slider.querySelector('.auto_park_slider-wrapper');
-const prevButton = slider.querySelector('.prev_button');
-const nextButton = slider.querySelector('.next_button');
+throw new Error("TODO: проверить работает ли здесь GallerySwitchHook")
+new GallerySwitchHook();
+// // Слайдер
+// const slider = document.querySelector('.auto_park_slider');
+// const sliderWrapper = slider.querySelector('.auto_park_slider-wrapper');
+// const prevButton = slider.querySelector('.prev_button');
+// const nextButton = slider.querySelector('.next_button');
 
-// Получаем все слайды внутри слайдера
-const slides = sliderWrapper.querySelectorAll('.gallery_item');
+// // Получаем все слайды внутри слайдера
+// const slides = sliderWrapper.querySelectorAll('.gallery_item');
 
-// Устанавливаем начальное значение индекса текущего слайда
-let currentIndex = 0;
+// // Устанавливаем начальное значение индекса текущего слайда
+// let currentIndex = 0;
 
-// Проверяем и скрываем кнопку предыдущего слайда, если текущий слайд первый
-function checkPrevButton() {
-    if (currentIndex === 0) {
-        prevButton.style.visibility = 'hidden';
-    } else {
-        prevButton.style.visibility = 'visible';
-    }
-}
+// // Проверяем и скрываем кнопку предыдущего слайда, если текущий слайд первый
+// function checkPrevButton() {
+//     if (currentIndex === 0) {
+//         prevButton.style.visibility = 'hidden';
+//     } else {
+//         prevButton.style.visibility = 'visible';
+//     }
+// }
 
-// Проверяем и скрываем кнопку следующего слайда, если текущий слайд последний
-function checkNextButton() {
-    if (currentIndex === slides.length - 1) {
-        nextButton.style.visibility = 'hidden';
-    } else {
-        nextButton.style.visibility = 'visible';
-    }
-}
+// // Проверяем и скрываем кнопку следующего слайда, если текущий слайд последний
+// function checkNextButton() {
+//     console.log(currentIndex, slides.length);
+//     if (currentIndex === slides.length - 1) {
+//         nextButton.style.visibility = 'hidden';
+//     } else {
+//         nextButton.style.visibility = 'visible';
+//     }
+// }
 
-// Перемещаемся на слайд влево
-function slideToPrev() {
-    if (currentIndex > 0) {
-        currentIndex--;
-        const slide = slides[currentIndex];
-        const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
-        const translateAmount = -slideWidth * currentIndex;
-        sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
-    }
-    checkPrevButton();
-    checkNextButton();
-}
+// // Перемещаемся на слайд влево
+// function slideToPrev() {
+//     if (currentIndex > 0) {
+//         currentIndex--;
+//         const slide = slides[currentIndex];
+//         const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
+//         const translateAmount = -slideWidth * currentIndex;
+//         sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+//     }
+//     checkPrevButton();
+//     checkNextButton();
+// }
 
-// Перемещаемся на слайд вправо
-function slideToNext() {
-    if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        const slide = slides[currentIndex];
-        const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
-        const translateAmount = -slideWidth * currentIndex;
-        sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
-    }
-    checkPrevButton();
-    checkNextButton();
-}
+// // Перемещаемся на слайд вправо
+// function slideToNext() {
+//     if (currentIndex < slides.length - 1) {
+//         currentIndex++;
+//         const slide = slides[currentIndex];
+//         const slideWidth = slide.offsetWidth + parseInt(getComputedStyle(slide).marginLeft) + parseInt(getComputedStyle(slide).marginRight);
+//         const translateAmount = -slideWidth * currentIndex;
+//         sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+//     }
+//     checkPrevButton();
+//     checkNextButton();
+// }
 
-// Добавляем обработчики событий на кнопки
-prevButton.addEventListener('click', slideToPrev);
-nextButton.addEventListener('click', slideToNext);
+// // Добавляем обработчики событий на кнопки
+// prevButton.addEventListener('click', slideToPrev);
+// nextButton.addEventListener('click', slideToNext);
 
-// При загрузке страницы проверяем состояние кнопок
-checkPrevButton();
-checkNextButton();
-if (currentIndex === slides.length - 1) {
-    nextButton.style.visibility = 'hidden';
-}
+// // При загрузке страницы проверяем состояние кнопок
+// checkPrevButton();
+// checkNextButton();
+// if (currentIndex === slides.length - 1) {
+//     nextButton.style.visibility = 'hidden';
+// }
 
-// Добавляем обработчики touch events на элемент слайдера
-let startPosX = 0;
-let currentPosX = 0;
+// // Добавляем обработчики touch events на элемент слайдера
+// let startPosX = 0;
+// let currentPosX = 0;
 
-function handleTouchStart(event) {
-    startPosX = event.touches[0].clientX;
-}
+// function handleTouchStart(event) {
+//     startPosX = event.touches[0].clientX;
+// }
 
-function handleTouchMove(event) {
-    event.preventDefault();
-    currentPosX = event.touches[0].clientX;
-    const diff = startPosX - currentPosX;
-    const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginLeft) + parseInt(getComputedStyle(slides[0]).marginRight);
-    const translateAmount = -slideWidth * currentIndex - diff;
-    sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
-}
+// function handleTouchMove(event) {
+//     event.preventDefault();
+//     currentPosX = event.touches[0].clientX;
+//     const diff = startPosX - currentPosX;
+//     const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginLeft) + parseInt(getComputedStyle(slides[0]).marginRight);
+//     const translateAmount = -slideWidth * currentIndex - diff;
+//     sliderWrapper.style.transform = `translate3d(${translateAmount}px, 0, 0)`;
+// }
 
-function handleTouchEnd() {
-    const diff = startPosX - currentPosX;
-    if (diff > 0) {
-        slideToNext();
-    } else if (diff < 0) {
-        slideToPrev();
-    }
-}
+// function handleTouchEnd() {
+//     const diff = startPosX - currentPosX;
+//     if (diff > 0) {
+//         slideToNext();
+//     } else if (diff < 0) {
+//         slideToPrev();
+//     }
+// }
 
-slider.addEventListener('touchstart', handleTouchStart);
-slider.addEventListener('touchmove', handleTouchMove);
-slider.addEventListener('touchend', handleTouchEnd);
+// slider.addEventListener('touchstart', handleTouchStart);
+// slider.addEventListener('touchmove', handleTouchMove);
+// slider.addEventListener('touchend', handleTouchEnd);

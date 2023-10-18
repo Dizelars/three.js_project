@@ -6,6 +6,7 @@ import gsap from "gsap";
 import {createMaterialProperties} from './functions/new_materials/create_material.js';
 import Stats from 'stats.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper.js';
 // import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js';
 // import { RectAreaLightHelper } from 'three/addons/helpers/RectAreaLightHelper.js';
 // import {FirstPersonControls} from "three/addons/controls/FirstPersonControls";
@@ -155,9 +156,9 @@ LoadingManager.onLoad = function() {
 // }
 
 let stats = new Stats();
-stats.showPanel(0, 1, 2); // 0: fps, 1: ms, 2: mb, 3+: custom
-stats.dom.classList.add('my-stats');
-document.body.appendChild( stats.dom );
+// stats.showPanel(0, 1, 2); // 0: fps, 1: ms, 2: mb, 3+: custom
+// stats.dom.classList.add('my-stats');
+// document.body.appendChild( stats.dom );
 
 let activeScene = 1;
 // Сцена экстерьера Амарок
@@ -678,7 +679,14 @@ window.addEventListener('resize', () => {
 const interiorButton = document.querySelector('.tech_spec__interior');
 const aFrameScene = document.querySelector('a-scene');
 
+const transitionHelper = new InteriorTransitionHelper(interiorButton);
 interiorButton.addEventListener('click', () => {
+    if (transitionHelper.isTransition()) {
+        return;
+    }
+
+    transitionHelper.startTransition();
+
     if (activeScene === 1) {
         const [x, y, z, dur] = coordinates[5];
         MyCoordinates(x, y, z, dur);
@@ -692,6 +700,7 @@ interiorButton.addEventListener('click', () => {
             controls1.enabled = false;
             // controls2.enabled = true;
             animate();
+            transitionHelper.endTransition();
         }, dur * 1000);
     } else {
         const [x, y, z, dur] = coordinates[4];
@@ -706,6 +715,7 @@ interiorButton.addEventListener('click', () => {
             controls1.enabled = true;
             // controls2.enabled = false;
             animate();
+            transitionHelper.endTransition();
         }, dur * 1000);
     }
 });

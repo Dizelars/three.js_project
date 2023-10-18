@@ -34,6 +34,7 @@ body.main.overflow {
 }
 
 main.gradient_move {
+    margin-top: -80px;
     overflow: hidden;
 }
 
@@ -42,6 +43,10 @@ main.gradient_move {
     max-width: 1380px;
     margin: 0 auto;
     border-bottom: 1px solid white;
+}
+
+.flex-filler {
+    flex-grow: 1;
 }
 
 .block_blur {
@@ -220,6 +225,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:
 .header_main {
     height: 80px;
     padding: 0 20px;
+    background-color: transparent;
 }
 
 .header_main .header__wrapper, .header_main .header__logo, .header_main .header__info {
@@ -331,6 +337,8 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 
 /* Меню, которое будет появляться */
 .menu {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
@@ -375,7 +383,12 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 }
 
 .menu .container_main {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
     border: none;
+    flex-grow: 1;
 }
 
 /*.menu .container_main.blur {*/
@@ -448,11 +461,6 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 
 .menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_navigation-link.hovered {
     color: #D1D1D1;
-}
-
-.menu .menu-media {
-    position: absolute;
-    bottom: 120px;
 }
 
 .menu .menu-media a[class^="media-"] {
@@ -534,7 +542,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     /* main */
 
 section.main {
-    padding: 60px 20px 0 20px;
+    padding: calc(60px + 80px) 20px 0 20px;
     height: 100vh;
     position: relative;
 }
@@ -1060,6 +1068,9 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     max-width: 100%;
     max-height: 100%;
     border-radius: 10px 10px 0 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .garage_model_card .slid_info {
