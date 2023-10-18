@@ -244,6 +244,15 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo {
     width: 100%;
 }
 
+.header_main .header__logo {
+    z-index: 2;
+    transition: all .5s ease;
+}
+
+/*.header_main .header__logo.active_menu {*/
+/*    z-index: 11;*/
+/*}*/
+
 .header_main .header__logo-text,
 footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text {
     font-family: 'MoscowSans', sans-serif;
@@ -344,7 +353,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 24px 30px 120px 24px;
+    padding: 28px 24px 120px 24px;
     background: #000000;
     transform: translateY(-100%);
     transition: transform 0.5s;
@@ -421,6 +430,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     display: flex;
     align-items: center;
     margin-bottom: 30px;
+    cursor: pointer;
 }
 
 .menu .menu_navigation .menu_navigation-list .menu_navigation-item:not(:last-child) {

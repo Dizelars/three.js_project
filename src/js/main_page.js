@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let menuBtn = document.querySelector('.header__menu');
     let menu = document.querySelector('.menu');
     let blur = document.querySelector('.block_blur');
+    // let headerLogoZindex = document.querySelector('.header_main .header__logo');
     const menuAnimationAdd = document.querySelectorAll('.menu .menu_navigation .menu_navigation-list li[class^="menu_navigation-"], .menu .menu-media a[class^="media-"]');
     // let menuContainer = document.querySelector('.menu .container_main');
     menuBtn.addEventListener('click', function(){
@@ -45,6 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
         menuAnimationAdd.forEach(e => {
             e.classList.toggle('animation');
         });
+        // setTimeout(() => {
+        //     headerLogoZindex.classList.toggle('active_menu');
+        // }, 350);
         // menuContainer.classList.toggle('blur');
     })
 
@@ -118,20 +122,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // ПОЯВЛЕНИЕ видео превью при наведении на список меню.
-
     // Получаем все элементы списка
     const menuItems = document.querySelectorAll('.menu_navigation-item');
 
     // Для каждого элемента списка добавляем обработчики событий
     menuItems.forEach(menuItem => {
         const previewBlock = menuItem.querySelector('.menu_preview-block');
+        const previewVideo = menuItem.querySelector('.menu_preview-block .menu_preview-video');
 
         menuItem.addEventListener('mouseenter', () => {
             previewBlock.style.display = 'block';
+            previewVideo.play();
+            menuItem.style.zIndex = '5';
         });
 
         menuItem.addEventListener('mouseleave', () => {
             previewBlock.style.display = 'none';
+            previewVideo.pause();
+            previewVideo.currentTime = 0;
+            menuItem.style.zIndex = 'unset';
         });
 
         menuItem.addEventListener('mousemove', (event) => {
@@ -152,9 +161,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // ВИДЕО при ховере на карточку .garage_model_card
-
     const modelCards = document.querySelectorAll('.garage_model_card');
-
     if (isAutoplayVideoScreenSize()) {
         setInterval(() => {
             modelCards.forEach(card => {
@@ -186,12 +193,15 @@ document.addEventListener("DOMContentLoaded", function() {
     
             card.addEventListener('mouseenter', () => {
                 modelCardVideo.style.display = 'block';
+                modelCardVideo.play();
                 modelCardImage.style.display = 'none';
                 mediaWrap.style.background = '#090909 ';
             });
     
             card.addEventListener('mouseleave', () => {
                 modelCardVideo.style.display = 'none';
+                modelCardVideo.pause();
+                modelCardVideo.currentTime = 0;
                 modelCardImage.style.display = 'block';
                 mediaWrap.style.background = '';
             });
@@ -275,7 +285,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Выпадание блока Инвентарь
-
     const controlBlock = document.querySelector('.equipment_mobile_control');
     const skillsBlock = document.querySelector('.equipment_mobile_skills');
     const equipmentArrow = document.querySelector('.equipment_mobile_control .equipment_mobile_control-img2');
@@ -375,10 +384,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-
-
-    // Анимация градиента в фетере, изменение интенсивности при движении курсора
-
+    // Анимация градиента в футере, изменение интенсивности при движении курсора
     const container = document.querySelector('footer.footer_main .container_main');
 
     container.addEventListener('mousemove', (e) => {
