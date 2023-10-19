@@ -105,7 +105,9 @@
             <!--            </video>-->
         </div>
         <span id="progress-label">0%</span>
-        <progress id="progress-bar" value="0" max="100"></progress>
+        <div id="hellopreloader_barWrapper">
+            <progress id="progress-bar" value="0" max="100"></progress>
+        </div>
         <label for="progress-bar">Загрузка...</label>
     </div>
 </div>
@@ -235,6 +237,8 @@
     </div>
 </main>
 
+<iframe src="https://app.vectary.com/p/0prXYTTwTrmQUGP3xOBFVx" width="100%" height="100%"></iframe>
+
 <section class="auto_park">
     <div class="container">
         <div class="auto_park_wrapper">
@@ -245,24 +249,24 @@
             <div class="auto_park_slider">
                 <div class="auto_park_slider-overflow">
                     <div class="auto_park_slider-wrapper">
-                        <div class="gallery_item active">
-                            <a class="gallery_item_link" href="#">
+                        <div class="gallery_item">
+                            <a class="gallery_item_link" href="../pages/amarok.html">
                                 <img class="gallery_item-img" src="../img/layout/slider/amarok.png" alt="amarok">
                             </a>
                         </div>
-                        <div class="gallery_item">
-                            <a class="gallery_item_link" href="../pages/ford.html">
+                        <div class="gallery_item active">
+                            <a class="gallery_item_link" href="#">
                                 <img class="gallery_item-img" src="../img/layout/slider/ford.png" alt="ford">
                             </a>
                         </div>
                         <div class="gallery_item">
                             <a class="gallery_item_link" href="../pages/solaris.html">
-                                <img class="gallery_item-img" src="../img/layout/slider/slide_solara_1.png" alt="solaris">
+                                <img class="gallery_item-img" src="../img/layout/slider/solaris_green.png" alt="solaris">
                             </a>
                         </div>
                         <div class="gallery_item">
                             <a class="gallery_item_link" href="../pages/solaris_two.html">
-                                <img class="gallery_item-img" src="../img/layout/slider/solaris_green.png" alt="solaris">
+                                <img class="gallery_item-img" src="../img/layout/slider/solaris_gray.png" alt="solaris">
                             </a>
                         </div>
                         <div class="gallery_item">
@@ -514,6 +518,7 @@
     <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="88"></a-sky>
 </a-scene>
 
+<script src="../js/loader.js"></script>
 <script>
     let currentInfoPanel = null;
 

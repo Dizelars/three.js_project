@@ -9,7 +9,7 @@
     background-color: rgba(0, 0, 0);
 
 
-    display: none;
+    /*display: none;*/
 }
 
 /*ЗАРЕШАЛО ПО АНИМАЦИИ*/
@@ -132,6 +132,7 @@
     margin-bottom: 16px;
 }
 
+#hellopreloader_barWrapper,
 #progress-bar {
     position: relative;
     appearance: none;
@@ -139,18 +140,26 @@
     border: none;
     border-radius: 10px; /* Задает круглые углы */
     overflow: hidden; /* Скрывает прогресс за пределами полоски */
-    background-color: #62a744;
-    box-shadow: 0 0 5px 1px rgba(98, 167, 68, 0.50);
     width: 100%;
     max-width: 400px;
     margin-bottom: 18px;
     height: 6px;
 }
 
-#progress-bar::-webkit-progress-bar {
+#hellopreloader_barWrapper {
     background-color: white;
     box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.50);
 }
+
+#progress-bar::-webkit-progress-bar  {
+    background-color: #62a744;
+    box-shadow: 0 0 5px 1px rgba(98, 167, 68, 0.50);
+}
+
+/*#progress-bar::-webkit-progress-bar {*/
+/*    background-color: white;*/
+/*    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.50);*/
+/*}*/
 
 label {
     color: #ffffff;
