@@ -325,32 +325,32 @@
                 crossorigin="anonymous"
                 importance="low"
         />
-        <img
-                id="hotspot"
-                src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"
-                crossorigin="anonymous"
-        />
+<!--        <img-->
+<!--                id="hotspot"-->
+<!--                src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"-->
+<!--                crossorigin="anonymous"-->
+<!--        />-->
 
-        <img
-                id="crossIcon"
-                src="https://coddmac.store/THREE/360/cross-icon.svg"
-                crossorigin="anonymous"
-                importance="low"
-        />
+<!--        <img-->
+<!--                id="crossIcon"-->
+<!--                src="https://coddmac.store/THREE/360/cross-icon.svg"-->
+<!--                crossorigin="anonymous"-->
+<!--                importance="low"-->
+<!--        />-->
 
-        <img
-                id="text-01"
-                src="https://coddmac.store/THREE/360/text/text-01.svg"
-                crossorigin="anonymous"
-                importance="low"
-        />
+<!--        <img-->
+<!--                id="text-01"-->
+<!--                src="https://coddmac.store/THREE/360/text/text-01.svg"-->
+<!--                crossorigin="anonymous"-->
+<!--                importance="low"-->
+<!--        />-->
 
-        <img
-                id="text-02"
-                src="https://coddmac.store/THREE/360/text/text-02.svg"
-                crossorigin="anonymous"
-                importance="low"
-        />
+<!--        <img-->
+<!--                id="text-02"-->
+<!--                src="https://coddmac.store/THREE/360/text/text-02.svg"-->
+<!--                crossorigin="anonymous"-->
+<!--                importance="low"-->
+<!--        />-->
 
         <a-mixin
                 id="info-sphere"
@@ -358,127 +358,127 @@
                 material="color: #ff0000;"
         ></a-mixin>
 
-        <template id="infoPanel1">
-            <a-plane
-                    color="black"
-                    material="shader: flat"
-                    height="2"
-                    width="4"
-                    position="0 0 0"
-                    rounded="2.8"
-            >
-                <a-image
-                        position="0 0 0.1"
-                        src="#text-02"
-                        width="4"
-                        height="1"
-                        height="0.3"
-                ></a-image>
-                <a-image
-                        position="1.7 0.7 0.1"
-                        src="#crossIcon"
-                        width="0.33"
-                        height="0.33"
-                ></a-image>
-            </a-plane>
-        </template>
+<!--        <template id="infoPanel1">-->
+<!--            <a-plane-->
+<!--                    color="black"-->
+<!--                    material="shader: flat"-->
+<!--                    height="2"-->
+<!--                    width="4"-->
+<!--                    position="0 0 0"-->
+<!--                    rounded="2.8"-->
+<!--            >-->
+<!--                <a-image-->
+<!--                        position="0 0 0.1"-->
+<!--                        src="#text-02"-->
+<!--                        width="4"-->
+<!--                        height="1"-->
+<!--                        height="0.3"-->
+<!--                ></a-image>-->
+<!--                <a-image-->
+<!--                        position="1.7 0.7 0.1"-->
+<!--                        src="#crossIcon"-->
+<!--                        width="0.33"-->
+<!--                        height="0.33"-->
+<!--                ></a-image>-->
+<!--            </a-plane>-->
+<!--        </template>-->
 
-        <template id="infoPanel2">
-            <a-plane
-                    color="black"
-                    material="shader: flat"
-                    height="2"
-                    width="4"
-                    position="0 0 0"
-                    rounded="2.8"
-            >
-                <a-image
-                        position="0 0 0.1"
-                        src="#text-01"
-                        width="4"
-                        height="1"
-                        height="0.3"
-                ></a-image>
-                <a-image
-                        position="1.7 0.7 0.1"
-                        src="#crossIcon"
-                        width="0.33"
-                        height="0.33"
-                ></a-image>
-            </a-plane>
-        </template>
+<!--        <template id="infoPanel2">-->
+<!--            <a-plane-->
+<!--                    color="black"-->
+<!--                    material="shader: flat"-->
+<!--                    height="2"-->
+<!--                    width="4"-->
+<!--                    position="0 0 0"-->
+<!--                    rounded="2.8"-->
+<!--            >-->
+<!--                <a-image-->
+<!--                        position="0 0 0.1"-->
+<!--                        src="#text-01"-->
+<!--                        width="4"-->
+<!--                        height="1"-->
+<!--                        height="0.3"-->
+<!--                ></a-image>-->
+<!--                <a-image-->
+<!--                        position="1.7 0.7 0.1"-->
+<!--                        src="#crossIcon"-->
+<!--                        width="0.33"-->
+<!--                        height="0.33"-->
+<!--                ></a-image>-->
+<!--            </a-plane>-->
+<!--        </template>-->
     </a-assets>
 
     <!-- room teleport hotspots -->
 
-    <a-entity id="spots" hotspots="">
-        <a-entity id="group-room1">
-            <a-image
-                    src="#hotspot"
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:0"
-                    position="0 -2 8"
-                    look-at
-            ></a-image>
+<!--    <a-entity id="spots" hotspots="">-->
+<!--        <a-entity id="group-room1">-->
+<!--            <a-image-->
+<!--                    src="#hotspot"-->
+<!--                    spot="linkto:#room2;spotgroup:group-room2;phiStart:0"-->
+<!--                    position="0 -2 8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
 
-            <a-entity position="0 1 6" look-at rotation="180 0 180">
-                <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
-                <a-entity id="infoPanelContainer1"></a-entity>
-            </a-entity>
+<!--            <a-entity position="0 1 6" look-at rotation="180 0 180">-->
+<!--                <a-entity mixin="info-sphere" id="sphere1"> </a-entity>-->
+<!--                <a-entity id="infoPanelContainer1"></a-entity>-->
+<!--            </a-entity>-->
 
-            <a-entity position="-4.5 -1.75 -8" look-at>
-                <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
-                <a-entity id="infoPanelContainer2"></a-entity>
-            </a-entity>
-        </a-entity>
+<!--            <a-entity position="-4.5 -1.75 -8" look-at>-->
+<!--                <a-entity mixin="info-sphere" id="sphere2"> </a-entity>-->
+<!--                <a-entity id="infoPanelContainer2"></a-entity>-->
+<!--            </a-entity>-->
+<!--        </a-entity>-->
 
-        <a-entity id="group-room2" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room1;spotgroup:group-room1;phiStart:175"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
+<!--        <a-entity id="group-room2" scale="0 0 0">-->
+<!--            <a-image-->
+<!--                    spot="linkto:#room1;spotgroup:group-room1;phiStart:175"-->
+<!--                    src="#hotspot"-->
+<!--                    position="0 1 8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
+<!--        </a-entity>-->
 
-        <a-entity id="group-room3" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:146"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 -8"
-                    look-at
-            ></a-image>
-        </a-entity>
+<!--        <a-entity id="group-room3" scale="0 0 0">-->
+<!--            <a-image-->
+<!--                    spot="linkto:#room2;spotgroup:group-room2;phiStart:146"-->
+<!--                    src="#hotspot"-->
+<!--                    position="0 1 8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
+<!--            <a-image-->
+<!--                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"-->
+<!--                    src="#hotspot"-->
+<!--                    position="0 1 -8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
+<!--        </a-entity>-->
 
-        <a-entity id="group-room4" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
+<!--        <a-entity id="group-room4" scale="0 0 0">-->
+<!--            <a-image-->
+<!--                    spot="linkto:#room3;spotgroup:group-room3;phiStart:120"-->
+<!--                    src="#hotspot"-->
+<!--                    position="0 1 8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
+<!--            <a-image-->
+<!--                    spot="linkto:#room5;spotgroup:group-room5;phiStart:90"-->
+<!--                    src="#hotspot"-->
+<!--                    position="0 1 8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
+<!--        </a-entity>-->
 
-        <a-entity id="group-room5" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
-    </a-entity>
+<!--        <a-entity id="group-room5" scale="0 0 0">-->
+<!--            <a-image-->
+<!--                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"-->
+<!--                    src="#hotspot"-->
+<!--                    position="0 1 8"-->
+<!--                    look-at-->
+<!--            ></a-image>-->
+<!--        </a-entity>-->
+<!--    </a-entity>-->
 
     <a-entity
             id="cam"

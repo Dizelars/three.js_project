@@ -295,34 +295,34 @@
 
         <img
                 id="room1"
-                src="https://coddmac.store/THREE/360/amarok/Interior.jpg"
+                src="https://coddmac.store/codd_garage/360/bus_black/1.jpg"
                 crossorigin="anonymous"
                 importance="high"
         />
         <img
                 id="room2"
-                src="https://coddmac.store/THREE/360/largus/Interior.jpg"
+                src="https://coddmac.store/codd_garage/360/bus_black/2.jpg"
                 crossorigin="anonymous"
                 importance="low"
         />
         <img
                 id="room3"
-                src="https://coddmac.store/BKL/360/Varshavskaya/3.jpg"
+                src="https://coddmac.store/codd_garage/360/bus_black/3.jpg"
                 crossorigin="anonymous"
                 importance="low"
+        />
+        <!-- <img
+          id="room4"
+          src="https://coddmac.store/BKL/360/Varshavskaya/4.jpg"
+          crossorigin="anonymous"
+          importance="low"
         />
         <img
-                id="room4"
-                src="https://coddmac.store/BKL/360/Varshavskaya/4.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="room5"
-                src="https://coddmac.store/BKL/360/Varshavskaya/5.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
+          id="room5"
+          src="https://coddmac.store/BKL/360/Varshavskaya/5.jpg"
+          crossorigin="anonymous"
+          importance="low"
+        /> -->
         <img
                 id="hotspot"
                 src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"
@@ -413,69 +413,78 @@
         <a-entity id="group-room1">
             <a-image
                     src="#hotspot"
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:0"
-                    position="0 -2 8"
+                    spot="linkto:#room2;spotgroup:group-room2;phiStart:280"
+                    position="0 0 -10"
                     look-at
             ></a-image>
 
-            <a-entity position="0 1 6" look-at rotation="180 0 180">
-                <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
-                <a-entity id="infoPanelContainer1"></a-entity>
+            <!-- <a-entity position="0 1 6" look-at rotation="180 0 180">
+              <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
+              <a-entity id="infoPanelContainer1"></a-entity>
             </a-entity>
 
             <a-entity position="-4.5 -1.75 -8" look-at>
-                <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
-                <a-entity id="infoPanelContainer2"></a-entity>
-            </a-entity>
+              <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
+              <a-entity id="infoPanelContainer2"></a-entity>
+            </a-entity> -->
         </a-entity>
 
         <a-entity id="group-room2" scale="0 0 0">
+            <!-- возврат в первую комнату -->
             <a-image
-                    spot="linkto:#room1;spotgroup:group-room1;phiStart:175"
+                    spot="linkto:#room1;spotgroup:group-room1;phiStart:271"
                     src="#hotspot"
-                    position="0 1 8"
+                    position="-0.25 0 10"
+                    look-at
+            ></a-image>
+            <!-- переход в третью комнату -->
+            <a-image
+                    spot="linkto:#room3;spotgroup:group-room3;phiStart:275"
+                    src="#hotspot"
+                    position="0 0 -10"
                     look-at
             ></a-image>
         </a-entity>
 
         <a-entity id="group-room3" scale="0 0 0">
+            <!-- возврат во вторую комнату -->
             <a-image
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:146"
+                    spot="linkto:#room2;spotgroup:group-room2;phiStart:272"
                     src="#hotspot"
-                    position="0 1 8"
+                    position="0 1 10"
                     look-at
             ></a-image>
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 -8"
-                    look-at
-            ></a-image>
+            <!-- <a-image
+              spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
+              src="#hotspot"
+              position="0 1 -8"
+              look-at
+            ></a-image> -->
         </a-entity>
 
-        <a-entity id="group-room4" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
+        <!-- <a-entity id="group-room4" scale="0 0 0">
+          <a-image
+            spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
+            src="#hotspot"
+            position="0 1 8"
+            look-at
+          ></a-image>
+          <a-image
+            spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
+            src="#hotspot"
+            position="0 1 8"
+            look-at
+          ></a-image>
         </a-entity>
 
         <a-entity id="group-room5" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
+          <a-image
+            spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
+            src="#hotspot"
+            position="0 1 8"
+            look-at
+          ></a-image>
+        </a-entity> -->
     </a-entity>
 
     <a-entity
@@ -499,7 +508,10 @@
         ></a-plane>
     </a-entity>
 
-    <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="175"></a-sky>
+    <!-- тут где написано phi-start подбираем точку начала первого кадра
+(куда будет повёрнута камера при загрузке страницы) -->
+
+    <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="271"></a-sky>
 </a-scene>
 
 <script src="../js/loader.js"></script>
