@@ -45,6 +45,11 @@
         font-size: 1.6rem;
     }
 
+    section.situation_centre .garage_model_card .slid_img,
+    section.help_desk .garage_model_card .slid_img {
+        max-width: unset;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper .major_events-3,
     section.situation_centre .situation_centre_grid-wrapper .man_text-7 {
         display: flex;

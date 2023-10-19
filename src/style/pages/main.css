@@ -711,6 +711,8 @@ section.main .main_grid-wrapper .main_button-3 .main_info-link,
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-1,
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-2,
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 .traffic_patrol-animation-3,
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_title .water_patrol-animation-1,
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_title .water_patrol-animation-2,
 section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-1,
 section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-2,
 section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation_centre-animation-3,
@@ -1326,8 +1328,74 @@ section.situation_centre .situation_centre_grid-wrapper .situation-1  .situation
 }
 
 
+/*water_patrol*/
 
-    /*help_desk*/
+section.water_patrol {
+    padding: 60px 20px 0 20px;
+    position: relative;
+}
+
+section.water_patrol .container_main {
+    padding: 0 0 120px 0;
+}
+
+section.water_patrol .container_main .water_patrol_grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, min-content);
+    gap: 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "water_patrol_title water_patrol_card water_patrol_card water_patrol_history water_patrol_history"
+    ". water_patrol_card water_patrol_card water_patrol_text_1 water_patrol_text_2";
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_title {
+    grid-area: water_patrol_title;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_card {
+    grid-area: water_patrol_card;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
+    grid-area: water_patrol_history;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 {
+    grid-area: water_patrol_text_1;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 {
+    grid-area: water_patrol_text_2;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 .water_patrol-text,
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 .water_patrol-text,
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_history_top .water_patrol_history-title {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2rem;;
+    font-weight: 700;
+    line-height: 26px;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_title .water_patrol-animation-1 {
+    animation: BottomToTop 0.2s linear 0.2s forwards;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_title .water_patrol-animation-2 {
+    animation: BottomToTop 0.2s linear 0.5s forwards;
+}
+
+
+/*help_desk*/
 
 section.help_desk {
     padding: 60px 20px 0 20px;

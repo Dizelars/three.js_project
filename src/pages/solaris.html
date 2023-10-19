@@ -103,7 +103,7 @@
         <div id="hellopreloader_barWrapper">
             <progress id="progress-bar" value="0" max="100"></progress>
         </div>
-        <label for="progress-bar">Загрузка...</label>
+        <label for="progress-bar" id="progress_text">Загрузка...</label>
     </div>
 </div>
 
@@ -222,7 +222,7 @@
             </div>
         </div>
     </section>
-    <div class="tech_spec__interior">
+    <div class="tech_spec__interior" id="solaris_green">
         <div class="tech_spec__interior-btn">
             <span class="tech_spec__interior-text">В салон</span>
             <div class="arrow-wrapper">
@@ -290,191 +290,19 @@
             gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
           }
         </script>
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- Начало применения правок к коду -->
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 
         <img
                 id="room1"
-                src="https://coddmac.store/THREE/360/amarok/Interior.jpg"
+                src="https://coddmac.store/codd_garage/360/hyundai_green/1.jpg"
                 crossorigin="anonymous"
                 importance="high"
         />
-        <img
-                id="room2"
-                src="https://coddmac.store/THREE/360/largus/Interior.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="room3"
-                src="https://coddmac.store/BKL/360/Varshavskaya/3.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="room4"
-                src="https://coddmac.store/BKL/360/Varshavskaya/4.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="room5"
-                src="https://coddmac.store/BKL/360/Varshavskaya/5.jpg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-        <img
-                id="hotspot"
-                src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"
-                crossorigin="anonymous"
-        />
-
-        <img
-                id="crossIcon"
-                src="https://coddmac.store/THREE/360/cross-icon.svg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-
-        <img
-                id="text-01"
-                src="https://coddmac.store/THREE/360/text/text-01.svg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-
-        <img
-                id="text-02"
-                src="https://coddmac.store/THREE/360/text/text-02.svg"
-                crossorigin="anonymous"
-                importance="low"
-        />
-
-        <a-mixin
-                id="info-sphere"
-                geometry="primitive: sphere; radius: 0.4;"
-                material="color: #ff0000;"
-        ></a-mixin>
-
-        <template id="infoPanel1">
-            <a-plane
-                    color="black"
-                    material="shader: flat"
-                    height="2"
-                    width="4"
-                    position="0 0 0"
-                    rounded="2.8"
-            >
-                <a-image
-                        position="0 0 0.1"
-                        src="#text-02"
-                        width="4"
-                        height="1"
-                        height="0.3"
-                ></a-image>
-                <a-image
-                        position="1.7 0.7 0.1"
-                        src="#crossIcon"
-                        width="0.33"
-                        height="0.33"
-                ></a-image>
-            </a-plane>
-        </template>
-
-        <template id="infoPanel2">
-            <a-plane
-                    color="black"
-                    material="shader: flat"
-                    height="2"
-                    width="4"
-                    position="0 0 0"
-                    rounded="2.8"
-            >
-                <a-image
-                        position="0 0 0.1"
-                        src="#text-01"
-                        width="4"
-                        height="1"
-                        height="0.3"
-                ></a-image>
-                <a-image
-                        position="1.7 0.7 0.1"
-                        src="#crossIcon"
-                        width="0.33"
-                        height="0.33"
-                ></a-image>
-            </a-plane>
-        </template>
     </a-assets>
 
     <!-- room teleport hotspots -->
-
-    <a-entity id="spots" hotspots="">
-        <a-entity id="group-room1">
-            <a-image
-                    src="#hotspot"
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:0"
-                    position="0 -2 8"
-                    look-at
-            ></a-image>
-
-            <a-entity position="0 1 6" look-at rotation="180 0 180">
-                <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
-                <a-entity id="infoPanelContainer1"></a-entity>
-            </a-entity>
-
-            <a-entity position="-4.5 -1.75 -8" look-at>
-                <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
-                <a-entity id="infoPanelContainer2"></a-entity>
-            </a-entity>
-        </a-entity>
-
-        <a-entity id="group-room2" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room1;spotgroup:group-room1;phiStart:175"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
-
-        <a-entity id="group-room3" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room2;spotgroup:group-room2;phiStart:146"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 -8"
-                    look-at
-            ></a-image>
-        </a-entity>
-
-        <a-entity id="group-room4" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-            <a-image
-                    spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
-
-        <a-entity id="group-room5" scale="0 0 0">
-            <a-image
-                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-                    src="#hotspot"
-                    position="0 1 8"
-                    look-at
-            ></a-image>
-        </a-entity>
-    </a-entity>
 
     <a-entity
             id="cam"
@@ -497,7 +325,10 @@
         ></a-plane>
     </a-entity>
 
-    <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="175"></a-sky>
+    <!-- тут где написано phi-start подбираем точку начала первого кадра
+(куда будет повёрнута камера при загрузке страницы) -->
+
+    <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="91"></a-sky>
 </a-scene>
 
 <script src="../js/loader.js"></script>

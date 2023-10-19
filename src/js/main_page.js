@@ -427,6 +427,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Обработчик события прокрутки
     function handleScroll() {
         animateElementsOnScroll('section.traffic_patrol');
+        animateElementsOnScroll('section.water_patrol');
         animateElementsOnScroll('section.situation_centre');
         animateElementsOnScroll('section.help_desk');
     }

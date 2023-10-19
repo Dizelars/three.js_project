@@ -241,6 +241,8 @@ interior.addEventListener('click', () => {
             interior.classList.toggle('garage_ford');
         } else if (idValue === 'solaris_green') {
             interior.classList.toggle('garage_solaris_green');
+        } else if (idValue === 'solaris_gray') {
+            interior.classList.toggle('garage_solaris_gray');
         } else if (idValue === 'bus') {
             interior.classList.toggle('garage_bus');
         }

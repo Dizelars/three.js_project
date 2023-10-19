@@ -385,6 +385,14 @@ a-scene {
     background-image: url("../img/layout/slider/solaris_green.png");
 }
 
+.tech_spec__interior#solaris_gray {
+    background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
+}
+
+.tech_spec__interior#solaris_gray.garage_solaris_gray {
+    background-image: url("../img/layout/slider/solaris_gray.png");
+}
+
 .tech_spec__interior#bus {
     background: url("../img/layout/amarok_prew.png") no-repeat center/cover;
 }
