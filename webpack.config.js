@@ -225,13 +225,13 @@ module.exports = {
             // chunks: ['amarok'],
             minify: false,
         }),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/pages', 'solaris.html'),
-            filename: 'pages/solaris.html',
-            chunks: ['solaris', 'solaris-style'],
-            // chunks: ['solaris'],
-            minify: false,
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: path.resolve(__dirname, 'src/pages', 'solaris.html'),
+        //     filename: 'pages/solaris.html',
+        //     chunks: ['solaris', 'solaris-style'],
+        //     // chunks: ['solaris'],
+        //     minify: false,
+        // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'solaris_two.html'),
             filename: 'pages/solaris_two.html',

@@ -45,6 +45,7 @@
         font-size: 1.6rem;
     }
 
+    /*section.situation_centre .garage_model_card,*/
     section.situation_centre .garage_model_card .slid_img,
     section.help_desk .garage_model_card .slid_img {
         max-width: unset;
@@ -338,6 +339,7 @@
 
     .garage_model_card .slid_img {
         background: #090909 url("../../img/layout/pages/main/slider/amarok_slide_mini.png") no-repeat top center/cover;
+        max-width: unset;
     }
 
     .garage_model_card .slid_info {
@@ -421,6 +423,29 @@
         font-size: 1.6rem;
         line-height: 26px;
     }
+
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper {
+        /*display: grid;*/
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "water_patrol_title water_patrol_title water_patrol_history water_patrol_history"
+    "water_patrol_card water_patrol_card water_patrol_text_1 water_patrol_text_2"
+    "water_patrol_card water_patrol_card . .";
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
+        padding: 20px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history_top .water_patrol_history-title {
+        font-size: 1.8rem;
+        line-height: 24px;
+    }
+
 
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
@@ -586,8 +611,10 @@
     section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_img img,
     section.situation_centre .situation_centre_grid-wrapper .employ_text .employ_text_img img {
         width: 100%;
-        max-height: 247px;
-        object-fit: cover;
+        height: 100%;
+        max-height: 350px;
+        /*object-fit: cover;*/
+        min-height: 342px;
         object-position: bottom;
     }
 
@@ -825,8 +852,6 @@
         max-height: 336px;
     }
 
-
-
     section.situation_centre .container_main {
         padding: 0 0 100px 0;
     }
@@ -903,6 +928,56 @@
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
         font-size: 1.6rem;
         line-height: 26px;
+    }
+
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper {
+        /*display: grid;*/
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, min-content);
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "water_patrol_title water_patrol_title"
+    "water_patrol_history water_patrol_history"
+    "water_patrol_text_mobile water_patrol_card"
+    "water_patrol_text_mobile water_patrol_card";
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 {
+        display: none;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile {
+        display: block;
+    }
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_title {
+        margin-bottom: 20px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
+        padding: 20px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top {
+        justify-content: unset;
+        align-items: flex-start;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-text {
+        max-width: 250px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history_top .water_patrol_history-title {
+        font-size: 1.8rem;
+        line-height: 24px;
+        margin-right: 34px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text:first-child {
+        margin-bottom: 10px;
     }
 
 
@@ -1632,6 +1707,33 @@
         height: 336px;
     }
 
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper {
+        /*display: grid;*/
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, min-content);
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "water_patrol_title"
+    "water_patrol_history"
+    "water_patrol_card"
+    "water_patrol_text_mobile";
+    }
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top {
+        flex-direction: column;
+    }
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title,
+    section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-text {
+        max-width: none;
+    }
+
+    section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 
 
 

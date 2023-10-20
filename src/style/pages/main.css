@@ -1360,6 +1360,24 @@ section.water_patrol .water_patrol_grid-wrapper .water_patrol_card {
 
 section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
     grid-area: water_patrol_history;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    padding: 20px 45px 20px 20px;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {
+    max-width: 225px;
+}
+
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-text {
+    max-width: 195px;
 }
 
 section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 {
@@ -1370,8 +1388,14 @@ section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 {
     grid-area: water_patrol_text_2;
 }
 
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile {
+    grid-area: water_patrol_text_mobile;
+    display: none;
+}
+
 section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 .water_patrol-text,
 section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 .water_patrol-text,
+section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text,
 section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history-text {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
@@ -1439,7 +1463,7 @@ section.help_desk .help_desk_grid-wrapper {
         "help_desk-1 parkon-2 parkon-2 parkon-2 driver-3"
         ". equipment-4 equipment-4 equipment-4 ."
         ". . . . ."
-        ". slide-5 slide-5 slide-6 slide-6";
+        ". . . slide-5 slide-5";
 }
 
 section.help_desk .help_desk_grid-wrapper .help_desk-1 {

@@ -239,8 +239,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         breakpoints: {
             441: { // when window width is >= 440px
-                slidesPerView: 2,
-                spaceBetween: 20,
+                slidesPerView: "auto",
+                spaceBetween: 24,
             },
             770: { // when window width is >= 768px
                 slidesPerView: "auto",

@@ -90,16 +90,9 @@
 <div class="progress-bar">
     <div class="progress-bar-container">
         <div class="image">
-<!--            <img class="animated" src="/src/img/layout/loader/2.svg" alt="цодд">-->
-<!--            <p class="image-text">ЦОДД</p>-->
             <img class="no_animated" src="/src/img/layout/loader/logo.gif" alt="цодд">
-<!--            <video autoplay muted loop playsinline preload>-->
-<!--                <source src="/src/img/layout/loader/logo.mp4" type="video/mp4">-->
-<!--                <source src="/src/img/layout/loader/logo.webm" type="video/webm">-->
-<!--            </video>-->
         </div>
         <span id="progress-label">0%</span>
-<!--        <progress id="progress-bar" value="0" max="100"></progress>-->
         <div id="hellopreloader_barWrapper">
             <progress id="progress-bar" value="0" max="100"></progress>
         </div>
@@ -259,11 +252,11 @@
                                 <img class="gallery_item-img" src="../img/layout/slider/solaris_green.png" alt="solaris">
                             </a>
                         </div>
-                        <div class="gallery_item">
-                            <a class="gallery_item_link" href="../pages/solaris_two.html">
-                                <img class="gallery_item-img" src="../img/layout/slider/solaris_gray.png" alt="solaris">
-                            </a>
-                        </div>
+<!--                        <div class="gallery_item">-->
+<!--                            <a class="gallery_item_link" href="../pages/solaris_two.html">-->
+<!--                                <img class="gallery_item-img" src="../img/layout/slider/solaris_gray.png" alt="solaris">-->
+<!--                            </a>-->
+<!--                        </div>-->
                         <div class="gallery_item">
                             <a class="gallery_item_link" href="../pages/bus.html">
                                 <img class="gallery_item-img" src="../img/layout/slider/bus.png" alt="bus">
@@ -504,7 +497,55 @@
     <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="175"></a-sky>
 </a-scene>
 
-<script src="../js/loader.js"></script>
+<!--<script src="../js/loader.js"></script>-->
+<script>
+    const LOADING_TIME = 18000;
+    const PERCENT_STEP = 5;
+    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);
+    let percent = 0;
+    let preloader = document.querySelector(".progress-bar");
+    const percentEl = document.getElementById("progress-label");
+    const barEl = document.getElementById("progress-bar");
+    let progressText = document.getElementById("progress_text");
+
+    function countLoad() {
+        barEl.style.width = "0%";
+        percentEl.textContent = `0%`;
+        let countInterval = setInterval(function () {
+            percent += PERCENT_STEP;
+            percentEl.textContent = `${percent}%`;
+            barEl.style.width = `${percent}%`;
+            if (percent >= 20 && percent < 45) {
+                progressText.textContent = 'Экипируемся...';
+            } else if (percent >= 45 && percent < 65) {
+                progressText.textContent = 'Проводим ТО...';
+            }else if (percent >= 65 && percent < 85) {
+                progressText.textContent = 'Моем машину...';
+            } else if (percent >= 85) {
+                progressText.textContent = 'Мы готовы!';
+            }
+            if (percent === 100) {
+                clearInterval(countInterval);
+                setTimeout(function () {
+                    fadeOutnojquery(preloader);
+                }, 100);
+            }
+        }, COUNT_LOAD_TIME);
+    }
+    function fadeOutnojquery(el) {
+        el.style.opacity = 1;
+        let interhellopreloader = setInterval(function () {
+            el.style.opacity = el.style.opacity - 0.05;
+
+            if (el.style.opacity <= 0.05) {
+                clearInterval(interhellopreloader);
+                preloader.style.display = "none";
+            }
+        }, 16);
+    }
+
+    countLoad();
+</script>
 <script>
     setTimeout(() => {
         let currentInfoPanel = null;
