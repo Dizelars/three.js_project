@@ -1896,7 +1896,7 @@ footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contac
     align-items: center;
     padding: 28px 30px;
     text-decoration: none;
-    /*justify-content: space-between;*/
+    justify-content: center;
 }
 
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img.contact-img {

@@ -139,61 +139,61 @@
                             <ul class="tech_spec__outfit-list">
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_1.svg" alt="Огнетушитель">
+                                        <img src="../img/layout/outfit/amarok/outfit_1.svg" alt="Огнетушитель">
                                     </div>
                                     <span class="tech_spec__outfit-text">Огнетушитель</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_2.svg" alt="Аптечка">
+                                        <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка">
                                     </div>
                                     <span class="tech_spec__outfit-text">Аптечка</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_3.svg" alt="Инструменты">
+                                        <img src="../img/layout/outfit/amarok/outfit_3.svg" alt="Инструменты">
                                     </div>
                                     <span class="tech_spec__outfit-text">Инструменты</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_4.svg" alt="Трос">
+                                        <img src="../img/layout/outfit/amarok/outfit_4.svg" alt="Трос">
                                     </div>
                                     <span class="tech_spec__outfit-text">Трос</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_6.svg" alt="Пусковое устройство">
+                                        <img src="../img/layout/outfit/amarok/outfit_6.svg" alt="Пусковое устройство">
                                     </div>
                                     <span class="tech_spec__outfit-text">Пусковое устройство</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_7.svg" alt="Бланки европротокола">
+                                        <img src="../img/layout/outfit/amarok/outfit_7.svg" alt="Бланки европротокола">
                                     </div>
                                     <span class="tech_spec__outfit-text">Бланки европротокола</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_8.svg" alt="Телескопическая лестница">
+                                        <img src="../img/layout/outfit/amarok/outfit_8.svg" alt="Телескопическая лестница">
                                     </div>
                                     <span class="tech_spec__outfit-text">Cкладная лестница</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_9.svg" alt="Домкрат">
+                                        <img src="../img/layout/outfit/amarok/outfit_9.svg" alt="Домкрат">
                                     </div>
                                     <span class="tech_spec__outfit-text">Домкрат</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_10.svg" alt="Дорожные конусы">
+                                        <img src="../img/layout/outfit/amarok/outfit_10.svg" alt="Дорожные конусы">
                                     </div>
                                     <span class="tech_spec__outfit-text">Дорожные конусы</span>
                                 </li>
                                 <li class="tech_spec__outfit-item">
                                     <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/outfit_11.svg" alt="Гайковерт">
+                                        <img src="../img/layout/outfit/amarok/outfit_11.svg" alt="Гайковерт">
                                     </div>
                                     <span class="tech_spec__outfit-text">Гайковерт</span>
                                 </li>
@@ -493,54 +493,54 @@
 </a-scene>
 
 <!--<script src="../js/loader.js"></script>-->
-<script>
-    const LOADING_TIME = 20000;
-    const PERCENT_STEP = 5;
-    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);
-    let percent = 0;
-    let preloader = document.querySelector(".progress-bar");
-    const percentEl = document.getElementById("progress-label");
-    const barEl = document.getElementById("progress-bar");
-    let progressText = document.getElementById("progress_text");
+<!--<script>-->
+<!--    const LOADING_TIME = 20000;-->
+<!--    const PERCENT_STEP = 5;-->
+<!--    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);-->
+<!--    let percent = 0;-->
+<!--    let preloader = document.querySelector(".progress-bar");-->
+<!--    const percentEl = document.getElementById("progress-label");-->
+<!--    const barEl = document.getElementById("progress-bar");-->
+<!--    let progressText = document.getElementById("progress_text");-->
 
-    function countLoad() {
-        barEl.style.width = "0%";
-        percentEl.textContent = `0%`;
-        let countInterval = setInterval(function () {
-            percent += PERCENT_STEP;
-            percentEl.textContent = `${percent}%`;
-            barEl.style.width = `${percent}%`;
-            if (percent >= 20 && percent < 45) {
-                progressText.textContent = 'Экипируемся...';
-            } else if (percent >= 45 && percent < 65) {
-                progressText.textContent = 'Проводим ТО...';
-            }else if (percent >= 65 && percent < 85) {
-                progressText.textContent = 'Моем машину...';
-            } else if (percent >= 85) {
-                progressText.textContent = 'Мы готовы!';
-            }
-            if (percent === 100) {
-                clearInterval(countInterval);
-                setTimeout(function () {
-                    fadeOutnojquery(preloader);
-                }, 100);
-            }
-        }, COUNT_LOAD_TIME);
-    }
-    function fadeOutnojquery(el) {
-        el.style.opacity = 1;
-        let interhellopreloader = setInterval(function () {
-            el.style.opacity = el.style.opacity - 0.05;
+<!--    function countLoad() {-->
+<!--        barEl.style.width = "0%";-->
+<!--        percentEl.textContent = `0%`;-->
+<!--        let countInterval = setInterval(function () {-->
+<!--            percent += PERCENT_STEP;-->
+<!--            percentEl.textContent = `${percent}%`;-->
+<!--            barEl.style.width = `${percent}%`;-->
+<!--            if (percent >= 20 && percent < 45) {-->
+<!--                progressText.textContent = 'Экипируемся...';-->
+<!--            } else if (percent >= 45 && percent < 65) {-->
+<!--                progressText.textContent = 'Проводим ТО...';-->
+<!--            }else if (percent >= 65 && percent < 85) {-->
+<!--                progressText.textContent = 'Моем машину...';-->
+<!--            } else if (percent >= 85) {-->
+<!--                progressText.textContent = 'Мы готовы!';-->
+<!--            }-->
+<!--            if (percent === 100) {-->
+<!--                clearInterval(countInterval);-->
+<!--                setTimeout(function () {-->
+<!--                    fadeOutnojquery(preloader);-->
+<!--                }, 100);-->
+<!--            }-->
+<!--        }, COUNT_LOAD_TIME);-->
+<!--    }-->
+<!--    function fadeOutnojquery(el) {-->
+<!--        el.style.opacity = 1;-->
+<!--        let interhellopreloader = setInterval(function () {-->
+<!--            el.style.opacity = el.style.opacity - 0.05;-->
 
-            if (el.style.opacity <= 0.05) {
-                clearInterval(interhellopreloader);
-                preloader.style.display = "none";
-            }
-        }, 16);
-    }
+<!--            if (el.style.opacity <= 0.05) {-->
+<!--                clearInterval(interhellopreloader);-->
+<!--                preloader.style.display = "none";-->
+<!--            }-->
+<!--        }, 16);-->
+<!--    }-->
 
-    countLoad();
-</script>
+<!--    countLoad();-->
+<!--</script>-->
 <script>
     setTimeout(() => {
         let currentInfoPanel = null;

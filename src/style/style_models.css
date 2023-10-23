@@ -409,7 +409,7 @@ a-scene {
     margin-top: 20px;
     margin-right: 60px;
     /*z-index: 1 !important;*/
-    /*z-index: 1;*/
+    z-index: 1;
 }
 
 .tech_spec__interior#amarok {

@@ -514,54 +514,54 @@
 </a-scene>
 
 <!--<script src="../js/loader.js"></script>-->
-<script>
-    const LOADING_TIME = 20000;
-    const PERCENT_STEP = 5;
-    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);
-    let percent = 0;
-    let preloader = document.querySelector(".progress-bar");
-    const percentEl = document.getElementById("progress-label");
-    const barEl = document.getElementById("progress-bar");
-    let progressText = document.getElementById("progress_text");
+<!--<script>-->
+<!--    const LOADING_TIME = 20000;-->
+<!--    const PERCENT_STEP = 5;-->
+<!--    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);-->
+<!--    let percent = 0;-->
+<!--    let preloader = document.querySelector(".progress-bar");-->
+<!--    const percentEl = document.getElementById("progress-label");-->
+<!--    const barEl = document.getElementById("progress-bar");-->
+<!--    let progressText = document.getElementById("progress_text");-->
 
-    function countLoad() {
-        barEl.style.width = "0%";
-        percentEl.textContent = `0%`;
-        let countInterval = setInterval(function () {
-            percent += PERCENT_STEP;
-            percentEl.textContent = `${percent}%`;
-            barEl.style.width = `${percent}%`;
-            if (percent >= 20 && percent < 45) {
-                progressText.textContent = 'Экипируемся...';
-            } else if (percent >= 45 && percent < 65) {
-                progressText.textContent = 'Проводим ТО...';
-            }else if (percent >= 65 && percent < 85) {
-                progressText.textContent = 'Моем машину...';
-            } else if (percent >= 85) {
-                progressText.textContent = 'Мы готовы!';
-            }
-            if (percent === 100) {
-                clearInterval(countInterval);
-                setTimeout(function () {
-                    fadeOutnojquery(preloader);
-                }, 100);
-            }
-        }, COUNT_LOAD_TIME);
-    }
-    function fadeOutnojquery(el) {
-        el.style.opacity = 1;
-        let interhellopreloader = setInterval(function () {
-            el.style.opacity = el.style.opacity - 0.05;
+<!--    function countLoad() {-->
+<!--        barEl.style.width = "0%";-->
+<!--        percentEl.textContent = `0%`;-->
+<!--        let countInterval = setInterval(function () {-->
+<!--            percent += PERCENT_STEP;-->
+<!--            percentEl.textContent = `${percent}%`;-->
+<!--            barEl.style.width = `${percent}%`;-->
+<!--            if (percent >= 20 && percent < 45) {-->
+<!--                progressText.textContent = 'Экипируемся...';-->
+<!--            } else if (percent >= 45 && percent < 65) {-->
+<!--                progressText.textContent = 'Проводим ТО...';-->
+<!--            }else if (percent >= 65 && percent < 85) {-->
+<!--                progressText.textContent = 'Моем машину...';-->
+<!--            } else if (percent >= 85) {-->
+<!--                progressText.textContent = 'Мы готовы!';-->
+<!--            }-->
+<!--            if (percent === 100) {-->
+<!--                clearInterval(countInterval);-->
+<!--                setTimeout(function () {-->
+<!--                    fadeOutnojquery(preloader);-->
+<!--                }, 100);-->
+<!--            }-->
+<!--        }, COUNT_LOAD_TIME);-->
+<!--    }-->
+<!--    function fadeOutnojquery(el) {-->
+<!--        el.style.opacity = 1;-->
+<!--        let interhellopreloader = setInterval(function () {-->
+<!--            el.style.opacity = el.style.opacity - 0.05;-->
 
-            if (el.style.opacity <= 0.05) {
-                clearInterval(interhellopreloader);
-                preloader.style.display = "none";
-            }
-        }, 16);
-    }
+<!--            if (el.style.opacity <= 0.05) {-->
+<!--                clearInterval(interhellopreloader);-->
+<!--                preloader.style.display = "none";-->
+<!--            }-->
+<!--        }, 16);-->
+<!--    }-->
 
-    countLoad();
-</script>
+<!--    countLoad();-->
+<!--</script>-->
 <script>
     let currentInfoPanel = null;
 
