@@ -1,66 +1,28 @@
 import { GallerySwitchHook } from "../../helpers/gallerySwitchHook";
 import { InteriorTransitionHelper } from "../../helpers/interiorTransitionHelper";
 
-const visibleBlock = document.querySelector('.tech_spec__visible');
+const techSection = document.querySelector('section.tech_spec');
+const autoSection = document.querySelector('section.auto_park');
+const techSpecWrapper = document.querySelector('section.tech_spec .tech_spec__wrapper');
+
+const visibleBlockMission = document.querySelector('.tech_spec__mission');
+const visibleBlockOutfit = document.querySelector('.tech_spec__outfit');
+const techSpecGridWrapper = document.querySelector('.tech_spec__description-grid_wrapper');
+
 const visibleDescr = document.querySelector('.tech_spec__description');
-const visibleSlide = document.querySelector('.auto_park_wrapper');
 const sliderButton = document.querySelectorAll('.auto_park_slider-button button');
 const techSpecWrapperText = document.querySelector('.tech_spec__titles');
 const buttontech = document.querySelector('.tech_spec__btn');
 const buttonText = document.querySelector('.tech_spec__btn span');
 const buttonIcon = document.querySelector('.tech_spec__btn img');
-const buttontechcopied = document.querySelector('.tech_spec__btn-copied');
 const autoParkSection = document.querySelector('.auto_park');
 const autoParkControl = document.querySelector('.auto_park__control');
-const autoParkSlider = document.querySelector('.auto_park_slider');
 const buttonIcon2 = document.querySelector('.auto_park__control img');
 const interior = document.querySelector('.tech_spec__interior');
 const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
-// const interiorBlock = document.querySelector('.tech_spec__interior');
 const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
-// let elementHover = document.querySelectorAll('.tech_spec__btn, .tech_spec__btn img, .tech_spec__btn img.rotate, .tech_spec__interior .arrow-wrapper img, .auto_park__control img, .auto_park__control img.rotate, .gallery_item, .gallery_item.active, .gallery_item img, .gallery_item.active img');
-//
-// elementHover.forEach((e) => {
-//     e.addEventListener('touchstart', function() {
-//         e.classList.add('hover');
-//     });
-//
-//     e.addEventListener('touchend', function() {
-//         e.classList.remove('hover');
-//     });
-// });
-
-
-
-
-// function updateInteriorPosition() {
-//     const screenWidth2 = window.innerWidth;
-//     const screenHeight2 = window.innerHeight;
-//     const interior2 = document.querySelector('.tech_spec__interior');
-//
-//     if (screenWidth2 === 540 && screenHeight2 === 720) {
-//         interior2.style.top = '500px';
-//     } else if (screenWidth2 === 414 && screenHeight2 === 896) {
-//         interior2.style.top = '676px';
-//     } else if (screenWidth2 === 412 && (screenHeight2 === 914 || screenHeight2 === 915)) {
-//         interior2.style.top = '696px';
-//     } else if (screenWidth2 === 390 && screenHeight2 === 844) {
-//         interior2.style.top = '625px';
-//     } else if (screenWidth2 === 375 && screenHeight2 === 667) {
-//         interior2.style.top = '448px';
-//     } else if (screenWidth2 === 360 && screenHeight2 === 740) {
-//         interior2.style.top = '522px';
-//     } else {
-//         // Добавьте обработку остальных случаев или значение по умолчанию
-//         interior2.style.top = 'inherit';
-//     }
-// }
-// // Вызовите функцию для первоначального обновления положения интерьера
-// updateInteriorPosition();
-// // Добавьте обработчик события resize для отслеживания изменений размеров окна страницы
-// window.addEventListener('resize', updateInteriorPosition);
+// const screenHeight = window.innerHeight;
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
 
@@ -74,7 +36,13 @@ document.addEventListener('mousedown', (event) => {
 
     if (!isInsideTechSpec) {
         // Скрываем блок .tech_spec__visible и выполняем необходимые действия
-        visibleBlock.classList.add('hidden');
+        techSection.classList.add('active');
+        visibleBlockMission.classList.add('hidden');
+        visibleBlockOutfit.classList.add('hidden');
+        techSpecWrapper.classList.add('hidden');
+        techSpecGridWrapper.classList.add('hidden');
+        techSpecWrapperText.classList.add('hidden');
+        visibleDescr.classList.add('hidden');
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
     }
@@ -89,34 +57,21 @@ document.addEventListener('mousedown', (event) => {
 
 // Добавляем обработчик события на клик по кнопке .tech_spec__btn
 buttontech.addEventListener('click', () => {
-    // console.log(techSpecWrapperText);
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
-    visibleBlock.classList.toggle('hidden');
-    // buttonText.textContent = 'Скрыть';
-    // buttonIcon.classList.add('rotate');
+    techSection.classList.toggle('active');
+    visibleBlockMission.classList.toggle('hidden');
+    visibleBlockOutfit.classList.toggle('hidden');
+    techSpecWrapper.classList.toggle('hidden');
+    techSpecGridWrapper.classList.toggle('hidden');
+    techSpecWrapperText.classList.toggle('hidden');
+    visibleDescr.classList.toggle('hidden');
 
-    if (visibleBlock.classList.contains('hidden')) {
+    if (visibleBlockMission.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
-        // window.addEventListener('resize', () => {
-        //     if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 850) {
-        //         techSpecWrapperText.style.height = 'auto';
-        //         buttontechcopied.style.display = 'none';
-        //         buttontech.style.display = 'block';
-        //         interior.style.zIndex = 'auto';
-        //     }
-        // });
     } else {
         buttonText.textContent = 'Скрыть';
         buttonIcon.classList.add('rotate');
-        // window.addEventListener('resize', () => {
-        //     if (window.matchMedia("(orientation: landscape)").matches && screenWidth <= 850) {
-        //         techSpecWrapperText.style.height = '210px';
-        //         buttontechcopied.style.display = 'block';
-        //         buttontech.style.display = 'none';
-        //         interior.style.zIndex = '-1';
-        //     }
-        // });
     }
     // Если блок .auto_park открыт, скрываем его
     if (!isAutoParkVisible) {
@@ -124,22 +79,23 @@ buttontech.addEventListener('click', () => {
     }
 });
 
-// buttontechcopied.addEventListener('click', () => {
-//     buttontech.click();
-// });
-
 
 
 // Обработчик события клика на блок .auto_park__control
 autoParkControl.addEventListener('click', () => {
     // Скрываем блок .tech_spec__visible, если он открыт
-    if (!visibleBlock.classList.contains('hidden')) {
-        visibleBlock.classList.add('hidden');
+    if (!visibleBlockMission.classList.contains('hidden')) {
+        techSection.classList.add('active');
+        visibleBlockMission.classList.add('hidden');
+        visibleBlockOutfit.classList.add('hidden');
+        techSpecWrapper.classList.add('hidden');
+        techSpecGridWrapper.classList.add('hidden');
+        techSpecWrapperText.classList.add('hidden');
+        visibleDescr.classList.add('hidden');
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
-    } else if (visibleBlock.classList.contains('hidden') && (window.matchMedia("(orientation: landscape)").matches)) {
+    } else if (visibleBlockMission.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
         techSpecWrapperText.style.height = 'auto';
-        buttontechcopied.style.display = 'none';
         buttontech.style.display = 'block';
         interior.style.zIndex = 'none';
     }
@@ -147,22 +103,6 @@ autoParkControl.addEventListener('click', () => {
     toggleAutoParkSection();
 });
 
-// Функция для скрытия/отображения блока .auto_park
-// function toggleAutoParkSection() {
-//     if (isAutoParkVisible) {
-//         // Если секция .auto_park видима, скрываем ее
-//         // const sliderHeight = autoParkSlider.offsetHeight;
-//         autoParkSection.style.transform = `translateY(0)`;
-//         buttonIcon2.classList.remove('rotate');
-//     } else {
-//         // Если секция .auto_park скрыта, возвращаем ее обратно
-//         autoParkSection.style.transform = 'translateY(100%)';
-//         buttonIcon2.classList.add('rotate');
-//     }
-//
-//     // Инвертируем флаг видимости секции .auto_park
-//     isAutoParkVisible = !isAutoParkVisible;
-// }
 function toggleAutoParkSection() {
     if (isAutoParkVisible) {
         // Если секция .auto_park видима, скрываем ее
@@ -173,19 +113,6 @@ function toggleAutoParkSection() {
         }
         buttonIcon2.classList.remove('rotate');
     } else {
-        // Если секция .auto_park скрыта, возвращаем ее обратно
-        // if (screenWidth <= 391 && screenHeight <= 845) {
-        //     // autoParkSection.style.transform = 'translateY(72%)';
-        //     autoParkSection.style.transform = 'translateY(74%)';
-        //     // autoParkSection.style.margin = '0';
-        // } else if (screenWidth <= 894 && screenHeight <= 391) {
-        //     // autoParkSection.style.transform = 'translateY(72%)';
-        //     autoParkSection.style.transform = 'translateY(74%)';
-        //     // autoParkSection.style.margin = '0';
-        // } else {
-        //     // autoParkSection.style.transform = 'translateY(100%)';
-        //     autoParkSection.style.transform = 'translateY(74%)';
-        // }
         autoParkSection.style.transform = 'translateY(74%)';
         buttonIcon2.classList.add('rotate');
     }
@@ -194,36 +121,14 @@ function toggleAutoParkSection() {
     isAutoParkVisible = !isAutoParkVisible;
 }
 
-// if (screenWidth <= 894 && screenHeight <= 391) {
-//     autoParkSection.style.transform = 'translateY(72%)';
-//     autoParkSection.style.margin = '0';
-// }
-
-// interior.addEventListener('click', () => {
-//     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
-//     visibleDescr.classList.toggle('hidden');
-//     visibleSlide.classList.toggle('hidden');
-//     sliderButton.forEach(e => {
-//         e.classList.toggle('hidden');
-//     });
-//     if (interiorText.textContent === 'В салон') {
-//         interiorText.textContent = 'В гараж';
-//         if (interior)
-//         interior.classList.toggle('garage');
-//     } else {
-//         interiorText.textContent = 'В салон';
-//         interior.classList.toggle('garage');
-//     }
-// });
-
 const transitionHelper = new InteriorTransitionHelper(interior);
 interior.addEventListener('click', () => {
     if (transitionHelper.isTextChangedOnTransition()) {
         return;
     }
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
-    visibleDescr.classList.toggle('hidden');
-    visibleSlide.classList.toggle('hidden');
+    techSection.classList.toggle('hidden');
+    autoSection.classList.toggle('hidden');
     sliderButton.forEach(e => {
         e.classList.toggle('hidden');
     });
