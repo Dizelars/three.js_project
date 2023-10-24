@@ -172,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
 
                     modelCardVideo.style.display = 'block';
+                    modelCardVideo.play();
                     modelCardImage.style.display = 'none';
                     mediaWrap.style.background = '#090909 ';
                 } else {
@@ -180,6 +181,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
 
                     modelCardVideo.style.display = 'none';
+                    modelCardVideo.pause();
+                    modelCardVideo.currentTime = 0;
                     modelCardImage.style.display = 'block';
                     mediaWrap.style.background = '';
                 }
@@ -207,6 +210,8 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+
 
     // Получаем ссылки футера для плавного скролла
     const footerLinks = document.querySelectorAll('footer.footer_main .footer-menu-links a');

@@ -1,5 +1,6 @@
 import '../../js/layout/script.js';
 import '../../js/loader.js';
+// import '../../js/aframe_code.js';
 // import * as THREE from 'three';
 // import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 // import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';

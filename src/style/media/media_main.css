@@ -266,7 +266,7 @@
         "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
         ". traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
         ". . . ."
-        ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-9";
+        ". . traffic_patrol-no-slide-7 traffic_patrol-no-slide-8";
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6,
@@ -276,8 +276,9 @@
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 {
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 */
+    {
         display: block;
     }
 
@@ -295,7 +296,8 @@
 
     section.traffic_patrol .container_main {
         border-bottom: 1px solid white;
-        padding: 0 20px 120px 20px;
+        /*padding: 0 20px 120px 20px;*/
+        padding: 0 0 120px 0;
     }
 
     section.traffic_patrol .container_main_slider,
@@ -801,8 +803,9 @@
         grid-template-areas:
         "traffic_patrol-1 ."
         "traffic_patrol-text-2 traffic_patrol-text-4"
-        ". slider_button-wrapper"
-        "traffic_patrol-slide-6 traffic_patrol-slide-6"
+        /*". slider_button-wrapper"*/
+        /*"traffic_patrol-slide-6 traffic_patrol-slide-6"*/
+        "traffic_patrol-no-slide-7 traffic_patrol-no-slide-8"
         "traffic_patrol-text-3 traffic_patrol-text-5";
     }
 
@@ -810,28 +813,29 @@
         max-width: 232px;
     }
 
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
-        display: block;
-    }
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6,*/
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {*/
+    /*    display: block;*/
+    /*}*/
 
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 {
-        display: none;
-    }
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,*/
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8*/
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 */
+    /*{*/
+    /*    display: none;*/
+    /*}*/
 
     section.traffic_patrol .traffic_patrol_slider .garage_model_card {
         max-width: 290px;
         height: 336px;
     }
 
-    section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        justify-self: flex-end;
-    }
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {*/
+    /*    position: relative;*/
+    /*    display: flex;*/
+    /*    align-items: flex-end;*/
+    /*    justify-self: flex-end;*/
+    /*}*/
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons button {
         width: 64px;
@@ -1601,7 +1605,8 @@
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2 {
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
         display: block;
     }
 
@@ -1610,6 +1615,7 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-4,
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5,
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8,
     section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
         display: none;
     }

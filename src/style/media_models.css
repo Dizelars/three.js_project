@@ -101,6 +101,62 @@
     /*.tech_spec__titles .text_spec__texts, .tech_spec__mission {*/
     /*    margin-bottom: 20px !important;*/
     /*}*/
+
+
+    /*aframe code style*/
+    .a-dialog {
+        border: 1px solid #ffffff;
+        border-radius: 12px;
+        background: #090909;
+        padding: 18px;
+        max-width: 350px;
+        width: 100%;
+        max-height: 320px;
+        height: 100%;
+    }
+
+    .a-dialog-allow-button,
+    .a-dialog-deny-button,
+    .a-dialog-ok-button {
+        border: 1px solid #ffffff;
+        border-radius: 10px;
+        padding: 16px 20px;
+    }
+
+    .a-dialog-allow-button,
+    .a-dialog-deny-button,
+    .a-dialog-ok-button,
+    .a-dialog-text,
+    .a-https-text {
+        font-family: "MoscowSans", sans-serif;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .a-dialog-deny-button,
+    .a-dialog-ok-button,
+    .a-dialog-text,
+    .a-https-text {
+        color: #ffffff;
+    }
+
+    .a-dialog-text {
+        margin-bottom: 20px;
+    }
+
+    .a-dialog-allow-button {
+        background-color: #ffffff;
+        color: #090909;
+    }
+
+    .a-dialog-deny-button {
+        background-color: #090909;
+    }
+
+    .a-dialog-ok-button {
+        background-color: #090909;
+    }
 }
 
 @media (max-width: 835px) {

@@ -1,5 +1,6 @@
 export const isAutoplayVideoScreenSize = () => {
-  return window.innerWidth <= 835;
+  // return window.innerWidth <= 835;
+  return window.innerWidth <= 1199;
 };
 
 export const isElementVisible = (el) => {
@@ -12,7 +13,7 @@ export const isElementVisible = (el) => {
 };
 
 export const isElementInViewport = (el) => {
-  var rect = el.getBoundingClientRect();
+  let rect = el.getBoundingClientRect();
 
   return (
     rect.top >= 0 &&
