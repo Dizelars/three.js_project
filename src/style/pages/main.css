@@ -1765,22 +1765,6 @@ section.help_desk .help_desk_grid-wrapper .slide-6 {
 
 /*footer*/
 
-/*footer.footer_main {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    height: 300px;*/
-/*}*/
-
-/*footer.footer_main .footer_title {*/
-/*    color: #FFF;*/
-/*    font-family: 'MoscowSans', sans-serif;*/
-/*    font-size: 3.2rem;*/
-/*    font-weight: 700;*/
-/*    line-height: 32px;*/
-/*    text-transform: uppercase;*/
-/*}*/
-
 footer.footer_main {
     padding: 50px 0 60px 0;
     position: relative;
