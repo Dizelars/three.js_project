@@ -351,7 +351,8 @@
         "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
         ". traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
         ". . . ."
-        ". . traffic_patrol-no-slide-7 traffic_patrol-no-slide-8";
+        /*". . traffic_patrol-no-slide-7 traffic_patrol-no-slide-8"*/
+        "traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6,
@@ -366,6 +367,10 @@
     {
         display: block;
     }
+
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {*/
+    /*    max-height: 280px;*/
+    /*}*/
 
     .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.4rem;
@@ -403,10 +408,6 @@
 
     section.traffic_patrol .traffic_patrol-wrapper {
         grid-template-rows: 1fr 1fr 280px
-    }
-
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {
-        max-height: 280px;
     }
 
     section.traffic_patrol .traffic_patrol_slider-wrapper {
@@ -592,6 +593,14 @@
     section.help_desk .help_desk_grid-wrapper .slide-6 {
         /*height: 284px;*/
         height: 100%;
+    }
+
+    section.help_desk .garage_model_card .slid_info {
+        padding: 10px;
+    }
+
+    section.help_desk .garage_model_card .slid_info .slid_info-desc .slid_info-title {
+        font-size: 1.5rem;
     }
 
 
@@ -1169,6 +1178,14 @@
         "skill-8 . .";
         /*padding-top: 22px;*/
         /*border-top: 1px solid white;*/
+    }
+
+    section.help_desk .garage_model_card .slid_info {
+        padding: 10px 20px;
+    }
+
+    section.help_desk .garage_model_card .slid_info .slid_info-desc .slid_info-title {
+        font-size: 1.6rem;
     }
 
     /*section.help_desk .help_desk_grid-wrapper .slide-6 {*/
