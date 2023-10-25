@@ -36,9 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let menuBtn = document.querySelector('.header__menu');
     let menu = document.querySelector('.menu');
     let blur = document.querySelector('.block_blur');
-    // let headerLogoZindex = document.querySelector('.header_main .header__logo');
     const menuAnimationAdd = document.querySelectorAll('.menu .menu_navigation .menu_navigation-list li[class^="menu_navigation-"], .menu .menu-media a[class^="media-"]');
-    // let menuContainer = document.querySelector('.menu .container_main');
     menuBtn.addEventListener('click', function(){
         menu.classList.toggle('active');
         bodyOverflow.classList.toggle('overflow');
@@ -46,10 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         menuAnimationAdd.forEach(e => {
             e.classList.toggle('animation');
         });
-        // setTimeout(() => {
-        //     headerLogoZindex.classList.toggle('active_menu');
-        // }, 350);
-        // menuContainer.classList.toggle('blur');
     })
 
 
@@ -146,7 +140,6 @@ document.addEventListener("DOMContentLoaded", function() {
         menuItem.addEventListener('mousemove', (event) => {
             const xRelativeToItem = event.clientX - menuItem.getBoundingClientRect().left;
             const yRelativeToItem = event.clientY - menuItem.getBoundingClientRect().top;
-
             const previewBlockWidth = previewBlock.offsetWidth;
             const previewBlockHeight = previewBlock.offsetHeight;
 
@@ -162,24 +155,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // ВИДЕО при ховере на карточку .garage_model_card
     const modelCards = document.querySelectorAll('.garage_model_card');
+
     if (isAutoplayVideoScreenSize()) {
         setInterval(() => {
             modelCards.forEach(card => {
+                let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
+                let mediaWrap = card.querySelector('.garage_model_card .slid_img');
+                let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
                 // Так как метод вызывается в интервале, стоит оптимизировать 2 вызова getBoundingClientRect в методах на один, передавая например опционально в методы проверки готовый rect
                 if (isElementVisible(card) && isElementInViewport(card)) {
-                    let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
-                    let mediaWrap = card.querySelector('.garage_model_card .slid_img');
-                    let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
-
                     modelCardVideo.style.display = 'block';
                     modelCardVideo.play();
                     modelCardImage.style.display = 'none';
                     mediaWrap.style.background = '#090909 ';
                 } else {
-                    let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
-                    let mediaWrap = card.querySelector('.garage_model_card .slid_img');
-                    let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
-
                     modelCardVideo.style.display = 'none';
                     modelCardVideo.pause();
                     modelCardVideo.currentTime = 0;
@@ -193,14 +182,14 @@ document.addEventListener("DOMContentLoaded", function() {
             let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
             let mediaWrap = card.querySelector('.garage_model_card .slid_img');
             let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
-    
+
             card.addEventListener('mouseenter', () => {
                 modelCardVideo.style.display = 'block';
                 modelCardVideo.play();
                 modelCardImage.style.display = 'none';
                 mediaWrap.style.background = '#090909 ';
             });
-    
+
             card.addEventListener('mouseleave', () => {
                 modelCardVideo.style.display = 'none';
                 modelCardVideo.pause();
@@ -210,7 +199,6 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
 
 
     // Получаем ссылки футера для плавного скролла
@@ -251,11 +239,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 slidesPerView: "auto",
             },
         }
-
-        // And if we need scrollbar
-        // scrollbar: {
-        //     el: '.swiper-scrollbar',
-        // },
     });
     const swiper2 = new Swiper('.swiper2', {
         // Optional parameters
@@ -263,7 +246,6 @@ document.addEventListener("DOMContentLoaded", function() {
         slidesPerView: "auto",
         spaceBetween: 20,
 
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination2',
         },
@@ -274,7 +256,6 @@ document.addEventListener("DOMContentLoaded", function() {
         slidesPerView: 1,
         spaceBetween: 0,
 
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination3',
         },
@@ -315,54 +296,6 @@ document.addEventListener("DOMContentLoaded", function() {
             equipmentArrow.style.transform = "rotate(180deg)";
         }
     });
-
-
-
-    // Анимация перемещения градиентов при скролле
-    // Функция, которая перемещает псевдоэлемент "before" внутри секции
-//     function moveBeforeElement() {
-//         const section = document.querySelector('section.traffic_patrol');
-//
-//         // Получаем высоту и положение секции относительно окна просмотра
-//         const sectionRect = section.getBoundingClientRect();
-//         const sectionHeight = section.offsetHeight;
-//         const sectionTop = sectionRect.top;
-//
-//         // Вычисляем текущую позицию скролла и процент видимости секции
-//         const scrollPosition = window.scrollY;
-//         const visibilityPercent = Math.min(
-//             (scrollPosition - sectionTop) / sectionHeight * 100,
-//             100
-//         );
-//
-//         // Вычисляем новые позиции элемента before в зависимости от скролла страницы и видимости секции
-//         let newPositionX, newPositionY;
-//         if (scrollPosition > lastScrollPosition) {
-//             // Прокрутка вниз
-//             newPositionX = 100 - visibilityPercent;
-//             newPositionY = 100 - visibilityPercent;
-//         } else {
-//             // Прокрутка вверх
-//             newPositionX = visibilityPercent;
-//             newPositionY = visibilityPercent;
-//         }
-//
-//         // Изменяем свойства top и right для анимации перемещения псевдоэлемента "before"
-//         section.style.setProperty('--before-top', `${newPositionY}%`);
-//         section.style.setProperty('--before-right', `${newPositionX}%`);
-//
-//         // Сохраняем текущую позицию скролла
-//         lastScrollPosition = scrollPosition;
-//     }
-//
-// // Переменная для хранения последней позиции скролла (используется для определения направления прокрутки)
-//     let lastScrollPosition = 0;
-//
-// // Обработчик события скролла, который вызывает функцию перемещения псевдоэлемента "before"
-//     window.addEventListener('scroll', moveBeforeElement);
-//
-// // Вызов функции перемещения псевдоэлемента при загрузке страницы, чтобы элемент начинал перемещаться сразу, если секция видима
-//     moveBeforeElement();
 
     function moveBeforeElement(section) {
         // Генерируем случайные координаты для всех четырех сторон (0-100)
@@ -443,4 +376,3 @@ document.addEventListener("DOMContentLoaded", function() {
 // Вызываем обработчик события прокрутки в начале для проверки видимости элементов при загрузке страницы
     handleScroll();
 });
-

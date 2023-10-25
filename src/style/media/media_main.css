@@ -3,6 +3,25 @@
         max-width: 2000px;
     }
 
+    section.help_desk .help_desk_grid-wrapper .slide-5 {
+        max-width: unset;
+        height: unset;
+    }
+
+    .parentCardForLargeMonitor {
+        height: fit-content;
+    }
+
+    .garage_model_card {
+        width: 100%;
+        height: 100%;
+        max-width: unset;
+    }
+
+    .garage_model_card .slid_img {
+        max-width: unset;
+    }
+
     section.main .main_title {
         font-size: 12rem;
         line-height: 114px;
@@ -23,18 +42,41 @@
         font-size: 1.8rem;
     }
 
-    section.traffic_patrol .traffic_patrol-text {
-        font-size: 2rem;
-        line-height: 26px;
+    section.traffic_patrol .traffic_patrol_grid-wrapper {
+        display: grid;
+        /*grid-template-columns: repeat(5, 1fr);*/
+        /*grid-template-rows: 144px 144px 0 444px;*/
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, min-content);
+        /*grid-template-rows: repeat(4, max-content);*/
+        grid-auto-columns: 1fr;
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "traffic_patrol-1 . traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
+        "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
+        ". . . . ."
+        ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
     }
 
-    .title {
-        font-size: 3.8rem;
-        line-height: 34px;
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER {
+        display: none;
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
+        display: block;
     }
 
     section.traffic_patrol .traffic_patrol-text {
         font-size: 1.8rem;
+        line-height: 26px;
+    }
+
+    .title,
+    section.traffic_patrol .traffic_patrol-title {
+        font-size: 3.8rem;
+        line-height: 38px;
     }
 
     .garage_model_card .slid_info .slid_info-desc .slid_info-title {
@@ -43,12 +85,6 @@
 
     .garage_model_card .slid_info .slid_info-desc .slid_info-text {
         font-size: 1.6rem;
-    }
-
-    /*section.situation_centre .garage_model_card,*/
-    section.situation_centre .garage_model_card .slid_img,
-    section.help_desk .garage_model_card .slid_img {
-        max-width: unset;
     }
 
     section.situation_centre .situation_centre_grid-wrapper .major_events-3,
@@ -69,19 +105,31 @@
     }
 
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
-        font-size: 2rem;
-        line-height: 26px;
-    }
-
-    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
         font-size: 2.2rem;
         line-height: 26px;
     }
 
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-text {
+        max-width: 290px;
+    }
+
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
+        max-width: unset;
+        font-size: 2.2rem;
+        line-height: 26px;
+    }
+
+    section.main .main_grid-wrapper .main_info-text,
+    section.traffic_patrol .traffic_patrol-text,
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,
-    section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text {
-        font-size: 2rem;
-        line-height: 24px;
+    section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 .water_patrol-text,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 .water_patrol-text,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history-text {
+        font-size: 2.4rem;
+        line-height: 26px;
     }
 
     section.help_desk .help_desk_grid-wrapper .equipment-4 .text {
@@ -92,6 +140,10 @@
     section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text, section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content .skill_text {
         font-size: 1.6rem;
         line-height: 18px;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
+        justify-content: unset;
     }
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-title {
@@ -1921,7 +1973,6 @@
 
 
 /*media на высоту экрана*/
-
 @media only screen and (max-height: 740px) {
     .menu {
         padding: 24px;

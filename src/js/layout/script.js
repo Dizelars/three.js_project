@@ -4,11 +4,9 @@ import { InteriorTransitionHelper } from "../../helpers/interiorTransitionHelper
 const techSection = document.querySelector('section.tech_spec');
 const autoSection = document.querySelector('section.auto_park');
 const techSpecWrapper = document.querySelector('section.tech_spec .tech_spec__wrapper');
-
 const visibleBlockMission = document.querySelector('.tech_spec__mission');
 const visibleBlockOutfit = document.querySelector('.tech_spec__outfit');
 const techSpecGridWrapper = document.querySelector('.tech_spec__description-grid_wrapper');
-
 const visibleDescr = document.querySelector('.tech_spec__description');
 const sliderButton = document.querySelectorAll('.auto_park_slider-button button');
 const techSpecWrapperText = document.querySelector('.tech_spec__titles');
@@ -26,6 +24,25 @@ const screenWidth = window.innerWidth;
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
 
+function toggleElements(action) {
+    const elements = [
+        visibleBlockMission,
+        visibleBlockOutfit,
+        techSpecWrapper,
+        techSpecGridWrapper,
+        techSpecWrapperText,
+        visibleDescr
+    ];
+
+    elements.forEach(element => {
+        if (action === 'toggle') {
+            element.classList.toggle('hidden');
+        } else if (action === 'add') {
+            element.classList.add('hidden');
+        }
+    });
+}
+
 // Добавляем обработчик события на весь документ
 document.addEventListener('mousedown', (event) => {
     const target = event.target;
@@ -37,12 +54,7 @@ document.addEventListener('mousedown', (event) => {
     if (!isInsideTechSpec) {
         // Скрываем блок .tech_spec__visible и выполняем необходимые действия
         techSection.classList.add('active');
-        visibleBlockMission.classList.add('hidden');
-        visibleBlockOutfit.classList.add('hidden');
-        techSpecWrapper.classList.add('hidden');
-        techSpecGridWrapper.classList.add('hidden');
-        techSpecWrapperText.classList.add('hidden');
-        visibleDescr.classList.add('hidden');
+        toggleElements('add');
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
     }
@@ -59,12 +71,7 @@ document.addEventListener('mousedown', (event) => {
 buttontech.addEventListener('click', () => {
     // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
     techSection.classList.toggle('active');
-    visibleBlockMission.classList.toggle('hidden');
-    visibleBlockOutfit.classList.toggle('hidden');
-    techSpecWrapper.classList.toggle('hidden');
-    techSpecGridWrapper.classList.toggle('hidden');
-    techSpecWrapperText.classList.toggle('hidden');
-    visibleDescr.classList.toggle('hidden');
+    toggleElements('toggle');
 
     if (visibleBlockMission.classList.contains('hidden')) {
         buttonText.textContent = 'Подробнее';
@@ -79,19 +86,12 @@ buttontech.addEventListener('click', () => {
     }
 });
 
-
-
 // Обработчик события клика на блок .auto_park__control
 autoParkControl.addEventListener('click', () => {
     // Скрываем блок .tech_spec__visible, если он открыт
     if (!visibleBlockMission.classList.contains('hidden')) {
         techSection.classList.add('active');
-        visibleBlockMission.classList.add('hidden');
-        visibleBlockOutfit.classList.add('hidden');
-        techSpecWrapper.classList.add('hidden');
-        techSpecGridWrapper.classList.add('hidden');
-        techSpecWrapperText.classList.add('hidden');
-        visibleDescr.classList.add('hidden');
+        toggleElements('add');
         buttonText.textContent = 'Подробнее';
         buttonIcon.classList.remove('rotate');
     } else if (visibleBlockMission.classList.contains('hidden') && window.matchMedia("(orientation: landscape)").matches) {
@@ -122,55 +122,41 @@ function toggleAutoParkSection() {
 }
 
 const transitionHelper = new InteriorTransitionHelper(interior);
+const idToClassMap = {
+    'amarok': 'garage_amarok',
+    'ford': 'garage_ford',
+    'solaris_green': 'garage_solaris_green',
+    'solaris_gray': 'garage_solaris_gray',
+    'bus': 'garage_bus',
+};
+
 interior.addEventListener('click', () => {
     if (transitionHelper.isTextChangedOnTransition()) {
         return;
     }
-    // Переключаем класс, чтобы показать/скрыть блок .tech_spec__visible с плавной анимацией
+
     techSection.classList.toggle('hidden');
     autoSection.classList.toggle('hidden');
     sliderButton.forEach(e => {
         e.classList.toggle('hidden');
     });
 
-    // Получаем значение атрибута id элемента interior
     const idValue = interior.getAttribute('id');
+    const interiorTextContent = interiorText.textContent;
+    const classToAdd = idToClassMap[idValue];
 
-    if (interiorText.textContent === 'В салон') {
+    if (interiorTextContent === 'В салон') {
         interiorText.textContent = 'В гараж';
-
-        // Применяем класс в зависимости от значения атрибута id
-        if (idValue === 'amarok') {
-            interior.classList.toggle('garage_amarok');
-        } else if (idValue === 'ford') {
-            interior.classList.toggle('garage_ford');
-        } else if (idValue === 'solaris_green') {
-            interior.classList.toggle('garage_solaris_green');
-        } else if (idValue === 'solaris_gray') {
-            interior.classList.toggle('garage_solaris_gray');
-        } else if (idValue === 'bus') {
-            interior.classList.toggle('garage_bus');
-        }
     } else {
         interiorText.textContent = 'В салон';
+    }
 
-        // Убираем классы в зависимости от значения атрибута id
-        if (idValue === 'amarok') {
-            interior.classList.toggle('garage_amarok');
-        } else if (idValue === 'ford') {
-            interior.classList.toggle('garage_ford');
-        } else if (idValue === 'solaris_green') {
-            interior.classList.toggle('garage_solaris_green');
-        } else if (idValue === 'solaris_gray') {
-            interior.classList.toggle('garage_solaris_gray');
-        } else if (idValue === 'bus') {
-            interior.classList.toggle('garage_bus');
-        }
+    if (classToAdd) {
+        interior.classList.toggle(classToAdd);
     }
 
     transitionHelper.onTextChange();
 });
-
 
 gallery_toggle.forEach((e) => {
     e.addEventListener('click', () => {
