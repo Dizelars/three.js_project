@@ -327,6 +327,19 @@
         display: block;
         position: static;
     }
+
+    .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {
+        font-size: 22px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle,
+    .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text-descr {
+        font-size: 14px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__btn {
+        padding: 12px;
+    }
 }
 
 @media (max-width: 380px) {
@@ -341,7 +354,7 @@
 
 @media screen and (max-width:400px) and (max-height:680px) {
     .tech_spec .tech_spec__description {
-        padding: 20px 16px;
+        padding: 10px 16px;
     }
 
     .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
@@ -350,10 +363,15 @@
 
     .tech_spec .tech_spec__mission .tech_spec__text {
         font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .tech_spec__outfit .tech_spec__text {
+        margin-bottom: 10px;
     }
 
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
-        gap: 10px 2px;
+        gap: 8px 2px;
     }
 
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {

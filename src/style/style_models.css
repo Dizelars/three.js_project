@@ -282,7 +282,8 @@ a-scene {
 .tech_spec__subtitle {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    /*font-size: 20px;*/
+    font-size: 18px;
     opacity: 0.4;
 }
 
