@@ -20,14 +20,16 @@ const interior = document.querySelector('.tech_spec__interior');
 const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const screenWidth = window.innerWidth;
+
+const overlay = document.getElementById('overlay');
+let VectaryIframe = document.getElementById('VectaryIframe');
 // const screenHeight = window.innerHeight;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Установка высоты iframe после загрузки страници
-    let VectaryIframe = document.getElementById('VectaryIframe');
+
     let headerHeight = document.querySelector('header.header');
     let headerHeightValue = headerHeight.clientHeight;
-
     VectaryIframe.style.height = `calc(100vh - ${headerHeightValue - 2}px)`;
 
     const IframeObject = {
@@ -58,6 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
     }
+
+
+    // const overlay = document.getElementById('overlay');
+    //
+    // interior.addEventListener('click', () => {
+    //     VectaryIframe.classList.toggle('active');
+    //     overlay.classList.toggle('active');
+    // });
+
 });
 
 
@@ -174,11 +185,17 @@ interior.addEventListener('click', () => {
         return;
     }
 
-    techSection.classList.toggle('hidden');
-    autoSection.classList.toggle('hidden');
-    sliderButton.forEach(e => {
-        e.classList.toggle('hidden');
-    });
+    VectaryIframe.classList.toggle('active');
+    overlay.classList.toggle('active');
+    setTimeout(() => {
+        techSection.classList.toggle('hidden');
+        autoSection.classList.toggle('hidden');
+        VectaryIframe.classList.toggle('active');
+        overlay.classList.toggle('active');
+        sliderButton.forEach(e => {
+            e.classList.toggle('hidden');
+        });
+    }, 1500);
 
     const idValue = interior.getAttribute('id');
     const interiorTextContent = interiorText.textContent;

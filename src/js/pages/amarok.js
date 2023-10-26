@@ -1134,9 +1134,10 @@ interiorButton.addEventListener('click', () => {
     transitionHelper.startTransition();
 
     if (activeScene === 1) {
-        // const [x, y, z, dur] = coordinates[5];
-        // MyCoordinates(x, y, z, dur);
-        // setTimeout(() => {
+        setTimeout(() => {
+            // const [x, y, z, dur] = coordinates[5];
+            // MyCoordinates(x, y, z, dur);
+            // setTimeout(() => {
             activeScene = 2;
             aFrameScene.style.opacity = '1';
             aFrameScene.style.height = 'auto';
@@ -1152,26 +1153,29 @@ interiorButton.addEventListener('click', () => {
             // // controls2.enabled = true;
             // animate();
             transitionHelper.endTransition();
-        // }, dur * 1000);
+            // }, dur * 1000);
+        }, 1500);
     } else {
-        // const [x, y, z, dur] = coordinates[4];
-        // MyCoordinates(x, y, z, dur);
-        activeScene = 1;
-        aFrameScene.style.opacity = '0';
-        aFrameScene.style.height = '0';
-        aFrameScene.style.pointerEvents = 'none';
+        setTimeout(() => {
+            // const [x, y, z, dur] = coordinates[4];
+            // MyCoordinates(x, y, z, dur);
+            activeScene = 1;
+            aFrameScene.style.opacity = '0';
+            aFrameScene.style.height = '0';
+            aFrameScene.style.pointerEvents = 'none';
 
-        // Включаем рендер сцены three.js при переходе из aframe
-        // renderer.setAnimationLoop(animate);
-        aFrameScene.pause();
-        // Aframerenderer.setAnimationLoop(null);
-        // setTimeout(() => {
+            // Включаем рендер сцены three.js при переходе из aframe
+            // renderer.setAnimationLoop(animate);
+            aFrameScene.pause();
+            // Aframerenderer.setAnimationLoop(null);
+            // setTimeout(() => {
             // const [x2, y2, z2, dur2] = initialCameraPosition1.toArray();
             // MyCoordinates(x2, y2, z2, dur2);
             // controls1.enabled = true;
             // // controls2.enabled = false;
             // animate();
             transitionHelper.endTransition();
-        // }, dur * 1000);
+            // }, dur * 1000);
+        }, 1500);
     }
 });

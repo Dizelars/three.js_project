@@ -13,11 +13,11 @@
 /*    display: none;*/
 /*}*/
 
-#Canvas_wrapper {
-    background-color: yellow;
-    width: 100%;
-    height: 100%;
-}
+/*#Canvas_wrapper {*/
+/*    background-color: yellow;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
 a-scene {
     opacity: 0;
@@ -27,6 +27,32 @@ a-scene {
 
 .a-enter-vr.fullscreen .a-enter-vr-button {
     display: none !important;
+}
+
+#VectaryIframe {
+    transform: scale(1);
+    transition: transform 1.5s;
+}
+
+#VectaryIframe.active {
+    transform: scale(1.2);
+}
+
+#overlay {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    z-index: 4;
+    transition: background 1.5s;
+}
+
+#overlay.active {
+    pointer-events: all;
+    background: rgba(0, 0, 0, 1);
 }
 
 /*control*/
@@ -61,48 +87,48 @@ a-scene {
     background-color: #FF69B4;
 }
 
-.Mytext {
-    display: none;
-    max-width: 280px;
-    /*width: 100%;*/
-    height: auto;
-}
+/*.Mytext {*/
+/*    display: none;*/
+/*    max-width: 280px;*/
+/*    !*width: 100%;*!*/
+/*    height: auto;*/
+/*}*/
 
-.tooltip_wrapper {
-    display: flex;
-    background: rgba(9, 9, 9, 0.50);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 16px;
-    padding: 20px;
-    gap: 16px;
-}
+/*.tooltip_wrapper {*/
+/*    display: flex;*/
+/*    background: rgba(9, 9, 9, 0.50);*/
+/*    backdrop-filter: blur(6px);*/
+/*    -webkit-backdrop-filter: blur(6px);*/
+/*    border-radius: 16px;*/
+/*    padding: 20px;*/
+/*    gap: 16px;*/
+/*}*/
 
-.tooltip {
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    color: white;
-}
+/*.tooltip {*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    font-size: 18px;*/
+/*    font-weight: 300;*/
+/*    color: white;*/
+/*}*/
 
-.tooltip_wrapper svg {
-    min-width: min-content;
-}
+/*.tooltip_wrapper svg {*/
+/*    min-width: min-content;*/
+/*}*/
 
-.Mytext.show {
-    display: block;
-}
+/*.Mytext.show {*/
+/*    display: block;*/
+/*}*/
 
-.Mytext.hide {
-    display: none;
-}
+/*.Mytext.hide {*/
+/*    display: none;*/
+/*}*/
 
 
 /*header*/
 
 .header {
     position: relative;
-    z-index: 1;
+    z-index: 5;
     background-color: #090909;
 
 }
