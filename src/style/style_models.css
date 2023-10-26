@@ -509,6 +509,7 @@ a-scene {
     transition: transform 0.3s ease;
     /*transform: translateY(100%);*/
     transform: translateY(74%);
+    pointer-events: none;
 }
 
 .auto_park.hidden {
@@ -533,6 +534,7 @@ a-scene {
     padding: 20px;
     width: min-content;
     max-width: 100%;
+    pointer-events: all;
 }
 
 .auto_park__control {

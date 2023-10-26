@@ -33,6 +33,16 @@ body.main.overflow {
     /*filter: blur(5px);*/
 }
 
+body::-webkit-scrollbar {
+    background-color: #090909;
+    width: 0.4em; /* Ширина полосы прокрутки (по желанию) */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #62a744;
+    border-radius: 10px;
+}
+
 main.gradient_move {
     margin-top: -80px;
     overflow: hidden;
