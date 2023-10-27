@@ -483,6 +483,7 @@ a-scene {
 
 .tech_spec__interior#kater {
     background: url("../img/layout/bus_prew.png") no-repeat center/cover;
+    display: none;
 }
 
 .tech_spec__interior#bus.garage_kater {
