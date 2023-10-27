@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
             AR_ON: 'https://app.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
             AR_OFF: 'https://app.vectary.com/p/1DxEomvLdgsZvxHG7bCbrG'
         },
+        'kater_iframe': {
+            AR_ON: 'https://app.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
+            AR_OFF: 'https://app.vectary.com/p/5o5bNVoXf9Dvf9xOzfGvqq'
+        },
+
     };
 
     let VectaryIframeClass = VectaryIframe.classList[0];
@@ -178,6 +183,7 @@ const idToClassMap = {
     'solaris_green': 'garage_solaris_green',
     'solaris_gray': 'garage_solaris_gray',
     'bus': 'garage_bus',
+    'kater': 'garage_kater',
 };
 
 interior.addEventListener('click', () => {

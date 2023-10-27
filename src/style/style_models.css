@@ -481,6 +481,14 @@ a-scene {
     background-image: url("../img/layout/slider/bus.png");
 }
 
+.tech_spec__interior#kater {
+    background: url("../img/layout/bus_prew.png") no-repeat center/cover;
+}
+
+.tech_spec__interior#bus.garage_kater {
+    background-image: url("../img/layout/slider/bus.png");
+}
+
 /*.tech_spec__interior:hover .arrow-wrapper img {*/
 /*    margin-left: 3px;*/
 /*}*/
