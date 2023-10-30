@@ -486,9 +486,27 @@ a-scene {
     display: none;
 }
 
-.tech_spec__interior#bus.garage_kater {
+.tech_spec__interior#kater.garage_kater {
     background-image: url("../img/layout/slider/bus.png");
 }
+
+/*.tech_spec__interior#moskvich {*/
+/*    background: url("../img/layout/moskvich_prew.png") no-repeat center/cover;*/
+/*    display: none;*/
+/*}*/
+
+/*.tech_spec__interior#moskvich.garage_moskvich {*/
+/*    background-image: url("../img/layout/slider/moskvich.png");*/
+/*}*/
+
+/*.tech_spec__interior#velo {*/
+/*    background: url("../img/layout/velo_prew.png") no-repeat center/cover;*/
+/*    display: none;*/
+/*}*/
+
+/*.tech_spec__interior#velo.garage_velo {*/
+/*    background-image: url("../img/layout/slider/velo.png");*/
+/*}*/
 
 /*.tech_spec__interior:hover .arrow-wrapper img {*/
 /*    margin-left: 3px;*/

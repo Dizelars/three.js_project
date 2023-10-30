@@ -53,6 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
             AR_ON: 'https://app.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
             AR_OFF: 'https://app.vectary.com/p/5o5bNVoXf9Dvf9xOzfGvqq'
         },
+        // 'moskvich_iframe': {
+        //     AR_ON: '',
+        //     AR_OFF: ''
+        // },
+        // 'velo_iframe': {
+        //     AR_ON: '',
+        //     AR_OFF: ''
+        // },
 
     };
 
