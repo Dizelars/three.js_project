@@ -73,15 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
     }
-
-
-    // const overlay = document.getElementById('overlay');
-    //
-    // interior.addEventListener('click', () => {
-    //     VectaryIframe.classList.toggle('active');
-    //     overlay.classList.toggle('active');
-    // });
-
 });
 
 
@@ -129,6 +120,27 @@ document.addEventListener('mousedown', (event) => {
         }
     }
 });
+
+// Обработка клика по iframe от Влада.
+const subscribeToIFrameClicks = () => {
+    setInterval(() => {
+        const activeEl = document.activeElement;
+        if(activeEl && activeEl.id === 'VectaryIframe'){
+            if (buttonText.textContent === 'Скрыть') {
+                // Скрываем блок .tech_spec__visible
+                techSection.classList.add('active');
+                toggleElements('add');
+                buttonText.textContent = 'Подробнее';
+                buttonIcon.classList.remove('rotate');
+            } else if (!isAutoParkVisible) {
+                toggleAutoParkSection();
+            }
+            window.focus();
+        }
+    }, 100);
+}
+
+subscribeToIFrameClicks();
 
 // Добавляем обработчик события на клик по кнопке .tech_spec__btn
 buttontech.addEventListener('click', () => {
