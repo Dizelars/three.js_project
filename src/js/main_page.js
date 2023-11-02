@@ -297,18 +297,51 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    function moveBeforeElement(section) {
-        // Генерируем случайные координаты для всех четырех сторон (0-100)
-        const newPositionTop = Math.random() * 100;
-        const newPositionRight = Math.random() * 100;
-        const newPositionBottom = Math.random() * 100;
-        const newPositionLeft = Math.random() * 100;
+    // const mainContent = document.querySelector('main.gradient_move');
 
-        // Изменяем свойства для анимации перемещения псевдоэлемента "before"
-        section.style.setProperty('--before-top', `${newPositionTop}%`);
-        section.style.setProperty('--before-right', `${newPositionRight}%`);
-        section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
-        section.style.setProperty('--before-left', `${newPositionLeft}%`);
+    // function moveBeforeElement(section) {
+    //     // Генерируем случайные координаты для всех четырех сторон (0-100)
+    //     const newPositionTop = Math.random() * 100;
+    //     const newPositionRight = Math.random() * 100;
+    //     const newPositionBottom = Math.random() * 100;
+    //     const newPositionLeft = Math.random() * 100;
+    //
+    //     // Изменяем свойства для анимации перемещения псевдоэлемента "before"
+    //     section.style.setProperty('--before-top', `${newPositionTop}%`);
+    //     section.style.setProperty('--before-right', `${newPositionRight}%`);
+    //     section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
+    //     section.style.setProperty('--before-left', `${newPositionLeft}%`);
+    // }
+
+    function moveBeforeElement(section) {
+        if (section.classList.contains('help_desk')) {
+            const pseudoElementHeight = 600;
+
+            // Получаем высоту секции
+            const sectionHeight = section.clientHeight;
+
+            // Генерируем случайные координаты в пределах высоты и ширины секции
+            const newPositionTop = Math.random() * (sectionHeight - pseudoElementHeight);
+            const newPositionBottom = newPositionTop + pseudoElementHeight;
+            const newPositionRight = Math.random() * 100;
+            const newPositionLeft = Math.random() * 100;
+
+            // Изменяем свойства для анимации перемещения псевдоэлемента "before"
+            section.style.setProperty('--before-top', `${newPositionTop}px`);
+            section.style.setProperty('--before-bottom', `${newPositionBottom}px`);
+            section.style.setProperty('--before-left', `${newPositionLeft}%`);
+            section.style.setProperty('--before-right', `${newPositionRight}%`);
+        } else {
+            const newPositionTop = Math.random() * 100;
+            const newPositionBottom = Math.random() * 100;
+            const newPositionRight = Math.random() * 100;
+            const newPositionLeft = Math.random() * 100;
+
+            section.style.setProperty('--before-top', `${newPositionTop}%`);
+            section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
+            section.style.setProperty('--before-right', `${newPositionRight}%`);
+            section.style.setProperty('--before-left', `${newPositionLeft}%`);
+        }
     }
 
 // Список секций, к которым применяется анимация

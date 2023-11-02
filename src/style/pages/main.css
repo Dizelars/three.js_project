@@ -372,7 +372,8 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 .menu.active {
     transform: translateY(0);
     z-index: 10;
-    height: 100vh;
+    /*height: 100vh;*/
+    height: 100%;
 }
 
 .menu:before,
@@ -838,7 +839,8 @@ section.traffic_patrol .traffic_patrol_grid-wrapper {
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
         /*"traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6";*/
-        "traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER";
+        /*"traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER traffic_patrol-new_NOSLIDER"*/
+        ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 {
@@ -869,7 +871,8 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER {
     grid-area: traffic_patrol-new_NOSLIDER;
-    display: grid;
+    /*display: grid;*/
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, min-content);
     grid-auto-columns: 1fr;
@@ -897,12 +900,12 @@ section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {
     grid-area: traffic_patrol-no-slide-7;
-    display: none;
+    /*display: none;*/
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
     grid-area: traffic_patrol-no-slide-8;
-    display: none;
+    /*display: none;*/
 }
 
 /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 {*/
@@ -1470,14 +1473,14 @@ section.help_desk .help_desk_grid-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     /*grid-template-rows: 234px 352px 0 444px;*/
-    grid-template-rows: repeat(4, min-content);
-    gap: 30px 20px;
+    grid-template-rows: repeat(2, min-content);
+    gap: 20px;
     grid-auto-flow: row;
     grid-template-areas:
         "help_desk-1 parkon-2 parkon-2 parkon-2 driver-3"
-        ". equipment-4 equipment-4 equipment-4 ."
-        ". . . . ."
-        ". . . slide-5 slide-5";
+        /*". equipment-4 equipment-4 equipment-4 ."*/
+        /*". . . . ."*/
+        ". slide-moskvich slide-moskvich slide-5 slide-5";
 }
 
 section.help_desk .help_desk_grid-wrapper .help_desk-1 {
@@ -1525,9 +1528,18 @@ section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_descr .parkon_text:f
 
 section.help_desk .help_desk_grid-wrapper .driver-3 {
     grid-area: driver-3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text {
+section.help_desk .help_desk_grid-wrapper .сrew {
+    grid-area: сrew;
+}
+
+section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text
+/*section.help_desk .help_desk_grid-wrapper .сrew .сrew_text */
+{
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
@@ -1535,7 +1547,8 @@ section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text {
 }
 
 section.help_desk .help_desk_grid-wrapper .equipment-4 {
-    display: grid;
+    display: none;
+    /*display: grid;*/
     grid-template-columns: repeat(5, 1fr);
     /*grid-template-rows: 29px 151px 151px;*/
     grid-template-rows: repeat(3, min-content);
@@ -1765,8 +1778,8 @@ section.help_desk .help_desk_grid-wrapper .slide-5 {
     height: 444px;
 }
 
-section.help_desk .help_desk_grid-wrapper .slide-6 {
-    grid-area: slide-6;
+section.help_desk .help_desk_grid-wrapper .slide-moskvich {
+    grid-area: slide-moskvich;
     height: 444px;
 }
 
@@ -1941,6 +1954,16 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:
 footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo {
     display: flex;
     align-items: center;
+}
+
+footer.footer_main .secure_transportation {
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

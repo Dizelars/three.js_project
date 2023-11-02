@@ -446,7 +446,7 @@ a-scene {
 }
 
 .tech_spec__interior#amarok.garage_amarok {
-    background-image: url("../img/layout/slider/amarok.png");
+    background-image: url("../img/layout/pages/main/slider/amarok.png");
 }
 
 .tech_spec__interior#ford {
@@ -454,7 +454,7 @@ a-scene {
 }
 
 .tech_spec__interior#ford.garage_ford {
-    background-image: url("../img/layout/slider/ford.png");
+    background-image: url("../img/layout/pages/main/slider/ford.png");
 }
 
 /*.tech_spec__interior#solaris_green {*/
@@ -470,7 +470,7 @@ a-scene {
 }
 
 .tech_spec__interior#solaris_gray.garage_solaris_gray {
-    background-image: url("../img/layout/slider/solaris_gray.png");
+    background-image: url("../img/layout/pages/main/slider/solaris_gray.png");
 }
 
 .tech_spec__interior#bus {
@@ -478,7 +478,7 @@ a-scene {
 }
 
 .tech_spec__interior#bus.garage_bus {
-    background-image: url("../img/layout/slider/bus.png");
+    background-image: url("../img/layout/pages/main/slider/bus.png");
 }
 
 .tech_spec__interior#kater {
@@ -487,7 +487,7 @@ a-scene {
 }
 
 .tech_spec__interior#kater.garage_kater {
-    background-image: url("../img/layout/slider/bus.png");
+    background-image: url("../img/layout/pages/main/slider/kater.png");
 }
 
 /*.tech_spec__interior#moskvich {*/
