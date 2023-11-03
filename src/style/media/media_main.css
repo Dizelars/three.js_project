@@ -674,6 +674,10 @@
         height: 70px;
     }
 
+    footer.footer_main .secure_transportation .secure_transportation__text {
+        font-size: 1.4rem;
+    }
+
 }
 
 @media (max-width: 946px) {
@@ -1546,6 +1550,11 @@
 
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {
         justify-content: center;
+    }
+
+    footer.footer_main .secure_transportation .secure_transportation__text {
+        line-height: 18px;
+        max-width: 232px;
     }
 }
 
