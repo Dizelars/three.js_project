@@ -312,10 +312,10 @@
         padding: 20px 20px 40px 20px;
     }
 
-    .auto_park .auto_park_wrapper .auto_park_slider .gallery_item img {
+    /* .auto_park .auto_park_wrapper .auto_park_slider .gallery_item img {
         width: 140px;
         height: 92px;
-    }
+    } */
 
     .auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {
         bottom: 38px !important;
@@ -642,10 +642,10 @@
         padding: 20px 20px 30px 20px;
     }
 
-    .auto_park .auto_park_wrapper .auto_park_slider .gallery_item img {
+    /* .auto_park .auto_park_wrapper .auto_park_slider .gallery_item img {
         width: 140px;
         height: 92px;
-    }
+    } */
 
     .auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {
         bottom: 38px !important;
