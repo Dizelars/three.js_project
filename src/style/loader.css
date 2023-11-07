@@ -95,6 +95,7 @@
 
 .progress-bar-container .image img.no_animated {
     object-fit: cover;
+    width: 100%;
 }
 
 .progress-bar-container .image-text {

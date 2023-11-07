@@ -490,14 +490,13 @@ a-scene {
     background-image: url("../img/layout/pages/main/slider/kater.png");
 }
 
-/*.tech_spec__interior#moskvich {*/
-/*    background: url("../img/layout/moskvich_prew.png") no-repeat center/cover;*/
-/*    display: none;*/
-/*}*/
+.tech_spec__interior#moskvich {
+    /*background: url("../img/layout/moskvich_prew.png") no-repeat center/cover;*/
+}
 
-/*.tech_spec__interior#moskvich.garage_moskvich {*/
-/*    background-image: url("../img/layout/slider/moskvich.png");*/
-/*}*/
+.tech_spec__interior#moskvich.garage_moskvich {
+    /*background-image: url("../img/layout/slider/moskvich.png");*/
+}
 
 /*.tech_spec__interior#velo {*/
 /*    background: url("../img/layout/velo_prew.png") no-repeat center/cover;*/
