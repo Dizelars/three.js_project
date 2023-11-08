@@ -324,6 +324,14 @@
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
         margin-bottom: 48px;
     }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {
+        margin-right: 6px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
+        padding: 20px 10px 20px 20px;
+    }
 }
 
 @media (max-width: 1100px) {
@@ -576,6 +584,14 @@
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history_top .water_patrol_history-title {
         font-size: 1.8rem;
         line-height: 24px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {
+        margin-right: 0;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
+        padding: 20px;
     }
 
 
