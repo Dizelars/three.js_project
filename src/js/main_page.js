@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 // Список секций, к которым применяется анимация
-    const sections = document.querySelectorAll('section.traffic_patrol, section.situation_centre, section.help_desk');
+    const sections = document.querySelectorAll('section.traffic_patrol, section.situation_centre, section.velo_patrol, section.help_desk');
 
 // Обработчик для вызова функции перемещения псевдоэлемента через интервал для каждой секции
     sections.forEach(section => {
@@ -399,6 +399,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function handleScroll() {
         animateElementsOnScroll('section.traffic_patrol');
         animateElementsOnScroll('section.water_patrol');
+        animateElementsOnScroll('section.velo_patrol');
         animateElementsOnScroll('section.situation_centre');
         animateElementsOnScroll('section.help_desk');
     }

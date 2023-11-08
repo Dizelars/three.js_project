@@ -8,6 +8,8 @@
 /*main*/
 /*traffic_patrol*/
 /*situation_centre*/
+/*water_patrol*/
+/*velo_patrol*/
 /*help_desk*/
 /*footer*/
 
@@ -521,6 +523,10 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
 
 .menu .menu_navigation .menu_navigation-list .menu_navigation-item.animation:nth-child(4) {
     animation: TopToBottom 0.2s linear 1s forwards;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item.animation:nth-child(5) {
+    animation: TopToBottom 0.2s linear 1.2s forwards;
 }
 
 .menu .menu-media .media-wrapper.animation:nth-child(1) {
@@ -1436,6 +1442,114 @@ section.water_patrol .water_patrol_grid-wrapper .water_patrol_title .water_patro
 }
 
 
+/*velo_patrol*/
+
+section.velo_patrol {
+    padding: 60px 20px 0 20px;
+    position: relative;
+}
+
+section.velo_patrol:before {
+    content: ' ';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    /*z-index: 2;*/
+    z-index: -1;
+    pointer-events: none;
+    top: var(--before-top, 0); /* Используем CSS переменную для изменения свойства top */
+    right: var(--before-right, 0); /* Используем CSS переменную для изменения свойства right */
+    bottom: var(--before-bottom, 0); /* Используем CSS переменную для изменения свойства bottom */
+    left: var(--before-left, 0); /* Используем CSS переменную для изменения свойства left */
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+}
+
+section.velo_patrol .container_main {
+    padding: 0 0 120px 0;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-columns: 1fr;
+    gap: 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "velo_patrol_title velo_patrol_about velo_patrol_about velo_patrol_about velo_patrol_text_1"
+    ". velo_patrol_text_2 velo_patrol_text_2 velo_patrol_card velo_patrol_card"
+    ". . . velo_patrol_card velo_patrol_card";
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_title {
+    grid-area: velo_patrol_title;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about {
+    grid-area: velo_patrol_about;
+    padding: 20px 70px 20px 20px;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-subtitle {
+    font-family: 'MoscowSans', sans-serif;
+    color: #FFF;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 26px;
+    margin-bottom: 40px;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr {
+    display: flex;
+    justify-content: space-between;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text,
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_1 p,
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_2 p,
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile p {
+    font-family: 'MoscowSans', sans-serif;
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text:first-child {
+    max-width: 270px;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text:last-child {
+    max-width: 382px;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_1 {
+    grid-area: velo_patrol_text_1;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_2 {
+    grid-area: velo_patrol_text_2;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile {
+    grid-area: velo_patrol_text_mobile;
+    display: none;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_card {
+    grid-area: velo_patrol_card;
+}
+
+section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_title .velo_patrol-animation-1 {
+    animation: BottomToTop 0.2s linear 0.2s forwards;
+}
+
+
 /*help_desk*/
 
 section.help_desk {
@@ -1457,7 +1571,7 @@ section.help_desk:before {
     left: var(--before-left, 0); /* Используем CSS переменную для изменения свойства left */
     border-radius: 100%;
     opacity: 0.3;
-    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #FC762B 0%, rgba(9, 9, 9, 0.00) 100%);
     transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
 }
 
