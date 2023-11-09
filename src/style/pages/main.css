@@ -1621,7 +1621,8 @@ section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
     font-size: 2rem;
     font-weight: 700;
     line-height: 26px;
-    margin-bottom: 70px;
+    /*margin-bottom: 70px;*/
+    margin-bottom: 40px;
     max-width: 520px;
 }
 

@@ -244,6 +244,11 @@
 
     .tech_spec .tech_spec__description {
         padding: 20px;
+        width: 100%;
+        max-width: unset;
+        display: flex;
+        justify-content: center;
+        border-radius: 0 0 30px 30px;
     }
 
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {
@@ -338,6 +343,10 @@
 
     .tech_spec .tech_spec__description .tech_spec__titles.hidden {
         margin-bottom: 14px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        max-width: unset;
     }
 
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {

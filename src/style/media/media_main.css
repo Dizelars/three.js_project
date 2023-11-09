@@ -325,12 +325,43 @@
         margin-bottom: 48px;
     }
 
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_card .garage_model_card,
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_card .garage_model_card {
+        height: unset;
+    }
+
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {
         margin-right: 6px;
     }
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
         padding: 20px 10px 20px 20px;
+    }
+
+    section.velo_patrol .velo_patrol_grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(3, min-content);
+        grid-auto-columns: 1fr;
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+    "velo_patrol_title velo_patrol_about velo_patrol_about velo_patrol_about ."
+    ". velo_patrol_text_mobile velo_patrol_text_mobile velo_patrol_card velo_patrol_card"
+    ". velo_patrol_text_mobile velo_patrol_text_mobile velo_patrol_card velo_patrol_card";
+    }
+
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_1,
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_2 {
+        display: none;
+    }
+
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile {
+        display: block;
+    }
+
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile p:first-child {
+        margin-bottom: 20px;
     }
 }
 
@@ -614,19 +645,6 @@
         padding: 20px 30px 20px 20px;
     }
 
-    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_1,
-    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_2 {
-        display: none;
-    }
-
-    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile {
-        display: block;
-    }
-
-    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile p:first-child {
-        margin-bottom: 20px;
-    }
-
 
 
 
@@ -893,6 +911,10 @@
     /*    line-height: 21px;*/
     /*}*/
 
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+        right: -44px;
+    }
+
     section.help_desk .help_desk_grid-wrapper .parkon-2 {
         padding: 20px;
     }
@@ -1158,6 +1180,11 @@
     "water_patrol_history water_patrol_history"
     "water_patrol_text_mobile water_patrol_card"
     "water_patrol_text_mobile water_patrol_card";
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_card .garage_model_card,
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_card .garage_model_card {
+        height: 100%;
     }
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1,

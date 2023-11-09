@@ -29,12 +29,12 @@ a-scene {
     display: none !important;
 }
 
-#VectaryIframe {
+.VectaryIframe {
     transform: scale(1);
     transition: transform 1.5s;
 }
 
-#VectaryIframe.active {
+.VectaryIframe.active {
     transform: scale(1.2);
 }
 
@@ -212,9 +212,9 @@ a-scene {
     max-width: unset;
 }
 
-.tech_spec__wrapper.hidden {
-    max-width: fit-content;
-}
+/*.tech_spec__wrapper.hidden {*/
+/*    max-width: fit-content;*/
+/*}*/
 
 
 /*Тест стилей grid tech_spec__description*/
@@ -289,7 +289,8 @@ a-scene {
 }
 
 .tech_spec__titles.hidden {
-    margin-bottom: 24px;
+    /*margin-bottom: 24px;*/
+    margin-bottom: 20px;
 }
 
 

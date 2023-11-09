@@ -22,7 +22,7 @@ const interiorText = document.querySelector('.tech_spec__interior-text');
 const screenWidth = window.innerWidth;
 
 const overlay = document.getElementById('overlay');
-let VectaryIframe = document.getElementById('VectaryIframe');
+let VectaryIframe = document.querySelector('.VectaryIframe');
 // const screenHeight = window.innerHeight;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -100,12 +100,13 @@ function toggleElements(action) {
 // Добавляем обработчик события на весь документ
 document.addEventListener('mousedown', (event) => {
     const target = event.target;
+    let screenWidth = window.innerWidth;
 
     // Проверяем, является ли целевой элемент клика блоком .tech_spec или .auto_park_wrapper или их потомком
     const isInsideTechSpec = target.closest('.tech_spec');
     const isInsideAutoParkWrapper = target.closest('.auto_park_wrapper');
 
-    if (!isInsideTechSpec) {
+    if (!isInsideTechSpec || (screenWidth <= 440 && isInsideTechSpec)) {
         // Скрываем блок .tech_spec__visible и выполняем необходимые действия
         techSection.classList.add('active');
         toggleElements('add');
@@ -125,7 +126,7 @@ document.addEventListener('mousedown', (event) => {
 const subscribeToIFrameClicks = () => {
     setInterval(() => {
         const activeEl = document.activeElement;
-        if(activeEl && activeEl.id === 'VectaryIframe'){
+        if(activeEl && activeEl.classList.contains('VectaryIframe')){
             if (buttonText.textContent === 'Скрыть') {
                 // Скрываем блок .tech_spec__visible
                 techSection.classList.add('active');
