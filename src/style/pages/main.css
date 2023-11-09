@@ -1660,113 +1660,113 @@ section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text
     line-height: 24px;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 {
-    display: none;
-    /*display: grid;*/
-    grid-template-columns: repeat(5, 1fr);
-    /*grid-template-rows: 29px 151px 151px;*/
-    grid-template-rows: repeat(3, min-content);
-    gap: 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "text text text text text"
-        "skill-1 skill-2 skill-3 skill-4 skill-5"
-        "skill-6 skill-7 skill-8 skill-9 skill-10";
-    grid-area: equipment-4;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 {*/
+/*    display: none;*/
+/*    !*display: grid;*!*/
+/*    grid-template-columns: repeat(5, 1fr);*/
+/*    !*grid-template-rows: 29px 151px 151px;*!*/
+/*    grid-template-rows: repeat(3, min-content);*/
+/*    gap: 10px;*/
+/*    grid-auto-flow: row;*/
+/*    grid-template-areas:*/
+/*        "text text text text text"*/
+/*        "skill-1 skill-2 skill-3 skill-4 skill-5"*/
+/*        "skill-6 skill-7 skill-8 skill-9 skill-10";*/
+/*    grid-area: equipment-4;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .text {
-    grid-area: text;
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 24px;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .text {*/
+/*    grid-area: text;*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    font-size: 1.6rem;*/
+/*    font-weight: 400;*/
+/*    line-height: 24px;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile {
-    grid-area: equipment_mobile;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile {*/
+/*    grid-area: equipment_mobile;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {
-    grid-area: equipment_mobile-text;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {*/
+/*    grid-area: equipment_mobile-text;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
-    grid-area: equipment_mobile_control;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {*/
+/*    grid-area: equipment_mobile_control;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
-    grid-area: equipment_mobile_skills;
-    /*height: 0;*/
-    overflow: hidden;
-    transition: all .3s ease;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
+/*    grid-area: equipment_mobile_skills;*/
+/*    !*height: 0;*!*/
+/*    overflow: hidden;*/
+/*    transition: all .3s ease;*/
+/*}*/
 
 section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
     grid-area: equipment_mobile-slide;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,*/
 section.help_desk .help_desk_grid-wrapper .equipment_mobile-slide {
     display: none;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile {
-    position: relative;
-    padding: 10px 0;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(6px);
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile {*/
+/*    position: relative;*/
+/*    padding: 10px 0;*/
+/*    background: rgba(255, 255, 255, 0.10);*/
+/*    backdrop-filter: blur(6px);*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile:before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 100%;
-    top: 0;
-    right: -20px;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(6px);
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 20px;*/
+/*    height: 100%;*/
+/*    top: 0;*/
+/*    right: -20px;*/
+/*    background: rgba(255, 255, 255, 0.10);*/
+/*    backdrop-filter: blur(6px);*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile:after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 100%;
-    top: 0;
-    left: -20px;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(6px);
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile:after {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 20px;*/
+/*    height: 100%;*/
+/*    top: 0;*/
+/*    left: -20px;*/
+/*    background: rgba(255, 255, 255, 0.10);*/
+/*    backdrop-filter: blur(6px);*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
-    box-sizing: border-box;
-    padding: 50px 0 20px 0;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
+/*    box-sizing: border-box;*/
+/*    padding: 50px 0 20px 0;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 20px;
-    position: relative;
-    cursor: pointer;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 30px 20px;*/
+/*    position: relative;*/
+/*    cursor: pointer;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"],
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"],
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"],*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"],*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"],
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"],
 .menu .menu-media a[class^="media-"] {
     position: relative;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner,
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img.corner,
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img.corner,
 .menu .menu-media a[class^="media-"] img.corner {
@@ -1777,9 +1777,9 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] 
     left: 0;
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-2,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-2,
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner-2,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-2,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-2,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner-2,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img.corner-2,
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img.corner-2,
 .menu .menu-media a[class^="media-"] img.corner-2 {
@@ -1791,9 +1791,9 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] 
     transform: rotate(90deg);
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-3,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-3,
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner-3,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-3,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-3,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner-3,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img.corner-3,
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img.corner-3,
 .menu .menu-media a[class^="media-"] img.corner-3 {
@@ -1805,9 +1805,9 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] 
     transform: rotate(270deg);
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-4,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-4,
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner-4,
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control img.corner-4,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] img.corner-4,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] img.corner-4,*/
 footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] img.corner-4,
 footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] img.corner-4,
 .menu .menu-media a[class^="media-"] img.corner-4 {
@@ -1819,73 +1819,76 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"] 
     transform: rotate(180deg);
 }
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8px 0;
-    width: 100%;
-    height: 100%;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content */
+/*{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    padding: 8px 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content img {
-    width: 48px;
-    height: 48px;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content img */
+/*{*/
+/*    width: 48px;*/
+/*    height: 48px;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text,
-section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content .skill_text {
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    line-height: 16px;
-    text-align: center;
-    width: 126px;
-    height: 32px;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text,*/
+/*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills div[class^="skill-"] .skill_content .skill_text */
+/*{*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    font-size: 1.3rem;*/
+/*    font-weight: 400;*/
+/*    line-height: 16px;*/
+/*    text-align: center;*/
+/*    width: 126px;*/
+/*    height: 32px;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-1 {
-    grid-area: skill-1;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-1 {*/
+/*    grid-area: skill-1;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-2 {
-    grid-area: skill-2;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-2 {*/
+/*    grid-area: skill-2;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-3 {
-    grid-area: skill-3;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-3 {*/
+/*    grid-area: skill-3;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-4 {
-    grid-area: skill-4;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-4 {*/
+/*    grid-area: skill-4;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-5 {
-    grid-area: skill-5;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-5 {*/
+/*    grid-area: skill-5;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-6 {
-    grid-area: skill-6;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-6 {*/
+/*    grid-area: skill-6;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-7 {
-    grid-area: skill-7;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-7 {*/
+/*    grid-area: skill-7;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-8 {
-    grid-area: skill-8;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-8 {*/
+/*    grid-area: skill-8;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-9 {
-    grid-area: skill-9;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-9 {*/
+/*    grid-area: skill-9;*/
+/*}*/
 
-section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-10 {
-    grid-area: skill-10;
-}
+/*section.help_desk .help_desk_grid-wrapper .equipment-4 .skill-10 {*/
+/*    grid-area: skill-10;*/
+/*}*/
 
 section.help_desk .help_desk_grid-wrapper .slide-5 {
     grid-area: slide-5;

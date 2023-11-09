@@ -271,31 +271,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Выпадание блока Инвентарь
-    const controlBlock = document.querySelector('.equipment_mobile_control');
-    const skillsBlock = document.querySelector('.equipment_mobile_skills');
-    const equipmentArrow = document.querySelector('.equipment_mobile_control .equipment_mobile_control-img2');
-
-    // Скрываем блок skills по умолчанию
-    skillsBlock.style.height = '0';
-    skillsBlock.style.padding = '0';
-    equipmentArrow.style.transform = "rotate(0)";
-
-    // Добавляем обработчик клика на controlBlock
-    controlBlock.addEventListener('click', () => {
-        const isSkillsVisible = skillsBlock.style.height === '100%';
-        // console.log(isSkillsVisible);
-
-        if (isSkillsVisible) {
-            skillsBlock.style.height = '0';
-            skillsBlock.style.padding = '0';
-            equipmentArrow.style.transform = "rotate(0)";
-
-        } else {
-            skillsBlock.style.height = '100%';
-            skillsBlock.style.padding = '50px 0 20px 0';
-            equipmentArrow.style.transform = "rotate(180deg)";
-        }
-    });
+    // const controlBlock = document.querySelector('.equipment_mobile_control');
+    // const skillsBlock = document.querySelector('.equipment_mobile_skills');
+    // const equipmentArrow = document.querySelector('.equipment_mobile_control .equipment_mobile_control-img2');
+    //
+    // // Скрываем блок skills по умолчанию
+    // skillsBlock.style.height = '0';
+    // skillsBlock.style.padding = '0';
+    // equipmentArrow.style.transform = "rotate(0)";
+    //
+    // // Добавляем обработчик клика на controlBlock
+    // controlBlock.addEventListener('click', () => {
+    //     const isSkillsVisible = skillsBlock.style.height === '100%';
+    //     // console.log(isSkillsVisible);
+    //
+    //     if (isSkillsVisible) {
+    //         skillsBlock.style.height = '0';
+    //         skillsBlock.style.padding = '0';
+    //         equipmentArrow.style.transform = "rotate(0)";
+    //
+    //     } else {
+    //         skillsBlock.style.height = '100%';
+    //         skillsBlock.style.padding = '50px 0 20px 0';
+    //         equipmentArrow.style.transform = "rotate(180deg)";
+    //     }
+    // });
 
     // const mainContent = document.querySelector('main.gradient_move');
 

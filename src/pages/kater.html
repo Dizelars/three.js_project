@@ -233,9 +233,6 @@
   </div>
 </main>
 
-<iframe src="https://app.vectary.com/p/2zkou5LI5mWhXqo06RLBTm" width="100%" height="100%" id="VectaryIframe" class="kater_iframe"></iframe>
-<div id="overlay"></div>
-
 <section class="auto_park">
   <div class="container">
     <div class="auto_park_wrapper">
@@ -296,6 +293,9 @@
   </div>
 </section>
 
+<iframe src="" width="100%" height="100%" id="VectaryIframe" class="kater_iframe"></iframe>
+<div id="overlay"></div>
+
 <a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909"
          device-orientation-permission-ui="
  denyButtonText: Отказаться;
@@ -317,16 +317,16 @@
 
     <img
             id="room1"
-            src="https://coddmac.store/codd_garage/360/transit_green/1.jpg"
+            src="../img/layout/pages/main/360/kater/kater.png"
             crossorigin="anonymous"
             importance="high"
     />
-    <img
-            id="room2"
-            src="https://coddmac.store/codd_garage/360/transit_green/2.jpg"
-            crossorigin="anonymous"
-            importance="low"
-    />
+<!--    <img-->
+<!--            id="room2"-->
+<!--            src="https://coddmac.store/codd_garage/360/transit_green/2.jpg"-->
+<!--            crossorigin="anonymous"-->
+<!--            importance="low"-->
+<!--    />-->
     <!-- <img
       id="room3"
       src="https://coddmac.store/codd_garage/360/bus_black/3.jpg"
@@ -346,164 +346,164 @@
       crossorigin="anonymous"
       importance="low"
     /> -->
-    <img
-            id="hotspot"
-            src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"
-            crossorigin="anonymous"
-    />
+<!--    <img-->
+<!--            id="hotspot"-->
+<!--            src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"-->
+<!--            crossorigin="anonymous"-->
+<!--    />-->
 
-    <img
-            id="crossIcon"
-            src="https://coddmac.store/THREE/360/cross-icon.svg"
-            crossorigin="anonymous"
-            importance="low"
-    />
+<!--    <img-->
+<!--            id="crossIcon"-->
+<!--            src="https://coddmac.store/THREE/360/cross-icon.svg"-->
+<!--            crossorigin="anonymous"-->
+<!--            importance="low"-->
+<!--    />-->
 
-    <img
-            id="text-01"
-            src="https://coddmac.store/THREE/360/text/text-01.svg"
-            crossorigin="anonymous"
-            importance="low"
-    />
+<!--    <img-->
+<!--            id="text-01"-->
+<!--            src="https://coddmac.store/THREE/360/text/text-01.svg"-->
+<!--            crossorigin="anonymous"-->
+<!--            importance="low"-->
+<!--    />-->
 
-    <img
-            id="text-02"
-            src="https://coddmac.store/THREE/360/text/text-02.svg"
-            crossorigin="anonymous"
-            importance="low"
-    />
+<!--    <img-->
+<!--            id="text-02"-->
+<!--            src="https://coddmac.store/THREE/360/text/text-02.svg"-->
+<!--            crossorigin="anonymous"-->
+<!--            importance="low"-->
+<!--    />-->
 
-    <a-mixin
-            id="info-sphere"
-            geometry="primitive: sphere; radius: 0.4;"
-            material="color: #ff0000;"
-    ></a-mixin>
+<!--    <a-mixin-->
+<!--            id="info-sphere"-->
+<!--            geometry="primitive: sphere; radius: 0.4;"-->
+<!--            material="color: #ff0000;"-->
+<!--    ></a-mixin>-->
 
-    <template id="infoPanel1">
-      <a-plane
-              color="black"
-              material="shader: flat"
-              height="2"
-              width="4"
-              position="0 0 0"
-              rounded="2.8"
-      >
-        <a-image
-                position="0 0 0.1"
-                src="#text-02"
-                width="4"
-                height="1"
-                height="0.3"
-        ></a-image>
-        <a-image
-                position="1.7 0.7 0.1"
-                src="#crossIcon"
-                width="0.33"
-                height="0.33"
-        ></a-image>
-      </a-plane>
-    </template>
+<!--    <template id="infoPanel1">-->
+<!--      <a-plane-->
+<!--              color="black"-->
+<!--              material="shader: flat"-->
+<!--              height="2"-->
+<!--              width="4"-->
+<!--              position="0 0 0"-->
+<!--              rounded="2.8"-->
+<!--      >-->
+<!--        <a-image-->
+<!--                position="0 0 0.1"-->
+<!--                src="#text-02"-->
+<!--                width="4"-->
+<!--                height="1"-->
+<!--                height="0.3"-->
+<!--        ></a-image>-->
+<!--        <a-image-->
+<!--                position="1.7 0.7 0.1"-->
+<!--                src="#crossIcon"-->
+<!--                width="0.33"-->
+<!--                height="0.33"-->
+<!--        ></a-image>-->
+<!--      </a-plane>-->
+<!--    </template>-->
 
-    <template id="infoPanel2">
-      <a-plane
-              color="black"
-              material="shader: flat"
-              height="2"
-              width="4"
-              position="0 0 0"
-              rounded="2.8"
-      >
-        <a-image
-                position="0 0 0.1"
-                src="#text-01"
-                width="4"
-                height="1"
-                height="0.3"
-        ></a-image>
-        <a-image
-                position="1.7 0.7 0.1"
-                src="#crossIcon"
-                width="0.33"
-                height="0.33"
-        ></a-image>
-      </a-plane>
-    </template>
+<!--    <template id="infoPanel2">-->
+<!--      <a-plane-->
+<!--              color="black"-->
+<!--              material="shader: flat"-->
+<!--              height="2"-->
+<!--              width="4"-->
+<!--              position="0 0 0"-->
+<!--              rounded="2.8"-->
+<!--      >-->
+<!--        <a-image-->
+<!--                position="0 0 0.1"-->
+<!--                src="#text-01"-->
+<!--                width="4"-->
+<!--                height="1"-->
+<!--                height="0.3"-->
+<!--        ></a-image>-->
+<!--        <a-image-->
+<!--                position="1.7 0.7 0.1"-->
+<!--                src="#crossIcon"-->
+<!--                width="0.33"-->
+<!--                height="0.33"-->
+<!--        ></a-image>-->
+<!--      </a-plane>-->
+<!--    </template>-->
   </a-assets>
 
   <!-- room teleport hotspots -->
 
-  <a-entity id="spots" hotspots="">
-    <a-entity id="group-room1">
-      <a-image
-              src="#hotspot"
-              spot="linkto:#room2;spotgroup:group-room2;phiStart:176"
-              position="0.5 2 10"
-              look-at
-      ></a-image>
+<!--  <a-entity id="spots" hotspots="">-->
+<!--    <a-entity id="group-room1">-->
+<!--      <a-image-->
+<!--              src="#hotspot"-->
+<!--              spot="linkto:#room2;spotgroup:group-room2;phiStart:176"-->
+<!--              position="0.5 2 10"-->
+<!--              look-at-->
+<!--      ></a-image>-->
 
-      <!-- <a-entity position="0 1 6" look-at rotation="180 0 180">
-        <a-entity mixin="info-sphere" id="sphere1"> </a-entity>
-        <a-entity id="infoPanelContainer1"></a-entity>
-      </a-entity>
+<!--      &lt;!&ndash; <a-entity position="0 1 6" look-at rotation="180 0 180">-->
+<!--        <a-entity mixin="info-sphere" id="sphere1"> </a-entity>-->
+<!--        <a-entity id="infoPanelContainer1"></a-entity>-->
+<!--      </a-entity>-->
 
-      <a-entity position="-4.5 -1.75 -8" look-at>
-        <a-entity mixin="info-sphere" id="sphere2"> </a-entity>
-        <a-entity id="infoPanelContainer2"></a-entity>
-      </a-entity> -->
-    </a-entity>
+<!--      <a-entity position="-4.5 -1.75 -8" look-at>-->
+<!--        <a-entity mixin="info-sphere" id="sphere2"> </a-entity>-->
+<!--        <a-entity id="infoPanelContainer2"></a-entity>-->
+<!--      </a-entity> &ndash;&gt;-->
+<!--    </a-entity>-->
 
-    <a-entity id="group-room2" scale="0 0 0">
-      <!-- возврат в первую комнату -->
-      <a-image
-              spot="linkto:#room1;spotgroup:group-room1;phiStart:88"
-              src="#hotspot"
-              position="0 0 -8"
-              look-at
-      ></a-image>
-      <!-- переход в третью комнату -->
-      <!-- <a-image
-        spot="linkto:#room3;spotgroup:group-room3;phiStart:275"
-        src="#hotspot"
-        position="0 0 -10"
-        look-at
-      ></a-image> -->
-    </a-entity>
+<!--    <a-entity id="group-room2" scale="0 0 0">-->
+<!--      &lt;!&ndash; возврат в первую комнату &ndash;&gt;-->
+<!--      <a-image-->
+<!--              spot="linkto:#room1;spotgroup:group-room1;phiStart:88"-->
+<!--              src="#hotspot"-->
+<!--              position="0 0 -8"-->
+<!--              look-at-->
+<!--      ></a-image>-->
+<!--      &lt;!&ndash; переход в третью комнату &ndash;&gt;-->
+<!--      &lt;!&ndash; <a-image-->
+<!--        spot="linkto:#room3;spotgroup:group-room3;phiStart:275"-->
+<!--        src="#hotspot"-->
+<!--        position="0 0 -10"-->
+<!--        look-at-->
+<!--      ></a-image> &ndash;&gt;-->
+<!--    </a-entity>-->
 
-    <!-- <a-entity id="group-room3" scale="0 0 0"> -->
-    <!-- возврат во вторую комнату -->
-    <!-- <a-image
-      spot="linkto:#room2;spotgroup:group-room2;phiStart:272"
-      src="#hotspot"
-      position="0 1 10"
-      look-at
-    ></a-image>
+<!--    &lt;!&ndash; <a-entity id="group-room3" scale="0 0 0"> &ndash;&gt;-->
+<!--    &lt;!&ndash; возврат во вторую комнату &ndash;&gt;-->
+<!--    &lt;!&ndash; <a-image-->
+<!--      spot="linkto:#room2;spotgroup:group-room2;phiStart:272"-->
+<!--      src="#hotspot"-->
+<!--      position="0 1 10"-->
+<!--      look-at-->
+<!--    ></a-image>-->
 
-  </a-entity> -->
+<!--  </a-entity> &ndash;&gt;-->
 
-    <!-- <a-entity id="group-room4" scale="0 0 0">
-      <a-image
-        spot="linkto:#room3;spotgroup:group-room3;phiStart:120"
-        src="#hotspot"
-        position="0 1 8"
-        look-at
-      ></a-image>
-      <a-image
-        spot="linkto:#room5;spotgroup:group-room5;phiStart:90"
-        src="#hotspot"
-        position="0 1 8"
-        look-at
-      ></a-image>
-    </a-entity>
+<!--    &lt;!&ndash; <a-entity id="group-room4" scale="0 0 0">-->
+<!--      <a-image-->
+<!--        spot="linkto:#room3;spotgroup:group-room3;phiStart:120"-->
+<!--        src="#hotspot"-->
+<!--        position="0 1 8"-->
+<!--        look-at-->
+<!--      ></a-image>-->
+<!--      <a-image-->
+<!--        spot="linkto:#room5;spotgroup:group-room5;phiStart:90"-->
+<!--        src="#hotspot"-->
+<!--        position="0 1 8"-->
+<!--        look-at-->
+<!--      ></a-image>-->
+<!--    </a-entity>-->
 
-    <a-entity id="group-room5" scale="0 0 0">
-      <a-image
-        spot="linkto:#room4;spotgroup:group-room4;phiStart:90"
-        src="#hotspot"
-        position="0 1 8"
-        look-at
-      ></a-image>
-    </a-entity> -->
-  </a-entity>
+<!--    <a-entity id="group-room5" scale="0 0 0">-->
+<!--      <a-image-->
+<!--        spot="linkto:#room4;spotgroup:group-room4;phiStart:90"-->
+<!--        src="#hotspot"-->
+<!--        position="0 1 8"-->
+<!--        look-at-->
+<!--      ></a-image>-->
+<!--    </a-entity> &ndash;&gt;-->
+<!--  </a-entity>-->
 
   <a-entity
           id="cam"
@@ -529,7 +529,7 @@
   <!-- тут где написано phi-start подбираем точку начала первого кадра
 (куда будет повёрнута камера при загрузке страницы) -->
 
-  <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="88"></a-sky>
+  <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="-90.5"></a-sky>
 </a-scene>
 
 <script>

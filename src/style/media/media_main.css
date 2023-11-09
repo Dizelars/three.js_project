@@ -150,7 +150,7 @@
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,
     section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text,
     /*section.help_desk .help_desk_grid-wrapper .сrew .сrew_text,*/
-    section.help_desk .help_desk_grid-wrapper .equipment-4 .text,
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 .text,*/
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 .water_patrol-text,
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 .water_patrol-text,
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text,
@@ -175,24 +175,24 @@
         max-width: 500px;
     }
 
-    section.help_desk .help_desk_grid-wrapper .equipment-4 .text {
-        margin-bottom: 10px;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 .text {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] {
-        height: 150px;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] {*/
+    /*    height: 150px;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img {
-        width: 58px;
-        height: 58px;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img {*/
+    /*    width: 58px;*/
+    /*    height: 58px;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text
-    {
-        font-size: 1.8rem;
-        line-height: 22px;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text*/
+    /*{*/
+    /*    font-size: 1.8rem;*/
+    /*    line-height: 22px;*/
+    /*}*/
 
     footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
         justify-content: unset;
@@ -645,22 +645,22 @@
         ;
     }
 
-    section.help_desk .help_desk_grid-wrapper .equipment-4 {
-        grid-area: equipment-4;
-        display: none;
-        /*display: grid;*/
-        grid-template-columns: repeat(3, 1fr);
-        /*grid-template-rows: 29px 151px 151px 151px 151px;*/
-        grid-template-rows: repeat(5, min-content);
-        gap: 10px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "text text text"
-        "skill-1 skill-2 skill-3"
-        "skill-10 skill-5 skill-6"
-        "skill-7 skill-8 skill-9"
-        ". . skill-4";
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 {*/
+    /*    grid-area: equipment-4;*/
+    /*    display: none;*/
+    /*    !*display: grid;*!*/
+    /*    grid-template-columns: repeat(3, 1fr);*/
+    /*    !*grid-template-rows: 29px 151px 151px 151px 151px;*!*/
+    /*    grid-template-rows: repeat(5, min-content);*/
+    /*    gap: 10px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "text text text"*/
+    /*    "skill-1 skill-2 skill-3"*/
+    /*    "skill-10 skill-5 skill-6"*/
+    /*    "skill-7 skill-8 skill-9"*/
+    /*    ". . skill-4";*/
+    /*}*/
 
     section.help_desk .help_desk_grid-wrapper .slide-6 {
         display: none;
@@ -841,23 +841,23 @@
 
 
 
-    section.help_desk .help_desk_grid-wrapper .equipment-4 {
-        display: none;
-        grid-area: equipment-4;
-        /*display: grid;*/
-        grid-template-columns: repeat(2, 1fr);
-        /*grid-template-rows: 29px 151px 151px 151px 151px;*/
-        grid-template-rows: repeat(6, min-content);
-        gap: 10px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "text text"
-        "skill-1 skill-2"
-        "skill-3 skill-10"
-        "skill-5 skill-6"
-        "skill-7 skill-8"
-        "skill-9 skill-4";
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 {*/
+    /*    display: none;*/
+    /*    grid-area: equipment-4;*/
+    /*    !*display: grid;*!*/
+    /*    grid-template-columns: repeat(2, 1fr);*/
+    /*    !*grid-template-rows: 29px 151px 151px 151px 151px;*!*/
+    /*    grid-template-rows: repeat(6, min-content);*/
+    /*    gap: 10px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "text text"*/
+    /*    "skill-1 skill-2"*/
+    /*    "skill-3 skill-10"*/
+    /*    "skill-5 skill-6"*/
+    /*    "skill-7 skill-8"*/
+    /*    "skill-9 skill-4";*/
+    /*}*/
 }
 
 @media (max-width: 860px) {
@@ -1178,7 +1178,7 @@
     }
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top {
-        justify-content: unset;
+        /*justify-content: unset;*/
         align-items: flex-start;
     }
 
@@ -1272,14 +1272,15 @@
     /*    "skill-8 . .";*/
     /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile,
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile,*/
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,*/
     section.help_desk .help_desk_grid-wrapper .slide-5 {
         display: block;
     }
 
-    section.help_desk .help_desk_grid-wrapper .slide-6,
-    section.help_desk .help_desk_grid-wrapper .equipment-4 {
+    section.help_desk .help_desk_grid-wrapper .slide-6
+    /*section.help_desk .help_desk_grid-wrapper .equipment-4 */
+    {
         display: none;
     }
 
@@ -1297,59 +1298,59 @@
         "slide-moskvich slide-5";
     }
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile-text .text {
-        font-family: 'MoscowSans', sans-serif;
-        font-size: 1.6rem;
-        font-weight: 400;
-        line-height: 24px;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text .text {*/
+    /*    font-family: 'MoscowSans', sans-serif;*/
+    /*    font-size: 1.6rem;*/
+    /*    font-weight: 400;*/
+    /*    line-height: 24px;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {
-        display: none;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {*/
+    /*    display: none;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile {
-        grid-area: equipment_mobile;
-        display: none;
-        /*display: grid;*/
-        grid-template-columns: repeat(2, 1fr);
-        /*grid-template-rows: 84px 725px;*/
-        grid-template-rows: repeat(2, min-content);
-        /*gap: 30px 0;*/
-        grid-auto-flow: row;
-        grid-template-areas:
-        "equipment_mobile_control equipment_mobile_control"
-        "equipment_mobile_skills equipment_mobile_skills"
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile {*/
+    /*    grid-area: equipment_mobile;*/
+    /*    display: none;*/
+    /*    !*display: grid;*!*/
+    /*    grid-template-columns: repeat(2, 1fr);*/
+    /*    !*grid-template-rows: 84px 725px;*!*/
+    /*    grid-template-rows: repeat(2, min-content);*/
+    /*    !*gap: 30px 0;*!*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "equipment_mobile_control equipment_mobile_control"*/
+    /*    "equipment_mobile_skills equipment_mobile_skills"*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-title {
-        font-family: 'MoscowSans', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 400;
-        text-align: center;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-title {*/
+    /*    font-family: 'MoscowSans', sans-serif;*/
+    /*    font-size: 1.8rem;*/
+    /*    font-weight: 400;*/
+    /*    text-align: center;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-img2 {
-        transition: transform .3s ease;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-img2 {*/
+    /*    transition: transform .3s ease;*/
+    /*}*/
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
-        /*grid-area: equipment_mobile;*/
-        /*display: grid;*/
-        display: none;
-        grid-template-columns: repeat(3, 1fr);
-        /*grid-template-rows: 151px 151px 151px 151px;*/
-        grid-template-rows: repeat(4, min-content);
-        gap: 20px 64px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "skill-10 skill-6 skill-5"
-        "skill-1 skill-2 skill-4"
-        "skill-3 skill-7 skill-9"
-        "skill-8 . .";
-        /*padding-top: 22px;*/
-        /*border-top: 1px solid white;*/
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
+    /*    !*grid-area: equipment_mobile;*!*/
+    /*    !*display: grid;*!*/
+    /*    display: none;*/
+    /*    grid-template-columns: repeat(3, 1fr);*/
+    /*    !*grid-template-rows: 151px 151px 151px 151px;*!*/
+    /*    grid-template-rows: repeat(4, min-content);*/
+    /*    gap: 20px 64px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "skill-10 skill-6 skill-5"*/
+    /*    "skill-1 skill-2 skill-4"*/
+    /*    "skill-3 skill-7 skill-9"*/
+    /*    "skill-8 . .";*/
+    /*    !*padding-top: 22px;*!*/
+    /*    !*border-top: 1px solid white;*!*/
+    /*}*/
 
     section.help_desk .garage_model_card .slid_info {
         padding: 10px 20px;
@@ -1698,9 +1699,9 @@
         line-height: 21px;
     }
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
-        gap: 20px;
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
+    /*    gap: 20px;*/
+    /*}*/
 }
 
 @media (max-width: 534px) {
@@ -2085,7 +2086,7 @@
 
 
     section.help_desk .help_desk_grid-wrapper .driver-3,
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,*/
     section.help_desk .help_desk_grid-wrapper .slide-5,
     section.help_desk .help_desk_grid-wrapper .slide-moskvich {
         display: none;
@@ -2153,22 +2154,22 @@
         "equipment_mobile-slide";
     }
 
-    section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {
-        /*grid-area: equipment_mobile;*/
-        /*display: grid;*/
-        display: none;
-        grid-template-columns: repeat(2, 1fr);
-        /*grid-template-rows: 151px 151px 151px 151px 151px;*/
-        grid-template-rows: repeat(5, min-content);
-        gap: 10px 20px;
-        grid-auto-flow: row;
-        grid-template-areas:
-        "skill-1 skill-2"
-        "skill-3 skill-4"
-        "skill-5 skill-6"
-        "skill-7 skill-8"
-        "skill-9 skill-10";
-    }
+    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
+    /*    !*grid-area: equipment_mobile;*!*/
+    /*    !*display: grid;*!*/
+    /*    display: none;*/
+    /*    grid-template-columns: repeat(2, 1fr);*/
+    /*    !*grid-template-rows: 151px 151px 151px 151px 151px;*!*/
+    /*    grid-template-rows: repeat(5, min-content);*/
+    /*    gap: 10px 20px;*/
+    /*    grid-auto-flow: row;*/
+    /*    grid-template-areas:*/
+    /*    "skill-1 skill-2"*/
+    /*    "skill-3 skill-4"*/
+    /*    "skill-5 skill-6"*/
+    /*    "skill-7 skill-8"*/
+    /*    "skill-9 skill-10";*/
+    /*}*/
 
 
     /*footer.footer_main .footer_main_grid-wrapper {*/
