@@ -1,4 +1,4 @@
-import {GallerySwitchHook} from "../../helpers/gallerySwitchHook";
+// import {GallerySwitchHook} from "../../helpers/gallerySwitchHook";
 import {InteriorTransitionHelper} from "../../helpers/interiorTransitionHelper";
 
 const techSection = document.querySelector('section.tech_spec');
@@ -106,7 +106,7 @@ document.addEventListener('mousedown', (event) => {
     const isInsideTechSpec = target.closest('.tech_spec');
     const isInsideAutoParkWrapper = target.closest('.auto_park_wrapper');
 
-    if (!isInsideTechSpec || (screenWidth <= 440 && isInsideTechSpec)) {
+    if (!isInsideTechSpec || (screenWidth <= 1200 && isInsideTechSpec)) {
         // Скрываем блок .tech_spec__visible и выполняем необходимые действия
         techSection.classList.add('active');
         toggleElements('add');
@@ -205,6 +205,7 @@ const idToClassMap = {
     'solaris_gray': 'garage_solaris_gray',
     'bus': 'garage_bus',
     'kater': 'garage_kater',
+    'moskvich': 'garage_moskvich',
 };
 
 interior.addEventListener('click', () => {
@@ -248,4 +249,33 @@ gallery_toggle.forEach((e) => {
     });
 });
 
-new GallerySwitchHook({});
+// new GallerySwitchHook({});
+
+// Swiper slider
+const swipermodel = new Swiper('.swiper_model', {
+    // Optional parameters
+    // loop: true,
+    slidesPerView: 4,
+    spaceBetween: 2,
+
+    // // If we need pagination
+    // pagination: {
+    //     el: '.swiper-pagination',
+    // },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.next_button',
+        prevEl: '.prev_button',
+    },
+
+    // breakpoints: {
+    //     441: { // when window width is >= 440px
+    //         slidesPerView: "auto",
+    //         spaceBetween: 24,
+    //     },
+    //     770: { // when window width is >= 768px
+    //         slidesPerView: "auto",
+    //     },
+    // }
+});

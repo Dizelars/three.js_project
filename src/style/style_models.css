@@ -167,13 +167,13 @@ a-scene {
     color: white;
 }
 
-.header__info-text {
+.header__info-title {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 300;
     font-size: 16px;
 }
 
-.header__info-text:last-child {
+.header__info-text {
     font-family: 'MoscowSans', sans-serif;
     margin-top: 4px;
     font-weight: 300;
@@ -492,11 +492,11 @@ a-scene {
 }
 
 .tech_spec__interior#moskvich {
-    /*background: url("../img/layout/moskvich_prew.png") no-repeat center/cover;*/
+    background: url("../img/layout/bus_prew.png") no-repeat center/cover;
 }
 
 .tech_spec__interior#moskvich.garage_moskvich {
-    /*background-image: url("../img/layout/slider/moskvich.png");*/
+    background-image: url("../img/layout/pages/main/slider/moskvich.png");
 }
 
 /*.tech_spec__interior#velo {*/
@@ -623,9 +623,9 @@ a-scene {
     color: #FFFFFF;
 }
 
-.auto_park_slider {
-    position: relative;
-}
+/*.auto_park_slider {*/
+/*    position: relative;*/
+/*}*/
 
 .auto_park_slider-overflow{
     overflow: hidden;
@@ -634,19 +634,28 @@ a-scene {
 .auto_park_slider-wrapper {
     display: flex;
     transition: transform 0.3s ease;
+
+    width: 5000px;
+    /*width: max-content;*/
 }
 
 .gallery_item {
     cursor: pointer;
-    margin: 0 2px;
+    /*margin: 0 2px;*/
     flex-shrink: 0;
     border-radius: 10px;
     border: 1px solid #090909;
     transition: transform 0.3s ease;
 
-    display: 'flex';
-    align-items: 'center';
-    justify-content: 'center';
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+
+.gallery_item .gallery_item_link {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 /*.gallery_item:hover, .gallery_item.active {*/
@@ -678,7 +687,7 @@ a-scene {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    visibility: hidden;
+    /*visibility: hidden;*/
 }
 
 .auto_park_slider-button button {
