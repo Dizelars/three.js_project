@@ -251,31 +251,34 @@ gallery_toggle.forEach((e) => {
 
 // new GallerySwitchHook({});
 
-// Swiper slider
-const swipermodel = new Swiper('.swiper_model', {
-    // Optional parameters
-    // loop: true,
-    slidesPerView: 4,
-    spaceBetween: 2,
+document.addEventListener('DOMContentLoaded', function () {
+    const allSlides = document.querySelectorAll('.swiper-slide');
+    const activeSlideIndex = Array.from(allSlides).findIndex(slide => slide.classList.contains('active'));
 
-    // // If we need pagination
-    // pagination: {
-    //     el: '.swiper-pagination',
-    // },
+    const swipermodel = new Swiper('.swiper_model', {
+        initialSlide: activeSlideIndex,
+        slidesPerView: 2,
+        spaceBetween: 2,
+        navigation: {
+            nextEl: '.next_button',
+            prevEl: '.prev_button',
+        },
+        breakpoints: {
+            770: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+        },
+    });
 
-    // Navigation arrows
-    navigation: {
-        nextEl: '.next_button',
-        prevEl: '.prev_button',
-    },
+    // Функция для управления видимостью кнопок в зависимости от положения слайдера
+    const updateButtonVisibility = () => {
+        const prevButton = document.querySelector('.prev_button');
+        const nextButton = document.querySelector('.next_button');
 
-    // breakpoints: {
-    //     441: { // when window width is >= 440px
-    //         slidesPerView: "auto",
-    //         spaceBetween: 24,
-    //     },
-    //     770: { // when window width is >= 768px
-    //         slidesPerView: "auto",
-    //     },
-    // }
+        prevButton.style.display = swipermodel.isBeginning ? 'none' : 'block';
+        nextButton.style.display = swipermodel.isEnd ? 'none' : 'block';
+    };
+
+    // Вызвать функцию при загрузке страницы и после каждого события Swiper
+    updateButtonVisibility();
+    swipermodel.on('reachBeginning reachEnd fromEdge', updateButtonVisibility);
 });

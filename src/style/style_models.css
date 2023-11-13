@@ -163,7 +163,7 @@ a-scene {
     margin-left: 10px;
 }
 
-.header__logo-text, .header__info-text {
+.header__logo-text {
     color: white;
 }
 
@@ -173,13 +173,13 @@ a-scene {
     font-size: 16px;
 }
 
-.header__info-text {
-    font-family: 'MoscowSans', sans-serif;
-    margin-top: 4px;
-    font-weight: 300;
-    font-size: 12px;
-    opacity: 0.4;
-}
+/*.header__info-text {*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    margin-top: 4px;*/
+/*    font-weight: 300;*/
+/*    font-size: 12px;*/
+/*    opacity: 0.4;*/
+/*}*/
 
 .header__info-img {
     width: 142px;

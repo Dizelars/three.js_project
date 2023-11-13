@@ -26,3 +26,30 @@ export const isElementInViewport = (el) => {
         document.documentElement.clientWidth) /* or $(window).width() */
   );
 };
+
+
+
+export const observeElementVisibility = (el, onVisible, onHidden) => {
+  const options = {
+    root: null, // используем viewport в качестве корня
+    rootMargin: '0px',
+    threshold: 0, // порог видимости
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // элемент стал видимым
+        onVisible();
+      } else {
+        // элемент стал невидимым
+        onHidden();
+      }
+    });
+  }, options);
+
+  observer.observe(el);
+
+  // возвращаем объект observer, чтобы можно было прекратить отслеживание позже
+  return observer;
+};

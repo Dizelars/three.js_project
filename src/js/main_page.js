@@ -1,4 +1,4 @@
-import { isAutoplayVideoScreenSize, isElementInViewport, isElementVisible } from "../utils";
+import { isAutoplayVideoScreenSize, isElementInViewport, isElementVisible, observeElementVisibility } from "../utils";
 
 document.addEventListener("DOMContentLoaded", function() {
     // Получаем все элементы с классом "burger-menu"
@@ -163,18 +163,36 @@ document.addEventListener("DOMContentLoaded", function() {
                 let mediaWrap = card.querySelector('.garage_model_card .slid_img');
                 let modelCardImage = card.querySelector('.garage_model_card .slid_img img.menu_preview-img');
                 // Так как метод вызывается в интервале, стоит оптимизировать 2 вызова getBoundingClientRect в методах на один, передавая например опционально в методы проверки готовый rect
-                if (isElementVisible(card) && isElementInViewport(card)) {
-                    modelCardVideo.style.display = 'block';
-                    modelCardVideo.play();
-                    modelCardImage.style.display = 'none';
-                    mediaWrap.style.background = '#090909 ';
-                } else {
-                    modelCardVideo.style.display = 'none';
-                    modelCardVideo.pause();
-                    modelCardVideo.currentTime = 0;
-                    modelCardImage.style.display = 'block';
-                    mediaWrap.style.background = '';
-                }
+                // if (isElementVisible(card) && isElementInViewport(card)) {
+                //     modelCardVideo.style.display = 'block';
+                //     modelCardVideo.play();
+                //     modelCardImage.style.display = 'none';
+                //     mediaWrap.style.background = '#090909 ';
+                // } else {
+                //     modelCardVideo.style.display = 'none';
+                //     modelCardVideo.pause();
+                //     modelCardVideo.currentTime = 0;
+                //     modelCardImage.style.display = 'block';
+                //     mediaWrap.style.background = '';
+                // }
+                observeElementVisibility(
+                    card,
+                    () => {
+                        // Действия, когда элемент видим
+                        modelCardVideo.style.display = 'block';
+                        modelCardVideo.play();
+                        modelCardImage.style.display = 'none';
+                        mediaWrap.style.background = '#090909 ';
+                    },
+                    () => {
+                        // Действия, когда элемент невидим
+                        modelCardVideo.style.display = 'none';
+                        modelCardVideo.pause();
+                        modelCardVideo.currentTime = 0;
+                        modelCardImage.style.display = 'block';
+                        mediaWrap.style.background = '';
+                    }
+                );
             });
         }, 200);
     } else {
