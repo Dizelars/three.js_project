@@ -40,6 +40,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'javascript/[name].[contenthash].js',
+        assetModuleFilename: "images/[name][hash][ext][query]",
     },
     optimization: {
         splitChunks: {
@@ -167,14 +168,10 @@ module.exports = {
                     filename: 'fonts/[name][ext]'
                 }
             },
-            // {
-            //     test: /\.(png|jpg|gif|ico|svg)$/,
-            //     loader: 'file-loader',
-            //     options: {
-            //         name: 'img/[name].[ext]',
-            //         context: ''
-            //     }
-            // },
+            {
+                test: /\.(jpg|png|svg|jpeg|gif)$/,
+                type: 'asset/resource',
+            }
         ]
     }
 };
