@@ -45,6 +45,12 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
+/*picture {*/
+/*    display: inline-block;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
 main.gradient_move {
     margin-top: -80px;
     overflow: hidden;
@@ -585,8 +591,8 @@ section.main .main_intro_media {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background: black url("../../img/layout/pages/main/main_bg.jpg") no-repeat center center;
-    background-size: cover;
+    /*background: black url("../../img/layout/pages/main/main_bg.jpg") no-repeat center center;*/
+    /*background-size: cover;*/
 }
 
 section.main .main_intro_media:before {
@@ -1083,10 +1089,17 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     width: 100%;
     /*height: 444px;*/
     height: 100%;
+    /*height: auto;*/
     display: flex;
     align-items: center;
     border-radius: 10px 10px 0 0;
     /*background: #090909 url("../../img/layout/pages/main/slider/amarok_slide.png") no-repeat bottom center/cover;*/
+}
+
+.garage_model_card .slid_img picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .garage_model_card .slid_img img.menu_preview-img {
@@ -1100,8 +1113,8 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
 
 .garage_model_card .slid_img .menu_preview-video {
     display: none;
-    max-width: 100%;
-    max-height: 100%;
+    /*max-width: 100%;*/
+    /*max-height: 100%;*/
     border-radius: 10px 10px 0 0;
     height: 100%;
     width: 100%;
@@ -1474,7 +1487,8 @@ section.velo_patrol .container_main {
 section.velo_patrol .velo_patrol_grid-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    /*grid-template-rows: repeat(3, 1fr);*/
+    grid-template-rows: repeat(3, max-content);
     grid-auto-columns: 1fr;
     gap: 20px;
     grid-auto-flow: row;

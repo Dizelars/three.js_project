@@ -1,11 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 // const target = devMode ? 'web' : 'browserslist';
 const devtool = devMode ? 'source-map' : undefined;
 // const autoprefixer = require('autoprefixer');
+// const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
     mode,
@@ -42,90 +45,152 @@ module.exports = {
         filename: 'javascript/[name].[contenthash].js',
         assetModuleFilename: "images/[name][hash][ext][query]",
     },
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                default: false,
-                styles: {
-                    name: 'styles',
-                    type: 'css/mini-extract',
-                    chunks: 'all',
-                    enforce: true,
-                },
-            },
-        },
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'index.html'),
             filename: 'index.html',
             chunks: ['index', 'index-style'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         // new HtmlWebpackPlugin({
         //     template: path.resolve(__dirname, 'src/pages', '404.html'),
         //     filename: 'pages/404.html',
         //     chunks: ['404', '404-style'],
-        //     minify: false,
+        //     minify: {
+        //                 collapseWhitespace: true,
+        //                 removeComments: true,
+        //                 removeRedundantAttributes: true,
+        //                 removeScriptTypeAttributes: true,
+        //                 removeStyleLinkTypeAttributes: true,
+        //                 useShortDoctype: true,
+        //             },
         // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'amarok.html'),
             filename: 'pages/amarok.html',
             chunks: ['amarok', 'amarok-style'],
             // chunks: ['amarok'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         // new HtmlWebpackPlugin({
         //     template: path.resolve(__dirname, 'src/pages', 'solaris.html'),
         //     filename: 'pages/solaris.html',
         //     chunks: ['solaris', 'solaris-style'],
         //     // chunks: ['solaris'],
-        //     minify: false,
+        //     minify: {
+        //                 collapseWhitespace: true,
+        //                 removeComments: true,
+        //                 removeRedundantAttributes: true,
+        //                 removeScriptTypeAttributes: true,
+        //                 removeStyleLinkTypeAttributes: true,
+        //                 useShortDoctype: true,
+        //             },
         // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'solaris_two.html'),
             filename: 'pages/solaris_two.html',
             chunks: ['solaris_two', 'solaris_two-style'],
             // chunks: ['solaris_two'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'bus.html'),
             filename: 'pages/bus.html',
             chunks: ['bus', 'bus-style'],
             // chunks: ['bus'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'ford.html'),
             filename: 'pages/ford.html',
             chunks: ['ford', 'ford-style'],
             // chunks: ['ford'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'kater.html'),
             filename: 'pages/kater.html',
             chunks: ['kater', 'kater-style'],
             // chunks: ['kater'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'velo.html'),
             filename: 'pages/velo.html',
             chunks: ['velo', 'velo-style'],
             // chunks: ['velo'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'moskvich.html'),
             filename: 'pages/moskvich.html',
             chunks: ['moskvich', 'moskvich-style'],
             // chunks: ['moskvich'],
-            minify: false,
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
         }),
+        // new MiniCssExtractPlugin({
+        //     filename: 'style/[name][contenthash].css',
+        // }),
         new MiniCssExtractPlugin({
             filename: 'style/[name].[contenthash].css',
+            chunkFilename: 'style/[id].[contenthash].css',
+            ignoreOrder: false,
         }),
     ],
     module: {
@@ -139,15 +204,22 @@ module.exports = {
                 use: [
                     devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                     "css-loader",
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            postcssOptions: {
-                                config: path.resolve(__dirname, "postcss.config.js")
-                            },
-                        }
-                    },
+                    // {
+                    //     loader: "postcss-loader",
+                    //     options: {
+                    //         postcssOptions: {
+                    //             config: path.resolve(__dirname, "postcss.config.js")
+                    //         },
+                    //     }
+                    // },
                 ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: "asset/resource",
+                generator: {
+                    filename: 'images/[name][hash][ext][query]',
+                },
             },
             {
                 test: /\.(?:js|mjs|cjs)$/,
@@ -168,10 +240,26 @@ module.exports = {
                     filename: 'fonts/[name][ext]'
                 }
             },
-            {
-                test: /\.(jpg|png|svg|jpeg|gif)$/,
-                type: 'asset/resource',
-            }
         ]
-    }
+    },
+    optimization: {
+        minimizer: [
+            new TerserPlugin(), // Минификация JS
+            // new CssMinimizerPlugin(), // Минификация CSS
+        ],
+        splitChunks: {
+            cacheGroups: {
+                default: false,
+                styles: {
+                    name: 'styles',
+                    type: 'css/mini-extract',
+                    chunks: 'all',
+                    enforce: true,
+                },
+            },
+        },
+    },
 };
+
+
+
