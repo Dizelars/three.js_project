@@ -141,6 +141,8 @@ a-scene {
     right: 0;
     z-index: 5;
     background-color: transparent;
+    max-height: 96px;
+    height: 100%;
 }
 
 
@@ -198,6 +200,10 @@ a-scene {
 .header__info-img {
     width: 142px;
     object-fit: cover;
+}
+
+.header__info-img#veloPrev {
+    visibility: hidden;
 }
 
 
@@ -672,9 +678,17 @@ main.models {
     border: 1px solid #090909;
     transition: transform 0.3s ease;
 
+    max-height: 140px;
+
     /*display: flex;*/
     /*align-items: center;*/
     /*justify-content: center;*/
+}
+
+.gallery_item picture {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
 }
 
 .gallery_item .gallery_item_link {
