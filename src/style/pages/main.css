@@ -1047,6 +1047,8 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     border: 1px solid white;
     width: 100%;
     height: 100%;
+
+    overflow: hidden;
 }
 
 .garage_model_card,
@@ -1093,6 +1095,9 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     display: flex;
     align-items: center;
     border-radius: 10px 10px 0 0;
+
+    position: relative;
+
     /*background: #090909 url("../../img/layout/pages/main/slider/amarok_slide.png") no-repeat bottom center/cover;*/
 }
 
@@ -1112,13 +1117,18 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
 }
 
 .garage_model_card .slid_img .menu_preview-video {
-    display: none;
+    /*display: none;*/
+    visibility: hidden;
     /*max-width: 100%;*/
     /*max-height: 100%;*/
     border-radius: 10px 10px 0 0;
     height: 100%;
     width: 100%;
     object-fit: cover;
+
+    position: absolute; /* Абсолютное позиционирование, чтобы занять всю доступную область */
+    top: 0; /* Размещаем видео вверху родительского элемента */
+    left: 0; /* Размещаем видео влево родительского элемента */
 }
 
 .garage_model_card .slid_info {
@@ -1495,7 +1505,7 @@ section.velo_patrol .velo_patrol_grid-wrapper {
     grid-template-areas:
     "velo_patrol_title velo_patrol_about velo_patrol_about velo_patrol_about velo_patrol_text_1"
     ". velo_patrol_text_2 velo_patrol_text_2 velo_patrol_card velo_patrol_card"
-    ". . . velo_patrol_card velo_patrol_card";
+    ". velo_patrol_text_2 velo_patrol_text_2 velo_patrol_card velo_patrol_card";
 }
 
 section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_title {

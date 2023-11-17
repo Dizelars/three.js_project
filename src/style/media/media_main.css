@@ -24,6 +24,31 @@
         height: fit-content;
     }
 
+
+
+    /*Размеры карточек*/
+    /*section.traffic_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 524px;*/
+    /*}*/
+
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 567px;
+    }
+
+    /*section.water_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 524px;*/
+    /*}*/
+
+    /*section.velo_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 524px;*/
+    /*}*/
+
+    /*section.help_desk .garage_model_card .slid_img {*/
+    /*    max-height: 524px;*/
+    /*}*/
+
+
+
     .garage_model_card {
         width: 100%;
         height: 100%;
@@ -210,6 +235,29 @@
     }
 }
 
+/*@media (max-width: 2000px) {*/
+/*    !*Размеры карточек*!*/
+/*    section.traffic_patrol .garage_model_card .slid_img {*/
+/*        max-height: 358px;*/
+/*    }*/
+
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 367px;
+    }
+
+/*    section.water_patrol .garage_model_card .slid_img {*/
+/*        max-height: 367px;*/
+/*    }*/
+
+/*    section.velo_patrol .garage_model_card .slid_img {*/
+/*        max-height: 358px;*/
+/*    }*/
+
+/*    section.help_desk .garage_model_card .slid_img {*/
+/*        max-height: 363px;*/
+/*    }*/
+/*}*/
+
 @media (max-width: 1500px) {
     section.traffic_patrol .traffic_patrol-wrapper img {
         width: 500px;
@@ -299,6 +347,11 @@
 
     /*.traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {*/
     /*    max-width: 540px;*/
+    /*}*/
+
+    /*Размеры карточек*/
+    /*section.velo_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 293px;*/
     /*}*/
 }
 
@@ -420,6 +473,28 @@
     section.main .main_grid-wrapper .main_text-2 {
         max-width: 340px;
     }
+
+    /*Размеры карточек*/
+    /*section.traffic_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 320px;*/
+    /*}*/
+
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 482px;
+    }
+
+    /*section.water_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 480px;*/
+    /*}*/
+
+    /*section.velo_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 320px;*/
+    /*}*/
+
+    /*section.help_desk .garage_model_card .slid_img {*/
+    /*    max-height: 320px;*/
+    /*}*/
+
 
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
@@ -771,6 +846,11 @@
 }
 
 @media (max-width: 946px) {
+
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 384px;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -1016,6 +1096,30 @@
         display: flex;
         justify-content: center;
     }
+
+
+    /*Размеры карточек*/
+    /*section.traffic_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 234px;*/
+    /*}*/
+
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 270px;
+    }
+
+    /*section.water_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 234px;*/
+    /*}*/
+
+    /*section.velo_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 288px;*/
+    /*}*/
+
+    /*section.help_desk .garage_model_card .slid_img {*/
+    /*    max-height: 234px;*/
+    /*}*/
+
+
 
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
@@ -1897,6 +2001,28 @@
     /*section.main .main_info .main_info-descr .main_info-text:first-child,*/
     /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
     /*    max-width: 100%;*/
+    /*}*/
+
+
+    /*Размеры карточек*/
+    /*section.traffic_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 258px;*/
+    /*}*/
+
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 258px;
+    }
+
+    /*section.water_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 255px;*/
+    /*}*/
+
+    /*section.velo_patrol .garage_model_card .slid_img {*/
+    /*    max-height: 220px;*/
+    /*}*/
+
+    /*section.help_desk .garage_model_card .slid_img {*/
+    /*    max-height: 277px;*/
     /*}*/
 
 

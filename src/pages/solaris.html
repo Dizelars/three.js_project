@@ -32,8 +32,9 @@
     <title>Гараж ЦОДД</title>
     <meta name="description" content="Smooth Cam movement"/>
     <link rel="stylesheet" href="../style/style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-<script>
+    <script defer>
     setTimeout(() => {
         AFRAME.registerComponent("hotspots", {
             init: function () {
@@ -108,7 +109,6 @@
         });
     }, 1500);
 </script>
-
 </head>
 <body>
 
@@ -149,7 +149,7 @@
     </div>
 </header>
 
-<main>
+<main class="models">
     <section class="tech_spec">
         <div class="container__content">
             <div class="tech_spec__wrapper">
@@ -427,6 +427,5 @@ setTimeout(() => {
         });
 }, 1500);
 </script>
-
 </body>
 </html>

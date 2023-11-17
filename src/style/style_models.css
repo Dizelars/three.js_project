@@ -126,12 +126,23 @@ a-scene {
 
 /*header*/
 
-.header {
-    position: relative;
-    z-index: 5;
-    background-color: #090909;
+/*.header {*/
+/*    position: relative;*/
+/*    z-index: 5;*/
+/*    background-color: #090909;*/
+/*}*/
 
+/*прозрачный фон*/
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    right: 0;
+    z-index: 5;
+    background-color: transparent;
 }
+
 
 .header__wrapper, .header__logo, .header__info {
     display: flex;
@@ -144,6 +155,9 @@ a-scene {
     width: 100%;
     cursor: pointer;
     text-decoration: none;
+
+    /*прозрачный фон*/
+    pointer-events: all;
 }
 
 .header__logo-text {
@@ -185,6 +199,17 @@ a-scene {
     width: 142px;
     object-fit: cover;
 }
+
+
+/*прозрачный фон*/
+main.models {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 
 /*tech_spec*/
 
@@ -499,10 +524,10 @@ a-scene {
     background-image: url("../img/layout/pages/main/slider/moskvich.png");
 }
 
-/*.tech_spec__interior#velo {*/
-/*    background: url("../img/layout/velo_prew.png") no-repeat center/cover;*/
-/*    display: none;*/
-/*}*/
+.tech_spec__interior#velo {
+    /*background: url("../img/layout/velo_prew.png") no-repeat center/cover;*/
+    display: none;
+}
 
 /*.tech_spec__interior#velo.garage_velo {*/
 /*    background-image: url("../img/layout/slider/velo.png");*/

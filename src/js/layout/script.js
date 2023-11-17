@@ -28,9 +28,9 @@ let VectaryIframe = document.querySelector('.VectaryIframe');
 document.addEventListener("DOMContentLoaded", () => {
     // Установка высоты iframe после загрузки страници
 
-    let headerHeight = document.querySelector('header.header');
-    let headerHeightValue = headerHeight.clientHeight;
-    VectaryIframe.style.height = `calc(100vh - ${headerHeightValue - 2}px)`;
+    // let headerHeight = document.querySelector('header.header');
+    // let headerHeightValue = headerHeight.clientHeight;
+    // VectaryIframe.style.height = `calc(100vh - ${headerHeightValue - 2}px)`;
 
     const IframeObject = {
         'amarok_iframe': {
@@ -57,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
             AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
             AR_OFF: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq'
         },
-        // 'velo_iframe': {
-        //     AR_ON: '',
-        //     AR_OFF: ''
-        // },
+        'velo_iframe': {
+            AR_ON: 'https://app.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
+            AR_OFF: 'https://app.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI'
+        },
 
     };
 
@@ -73,6 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
     }
+
+    // VectaryIframe.onload = function() {
+    //     console.log("iframe загрузился");
+    // }
+    // VectaryIframe.onerror = function() {
+    //     console.log("Что-то пошло не так!");
+    // }
 });
 
 

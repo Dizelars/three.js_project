@@ -211,17 +211,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     card,
                     () => {
                         // Действия, когда элемент видим
-                        modelCardVideo.style.display = 'block';
+                        // modelCardVideo.style.display = 'block';
+                        modelCardVideo.style.visibility = 'visible';
                         modelCardVideo.play();
-                        modelCardImage.style.display = 'none';
+                        // modelCardImage.style.display = 'none';
+                        modelCardImage.style.visibility = 'hidden';
                         mediaWrap.style.background = '#090909 ';
                     },
                     () => {
                         // Действия, когда элемент невидим
-                        modelCardVideo.style.display = 'none';
+                        // modelCardVideo.style.display = 'none';
+                        modelCardVideo.style.visibility = 'hidden';
                         modelCardVideo.pause();
                         modelCardVideo.currentTime = 0;
-                        modelCardImage.style.display = 'block';
+                        // modelCardImage.style.display = 'block';
+                        modelCardImage.style.visibility = 'visible';
                         mediaWrap.style.background = '';
                     }
                 );
@@ -234,17 +238,21 @@ document.addEventListener("DOMContentLoaded", function() {
             let modelCardImage = card.querySelector('.garage_model_card .slid_img picture');
 
             card.addEventListener('mouseenter', () => {
-                modelCardVideo.style.display = 'block';
+                // modelCardVideo.style.display = 'block';
+                modelCardVideo.style.visibility = 'visible';
                 modelCardVideo.play();
-                modelCardImage.style.display = 'none';
+                // modelCardImage.style.display = 'none';
+                modelCardImage.style.visibility = 'hidden';
                 mediaWrap.style.background = '#090909 ';
             });
 
             card.addEventListener('mouseleave', () => {
-                modelCardVideo.style.display = 'none';
+                // modelCardVideo.style.display = 'none';
+                modelCardVideo.style.visibility = 'hidden';
                 modelCardVideo.pause();
                 modelCardVideo.currentTime = 0;
-                modelCardImage.style.display = 'block';
+                // modelCardImage.style.display = 'block';
+                modelCardImage.style.visibility = 'visible';
                 mediaWrap.style.background = '';
             });
         });
