@@ -264,15 +264,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const swipermodel = new Swiper('.swiper_model', {
         initialSlide: activeSlideIndex,
-        slidesPerView: 2,
+        slidesPerView: 1,
         spaceBetween: 2,
+        freeMode: true,
+        // freeModeFluid: true,
+        // grabCursor: true,
+        // draggable: true,
+        // touchEventsTarget: 'wrapper',
+        // touchEventsTarget: 'container',
         navigation: {
             nextEl: '.next_button',
             prevEl: '.prev_button',
         },
         breakpoints: {
+            370: { slidesPerView: 2 },
             770: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
+            1200: { slidesPerView: 4, freeMode: false },
         },
     });
 

@@ -654,9 +654,9 @@ main.models {
     color: #FFFFFF;
 }
 
-/*.auto_park_slider {*/
-/*    position: relative;*/
-/*}*/
+.auto_park_slider {
+    position: relative;
+}
 
 .auto_park_slider-overflow{
     overflow: hidden;
@@ -718,7 +718,10 @@ main.models {
 }
 
 .auto_park_slider-button {
-    position: relative;
+    /*position: relative;*/
+
+    position: absolute;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -749,12 +752,12 @@ main.models {
 .auto_park_slider-button button.prev_button {
     position: absolute;
     left: 0;
-    bottom: 58px;
+    /*bottom: 58px;*/
 }
 
 .auto_park_slider-button button.next_button {
     transform: rotate(180deg);
     position: absolute;
     right: 0;
-    bottom: 58px;
+    /*bottom: 58px;*/
 }

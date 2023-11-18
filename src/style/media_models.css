@@ -322,9 +322,9 @@
         height: 92px;
     } */
 
-    .auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {
-        bottom: 38px !important;
-    }
+    /*.auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {*/
+    /*    bottom: 38px !important;*/
+    /*}*/
 }
 
 @media (max-width: 440px) {
@@ -656,9 +656,9 @@
         height: 92px;
     } */
 
-    .auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {
-        bottom: 38px !important;
-    }
+    /*.auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {*/
+    /*    bottom: 38px !important;*/
+    /*}*/
 }
 
 @media screen and (max-width:820px) and (orientation:landscape) {
