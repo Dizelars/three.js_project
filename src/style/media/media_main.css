@@ -27,25 +27,25 @@
 
 
     /*Размеры карточек*/
-    /*section.traffic_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 524px;*/
-    /*}*/
+    section.traffic_patrol .garage_model_card .slid_img {
+        max-height: 524px;
+    }
 
     section.situation_centre .garage_model_card .slid_img {
         max-height: 567px;
     }
 
-    /*section.water_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 524px;*/
-    /*}*/
+    section.water_patrol .garage_model_card .slid_img {
+        max-height: 524px;
+    }
 
-    /*section.velo_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 524px;*/
-    /*}*/
+    section.velo_patrol .garage_model_card .slid_img {
+        max-height: 524px;
+    }
 
-    /*section.help_desk .garage_model_card .slid_img {*/
-    /*    max-height: 524px;*/
-    /*}*/
+    section.help_desk .garage_model_card .slid_img {
+        max-height: 524px;
+    }
 
 
 
@@ -235,28 +235,28 @@
     }
 }
 
-/*@media (max-width: 2000px) {*/
-/*    !*Размеры карточек*!*/
-/*    section.traffic_patrol .garage_model_card .slid_img {*/
-/*        max-height: 358px;*/
-/*    }*/
+@media (max-width: 2500px) {
+    /*Размеры карточек*/
+    section.traffic_patrol .garage_model_card .slid_img {
+        max-height: 358px;
+    }
 
     section.situation_centre .garage_model_card .slid_img {
         max-height: 367px;
     }
 
-/*    section.water_patrol .garage_model_card .slid_img {*/
-/*        max-height: 367px;*/
-/*    }*/
+    section.water_patrol .garage_model_card .slid_img {
+        max-height: 367px;
+    }
 
-/*    section.velo_patrol .garage_model_card .slid_img {*/
-/*        max-height: 358px;*/
-/*    }*/
+    section.velo_patrol .garage_model_card .slid_img {
+        max-height: 358px;
+    }
 
-/*    section.help_desk .garage_model_card .slid_img {*/
-/*        max-height: 363px;*/
-/*    }*/
-/*}*/
+    section.help_desk .garage_model_card .slid_img {
+        max-height: 363px;
+    }
+}
 
 @media (max-width: 1500px) {
     section.traffic_patrol .traffic_patrol-wrapper img {
@@ -475,25 +475,25 @@
     }
 
     /*Размеры карточек*/
-    /*section.traffic_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 320px;*/
-    /*}*/
+    section.traffic_patrol .garage_model_card .slid_img {
+        max-height: 320px;
+    }
 
     section.situation_centre .garage_model_card .slid_img {
         max-height: 482px;
     }
 
-    /*section.water_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 480px;*/
-    /*}*/
+    section.water_patrol .garage_model_card .slid_img {
+        max-height: 480px;
+    }
 
-    /*section.velo_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 320px;*/
-    /*}*/
+    section.velo_patrol .garage_model_card .slid_img {
+        max-height: 320px;
+    }
 
-    /*section.help_desk .garage_model_card .slid_img {*/
-    /*    max-height: 320px;*/
-    /*}*/
+    section.help_desk .garage_model_card .slid_img {
+        max-height: 320px;
+    }
 
 
     section.traffic_patrol .traffic_patrol_grid-wrapper {
@@ -1099,25 +1099,25 @@
 
 
     /*Размеры карточек*/
-    /*section.traffic_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 234px;*/
-    /*}*/
+    section.traffic_patrol .garage_model_card .slid_img {
+        max-height: 234px;
+    }
 
     section.situation_centre .garage_model_card .slid_img {
         max-height: 270px;
     }
 
-    /*section.water_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 234px;*/
-    /*}*/
+    section.water_patrol .garage_model_card .slid_img {
+        max-height: 234px;
+    }
 
-    /*section.velo_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 288px;*/
-    /*}*/
+    section.velo_patrol .garage_model_card .slid_img {
+        max-height: 288px;
+    }
 
-    /*section.help_desk .garage_model_card .slid_img {*/
-    /*    max-height: 234px;*/
-    /*}*/
+    section.help_desk .garage_model_card .slid_img {
+        max-height: 234px;
+    }
 
 
 
@@ -2005,25 +2005,25 @@
 
 
     /*Размеры карточек*/
-    /*section.traffic_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 258px;*/
-    /*}*/
+    section.traffic_patrol .garage_model_card .slid_img {
+        max-height: 258px;
+    }
 
     section.situation_centre .garage_model_card .slid_img {
         max-height: 258px;
     }
 
-    /*section.water_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 255px;*/
-    /*}*/
+    section.water_patrol .garage_model_card .slid_img {
+        max-height: 255px;
+    }
 
-    /*section.velo_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 220px;*/
-    /*}*/
+    section.velo_patrol .garage_model_card .slid_img {
+        max-height: 220px;
+    }
 
-    /*section.help_desk .garage_model_card .slid_img {*/
-    /*    max-height: 277px;*/
-    /*}*/
+    section.help_desk .garage_model_card .slid_img {
+        max-height: 277px;
+    }
 
 
     section.traffic_patrol .traffic_patrol_grid-wrapper {

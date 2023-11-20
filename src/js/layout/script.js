@@ -1,9 +1,9 @@
 // import {GallerySwitchHook} from "../../helpers/gallerySwitchHook";
 import {InteriorTransitionHelper} from "../../helpers/interiorTransitionHelper";
 
-const techSection = document.querySelector('section.tech_spec');
-const autoSection = document.querySelector('section.auto_park');
-const techSpecWrapper = document.querySelector('section.tech_spec .tech_spec__wrapper');
+const techSection = document.querySelector('.tech_spec');
+const autoSection = document.querySelector('.auto_park');
+const techSpecWrapper = document.querySelector('.tech_spec .tech_spec__wrapper');
 const visibleBlockMission = document.querySelector('.tech_spec__mission');
 const visibleBlockOutfit = document.querySelector('.tech_spec__outfit');
 const techSpecGridWrapper = document.querySelector('.tech_spec__description-grid_wrapper');
@@ -21,6 +21,14 @@ const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const screenWidth = window.innerWidth;
 
+// API Vectary
+// let modelApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
+// await modelApi.init();
+//
+// // Your API magic here
+// modelApi.isReady().then(() => console.log("IsReady"));
+// modelApi.postViewData().then((r) => console.log("PostViewData:", r));
+
 const overlay = document.getElementById('overlay');
 let VectaryIframe = document.querySelector('.VectaryIframe');
 // const screenHeight = window.innerHeight;
@@ -35,37 +43,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const IframeObject = {
         'amarok_iframe': {
             AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
-            AR_OFF: 'https://app.vectary.com/p/0RbOH9MPO3BnsOhDY52zqF'
+            AR_OFF: 'https://app.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'
         },
         'transit_iframe': {
-            AR_ON: 'https://app.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
-            AR_OFF: 'https://app.vectary.com/p/653hmLhISTzEqZVP2DpI1Y'
+            AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
+            AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'
         },
         'solaris_iframe': {
-            AR_ON: 'https://app.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
-            AR_OFF: 'https://app.vectary.com/p/2nJznMdXw4HmPslEs1RUVl'
+            AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
+            AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'
         },
         'bus_iframe': {
-            AR_ON: 'https://app.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
-            AR_OFF: 'https://app.vectary.com/p/1DxEomvLdgsZvxHG7bCbrG'
+            AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
+            AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
         },
         'kater_iframe': {
-            AR_ON: 'https://app.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
-            AR_OFF: 'https://app.vectary.com/p/5o5bNVoXf9Dvf9xOzfGvqq'
+            AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
+            AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'
         },
         'moskvich_iframe': {
             AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
             AR_OFF: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq'
         },
         'velo_iframe': {
-            AR_ON: 'https://app.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
-            AR_OFF: 'https://app.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI'
-        },
-
+            AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
+            AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
+        }
     };
 
     let VectaryIframeClass = VectaryIframe.classList[0];
-    // Получите текущую ширину экрана
+
     let screenWidth = window.innerWidth;
 
     if (screenWidth >= 700 && screenWidth <= 1200) {
@@ -73,13 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
     }
-
-    // VectaryIframe.onload = function() {
-    //     console.log("iframe загрузился");
-    // }
-    // VectaryIframe.onerror = function() {
-    //     console.log("Что-то пошло не так!");
-    // }
 });
 
 
@@ -100,6 +100,8 @@ function toggleElements(action) {
             element.classList.toggle('hidden');
         } else if (action === 'add') {
             element.classList.add('hidden');
+        } else if (action === 'remove') {
+            element.classList.remove('hidden');
         }
     });
 }

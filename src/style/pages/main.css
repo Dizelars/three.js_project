@@ -1139,6 +1139,8 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     background-color: #FFFFFF;
     width: 100%;
     border-radius: 0 0 8px 8px;
+
+    z-index: 5;
 }
 
 .garage_model_card .slid_info .slid_info-desc .slid_info-title {

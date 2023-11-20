@@ -168,13 +168,13 @@
         margin: 0 10px;
     }
 
-    .header .header__info {
-        justify-content: flex-end;
-    }
+    /*.header .header__info {*/
+    /*    justify-content: flex-end;*/
+    /*}*/
 
-    .header .header__info-descr {
-        display: none;
-    }
+    /*.header .header__info-descr {*/
+    /*    display: none;*/
+    /*}*/
 
     /*.tech_spec .tech_spec__wrapper {*/
     /*    margin-top: 50px;*/
@@ -207,14 +207,35 @@
     /*}*/
 
     .tech_spec__interior {
-        margin-top: 50px;
-        margin-right: 30px;
+        /*margin-top: 50px;*/
+        /*margin-right: 30px;*/
         max-width: 130px;
-        height: 90px;
+        /*height: 90px;*/
+        height: 167px;
+
+        /*top: 60px;*/
+        right: 30px;
+        justify-content: unset;
+        padding: 10px;
+    }
+
+    .tech_spec__interior .tech_spec__interior-title {
+        margin-bottom: 10px;
+    }
+
+    .tech_spec__interior .tech_spec__interior-wrapper {
+        height: 70px;
+    }
+
+    .tech_spec__interior-btn {
+        right: unset;
+        left: 0;
+        bottom: -35px;
     }
 
     .tech_spec__interior .tech_spec__interior-btn .arrow-wrapper {
-        border: 1px solid #FFF;
+        /*border: 1px solid #FFF;*/
+        background: transparent;
     }
     /*.auto_park {*/
     /*    transform: translateY(0px);*/
@@ -233,22 +254,65 @@
         padding: 0;
     }
 
-    .header .header__wrapper {
-        height: 60px;
+    .header {
+        top: 14px;
+        left: 20px;
+    }
+
+    /*.header .header__wrapper {*/
+    /*    height: 60px;*/
+    /*}*/
+
+    .tech_spec {
+        left: 0;
+
+        height: 100vh;
+        top: unset;
+    }
+
+    .tech_spec.active {
+        height: unset;
     }
 
     .tech_spec .tech_spec__wrapper {
         margin-top: 0;
         width: 100%;
+
+        height: 100vh;
+    }
+
+    .tech_spec .tech_spec__wrapper.hidden {
+        height: unset;
+        pointer-events: none;
     }
 
     .tech_spec .tech_spec__description {
-        padding: 20px;
+        /*padding: 20px;*/
         width: 100%;
         max-width: unset;
-        display: flex;
-        justify-content: center;
-        border-radius: 0 0 30px 30px;
+        /*display: flex;*/
+        /*justify-content: center;*/
+        /*border-radius: 0 0 30px 30px;*/
+
+        height: 100%;
+        padding: 80px 20px 20px 20px;
+    }
+
+    .tech_spec .tech_spec__description.hidden {
+        /*padding: 20px;*/
+        height: inherit;
+        background: none;
+        backdrop-filter: none;
+    }
+
+    .tech_spec .tech_spec__description.hidden .tech_spec__button .tech_spec__btn {
+        background: rgba(9, 9, 9, 0.50);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
+    .tech_spec__button .tech_spec__btn {
+        pointer-events: all;
     }
 
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {
@@ -278,11 +342,22 @@
     .tech_spec__interior {
         /*max-width: 80px !important;*/
         /*height: 50px !important;*/
-        margin: 0 !important;
-        left: 20px !important;
-        bottom: 72px !important;
-        background: none !important;
+        height: fit-content;
+        padding: 0;
+        left: 20px;
+        bottom: 84px;
+        top: unset;
+        background: none;
+        backdrop-filter: none;
         pointer-events: none;
+    }
+
+    .tech_spec__interior .tech_spec__interior-wrapper {
+        background: none !important;
+    }
+
+    .tech_spec__interior .tech_spec__interior-title {
+        display: none;
     }
 
     .tech_spec__interior .tech_spec__interior-btn {
@@ -291,6 +366,7 @@
         max-width: fit-content;
         /*top: 75px;*/
         left: 0;
+        bottom: 0;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         border: 1px solid white;
@@ -399,7 +475,7 @@
 
 @media screen and (max-width:400px) and (max-height:680px) {
     .tech_spec .tech_spec__description {
-        padding: 10px 16px;
+        /*padding: 10px 16px;*/
         -webkit-backdrop-filter: blur(16px);
         backdrop-filter: blur(16px);
     }
@@ -438,9 +514,9 @@
         font-size: 10px;
     }
 
-    .tech_spec__interior {
-        bottom: 60px !important;
-    }
+    /*.tech_spec__interior {*/
+    /*    bottom: 60px !important;*/
+    /*}*/
 
     .auto_park .auto_park_wrapper {
         padding: 14px 20px 34px 20px;
@@ -516,7 +592,7 @@
     }
 
     .tech_spec .tech_spec__description {
-        padding: 20px 20px 100% 20px;
+        /*padding: 20px 20px 100% 20px;*/
         max-width: unset;
     }
 

@@ -131,105 +131,290 @@
   </div>
 </div>
 
-<header class="header">
-  <div class="container">
-    <div class="header__wrapper">
-      <a class="header__logo" href="../index.html">
-        <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
-        <p class="header__logo-text">Гараж ЦОДД</p>
-      </a>
-      <div class="header__info">
-        <img class="header__info-img" src="../img/layout/header_models/preview_kater.png" alt="model_preview">
-        <div class="header__info-descr">
-          <p class="header__info-title">Катер</p>
-<!--          <p class="header__info-text">1 транспортное средство</p>-->
+<!--<header class="header">-->
+<!--  <div class="container">-->
+<!--    <div class="header__wrapper">-->
+<!--      <a class="header__logo" href="../index.html">-->
+<!--        <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">-->
+<!--        <p class="header__logo-text">Гараж ЦОДД</p>-->
+<!--      </a>-->
+<!--      <div class="header__info">-->
+<!--        <img class="header__info-img" src="../img/layout/header_models/preview_kater.png" alt="model_preview">-->
+<!--        <div class="header__info-descr">-->
+<!--          <p class="header__info-title">Катер</p>-->
+<!--&lt;!&ndash;          <p class="header__info-text">1 транспортное средство</p>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</header>-->
+
+<!--<main class="models">-->
+<!--  <section class="tech_spec">-->
+<!--    <div class="container__content">-->
+<!--      <div class="tech_spec__wrapper">-->
+<!--        <div class="tech_spec__description">-->
+<!--          <div class="tech_spec__description-grid_wrapper">-->
+<!--            <div class="tech_spec__titles">-->
+<!--              <div class="text_spec__texts">-->
+<!--                <p class="tech_spec__title">Водный патруль</p>-->
+<!--                <p class="tech_spec__subtitle">Катер ЦОДД</p>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="tech_spec__mission">-->
+<!--              <p class="tech_spec__text">Задача:</p>-->
+<!--              <p class="tech_spec__text-descr">Мониторинг, фиксация нарушений движения и&nbsp;стоянки в&nbsp;акватории.</p>-->
+<!--            </div>-->
+<!--            <div class="tech_spec__outfit">-->
+<!--              <p class="tech_spec__text">Экипировка:</p>-->
+<!--              <ul class="tech_spec__outfit-list">-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_1.svg" alt="Радиостанции" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Радиостанции</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Аптечка</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_2.svg" alt="Планшетный компьютер" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Планшетный компьютер</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_3.svg" alt="Сигнальная установка" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Сигнальная установка</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_4.svg" alt="Навигационное оборудование" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Навигационное оборудование</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_5.svg" alt="Спасательное оборудование" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Спасательное оборудование</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_6.svg" alt="Багор" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">Багор</span>-->
+<!--                </li>-->
+<!--                <li class="tech_spec__outfit-item">-->
+<!--                  <div class="tech_spec__outfit-img">-->
+<!--                    <img src="../img/layout/outfit/kater/outfit_7.svg" alt="АИС транспондер" fetchpriority="high">-->
+<!--                  </div>-->
+<!--                  <span class="tech_spec__outfit-text">АИС транспондер</span>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </div>-->
+<!--            <div class="tech_spec__button">-->
+<!--              <a class="tech_spec__btn">-->
+<!--                <span>Скрыть</span>-->
+<!--                <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <div class="tech_spec__interior" id="kater">-->
+<!--    <div class="tech_spec__interior-btn">-->
+<!--      <span class="tech_spec__interior-text">В салон</span>-->
+<!--      <div class="arrow-wrapper">-->
+<!--        <img src="../img/layout/interior_arrow.svg" alt="interior_arrow">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</main>-->
+
+<!--<section class="auto_park">-->
+<!--  <div class="container">-->
+<!--    <div class="auto_park_wrapper">-->
+<!--      <div class="auto_park__control">-->
+<!--        <p class="auto_park__title">Транспорт ЦОДД</p>-->
+<!--        <img class="rotate" src="../img/layout/auto_park_arrow.svg" alt="auto_park_btn">-->
+<!--      </div>-->
+<!--      <div class="auto_park_slider">-->
+<!--        <div class="auto_park_slider-overflow swiper_model">-->
+<!--          <div class="auto_park_slider-wrapper swiper-wrapper">-->
+<!--            <div class="gallery_item swiper-slide">-->
+<!--              <a class="gallery_item_link" href="../pages/amarok.html">-->
+<!--                <picture>-->
+<!--                  <source srcset="../img/layout/pages/main/slider/amarok.webp" type="image/webp">-->
+<!--                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok" fetchpriority="high">-->
+<!--                </picture>-->
+<!--&lt;!&ndash;                <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok">&ndash;&gt;-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="gallery_item swiper-slide">-->
+<!--              <a class="gallery_item_link" href="../pages/ford.html">-->
+<!--                <picture>-->
+<!--                  <source srcset="../img/layout/pages/main/slider/ford.webp" type="image/webp">-->
+<!--                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" fetchpriority="high">-->
+<!--                </picture>-->
+<!--&lt;!&ndash;                <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford">&ndash;&gt;-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="gallery_item swiper-slide active">-->
+<!--                <a class="gallery_item_link" href="#">-->
+<!--                  <picture>-->
+<!--                    <source srcset="../img/layout/pages/main/slider/kater.webp" type="image/webp">-->
+<!--                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">-->
+<!--                  </picture>-->
+<!--&lt;!&ndash;                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater">&ndash;&gt;-->
+<!--                </a>-->
+<!--            </div>-->
+<!--            <div class="gallery_item swiper-slide">-->
+<!--              <a class="gallery_item_link" href="../pages/solaris_two.html">-->
+<!--                <picture>-->
+<!--                  <source srcset="../img/layout/pages/main/slider/solaris_gray.webp" type="image/webp">-->
+<!--                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">-->
+<!--                </picture>-->
+<!--&lt;!&ndash;                <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris">&ndash;&gt;-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="gallery_item swiper-slide">-->
+<!--              <a class="gallery_item_link" href="../pages/bus.html">-->
+<!--                <picture>-->
+<!--                  <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">-->
+<!--                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">-->
+<!--                </picture>-->
+<!--&lt;!&ndash;                <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus">&ndash;&gt;-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="gallery_item swiper-slide">-->
+<!--              <a class="gallery_item_link" href="../pages/moskvich.html">-->
+<!--                <picture>-->
+<!--                  <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">-->
+<!--                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">-->
+<!--                </picture>-->
+<!--&lt;!&ndash;                <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich">&ndash;&gt;-->
+<!--              </a>-->
+<!--            </div>-->
+<!--            <div class="gallery_item swiper-slide">-->
+<!--              <a class="gallery_item_link" href="../pages/velo.html">-->
+<!--                <picture>-->
+<!--                  <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">-->
+<!--                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">-->
+<!--                </picture>-->
+<!--&lt;!&ndash;                <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo">&ndash;&gt;-->
+<!--              </a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="auto_park_slider-button">-->
+<!--          <button class="prev_button">-->
+<!--            <img src="../img/layout/slider/icon-arrow.png" alt="arrow_prev" fetchpriority="high">-->
+<!--          </button>-->
+<!--          <button class="next_button">-->
+<!--            <img src="../img/layout/slider/icon-arrow.png" alt="arrow_next" fetchpriority="high">-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+<div class="header">
+  <a class="header__logo" href="../index.html">
+    <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
+    <p class="header__logo-text">Гараж ЦОДД</p>
+  </a>
+</div>
+
+<div class="tech_spec">
+  <div class="tech_spec__wrapper">
+    <div class="tech_spec__description">
+      <div class="tech_spec__description-grid_wrapper">
+        <div class="tech_spec__titles">
+          <div class="text_spec__texts">
+            <p class="tech_spec__title">Водный патруль</p>
+            <p class="tech_spec__subtitle">Катер ЦОДД</p>
+          </div>
+        </div>
+        <div class="tech_spec__mission">
+          <p class="tech_spec__text">Задача:</p>
+          <p class="tech_spec__text-descr">Мониторинг, фиксация нарушений движения и&nbsp;стоянки в&nbsp;акватории.</p>
+        </div>
+        <div class="tech_spec__outfit">
+          <p class="tech_spec__text">Экипировка:</p>
+          <ul class="tech_spec__outfit-list">
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_1.svg" alt="Радиостанции" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Радиостанции</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Аптечка</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_2.svg" alt="Планшетный компьютер" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Планшетный компьютер</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_3.svg" alt="Сигнальная установка" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Сигнальная установка</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_4.svg" alt="Навигационное оборудование" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Навигационное оборудование</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_5.svg" alt="Спасательное оборудование" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Спасательное оборудование</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_6.svg" alt="Багор" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Багор</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/kater/outfit_7.svg" alt="АИС транспондер" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">АИС транспондер</span>
+            </li>
+          </ul>
+        </div>
+        <div class="tech_spec__button">
+          <a class="tech_spec__btn">
+            <span>Скрыть</span>
+            <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
+          </a>
         </div>
       </div>
     </div>
   </div>
-</header>
+</div>
 
-<main class="models">
-  <section class="tech_spec">
-    <div class="container__content">
-      <div class="tech_spec__wrapper">
-        <div class="tech_spec__description">
-          <div class="tech_spec__description-grid_wrapper">
-            <div class="tech_spec__titles">
-              <div class="text_spec__texts">
-                <p class="tech_spec__title">Водный патруль</p>
-                <p class="tech_spec__subtitle">Катер ЦОДД</p>
-              </div>
-            </div>
-            <div class="tech_spec__mission">
-              <p class="tech_spec__text">Задача:</p>
-              <p class="tech_spec__text-descr">Мониторинг, фиксация нарушений движения и&nbsp;стоянки в&nbsp;акватории.</p>
-            </div>
-            <div class="tech_spec__outfit">
-              <p class="tech_spec__text">Экипировка:</p>
-              <ul class="tech_spec__outfit-list">
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_1.svg" alt="Радиостанции" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Радиостанции</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Аптечка</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_2.svg" alt="Планшетный компьютер" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Планшетный компьютер</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_3.svg" alt="Сигнальная установка" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Сигнальная установка</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_4.svg" alt="Навигационное оборудование" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Навигационное оборудование</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_5.svg" alt="Спасательное оборудование" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Спасательное оборудование</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_6.svg" alt="Багор" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">Багор</span>
-                </li>
-                <li class="tech_spec__outfit-item">
-                  <div class="tech_spec__outfit-img">
-                    <img src="../img/layout/outfit/kater/outfit_7.svg" alt="АИС транспондер" fetchpriority="high">
-                  </div>
-                  <span class="tech_spec__outfit-text">АИС транспондер</span>
-                </li>
-              </ul>
-            </div>
-            <div class="tech_spec__button">
-              <a class="tech_spec__btn">
-                <span>Скрыть</span>
-                <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="tech_spec__interior" id="kater">
+<div class="tech_spec__interior" id="kater">
+  <p class="tech_spec__interior-title">Катер</p>
+  <div class="tech_spec__interior-wrapper">
     <div class="tech_spec__interior-btn">
       <span class="tech_spec__interior-text">В салон</span>
       <div class="arrow-wrapper">
@@ -237,9 +422,9 @@
       </div>
     </div>
   </div>
-</main>
+</div>
 
-<section class="auto_park">
+<div class="auto_park">
   <div class="container">
     <div class="auto_park_wrapper">
       <div class="auto_park__control">
@@ -255,7 +440,7 @@
                   <source srcset="../img/layout/pages/main/slider/amarok.webp" type="image/webp">
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok" fetchpriority="high">
                 </picture>
-<!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok">-->
+                <!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok">-->
               </a>
             </div>
             <div class="gallery_item swiper-slide">
@@ -264,17 +449,17 @@
                   <source srcset="../img/layout/pages/main/slider/ford.webp" type="image/webp">
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" fetchpriority="high">
                 </picture>
-<!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford">-->
+                <!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford">-->
               </a>
             </div>
             <div class="gallery_item swiper-slide active">
-                <a class="gallery_item_link" href="#">
-                  <picture>
-                    <source srcset="../img/layout/pages/main/slider/kater.webp" type="image/webp">
-                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">
-                  </picture>
-<!--                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater">-->
-                </a>
+              <a class="gallery_item_link" href="#">
+                <picture>
+                  <source srcset="../img/layout/pages/main/slider/kater.webp" type="image/webp">
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">
+                </picture>
+                <!--                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater">-->
+              </a>
             </div>
             <div class="gallery_item swiper-slide">
               <a class="gallery_item_link" href="../pages/solaris_two.html">
@@ -282,7 +467,7 @@
                   <source srcset="../img/layout/pages/main/slider/solaris_gray.webp" type="image/webp">
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">
                 </picture>
-<!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris">-->
+                <!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris">-->
               </a>
             </div>
             <div class="gallery_item swiper-slide">
@@ -291,7 +476,7 @@
                   <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">
                 </picture>
-<!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus">-->
+                <!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus">-->
               </a>
             </div>
             <div class="gallery_item swiper-slide">
@@ -300,7 +485,7 @@
                   <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">
                 </picture>
-<!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich">-->
+                <!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich">-->
               </a>
             </div>
             <div class="gallery_item swiper-slide">
@@ -309,7 +494,7 @@
                   <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">
                 </picture>
-<!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo">-->
+                <!--                <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo">-->
               </a>
             </div>
           </div>
@@ -325,7 +510,7 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="kater_iframe VectaryIframe"></iframe>
 <div id="overlay"></div>

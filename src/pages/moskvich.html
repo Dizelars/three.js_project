@@ -131,129 +131,331 @@
     </div>
 </div>
 
-<header class="header">
-    <div class="container">
-        <div class="header__wrapper">
-            <a class="header__logo" href="../index.html">
-                <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
-                <p class="header__logo-text">Гараж ЦОДД</p>
-            </a>
-            <div class="header__info">
-                <img class="header__info-img" src="../img/layout/header_models/preview_moskvich.png" alt="model_preview">
-                <div class="header__info-descr">
-                    <p class="header__info-title">Москвич 3е</p>
-<!--                    <p class="header__info-text">125 автомобилей</p>-->
+<!--<header class="header">-->
+<!--    <div class="container">-->
+<!--        <div class="header__wrapper">-->
+<!--            <a class="header__logo" href="../index.html">-->
+<!--                <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">-->
+<!--                <p class="header__logo-text">Гараж ЦОДД</p>-->
+<!--            </a>-->
+<!--            <div class="header__info">-->
+<!--                <img class="header__info-img" src="../img/layout/header_models/preview_moskvich.png" alt="model_preview">-->
+<!--                <div class="header__info-descr">-->
+<!--                    <p class="header__info-title">Москвич 3е</p>-->
+<!--&lt;!&ndash;                    <p class="header__info-text">125 автомобилей</p>&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</header>-->
+
+<!--<main class="models">-->
+<!--    <section class="tech_spec">-->
+<!--        <div class="container__content">-->
+<!--            <div class="tech_spec__wrapper">-->
+<!--                <div class="tech_spec__description">-->
+<!--                    <div class="tech_spec__description-grid_wrapper">-->
+<!--                        <div class="tech_spec__titles">-->
+<!--                            <div class="text_spec__texts">-->
+<!--                                <p class="tech_spec__title">Служба помощи</p>-->
+<!--                                <p class="tech_spec__subtitle">Помощь водителям на&nbsp;базе мобильных комплексов фотовидеофиксации</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="tech_spec__mission">-->
+<!--                            <p class="tech_spec__text">Задача:</p>-->
+<!--                            <p class="tech_spec__text-descr">Помощь тем, кто столкнулся с&nbsp;трудностями на&nbsp;дороге, содействие городским службам, фиксация нарушений в&nbsp;потоке</p>-->
+<!--                        </div>-->
+<!--                        <div class="tech_spec__outfit">-->
+<!--                            <p class="tech_spec__text">Экипировка:</p>-->
+<!--                            <ul class="tech_spec__outfit-list">-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_1.svg" alt="Огнетушитель" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Огнетушитель</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Аптечка</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_3.svg" alt="Инструменты" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Инструменты</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_4.svg" alt="Трос" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Трос</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_6.svg" alt="Пусковое устройство" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Пусковое устройство</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_7.svg" alt="Бланки европротокола" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Бланки европротокола</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_9.svg" alt="Домкрат" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Домкрат</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/amarok/outfit_10.svg" alt="Дорожные конусы" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Дорожные конусы</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/solaris_gray/outfit_9.svg" alt="Крестообразный ключ" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Крестовой ключ</span>-->
+<!--                                </li>-->
+<!--&lt;!&ndash;                                <li class="tech_spec__outfit-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="tech_spec__outfit-img">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <img src="../img/layout/outfit/solaris_gray/outfit_10.svg" alt="Камеры видеофиксации" fetchpriority="high">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <span class="tech_spec__outfit-text">Камеры видеофиксации</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                                </li>&ndash;&gt;-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/solaris_gray/outfit_11.svg" alt="Комплекс с нейросетью" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Комплекс с нейросетью</span>-->
+<!--                                </li>-->
+<!--                                <li class="tech_spec__outfit-item">-->
+<!--                                    <div class="tech_spec__outfit-img">-->
+<!--                                        <img src="../img/layout/outfit/solaris_gray/outfit_12.svg" alt="Жезл регулировщика" fetchpriority="high">-->
+<!--                                    </div>-->
+<!--                                    <span class="tech_spec__outfit-text">Жезл регулировщика</span>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                        <div class="tech_spec__button">-->
+<!--                            <a class="tech_spec__btn">-->
+<!--                                <span>Скрыть</span>-->
+<!--                                <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--    <div class="tech_spec__interior" id="moskvich">-->
+<!--        <div class="tech_spec__interior-btn">-->
+<!--            <span class="tech_spec__interior-text">В салон</span>-->
+<!--            <div class="arrow-wrapper">-->
+<!--                <img src="../img/layout/interior_arrow.svg" alt="interior_arrow">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</main>-->
+
+<!--<section class="auto_park">-->
+<!--    <div class="container">-->
+<!--        <div class="auto_park_wrapper">-->
+<!--            <div class="auto_park__control">-->
+<!--                <p class="auto_park__title">Транспорт ЦОДД</p>-->
+<!--                <img class="rotate" src="../img/layout/auto_park_arrow.svg" alt="auto_park_btn">-->
+<!--            </div>-->
+<!--            <div class="auto_park_slider">-->
+<!--                <div class="auto_park_slider-overflow swiper_model">-->
+<!--                    <div class="auto_park_slider-wrapper swiper-wrapper">-->
+<!--                        <div class="gallery_item swiper-slide">-->
+<!--                            <a class="gallery_item_link" href="../pages/amarok.html">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/amarok.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="gallery_item swiper-slide">-->
+<!--                            <a class="gallery_item_link" href="../pages/ford.html">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/ford.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="gallery_item swiper-slide">-->
+<!--                            <a class="gallery_item_link" href="../pages/kater.html">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/kater.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="gallery_item swiper-slide">-->
+<!--                            <a class="gallery_item_link" href="../pages/solaris_two.html">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/solaris_gray.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="gallery_item swiper-slide">-->
+<!--                            <a class="gallery_item_link" href="../pages/bus.html">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="gallery_item swiper-slide active">-->
+<!--                            <a class="gallery_item_link" href="#">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                        <div class="gallery_item swiper-slide">-->
+<!--                            <a class="gallery_item_link" href="../pages/velo.html">-->
+<!--                                <picture>-->
+<!--                                    <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">-->
+<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">-->
+<!--                                </picture>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="auto_park_slider-button">-->
+<!--                    <button class="prev_button">-->
+<!--                        <img src="../img/layout/slider/icon-arrow.png" alt="arrow_prev" fetchpriority="high">-->
+<!--                    </button>-->
+<!--                    <button class="next_button">-->
+<!--                        <img src="../img/layout/slider/icon-arrow.png" alt="arrow_next" fetchpriority="high">-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<div class="header">
+    <a class="header__logo" href="../index.html">
+        <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
+        <p class="header__logo-text">Гараж ЦОДД</p>
+    </a>
+</div>
+
+<div class="tech_spec">
+    <div class="tech_spec__wrapper">
+        <div class="tech_spec__description">
+            <div class="tech_spec__description-grid_wrapper">
+                <div class="tech_spec__titles">
+                    <div class="text_spec__texts">
+                        <p class="tech_spec__title">Служба помощи</p>
+                        <p class="tech_spec__subtitle">Помощь водителям на&nbsp;базе мобильных комплексов фотовидеофиксации</p>
+                    </div>
+                </div>
+                <div class="tech_spec__mission">
+                    <p class="tech_spec__text">Задача:</p>
+                    <p class="tech_spec__text-descr">Помощь тем, кто столкнулся с&nbsp;трудностями на&nbsp;дороге, содействие городским службам, фиксация нарушений в&nbsp;потоке</p>
+                </div>
+                <div class="tech_spec__outfit">
+                    <p class="tech_spec__text">Экипировка:</p>
+                    <ul class="tech_spec__outfit-list">
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_1.svg" alt="Огнетушитель" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Огнетушитель</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Аптечка</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_3.svg" alt="Инструменты" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Инструменты</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_4.svg" alt="Трос" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Трос</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_6.svg" alt="Пусковое устройство" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Пусковое устройство</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_7.svg" alt="Бланки европротокола" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Бланки европротокола</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_9.svg" alt="Домкрат" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Домкрат</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/amarok/outfit_10.svg" alt="Дорожные конусы" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Дорожные конусы</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/solaris_gray/outfit_9.svg" alt="Крестообразный ключ" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Крестовой ключ</span>
+                        </li>
+                        <!--                                <li class="tech_spec__outfit-item">-->
+                        <!--                                    <div class="tech_spec__outfit-img">-->
+                        <!--                                        <img src="../img/layout/outfit/solaris_gray/outfit_10.svg" alt="Камеры видеофиксации" fetchpriority="high">-->
+                        <!--                                    </div>-->
+                        <!--                                    <span class="tech_spec__outfit-text">Камеры видеофиксации</span>-->
+                        <!--                                </li>-->
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/solaris_gray/outfit_11.svg" alt="Комплекс с нейросетью" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Комплекс с нейросетью</span>
+                        </li>
+                        <li class="tech_spec__outfit-item">
+                            <div class="tech_spec__outfit-img">
+                                <img src="../img/layout/outfit/solaris_gray/outfit_12.svg" alt="Жезл регулировщика" fetchpriority="high">
+                            </div>
+                            <span class="tech_spec__outfit-text">Жезл регулировщика</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tech_spec__button">
+                    <a class="tech_spec__btn">
+                        <span>Скрыть</span>
+                        <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</header>
+</div>
 
-<main class="models">
-    <section class="tech_spec">
-        <div class="container__content">
-            <div class="tech_spec__wrapper">
-                <div class="tech_spec__description">
-                    <div class="tech_spec__description-grid_wrapper">
-                        <div class="tech_spec__titles">
-                            <div class="text_spec__texts">
-                                <p class="tech_spec__title">Служба помощи</p>
-                                <p class="tech_spec__subtitle">Помощь водителям на&nbsp;базе мобильных комплексов фотовидеофиксации</p>
-                            </div>
-                        </div>
-                        <div class="tech_spec__mission">
-                            <p class="tech_spec__text">Задача:</p>
-                            <p class="tech_spec__text-descr">Помощь тем, кто столкнулся с&nbsp;трудностями на&nbsp;дороге, содействие городским службам, фиксация нарушений в&nbsp;потоке</p>
-                        </div>
-                        <div class="tech_spec__outfit">
-                            <p class="tech_spec__text">Экипировка:</p>
-                            <ul class="tech_spec__outfit-list">
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_1.svg" alt="Огнетушитель" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Огнетушитель</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Аптечка</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_3.svg" alt="Инструменты" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Инструменты</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_4.svg" alt="Трос" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Трос</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_6.svg" alt="Пусковое устройство" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Пусковое устройство</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_7.svg" alt="Бланки европротокола" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Бланки европротокола</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_9.svg" alt="Домкрат" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Домкрат</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/amarok/outfit_10.svg" alt="Дорожные конусы" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Дорожные конусы</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/solaris_gray/outfit_9.svg" alt="Крестообразный ключ" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Крестовой ключ</span>
-                                </li>
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/solaris_gray/outfit_10.svg" alt="Камеры видеофиксации" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Камеры видеофиксации</span>-->
-<!--                                </li>-->
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/solaris_gray/outfit_11.svg" alt="Комплекс с нейросетью" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Комплекс с нейросетью</span>
-                                </li>
-                                <li class="tech_spec__outfit-item">
-                                    <div class="tech_spec__outfit-img">
-                                        <img src="../img/layout/outfit/solaris_gray/outfit_12.svg" alt="Жезл регулировщика" fetchpriority="high">
-                                    </div>
-                                    <span class="tech_spec__outfit-text">Жезл регулировщика</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tech_spec__button">
-                            <a class="tech_spec__btn">
-                                <span>Скрыть</span>
-                                <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="tech_spec__interior" id="moskvich">
+<div class="tech_spec__interior" id="moskvich">
+    <p class="tech_spec__interior-title">Москвич 3е</p>
+    <div class="tech_spec__interior-wrapper">
         <div class="tech_spec__interior-btn">
             <span class="tech_spec__interior-text">В салон</span>
             <div class="arrow-wrapper">
@@ -261,9 +463,9 @@
             </div>
         </div>
     </div>
-</main>
+</div>
 
-<section class="auto_park">
+<div class="auto_park">
     <div class="container">
         <div class="auto_park_wrapper">
             <div class="auto_park__control">
@@ -342,7 +544,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="moskvich_iframe VectaryIframe"></iframe>
 <div id="overlay"></div>

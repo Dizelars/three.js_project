@@ -135,18 +135,22 @@ a-scene {
 /*прозрачный фон*/
 .header {
     position: absolute;
-    top: 0;
-    left: 0;
+    /*top: 0;*/
+    /*left: 0;*/
+    top: 30px;
+    left: 60px;
     pointer-events: none;
-    right: 0;
+    /*right: 0;*/
     z-index: 5;
     background-color: transparent;
-    max-height: 96px;
-    height: 100%;
+    /*max-height: 92px;*/
+    /*height: 100%;*/
 }
 
 
-.header__wrapper, .header__logo, .header__info {
+.header__wrapper, .header__logo
+/*.header__info*/
+{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -169,25 +173,25 @@ a-scene {
     margin-left: 12px;
 }
 
-.header__info {
-    max-width: 300px;
-    width: 100%;
-}
+/*.header__info {*/
+/*    max-width: 300px;*/
+/*    width: 100%;*/
+/*}*/
 
-.header__info-descr {
-    width: 148px;
-    margin-left: 10px;
-}
+/*.header__info-descr {*/
+/*    width: 148px;*/
+/*    margin-left: 10px;*/
+/*}*/
 
 .header__logo-text {
     color: white;
 }
 
-.header__info-title {
-    font-family: 'MoscowSans', sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-}
+/*.header__info-title {*/
+/*    font-family: 'MoscowSans', sans-serif;*/
+/*    font-weight: 300;*/
+/*    font-size: 16px;*/
+/*}*/
 
 /*.header__info-text {*/
 /*    font-family: 'MoscowSans', sans-serif;*/
@@ -197,30 +201,35 @@ a-scene {
 /*    opacity: 0.4;*/
 /*}*/
 
-.header__info-img {
-    width: 142px;
-    object-fit: cover;
-}
+/*.header__info-img {*/
+/*    width: 142px;*/
+/*    object-fit: cover;*/
+/*}*/
 
-.header__info-img#veloPrev {
-    visibility: hidden;
-}
+/*.header__info-img#veloPrev {*/
+/*    visibility: hidden;*/
+/*}*/
 
 
 /*прозрачный фон*/
-main.models {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
+/*main.models {*/
+/*    position: absolute;*/
+/*    !*top: 80px;*!*/
+/*    top: 92px;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*}*/
 
 
 /*tech_spec*/
 
 .tech_spec {
     position: absolute;
+
+    top: 92px;
+    left: 30px;
+
     z-index: 2;
     /*width: fit-content;*/
     width: 100%;
@@ -456,36 +465,62 @@ main.models {
 
 .tech_spec__interior {
     position: absolute;
-    right: 0;
+    top: 92px;
+    right: 60px;
     max-width: 200px;
     width: 100%;
-    height: 124px;
+    /*height: 124px;*/
+    height: 174px;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    flex-direction: column;
+    /*align-items: flex-end;*/
+    /*justify-content: flex-end;*/
+    align-items: center;
+    justify-content: space-between;
     border-radius: 20px;
     /*background: url("../img/layout/amarok_prew.png") no-repeat center/cover;*/
-    padding: 8px;
+
+    background: rgba(9, 9, 9, 0.50);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    /*padding: 8px;*/
+
+    padding-top: 16px;
+
     cursor: pointer;
-    margin-top: 20px;
-    margin-right: 60px;
+    /*margin-top: 20px;*/
+    /*margin-right: 60px;*/
     /*z-index: 1 !important;*/
     z-index: 1;
 }
 
-.tech_spec__interior#amarok {
+.tech_spec__interior .tech_spec__interior-title {
+    font-family: 'MoscowSans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.tech_spec__interior .tech_spec__interior-wrapper {
+    position: relative;
+    height: 124px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.tech_spec__interior#amarok .tech_spec__interior-wrapper {
     background: url("../img/layout/interior_prew/amarok_prew.png") no-repeat center/cover;
 }
 
-.tech_spec__interior#amarok.garage_amarok {
+.tech_spec__interior#amarok.garage_amarok .tech_spec__interior-wrapper {
     background-image: url("../img/layout/pages/main/slider/amarok.png");
 }
 
-.tech_spec__interior#ford {
+.tech_spec__interior#ford .tech_spec__interior-wrapper {
     background: url("../img/layout/interior_prew/ford_prew.png") no-repeat center/cover;
 }
 
-.tech_spec__interior#ford.garage_ford {
+.tech_spec__interior#ford.garage_ford .tech_spec__interior-wrapper {
     background-image: url("../img/layout/pages/main/slider/ford.png");
 }
 
@@ -497,36 +532,36 @@ main.models {
 /*    background-image: url("../img/layout/slider/solaris_green.png");*/
 /*}*/
 
-.tech_spec__interior#solaris_gray {
+.tech_spec__interior#solaris_gray .tech_spec__interior-wrapper {
     background: url("../img/layout/interior_prew/solaris_gray_prew.png") no-repeat center/cover;
 }
 
-.tech_spec__interior#solaris_gray.garage_solaris_gray {
+.tech_spec__interior#solaris_gray.garage_solaris_gray .tech_spec__interior-wrapper {
     background-image: url("../img/layout/pages/main/slider/solaris_gray.png");
 }
 
-.tech_spec__interior#bus {
+.tech_spec__interior#bus .tech_spec__interior-wrapper {
     background: url("../img/layout/interior_prew/bus_prew.png") no-repeat center/cover;
 }
 
-.tech_spec__interior#bus.garage_bus {
+.tech_spec__interior#bus.garage_bus .tech_spec__interior-wrapper {
     background-image: url("../img/layout/pages/main/slider/bus.png");
 }
 
-.tech_spec__interior#kater {
+.tech_spec__interior#kater .tech_spec__interior-wrapper {
     background: url("../img/layout/interior_prew/kater_prew.png") no-repeat center/cover;
     /*display: none;*/
 }
 
-.tech_spec__interior#kater.garage_kater {
+.tech_spec__interior#kater.garage_kater .tech_spec__interior-wrapper {
     background-image: url("../img/layout/pages/main/slider/kater.png");
 }
 
-.tech_spec__interior#moskvich {
+.tech_spec__interior#moskvich .tech_spec__interior-wrapper {
     background: url("../img/layout/interior_prew/moskvich_prew.png") no-repeat center/cover;
 }
 
-.tech_spec__interior#moskvich.garage_moskvich {
+.tech_spec__interior#moskvich.garage_moskvich .tech_spec__interior-wrapper {
     background-image: url("../img/layout/pages/main/slider/moskvich.png");
 }
 
@@ -535,7 +570,7 @@ main.models {
     display: none;
 }
 
-/*.tech_spec__interior#velo.garage_velo {*/
+/*.tech_spec__interior#velo.garage_velo .tech_spec__interior-wrapper {*/
 /*    background-image: url("../img/layout/slider/velo.png");*/
 /*}*/
 
@@ -549,6 +584,10 @@ main.models {
     justify-content: space-between;
     max-width: 80px;
     width: 100%;
+
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
 }
 
 .tech_spec__interior-text {
