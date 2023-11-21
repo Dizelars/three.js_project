@@ -473,7 +473,7 @@
 /*    }*/
 /*}*/
 
-@media screen and (max-width:400px) and (max-height:680px) {
+@media screen and (max-width: 400px) and (max-height: 680px) {
     .tech_spec .tech_spec__description {
         /*padding: 10px 16px;*/
         -webkit-backdrop-filter: blur(16px);
@@ -523,7 +523,29 @@
     }
 }
 
-@media screen and (min-width:320px) and (max-width:915px) and (orientation:landscape) {
+@media screen and (min-width: 700px) and (max-width: 1200px) and (orientation: landscape)  {
+    .header {
+        top: 20px;
+    }
+
+    .tech_spec, .tech_spec__interior {
+        top: 70px;
+    }
+
+    .tech_spec .tech_spec__description {
+        padding: 18px 30px 20px 30px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        gap: 14px;
+    }
+
+    .tech_spec__titles.hidden {
+        margin-bottom: 14px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
     .container {
         margin: 0 15px;
     }
@@ -533,9 +555,13 @@
         padding: 0;
     }
 
-    .header .header__wrapper {
-        height: 60px;
+    .header {
+        left: 20px;
     }
+
+        /*.header .header__wrapper {*/
+    /*    height: 60px;*/
+    /*}*/
 
     /*.tech_spec .tech_spec__description {*/
     /*    max-width: none;*/
@@ -565,10 +591,14 @@
 
     .tech_spec {
         width: 100%;
+
+        top: unset;
+        left: unset;
     }
 
     .tech_spec.active {
         width: fit-content;
+        pointer-events: none;
     }
 
     .tech_spec .tech_spec__wrapper {
@@ -593,12 +623,26 @@
 
     .tech_spec .tech_spec__description {
         /*padding: 20px 20px 100% 20px;*/
+        padding: 80px 5px 100% 20px;
         max-width: unset;
     }
 
     .tech_spec .tech_spec__description.hidden {
-        padding: 20px 10px 10px 20px;
+        padding: 80px 10px 10px 20px;
+        background: none;
+        backdrop-filter: none;
     }
+
+    .tech_spec__btn {
+        pointer-events: all;
+    }
+
+    .tech_spec .tech_spec__description.hidden .tech_spec__btn {
+        background: rgba(9, 9, 9, 0.50);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
 
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle {
         font-size: 16px;
@@ -685,10 +729,12 @@
 
 
     .tech_spec__interior {
-        padding: 0 !important;
-        margin: 0 !important;
+        /*padding: 0 !important;*/
+        /*margin: 0 !important;*/
         /*left: 20px !important;*/
         /*bottom: 112px !important;*/
+        right: 20px;
+        height: fit-content;
         background: none !important;
         pointer-events: none;
         z-index: 1;
@@ -699,14 +745,24 @@
         width: 100%;
         /*max-width: fit-content;*/
         max-width: max-content;
-        top: 20px;
+        /*top: 20px;*/
         right: 20px;
+        background: rgba(9, 9, 9, 0.50);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         border: 1px solid white;
         padding: 10px 12px;
         border-radius: 10px;
         pointer-events: all;
+    }
+
+    .tech_spec__interior .tech_spec__interior-title {
+        display: none;
+    }
+
+    .tech_spec__interior .tech_spec__interior-wrapper {
+        background: none;
+        height: fit-content;
     }
 
     .tech_spec__interior .tech_spec__interior-btn .tech_spec__interior-text {

@@ -33,54 +33,54 @@ const overlay = document.getElementById('overlay');
 let VectaryIframe = document.querySelector('.VectaryIframe');
 // const screenHeight = window.innerHeight;
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Установка высоты iframe после загрузки страници
-
-    // let headerHeight = document.querySelector('header.header');
-    // let headerHeightValue = headerHeight.clientHeight;
-    // VectaryIframe.style.height = `calc(100vh - ${headerHeightValue - 2}px)`;
-
-    const IframeObject = {
-        'amarok_iframe': {
-            AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
-            AR_OFF: 'https://app.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'
-        },
-        'transit_iframe': {
-            AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
-            AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'
-        },
-        'solaris_iframe': {
-            AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
-            AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'
-        },
-        'bus_iframe': {
-            AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
-            AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
-        },
-        'kater_iframe': {
-            AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
-            AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'
-        },
-        'moskvich_iframe': {
-            AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
-            AR_OFF: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq'
-        },
-        'velo_iframe': {
-            AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
-            AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
-        }
-    };
-
-    let VectaryIframeClass = VectaryIframe.classList[0];
-
-    let screenWidth = window.innerWidth;
-
-    if (screenWidth >= 700 && screenWidth <= 1200) {
-        VectaryIframe.src = IframeObject[VectaryIframeClass].AR_OFF;
-    } else {
-        VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
-    }
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Установка высоты iframe после загрузки страници
+//
+//     // let headerHeight = document.querySelector('header.header');
+//     // let headerHeightValue = headerHeight.clientHeight;
+//     // VectaryIframe.style.height = `calc(100vh - ${headerHeightValue - 2}px)`;
+//
+//     const IframeObject = {
+//         'amarok_iframe': {
+//             AR_ON: 'https://www.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
+//             AR_OFF: 'https://www.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'
+//         },
+//         'transit_iframe': {
+//             AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
+//             AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'
+//         },
+//         'solaris_iframe': {
+//             AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
+//             AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'
+//         },
+//         'bus_iframe': {
+//             AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
+//             AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
+//         },
+//         'kater_iframe': {
+//             AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
+//             AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'
+//         },
+//         'moskvich_iframe': {
+//             AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
+//             AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'
+//         },
+//         'velo_iframe': {
+//             AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
+//             AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
+//         }
+//     };
+//
+//     let VectaryIframeClass = VectaryIframe.classList[0];
+//
+//     let screenWidth = window.innerWidth;
+//
+//     if (screenWidth >= 700 && screenWidth <= 1200) {
+//         VectaryIframe.src = IframeObject[VectaryIframeClass].AR_OFF;
+//     } else {
+//         VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
+//     }
+// });
 
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
