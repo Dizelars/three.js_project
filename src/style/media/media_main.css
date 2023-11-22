@@ -482,6 +482,11 @@
         max-width: 340px;
     }
 
+    section.main .main_grid-wrapper .main_info-text, section.main .main_grid-wrapper .main_info-text {
+        font-size: 1.6rem;
+        line-height: 20px;
+    }
+
     /*Размеры карточек*/
     section.traffic_patrol .garage_model_card .slid_img {
         max-height: 320px;
@@ -508,14 +513,15 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         /*grid-template-rows: 168px 168px 0 280px;*/
-        grid-template-rows: repeat(4, min-content);
+        grid-template-rows: repeat(5, min-content);
         /*grid-template-rows: repeat(4, max-content);*/
         grid-auto-columns: 1fr;
         gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
-        "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
-        ". traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
+        "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
+        ". traffic_patrol-text-3 traffic_patrol-text-3 traffic_patrol-text-3"
+        "traffic_patrol-text-4 traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
         ". . . ."
         /*". . traffic_patrol-no-slide-7 traffic_patrol-no-slide-8"*/
         "traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
@@ -534,7 +540,12 @@
         display: block;
     }
 
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {*/
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {
+        max-width: 541px;
+    }
+
+        /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {*/
     /*    max-height: 280px;*/
     /*}*/
 
@@ -687,8 +698,21 @@
         grid-auto-flow: row;
         grid-template-areas:
     "water_patrol_title water_patrol_title water_patrol_history water_patrol_history"
-    "water_patrol_card water_patrol_card water_patrol_text_1 water_patrol_text_2"
-    "water_patrol_card water_patrol_card . .";
+    "water_patrol_card water_patrol_card water_patrol_text_mobile water_patrol_text_mobile"
+    "water_patrol_card water_patrol_card water_patrol_text_mobile water_patrol_text_mobile";
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1,
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 {
+        display: none;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile {
+        display: block;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text:first-child {
+        margin-bottom: 20px;
     }
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
@@ -938,7 +962,7 @@
     }
 
     section.situation_centre .situation_centre_grid-wrapper .situation-1 .situation_centre-title {
-        font-size: 1.9rem;
+        font-size: 2rem;
     }
 
     section.situation_centre .situation_centre_grid-wrapper .slider-5 {
@@ -1088,6 +1112,14 @@
 }
 
 @media (max-width: 768px) {
+    section.traffic_patrol .container_main,
+    section.situation_centre .container_main,
+    section.water_patrol .container_main,
+    section.velo_patrol .container_main,
+    section.help_desk .container_main {
+        padding: 0 0 100px 0;
+    }
+
     section.main .main_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1163,6 +1195,11 @@
     /*    display: none;*/
     /*}*/
 
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {
+        max-width: unset;
+    }
+
     section.traffic_patrol .traffic_patrol_slider .garage_model_card {
         max-width: 290px;
         height: 336px;
@@ -1192,10 +1229,6 @@
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
         max-height: 336px;
-    }
-
-    section.situation_centre .container_main {
-        padding: 0 0 100px 0;
     }
 
     section.situation_centre .situation_centre_grid-wrapper {
@@ -1297,15 +1330,6 @@
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_card .garage_model_card,
     section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_card .garage_model_card {
         height: 100%;
-    }
-
-    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1,
-    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 {
-        display: none;
-    }
-
-    section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile {
-        display: block;
     }
 
     section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_title {
@@ -1956,6 +1980,7 @@
 
     section.main {
         padding-bottom: 60px;
+        padding-top: 88px;
     }
 
     section.main .main_title {
@@ -1996,6 +2021,11 @@
 
     section.main .main_grid-wrapper .main_text-mobile {
         display: block;
+    }
+
+    section.main .main_grid-wrapper .main_info-text, section.main .main_grid-wrapper .main_info-text {
+        font-size: 1.4rem;
+        line-height: 18px;
     }
 
     section.main .main_grid-wrapper .main_text-mobile .main_info-text:not(:last-child) {
@@ -2431,7 +2461,18 @@
     }
 }
 
-/*media на высоту экрана*/
+@media (max-width: 330px) {
+    section.main .main_title {
+        font-size: 2.6rem;
+        line-height: 26px;
+    }
+
+    section.main .main_title span.large_letter {
+        padding: 5px;
+    }
+}
+
+    /*media на высоту экрана*/
 @media only screen and (max-height: 740px) {
     .menu {
         padding: 24px;
