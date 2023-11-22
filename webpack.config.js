@@ -24,9 +24,6 @@ module.exports = {
         // '404-style': './src/style/pages/404.css',
         amarok: './src/js/pages/oneScriptVectary.js',
         'amarok-style': './src/style/style.css',
-        // solaris: './src/js/pages/solaris.js',
-        // // 'solaris-style': './src/style/pages/solaris.css',
-        // 'solaris-style': './src/style/style.css',
         solaris_two: './src/js/pages/oneScriptVectary.js',
         'solaris_two-style': './src/style/style.css',
         bus: './src/js/pages/oneScriptVectary.js',
@@ -76,7 +73,6 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'amarok.html'),
             filename: 'pages/amarok.html',
             chunks: ['amarok', 'amarok-style'],
-            // chunks: ['amarok'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -86,25 +82,10 @@ module.exports = {
                 useShortDoctype: true,
             },
         }),
-        // new HtmlWebpackPlugin({
-        //     template: path.resolve(__dirname, 'src/pages', 'solaris.html'),
-        //     filename: 'pages/solaris.html',
-        //     chunks: ['solaris', 'solaris-style'],
-        //     // chunks: ['solaris'],
-        //     minify: {
-        //                 collapseWhitespace: true,
-        //                 removeComments: true,
-        //                 removeRedundantAttributes: true,
-        //                 removeScriptTypeAttributes: true,
-        //                 removeStyleLinkTypeAttributes: true,
-        //                 useShortDoctype: true,
-        //             },
-        // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'solaris_two.html'),
             filename: 'pages/solaris_two.html',
             chunks: ['solaris_two', 'solaris_two-style'],
-            // chunks: ['solaris_two'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -118,7 +99,6 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'bus.html'),
             filename: 'pages/bus.html',
             chunks: ['bus', 'bus-style'],
-            // chunks: ['bus'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -132,7 +112,6 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'ford.html'),
             filename: 'pages/ford.html',
             chunks: ['ford', 'ford-style'],
-            // chunks: ['ford'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -146,7 +125,6 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'kater.html'),
             filename: 'pages/kater.html',
             chunks: ['kater', 'kater-style'],
-            // chunks: ['kater'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -160,7 +138,6 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'velo.html'),
             filename: 'pages/velo.html',
             chunks: ['velo', 'velo-style'],
-            // chunks: ['velo'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
@@ -174,7 +151,6 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'moskvich.html'),
             filename: 'pages/moskvich.html',
             chunks: ['moskvich', 'moskvich-style'],
-            // chunks: ['moskvich'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,

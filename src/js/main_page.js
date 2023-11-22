@@ -1,4 +1,4 @@
-import { isAutoplayVideoScreenSize, isElementInViewport, isElementVisible, observeElementVisibility } from "../utils";
+import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibility } from "../utils";
 
 document.addEventListener("DOMContentLoaded", function() {
     // Получаем все элементы с классом "burger-menu"

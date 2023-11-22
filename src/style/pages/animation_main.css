@@ -76,22 +76,6 @@
     }
 }
 
-
-
-/*Анимация меню и футера на мобильных устройствах*/
-
-/*@keyframes movingTopBottom {*/
-/*    0%, 100% {*/
-/*        top: 0;*/
-/*    }*/
-/*    50% {*/
-/*        top: 0;*/
-/*    }*/
-/*    0% {*/
-/*        top: 100%;*/
-/*    }*/
-/*}*/
-
 @keyframes movingTopBottom {
     0%, 100% {
         transform: translateY(100%);

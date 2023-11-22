@@ -1,5 +1,6 @@
+// import '../../js/loader.js';
+// import '../../js/APIVectary.js';
 import '../../js/layout/script.js';
-import '../../js/loader.js';
 import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper.js';
 
 const interiorButton = document.querySelector('.tech_spec__interior');

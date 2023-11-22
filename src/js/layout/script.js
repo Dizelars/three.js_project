@@ -21,14 +21,6 @@ const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const screenWidth = window.innerWidth;
 
-// API Vectary
-// let modelApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
-// await modelApi.init();
-//
-// // Your API magic here
-// modelApi.isReady().then(() => console.log("IsReady"));
-// modelApi.postViewData().then((r) => console.log("PostViewData:", r));
-
 const overlay = document.getElementById('overlay');
 let VectaryIframe = document.querySelector('.VectaryIframe');
 // const screenHeight = window.innerHeight;
