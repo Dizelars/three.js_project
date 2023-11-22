@@ -246,6 +246,10 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:
     background-color: transparent;
 }
 
+.header_main .header__logo {
+    cursor: unset;
+}
+
 .header_main .header__wrapper, .header_main .header__logo, .header_main .header__info {
     display: flex;
     justify-content: space-between;
