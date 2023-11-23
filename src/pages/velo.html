@@ -770,11 +770,17 @@
     function countLoad() {
         barEl.style.width = "0%";
         percentEl.textContent = `0%`;
+        barEl.style.transition = `width ${COUNT_LOAD_TIME / 1000}s linear`;
+
         let countInterval = setInterval(function () {
             percent += PERCENT_STEP;
 
-            if (percent > 100) {
-                percent = 100;
+            if ((percent > 90) && !isModelLoaded) {
+                percent = 98;
+            } else {
+                if (percent > 100) {
+                    percent = 100;
+                }
             }
 
             percentEl.textContent = `${percent}%`;
@@ -784,21 +790,32 @@
                 progressText.textContent = 'Экипируемся...';
             } else if (percent >= 70 && percent < 90) {
                 progressText.textContent = 'Проводим ТО...';
-            } else if (percent >= 80 && percent < 95) {
-                progressText.textContent = 'Моем машину...';
-            } else if (percent >= 95) {
-                progressText.textContent = 'Мы готовы!';
+            } else if (percent >= 80) {
+                progressText.textContent = 'Намываем технику...';
             }
-
             if (isModelLoaded) {
                 clearInterval(countInterval);
-                percent = 100
-                percentEl.textContent = `100%`;
-                barEl.style.width = `100%`;
-                progressText.textContent = 'Мы готовы!';
-                setTimeout(function () {
-                    fadeOutnojquery(preloader);
-                }, 250);
+                let acceleratedInterval = COUNT_LOAD_TIME / 10;
+                countInterval = setInterval(function () {
+                    percent += PERCENT_STEP;
+
+                    if (percent > 100) {
+                        percent = 100;
+                    }
+
+                    percentEl.textContent = `${percent}%`;
+                    barEl.style.width = `${percent}%`;
+
+                    if (percent === 100) {
+                        progressText.textContent = 'Мы готовы!';
+                        setTimeout(function () {
+                            fadeOutnojquery(preloader);
+                        }, 1500);
+                        clearInterval(countInterval);
+                    }
+                }, acceleratedInterval);
+            } else if (!isModelLoaded && (percent >= 95)) {
+                percent = 99;
             }
         }, COUNT_LOAD_TIME);
     }

@@ -1656,30 +1656,19 @@
         padding: 6px;
     }
 
-    /*section.main .main_bg {*/
-    /*    background-position: left;*/
-    /*}*/
+    /*Размеры карточек*/
+    section.traffic_patrol .garage_model_card .slid_img {
+        max-height: 274px;
+    }
 
-    /*section.main .main_grid-wrapper {*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*}*/
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 370px;
+    }
 
-    /*section.main .main_info {*/
-    /*    grid-column: 1/3;*/
-    /*    align-items: center;*/
-    /*}*/
+    section.velo_patrol .garage_model_card .slid_img {
+        max-height: 332px;
+    }
 
-    /*section.main .main_info .main_info-link {*/
-    /*    max-width: none;*/
-    /*}*/
-
-    /*section.main .main_info .main_info-descr .main_info-text:first-child {*/
-    /*    max-width: 290px;*/
-    /*}*/
-
-    /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
-    /*    max-width: 280px;*/
-    /*}*/
 
     section.traffic_patrol .traffic_patrol-wrapper {
         grid-template-columns: repeat(2, 1fr);
@@ -2047,11 +2036,11 @@
 
     /*Размеры карточек*/
     section.traffic_patrol .garage_model_card .slid_img {
-        max-height: 258px;
+        max-height: 274px;
     }
 
     section.situation_centre .garage_model_card .slid_img {
-        max-height: 258px;
+        max-height: 274px;
     }
 
     section.water_patrol .garage_model_card .slid_img {
@@ -2348,74 +2337,9 @@
         "equipment_mobile-slide";
     }
 
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
-    /*    !*grid-area: equipment_mobile;*!*/
-    /*    !*display: grid;*!*/
-    /*    display: none;*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*    !*grid-template-rows: 151px 151px 151px 151px 151px;*!*/
-    /*    grid-template-rows: repeat(5, min-content);*/
-    /*    gap: 10px 20px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "skill-1 skill-2"*/
-    /*    "skill-3 skill-4"*/
-    /*    "skill-5 skill-6"*/
-    /*    "skill-7 skill-8"*/
-    /*    "skill-9 skill-10";*/
-    /*}*/
-
-
-    /*footer.footer_main .footer_main_grid-wrapper {*/
-    /*    display: grid;*/
-    /*    grid-template-columns: 1fr;*/
-    /*    grid-template-rows: 40px 70px 266px 1fr;*/
-    /*    grid-auto-columns: 1fr;*/
-    /*    gap: 50px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "footer-title-1"*/
-    /*    "footer-media-4"*/
-    /*    "footer-menu-2"*/
-    /*    "footer-contacts-3";*/
-    /*}*/
-
-    /*footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {*/
-    /*    display: grid;*/
-    /*    grid-template-columns: 1fr;*/
-    /*    grid-template-rows: 1fr 1fr 1fr;*/
-    /*    gap: 12px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "contacts-1"*/
-    /*    "contacts-2"*/
-    /*    "contacts-3";*/
-    /*    grid-area: footer-contacts-3;*/
-    /*}*/
-
-    /*footer.footer_main .footer_main_grid-wrapper .footer-title-1,*/
-    /*footer.footer_main .footer_main_grid-wrapper .footer-menu-2,*/
-    /*footer.footer_main .footer_main_grid-wrapper .footer-contacts-3,*/
-    /*footer.footer_main .footer_main_grid-wrapper .footer-media-4 {*/
-    /*    justify-self: center;*/
-    /*}*/
-
-    /*footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {*/
-    /*    align-self: center;*/
-    /*}*/
-
-    /*footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links {*/
-    /*    align-items: center;*/
-    /*}*/
-
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
         width: 100%;
     }
-
-    /*footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] {*/
-    /*    justify-content: center;*/
-    /*}*/
-
 }
 
 @media (max-width: 420px) {

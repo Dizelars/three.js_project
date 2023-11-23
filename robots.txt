@@ -1,0 +1,25 @@
+User-agent: *
+Disallow: /
+Disallow: /pages/
+Disallow: /style/
+Disallow: /javascript/
+Disallow: /fonts/
+Disallow: /index.html
+Disallow: /*?
+Disallow: /?s=
+Disallow: *.png
+Disallow: *.jpg
+Disallow: *.gif
+
+User-agent: Yandex
+Disallow: /
+Disallow: /pages/
+Disallow: /style/
+Disallow: /javascript/
+Disallow: /fonts/
+Disallow: /index.html
+Disallow: /*?
+Disallow: /?s=
+Disallow: *.png
+Disallow: *.jpg
+Disallow: *.gif

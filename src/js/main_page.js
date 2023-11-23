@@ -1,6 +1,10 @@
 import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibility } from "../utils";
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Видео на главной под мобилки и планшеты:
+
+
+
     // Получаем все элементы с классом "burger-menu"
     const burgerMenus = document.querySelectorAll(".burger-menu");
     const burgerClose = document.querySelectorAll(".burger-menu .bar");
