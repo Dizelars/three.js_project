@@ -3,7 +3,43 @@ import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibilit
 document.addEventListener("DOMContentLoaded", function() {
     // Видео на главной под мобилки и планшеты:
 
+    // const createVideoSource = (el, fileType) => {
+    //     const source = document.createElement("source");
+    //     source.setAttribute("src", `./img/video/main_section_${fileType}.mp4`);
+    //     source.setAttribute("type", "video/mp4");
+    //     el.appendChild(source);
+    // };
 
+
+    // Импортируем все видеофайлы из директории
+    const videoContext = require.context('../img/video', false, /\.(mp4|webm|ogg)$/);
+
+    const videoMain = document.querySelector('video.preview_video');
+    const videoMainSource = {
+        desctop: 'main_section_new.mp4',
+        iPadHorizontally: 'main_section_new.mp4',
+        iPadVertically: 'main_section_new.mp4',
+        mobile: 'main_section_mob.mp4'
+    };
+
+    const isiPad = window.innerWidth < 1200;
+    const isMobile = window.innerWidth < 700;
+    const isVertical = window.innerHeight > window.innerWidth;
+
+    const chooseVideoSource = (source) => {
+        // Формируем полный путь к видео с учетом хеша от webpack
+        return videoContext(`./${source}`);
+    };
+
+    if (!isiPad && !isVertical && !isMobile) { // десктоп
+        videoMain.src = chooseVideoSource(videoMainSource.desctop);
+    } else if (isiPad && !isVertical && !isMobile) { // iPad горизонтально
+        videoMain.src = chooseVideoSource(videoMainSource.iPadHorizontally);
+    } else if (isiPad && isVertical && !isMobile) { // iPad вертикально
+        videoMain.src = chooseVideoSource(videoMainSource.iPadVertically);
+    } else if (isMobile) { // мобилка
+        videoMain.src = chooseVideoSource(videoMainSource.mobile);
+    }
 
     // Получаем все элементы с классом "burger-menu"
     const burgerMenus = document.querySelectorAll(".burger-menu");

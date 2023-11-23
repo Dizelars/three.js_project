@@ -191,7 +191,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.(png|jpe?g|gif|svg|mp4|webm|ogg)$/i,
                 type: "asset/resource",
                 generator: {
                     filename: 'images/[name][hash][ext][query]',
@@ -216,6 +216,15 @@ module.exports = {
                     filename: 'fonts/[name][ext]'
                 }
             },
+            // {
+            //     test: /\.(mp4|webm|ogg)$/,
+            //     use: {
+            //         loader: 'file-loader',
+            //         options: {
+            //             name: 'images/[name][hash][ext][query]',
+            //         },
+            //     },
+            // },
         ]
     },
     optimization: {
