@@ -74,10 +74,10 @@
 // const renderer = new THREE.WebGLRenderer({
 //     antialias: AA,
 //     // logarithmicDepthBuffer: true, // логарифмический буфер глубины
-//     // precision: "highp", // Точность шейдера:
-//     // 1. highp (по умолчанию) - Такстуры более детализированы и пропадают лаги исчезания модели
-//     // 2. mediump - Лаги с пропаданием шейдеров возвращаются
-//     // 3. lowp - Лаги с пропаданием шейдеров возвращаются
+//     precision: "highp", // Точность шейдера:
+//     1. highp (по умолчанию) - Такстуры более детализированы и пропадают лаги исчезания модели
+//     2. mediump - Лаги с пропаданием шейдеров возвращаются
+//     3. lowp - Лаги с пропаданием шейдеров возвращаются
 //     physicallyCorrectLights: true,
 // });
 // renderer.setSize(window.innerWidth, window.innerHeight);

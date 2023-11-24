@@ -352,21 +352,21 @@
     </a>
 </div>
 
-<div class="tech_spec">
-    <div class="tech_spec__wrapper">
-        <div class="tech_spec__description">
-            <div class="tech_spec__description-grid_wrapper">
-                <div class="tech_spec__titles">
+<div class="tech_spec active">
+    <div class="tech_spec__wrapper hidden">
+        <div class="tech_spec__description hidden">
+            <div class="tech_spec__description-grid_wrapper hidden">
+                <div class="tech_spec__titles hidden">
                     <div class="text_spec__texts">
                         <p class="tech_spec__title">Дорожный патруль</p>
                         <!--                                <p class="tech_spec__subtitle">Автомобиль службы помощи ЦОДД</p>-->
                     </div>
                 </div>
-                <div class="tech_spec__mission">
+                <div class="tech_spec__mission hidden">
                     <p class="tech_spec__text">Задача:</p>
                     <p class="tech_spec__text-descr">Регулировать движение на&nbsp;сложных участках, помогать водителям при поломке или аварии.</p>
                 </div>
-                <div class="tech_spec__outfit">
+                <div class="tech_spec__outfit hidden">
                     <p class="tech_spec__text">Экипировка:</p>
                     <ul class="tech_spec__outfit-list">
                         <li class="tech_spec__outfit-item">
@@ -439,8 +439,9 @@
                 </div>
                 <div class="tech_spec__button">
                     <a class="tech_spec__btn">
-                        <span>Скрыть</span>
-                        <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
+                        <span>Подробнее</span>
+<!--                        <span>Скрыть</span>-->
+                        <img src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
                     </a>
                 </div>
             </div>
@@ -791,8 +792,8 @@
 <script type="module">
     import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
 
-    const LOADING_TIME = 17000;
-    const PERCENT_STEP = 5;
+    const LOADING_TIME = 50000;
+    const PERCENT_STEP = 2;
     const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);
     let percent = 0;
     let preloader = document.querySelector(".progress-bar");
@@ -827,12 +828,12 @@
     function countLoad() {
         barEl.style.width = "0%";
         percentEl.textContent = `0%`;
-        barEl.style.transition = `width ${COUNT_LOAD_TIME / 1000}s linear`;
+        barEl.style.transition = `width ${COUNT_LOAD_TIME / 4000}s linear`;
 
         let countInterval = setInterval(function () {
             percent += PERCENT_STEP;
 
-            if ((percent > 90) && !isModelLoaded) {
+            if ((percent > 96) && !isModelLoaded) {
                 percent = 98;
             } else {
                 if (percent > 100) {
@@ -843,12 +844,14 @@
             percentEl.textContent = `${percent}%`;
             barEl.style.width = `${percent}%`;
 
-            if (percent >= 50 && percent < 70) {
-                progressText.textContent = 'Экипируемся...';
-            } else if (percent >= 70 && percent < 90) {
+            if (percent >= 25 && percent < 50) {
+                progressText.textContent = 'Подбираем экипаж...';
+            } else if (percent >= 50 && percent < 70) {
                 progressText.textContent = 'Проводим ТО...';
-            } else if (percent >= 80) {
+            } else if (percent >= 70 && percent < 90) {
                 progressText.textContent = 'Намываем технику...';
+            } else if (percent >= 80) {
+                progressText.textContent = 'Экипируемся...';
             }
             if (isModelLoaded) {
                 clearInterval(countInterval);
@@ -867,12 +870,10 @@
                         progressText.textContent = 'Мы готовы!';
                         setTimeout(function () {
                             fadeOutnojquery(preloader);
-                        }, 1500);
+                        }, 1600);
                         clearInterval(countInterval);
                     }
                 }, acceleratedInterval);
-            } else if (!isModelLoaded && (percent >= 95)) {
-                percent = 99;
             }
         }, COUNT_LOAD_TIME);
     }
