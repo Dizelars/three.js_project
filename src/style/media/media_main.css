@@ -666,8 +666,8 @@
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
         width: 254px;
         height: 224px;
-        right: -86px;
-        top: 128px;
+        right: -44px;
+        top: 105px;
     }
 
     section.situation_centre .situation_centre_grid-wrapper .slider-5 {
@@ -988,6 +988,13 @@
     /*    "skill-7 skill-8"*/
     /*    "skill-9 skill-4";*/
     /*}*/
+}
+
+@media (max-width: 938px) {
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 @media (max-width: 860px) {
@@ -1750,6 +1757,11 @@
         font-size: 1.5rem;
         line-height: 21px;
     }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
+        height: 180px;
+        right: -46px;
+    }
 }
 
 @media (max-width: 584px) {
@@ -2345,6 +2357,10 @@
 @media (max-width: 420px) {
     .menu .menu_navigation .menu_navigation-list .menu_navigation-item:not(:last-child) {
         margin-right: 0;
+    }
+
+    section.main .main_title {
+        font-size: 3.4rem;
     }
 }
 

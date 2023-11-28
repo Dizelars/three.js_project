@@ -1247,6 +1247,7 @@ section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_he
 
 section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
     position: absolute;
+    height: 100%;
     right: 0;
     top: 50%;
     transform: translateY(-50%);

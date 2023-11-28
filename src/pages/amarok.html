@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" class="a-fullscreen">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -39,7 +39,6 @@
     <link rel="stylesheet" href="../style/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-<!--    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>-->
     <script>
         // setTimeout(() => {
             AFRAME.registerComponent("hotspots", {
@@ -130,217 +129,6 @@
         <label for="progress-bar" id="progress_text">Загрузка...</label>
     </div>
 </div>
-
-<!--<header class="header">-->
-<!--    <div class="container">-->
-<!--        <div class="header__wrapper">-->
-<!--            <a class="header__logo" href="../index.html">-->
-<!--                <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">-->
-<!--                <p class="header__logo-text">Гараж ЦОДД</p>-->
-<!--            </a>-->
-<!--            <div class="header__info">-->
-<!--                <img class="header__info-img" src="../img/layout/header_models/preview_amarock.png" alt="model_preview">-->
-<!--                <div class="header__info-descr">-->
-<!--                    <p class="header__info-title">Volkswagen Amarok</p>-->
-<!--                    <p class="header__info-text">30 автомобилей</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</header>-->
-
-<!--<main class="models">-->
-<!--    <section class="tech_spec">-->
-<!--        <div class="container__content">-->
-<!--            <div class="tech_spec__wrapper">-->
-<!--                <div class="tech_spec__description">-->
-<!--                    <div class="tech_spec__description-grid_wrapper">-->
-<!--                        <div class="tech_spec__titles">-->
-<!--                            <div class="text_spec__texts">-->
-<!--                                <p class="tech_spec__title">Дорожный патруль</p>-->
-<!--&lt;!&ndash;                                <p class="tech_spec__subtitle">Автомобиль службы помощи ЦОДД</p>&ndash;&gt;-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="tech_spec__mission">-->
-<!--                            <p class="tech_spec__text">Задача:</p>-->
-<!--                            <p class="tech_spec__text-descr">Регулировать движение на&nbsp;сложных участках, помогать водителям при поломке или аварии.</p>-->
-<!--                        </div>-->
-<!--                        <div class="tech_spec__outfit">-->
-<!--                            <p class="tech_spec__text">Экипировка:</p>-->
-<!--                            <ul class="tech_spec__outfit-list">-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_1.svg" alt="Огнетушитель" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Огнетушитель</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Аптечка</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_3.svg" alt="Инструменты" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Инструменты</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_4.svg" alt="Трос" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Трос</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_6.svg" alt="Пусковое устройство" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Пусковое устройство</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_7.svg" alt="Бланки европротокола" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Бланки европротокола</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_8.svg" alt="Телескопическая лестница" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Cкладная лестница</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_9.svg" alt="Домкрат" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Домкрат</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_10.svg" alt="Дорожные конусы" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Дорожные конусы</span>-->
-<!--                                </li>-->
-<!--                                <li class="tech_spec__outfit-item">-->
-<!--                                    <div class="tech_spec__outfit-img">-->
-<!--                                        <img src="../img/layout/outfit/amarok/outfit_11.svg" alt="Гайковерт" fetchpriority="high">-->
-<!--                                    </div>-->
-<!--                                    <span class="tech_spec__outfit-text">Гайковерт</span>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        <div class="tech_spec__button">-->
-<!--                            <a class="tech_spec__btn">-->
-<!--                                <span>Скрыть</span>-->
-<!--                                <img class="rotate" src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
-<!--    <div class="tech_spec__interior" id="amarok">-->
-<!--        <p class="tech_spec__interior-title">Volkswagen Amarok</p>-->
-<!--        <div class="tech_spec__interior-wrapper">-->
-<!--            <div class="tech_spec__interior-btn">-->
-<!--                <span class="tech_spec__interior-text">В салон</span>-->
-<!--                <div class="arrow-wrapper">-->
-<!--                    <img src="../img/layout/interior_arrow.svg" alt="interior_arrow">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</main>-->
-
-<!--<section class="auto_park">-->
-<!--    <div class="container">-->
-<!--        <div class="auto_park_wrapper">-->
-<!--            <div class="auto_park__control">-->
-<!--                <p class="auto_park__title">Транспорт ЦОДД</p>-->
-<!--                <img class="rotate" src="../img/layout/auto_park_arrow.svg" alt="auto_park_btn">-->
-<!--            </div>-->
-<!--            <div class="auto_park_slider">-->
-<!--                <div class="auto_park_slider-overflow swiper_model">-->
-<!--                    <div class="auto_park_slider-wrapper swiper-wrapper">-->
-<!--                        <div class="gallery_item active swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="#">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/amarok.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="gallery_item swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="../pages/ford.html">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/ford.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" loading="lazy" decoding="async">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="gallery_item swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="../pages/kater.html">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/kater.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="gallery_item swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="../pages/solaris_two.html">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/solaris_gray.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="gallery_item swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="../pages/bus.html">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="gallery_item swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="../pages/moskvich.html">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                        <div class="gallery_item swiper-slide">-->
-<!--                            <a class="gallery_item_link" href="../pages/velo.html">-->
-<!--                                <picture>-->
-<!--                                    <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">-->
-<!--                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">-->
-<!--                                </picture>-->
-<!--                                &lt;!&ndash;                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo">&ndash;&gt;-->
-<!--                            </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="auto_park_slider-button">-->
-<!--                    <button class="prev_button">-->
-<!--                        <img src="../img/layout/slider/icon-arrow.png" alt="arrow_prev" fetchpriority="high">-->
-<!--                    </button>-->
-<!--                    <button class="next_button">-->
-<!--                        <img src="../img/layout/slider/icon-arrow.png" alt="arrow_next" fetchpriority="high">-->
-<!--                    </button>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
 
 <div class="header">
     <a class="header__logo" href="../index.html">
@@ -541,10 +329,7 @@
 </div>
 
 <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="amarok_iframe VectaryIframe" allow="xr-spatial-tracking"></iframe>
-<!--<div class="hideARButton"></div>-->
 <div id="overlay"></div>
-
-<!--<div id="Canvas_wrapper"></div>-->
 
 <a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909"
          device-orientation-permission-ui="
@@ -561,192 +346,18 @@
             gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
           }
         </script>
-
         <img
                 id="room1"
-                src="../img/layout/pages/main/360/amarok/amarok.png"
+                src="../img/layout/pages/main/360/amarok/amarok.jpg"
                 crossorigin="anonymous"
                 importance="high"
         />
-<!--        <img-->
-<!--                id="room2"-->
-<!--                src="https://coddmac.store/THREE/360/largus/Interior.jpg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-<!--        <img-->
-<!--                id="room3"-->
-<!--                src="https://coddmac.store/BKL/360/Varshavskaya/3.jpg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-<!--        <img-->
-<!--                id="room4"-->
-<!--                src="https://coddmac.store/BKL/360/Varshavskaya/4.jpg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-<!--        <img-->
-<!--                id="room5"-->
-<!--                src="https://coddmac.store/BKL/360/Varshavskaya/5.jpg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-<!--        <img-->
-<!--                id="hotspot"-->
-<!--                src="https://coddmac.store/BKL/360/source/Hotspot_blue_big.svg"-->
-<!--                crossorigin="anonymous"-->
-<!--        />-->
-
-<!--        <img-->
-<!--                id="crossIcon"-->
-<!--                src="https://coddmac.store/THREE/360/cross-icon.svg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-
-<!--        <img-->
-<!--                id="text-01"-->
-<!--                src="https://coddmac.store/THREE/360/text/text-01.svg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-
-<!--        <img-->
-<!--                id="text-02"-->
-<!--                src="https://coddmac.store/THREE/360/text/text-02.svg"-->
-<!--                crossorigin="anonymous"-->
-<!--                importance="low"-->
-<!--        />-->
-
         <a-mixin
                 id="info-sphere"
                 geometry="primitive: sphere; radius: 0.4;"
                 material="color: #ff0000;"
         ></a-mixin>
-
-<!--        <template id="infoPanel1">-->
-<!--            <a-plane-->
-<!--                    color="black"-->
-<!--                    material="shader: flat"-->
-<!--                    height="2"-->
-<!--                    width="4"-->
-<!--                    position="0 0 0"-->
-<!--                    rounded="2.8"-->
-<!--            >-->
-<!--                <a-image-->
-<!--                        position="0 0 0.1"-->
-<!--                        src="#text-02"-->
-<!--                        width="4"-->
-<!--                        height="1"-->
-<!--                        height="0.3"-->
-<!--                ></a-image>-->
-<!--                <a-image-->
-<!--                        position="1.7 0.7 0.1"-->
-<!--                        src="#crossIcon"-->
-<!--                        width="0.33"-->
-<!--                        height="0.33"-->
-<!--                ></a-image>-->
-<!--            </a-plane>-->
-<!--        </template>-->
-
-<!--        <template id="infoPanel2">-->
-<!--            <a-plane-->
-<!--                    color="black"-->
-<!--                    material="shader: flat"-->
-<!--                    height="2"-->
-<!--                    width="4"-->
-<!--                    position="0 0 0"-->
-<!--                    rounded="2.8"-->
-<!--            >-->
-<!--                <a-image-->
-<!--                        position="0 0 0.1"-->
-<!--                        src="#text-01"-->
-<!--                        width="4"-->
-<!--                        height="1"-->
-<!--                        height="0.3"-->
-<!--                ></a-image>-->
-<!--                <a-image-->
-<!--                        position="1.7 0.7 0.1"-->
-<!--                        src="#crossIcon"-->
-<!--                        width="0.33"-->
-<!--                        height="0.33"-->
-<!--                ></a-image>-->
-<!--            </a-plane>-->
-<!--        </template>-->
     </a-assets>
-
-    <!-- room teleport hotspots -->
-
-<!--    <a-entity id="spots" hotspots="">-->
-<!--        <a-entity id="group-room1">-->
-<!--            <a-image-->
-<!--                    src="#hotspot"-->
-<!--                    spot="linkto:#room2;spotgroup:group-room2;phiStart:0"-->
-<!--                    position="0 -2 8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-
-<!--            <a-entity position="0 1 6" look-at rotation="180 0 180">-->
-<!--                <a-entity mixin="info-sphere" id="sphere1"> </a-entity>-->
-<!--                <a-entity id="infoPanelContainer1"></a-entity>-->
-<!--            </a-entity>-->
-
-<!--            <a-entity position="-4.5 -1.75 -8" look-at>-->
-<!--                <a-entity mixin="info-sphere" id="sphere2"> </a-entity>-->
-<!--                <a-entity id="infoPanelContainer2"></a-entity>-->
-<!--            </a-entity>-->
-<!--        </a-entity>-->
-
-<!--        <a-entity id="group-room2" scale="0 0 0">-->
-<!--            <a-image-->
-<!--                    spot="linkto:#room1;spotgroup:group-room1;phiStart:175"-->
-<!--                    src="#hotspot"-->
-<!--                    position="0 1 8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-<!--        </a-entity>-->
-
-<!--        <a-entity id="group-room3" scale="0 0 0">-->
-<!--            <a-image-->
-<!--                    spot="linkto:#room2;spotgroup:group-room2;phiStart:146"-->
-<!--                    src="#hotspot"-->
-<!--                    position="0 1 8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-<!--            <a-image-->
-<!--                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"-->
-<!--                    src="#hotspot"-->
-<!--                    position="0 1 -8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-<!--        </a-entity>-->
-
-<!--        <a-entity id="group-room4" scale="0 0 0">-->
-<!--            <a-image-->
-<!--                    spot="linkto:#room3;spotgroup:group-room3;phiStart:120"-->
-<!--                    src="#hotspot"-->
-<!--                    position="0 1 8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-<!--            <a-image-->
-<!--                    spot="linkto:#room5;spotgroup:group-room5;phiStart:90"-->
-<!--                    src="#hotspot"-->
-<!--                    position="0 1 8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-<!--        </a-entity>-->
-
-<!--        <a-entity id="group-room5" scale="0 0 0">-->
-<!--            <a-image-->
-<!--                    spot="linkto:#room4;spotgroup:group-room4;phiStart:90"-->
-<!--                    src="#hotspot"-->
-<!--                    position="0 1 8"-->
-<!--                    look-at-->
-<!--            ></a-image>-->
-<!--        </a-entity>-->
-<!--    </a-entity>-->
-
     <a-entity
             id="cam"
             camera="fov:80"
@@ -767,11 +378,9 @@
                 animation__fadeout="property:material.opacity;to:0;dur:1000;startEvents:camFadeOut"
         ></a-plane>
     </a-entity>
-
     <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="175"></a-sky>
 </a-scene>
 
-<!--<script type="module" src="../js/APIVectary.js"></script>-->
 <script type="module">
     import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
 
@@ -838,7 +447,7 @@
             }
             if (isModelLoaded) {
                 clearInterval(countInterval);
-                let acceleratedInterval = COUNT_LOAD_TIME / 10;
+                let acceleratedInterval = COUNT_LOAD_TIME / 0;
                 countInterval = setInterval(function () {
                     percent += PERCENT_STEP;
 
@@ -853,7 +462,7 @@
                         progressText.textContent = 'Мы готовы!';
                         setTimeout(function () {
                             fadeOutnojquery(preloader);
-                        }, 1600);
+                        }, 500);
                         clearInterval(countInterval);
                     }
                 }, acceleratedInterval);

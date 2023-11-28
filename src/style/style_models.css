@@ -1,23 +1,29 @@
-/*@import '../style/base.css';*/
-/*@import "../style/loader.css";*/
-/*@import "../style/media_models.css";*/
-
 /*control*/
 /*header*/
 /*tech_spec*/
 /*auto_park*/
-
-/*scene interior a-frame*/
-
-/*a-scene {*/
-/*    display: none;*/
-/*}*/
 
 /*#Canvas_wrapper {*/
 /*    background-color: yellow;*/
 /*    width: 100%;*/
 /*    height: 100%;*/
 /*}*/
+
+html.a-fullscreen {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+html.a-fullscreen body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
 
 a-scene {
     opacity: 0;

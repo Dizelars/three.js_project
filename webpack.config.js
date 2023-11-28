@@ -32,10 +32,12 @@ module.exports = {
         'ford-style': './src/style/style.css',
         kater: './src/js/pages/oneScriptVectary.js',
         'kater-style': './src/style/style.css',
-        velo: './src/js/pages/oneScriptVectary.js',
+        velo: './src/js/layout/script.js',
         'velo-style': './src/style/style.css',
         moskvich: './src/js/pages/oneScriptVectary.js',
         'moskvich-style': './src/style/style.css',
+        test: './src/js/test.js',
+        'test-style': './src/style/test.css',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -159,6 +161,19 @@ module.exports = {
                 removeStyleLinkTypeAttributes: true,
                 useShortDoctype: true,
             },
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/pages', 'test.html'),
+            filename: 'test.html',
+            chunks: ['test', 'test-style'],
+            minify: {
+                        collapseWhitespace: true,
+                        removeComments: true,
+                        removeRedundantAttributes: true,
+                        removeScriptTypeAttributes: true,
+                        removeStyleLinkTypeAttributes: true,
+                        useShortDoctype: true,
+                    },
         }),
         // new MiniCssExtractPlugin({
         //     filename: 'style/[name][contenthash].css',
