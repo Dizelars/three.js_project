@@ -58,7 +58,7 @@ module.exports = {
         }),
         // new HtmlWebpackPlugin({
         //     template: path.resolve(__dirname, 'src/pages', '404.html'),
-        //     filename: 'pages/404.html',
+        //     filename: '404.html',
         //     chunks: ['404', '404-style'],
         //     minify: {
         //                 collapseWhitespace: true,
@@ -71,7 +71,7 @@ module.exports = {
         // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'amarok.html'),
-            filename: 'pages/amarok.html',
+            filename: 'amarok.html',
             chunks: ['amarok', 'amarok-style'],
             minify: {
                 collapseWhitespace: true,
@@ -84,7 +84,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'solaris_two.html'),
-            filename: 'pages/solaris_two.html',
+            filename: 'solaris_two.html',
             chunks: ['solaris_two', 'solaris_two-style'],
             minify: {
                 collapseWhitespace: true,
@@ -97,7 +97,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'bus.html'),
-            filename: 'pages/bus.html',
+            filename: 'bus.html',
             chunks: ['bus', 'bus-style'],
             minify: {
                 collapseWhitespace: true,
@@ -110,7 +110,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'ford.html'),
-            filename: 'pages/ford.html',
+            filename: 'ford.html',
             chunks: ['ford', 'ford-style'],
             minify: {
                 collapseWhitespace: true,
@@ -123,7 +123,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'kater.html'),
-            filename: 'pages/kater.html',
+            filename: 'kater.html',
             chunks: ['kater', 'kater-style'],
             minify: {
                 collapseWhitespace: true,
@@ -136,7 +136,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'velo.html'),
-            filename: 'pages/velo.html',
+            filename: 'velo.html',
             chunks: ['velo', 'velo-style'],
             minify: {
                 collapseWhitespace: true,
@@ -149,7 +149,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'moskvich.html'),
-            filename: 'pages/moskvich.html',
+            filename: 'moskvich.html',
             chunks: ['moskvich', 'moskvich-style'],
             minify: {
                 collapseWhitespace: true,
@@ -216,15 +216,6 @@ module.exports = {
                     filename: 'fonts/[name][ext]'
                 }
             },
-            // {
-            //     test: /\.(mp4|webm|ogg)$/,
-            //     use: {
-            //         loader: 'file-loader',
-            //         options: {
-            //             name: 'images/[name][hash][ext][query]',
-            //         },
-            //     },
-            // },
         ]
     },
     optimization: {

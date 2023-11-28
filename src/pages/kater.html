@@ -417,7 +417,7 @@
   <p class="tech_spec__interior-title">Катер</p>
   <div class="tech_spec__interior-wrapper">
     <div class="tech_spec__interior-btn">
-      <span class="tech_spec__interior-text">В салон</span>
+      <span class="tech_spec__interior-text">В рубку</span>
       <div class="arrow-wrapper">
         <img src="../img/layout/interior_arrow.svg" alt="interior_arrow">
       </div>
@@ -436,7 +436,7 @@
         <div class="auto_park_slider-overflow swiper_model">
           <div class="auto_park_slider-wrapper swiper-wrapper">
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="../pages/amarok.html">
+              <a class="gallery_item_link" href="amarok.html">
                 <picture>
 <!--                  <source srcset="../img/layout/pages/main/slider/amarok.webp" type="image/webp">-->
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok" fetchpriority="high">
@@ -445,7 +445,7 @@
               </a>
             </div>
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="../pages/ford.html">
+              <a class="gallery_item_link" href="ford.html">
                 <picture>
 <!--                  <source srcset="../img/layout/pages/main/slider/ford.webp" type="image/webp">-->
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" fetchpriority="high">
@@ -463,7 +463,7 @@
               </a>
             </div>
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="../pages/solaris_two.html">
+              <a class="gallery_item_link" href="solaris_two.html">
                 <picture>
 <!--                  <source srcset="../img/layout/pages/main/slider/solaris_gray.webp" type="image/webp">-->
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">
@@ -472,7 +472,7 @@
               </a>
             </div>
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="../pages/bus.html">
+              <a class="gallery_item_link" href="bus.html">
                 <picture>
 <!--                  <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">-->
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">
@@ -481,7 +481,7 @@
               </a>
             </div>
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="../pages/moskvich.html">
+              <a class="gallery_item_link" href="moskvich.html">
                 <picture>
 <!--                  <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">-->
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">
@@ -490,7 +490,7 @@
               </a>
             </div>
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="../pages/velo.html">
+              <a class="gallery_item_link" href="velo.html">
                 <picture>
 <!--                  <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">-->
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">
@@ -513,7 +513,7 @@
   </div>
 </div>
 
-<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="kater_iframe VectaryIframe"></iframe>
+<iframe id="myVectary" src="https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD" width="100%" height="100%" class="kater_iframe VectaryIframe"></iframe>
 <div id="overlay"></div>
 
 <a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909"
@@ -753,141 +753,141 @@
 </a-scene>
 
 <!--<script type="module" src="../js/APIVectary.js"></script>-->
-<script type="module">
-    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
+<!--<script type="module">-->
+<!--    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";-->
 
-    const LOADING_TIME = 50000;
-    const PERCENT_STEP = 2;
-    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);
-    let percent = 0;
-    let preloader = document.querySelector(".progress-bar");
-    const percentEl = document.getElementById("progress-label");
-    const barEl = document.getElementById("progress-bar");
-    let progressText = document.getElementById("progress_text");
+<!--    const LOADING_TIME = 50000;-->
+<!--    const PERCENT_STEP = 2;-->
+<!--    const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);-->
+<!--    let percent = 0;-->
+<!--    let preloader = document.querySelector(".progress-bar");-->
+<!--    const percentEl = document.getElementById("progress-label");-->
+<!--    const barEl = document.getElementById("progress-bar");-->
+<!--    let progressText = document.getElementById("progress_text");-->
 
-    let VectaryIframe = document.querySelector('.VectaryIframe');
-    let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
-    let isModelLoaded = false;
+<!--    let VectaryIframe = document.querySelector('.VectaryIframe');-->
+<!--    let viewerApi = new VctrModelApi("myVectary"); // DOM Id-->
+<!--    let isModelLoaded = false;-->
 
-    async function initializeModelApi() {
-        await viewerApi.init();
-        viewerApi.isReady().then(() => {
-            isModelLoaded = true;
-            console.log('Model loaded');
-        });
-    }
+<!--    async function initializeModelApi() {-->
+<!--        await viewerApi.init();-->
+<!--        viewerApi.isReady().then(() => {-->
+<!--            isModelLoaded = true;-->
+<!--            console.log('Model loaded');-->
+<!--        });-->
+<!--    }-->
 
-    function fadeOutnojquery(el) {
-        el.style.opacity = 1;
-        let interhellopreloader = setInterval(function () {
-            el.style.opacity = el.style.opacity - 0.05;
+<!--    function fadeOutnojquery(el) {-->
+<!--        el.style.opacity = 1;-->
+<!--        let interhellopreloader = setInterval(function () {-->
+<!--            el.style.opacity = el.style.opacity - 0.05;-->
 
-            if (el.style.opacity <= 0.05) {
-                clearInterval(interhellopreloader);
-                preloader.style.display = "none";
-            }
-        }, 16);
-    }
+<!--            if (el.style.opacity <= 0.05) {-->
+<!--                clearInterval(interhellopreloader);-->
+<!--                preloader.style.display = "none";-->
+<!--            }-->
+<!--        }, 16);-->
+<!--    }-->
 
-    function countLoad() {
-        barEl.style.width = "0%";
-        percentEl.textContent = `0%`;
-        barEl.style.transition = `width ${COUNT_LOAD_TIME / 4000}s linear`;
+<!--    function countLoad() {-->
+<!--        barEl.style.width = "0%";-->
+<!--        percentEl.textContent = `0%`;-->
+<!--        barEl.style.transition = `width ${COUNT_LOAD_TIME / 4000}s linear`;-->
 
-        let countInterval = setInterval(function () {
-            percent += PERCENT_STEP;
+<!--        let countInterval = setInterval(function () {-->
+<!--            percent += PERCENT_STEP;-->
 
-            if ((percent > 96) && !isModelLoaded) {
-                percent = 98;
-            } else {
-                if (percent > 100) {
-                    percent = 100;
-                }
-            }
+<!--            if ((percent > 96) && !isModelLoaded) {-->
+<!--                percent = 98;-->
+<!--            } else {-->
+<!--                if (percent > 100) {-->
+<!--                    percent = 100;-->
+<!--                }-->
+<!--            }-->
 
-            percentEl.textContent = `${percent}%`;
-            barEl.style.width = `${percent}%`;
+<!--            percentEl.textContent = `${percent}%`;-->
+<!--            barEl.style.width = `${percent}%`;-->
 
-            if (percent >= 25 && percent < 50) {
-                progressText.textContent = 'Подбираем экипаж...';
-            } else if (percent >= 50 && percent < 70) {
-                progressText.textContent = 'Проводим ТО...';
-            } else if (percent >= 70 && percent < 90) {
-                progressText.textContent = 'Намываем технику...';
-            } else if (percent >= 80) {
-                progressText.textContent = 'Экипируемся...';
-            }
-            if (isModelLoaded) {
-                clearInterval(countInterval);
-                let acceleratedInterval = COUNT_LOAD_TIME / 10;
-                countInterval = setInterval(function () {
-                    percent += PERCENT_STEP;
+<!--            if (percent >= 25 && percent < 50) {-->
+<!--                progressText.textContent = 'Подбираем экипаж...';-->
+<!--            } else if (percent >= 50 && percent < 70) {-->
+<!--                progressText.textContent = 'Проводим ТО...';-->
+<!--            } else if (percent >= 70 && percent < 90) {-->
+<!--                progressText.textContent = 'Намываем технику...';-->
+<!--            } else if (percent >= 80) {-->
+<!--                progressText.textContent = 'Экипируемся...';-->
+<!--            }-->
+<!--            if (isModelLoaded) {-->
+<!--                clearInterval(countInterval);-->
+<!--                let acceleratedInterval = COUNT_LOAD_TIME / 10;-->
+<!--                countInterval = setInterval(function () {-->
+<!--                    percent += PERCENT_STEP;-->
 
-                    if (percent > 100) {
-                        percent = 100;
-                    }
+<!--                    if (percent > 100) {-->
+<!--                        percent = 100;-->
+<!--                    }-->
 
-                    percentEl.textContent = `${percent}%`;
-                    barEl.style.width = `${percent}%`;
+<!--                    percentEl.textContent = `${percent}%`;-->
+<!--                    barEl.style.width = `${percent}%`;-->
 
-                    if (percent === 100) {
-                        progressText.textContent = 'Мы готовы!';
-                        setTimeout(function () {
-                            fadeOutnojquery(preloader);
-                        }, 1600);
-                        clearInterval(countInterval);
-                    }
-                }, acceleratedInterval);
-            }
-        }, COUNT_LOAD_TIME);
-    }
+<!--                    if (percent === 100) {-->
+<!--                        progressText.textContent = 'Мы готовы!';-->
+<!--                        setTimeout(function () {-->
+<!--                            fadeOutnojquery(preloader);-->
+<!--                        }, 1600);-->
+<!--                        clearInterval(countInterval);-->
+<!--                    }-->
+<!--                }, acceleratedInterval);-->
+<!--            }-->
+<!--        }, COUNT_LOAD_TIME);-->
+<!--    }-->
 
-    countLoad();
+<!--    countLoad();-->
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const IframeObject = {
-            'amarok_iframe': {
-                AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
-                AR_OFF: 'https://app.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'
-            },
-            'transit_iframe': {
-                AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
-                AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'
-            },
-            'solaris_iframe': {
-                AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
-                AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'
-            },
-            'bus_iframe': {
-                AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
-                AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
-            },
-            'kater_iframe': {
-                AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
-                AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'
-            },
-            'moskvich_iframe': {
-                AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
-                AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'
-            },
-            'velo_iframe': {
-                AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
-                AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
-            }
-        };
+<!--    document.addEventListener("DOMContentLoaded", () => {-->
+<!--        const IframeObject = {-->
+<!--            'amarok_iframe': {-->
+<!--                AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',-->
+<!--                AR_OFF: 'https://app.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'-->
+<!--            },-->
+<!--            'transit_iframe': {-->
+<!--                AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',-->
+<!--                AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'-->
+<!--            },-->
+<!--            'solaris_iframe': {-->
+<!--                AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',-->
+<!--                AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'-->
+<!--            },-->
+<!--            'bus_iframe': {-->
+<!--                AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',-->
+<!--                AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'-->
+<!--            },-->
+<!--            'kater_iframe': {-->
+<!--                AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',-->
+<!--                AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'-->
+<!--            },-->
+<!--            'moskvich_iframe': {-->
+<!--                AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',-->
+<!--                AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'-->
+<!--            },-->
+<!--            'velo_iframe': {-->
+<!--                AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',-->
+<!--                AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'-->
+<!--            }-->
+<!--        };-->
 
-        let VectaryIframeClass = VectaryIframe.classList[0];
-        let screenWidth = window.innerWidth;
+<!--        let VectaryIframeClass = VectaryIframe.classList[0];-->
+<!--        let screenWidth = window.innerWidth;-->
 
-        if (screenWidth >= 700 && screenWidth <= 1200) {
-            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_OFF;
-        } else {
-            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
-        }
+<!--        if (screenWidth >= 700 && screenWidth <= 1200) {-->
+<!--            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_OFF;-->
+<!--        } else {-->
+<!--            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;-->
+<!--        }-->
 
-        initializeModelApi();
-    });
-</script>
+<!--        // initializeModelApi();-->
+<!--    });-->
+<!--</script>-->
 <script>
   let currentInfoPanel = null;
 

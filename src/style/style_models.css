@@ -590,11 +590,19 @@ a-scene {
     bottom: 8px;
 }
 
+.tech_spec__interior#kater .tech_spec__interior-btn {
+    max-width: fit-content;
+}
+
 .tech_spec__interior-text {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 300;
     font-size: 14px;
     margin-right: 4px;
+}
+
+.tech_spec__interior#kater .tech_spec__interior-btn .tech_spec__interior-text {
+    margin-left: auto;
 }
 
 .tech_spec__interior-before {

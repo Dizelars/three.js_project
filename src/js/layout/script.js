@@ -232,6 +232,10 @@ interior.addEventListener('click', () => {
 
     if (interiorTextContent === 'В салон') {
         interiorText.textContent = 'В гараж';
+    } else if (interiorTextContent === 'В рубку') {
+        interiorText.textContent = 'На причал';
+    } else if (interiorTextContent === 'На причал') {
+        interiorText.textContent = 'В рубку';
     } else {
         interiorText.textContent = 'В салон';
     }

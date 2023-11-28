@@ -1427,7 +1427,7 @@ section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_pat
     margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
 }
 
 section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {
