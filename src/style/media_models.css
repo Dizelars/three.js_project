@@ -183,21 +183,22 @@
     .tech_spec .tech_spec__description {
         max-width: 500px;
     }
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__mission {
-        margin-bottom: 16px;
-    }
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {
-        margin-bottom: 18px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__mission {*/
+    /*    margin-bottom: 16px;*/
+    /*}*/
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {
-        margin-bottom: 6px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
+    /*    margin-bottom: 18px;*/
+    /*}*/
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text {
-        font-size: 20px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {*/
+    /*    margin-bottom: 6px;*/
+    /*}*/
+
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text {*/
+    /*    font-size: 20px;*/
+    /*}*/
 
     /*.tech_spec__interior {*/
     /*    margin-top: 70px;*/
@@ -323,21 +324,21 @@
         font-size: 16px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text {
-        font-size: 16px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text {*/
+    /*    font-size: 16px;*/
+    /*}*/
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text-descr {
-        font-size: 14px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text-descr {*/
+    /*    font-size: 14px;*/
+    /*}*/
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {
-        margin-bottom: 0;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
+    /*    margin-bottom: 0;*/
+    /*}*/
 
-    .tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {
-        margin-bottom: 24px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {*/
+    /*    margin-bottom: 24px;*/
+    /*}*/
 
     .tech_spec__interior {
         /*max-width: 80px !important;*/
@@ -484,14 +485,22 @@
         gap: 14px;
     }
 
-    .tech_spec .tech_spec__mission .tech_spec__text {
-        font-size: 18px;
+    .tech_spec .tech_spec__mission .tech_spec__mission-panel {
         margin-bottom: 8px;
     }
 
-    .tech_spec__outfit .tech_spec__text {
+    .tech_spec .tech_spec__mission .tech_spec__text {
+        font-size: 18px;
+        /*margin-bottom: 8px;*/
+    }
+
+    .tech_spec__mission-panel {
         margin-bottom: 10px;
     }
+
+    /*.tech_spec__outfit .tech_spec__text {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
 
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
         gap: 8px 2px;
@@ -528,13 +537,21 @@
         gap: 14px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__text {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__mission-panel {
         margin-bottom: 10px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__text {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__outfit-panel {
         margin-bottom: 10px;
     }
+
+    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__text {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
+
+    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__text {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
 }
 
 @media screen and (min-width: 700px) and (max-width: 1200px) and (orientation: landscape)  {
@@ -834,9 +851,13 @@
         gap: 10px 24px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text {
+    .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__mission-panel {
         margin-bottom: 8px;
     }
+
+    /*.tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text {*/
+    /*    margin-bottom: 8px;*/
+    /*}*/
 
     .auto_park .auto_park_wrapper {
         padding: 10px 20px 30px 20px;

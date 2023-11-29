@@ -108,7 +108,7 @@
         gap: 20px;
         grid-auto-flow: row;
         grid-template-areas:
-        "traffic_patrol-1 . traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
+        "traffic_patrol-1 . traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
         ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
@@ -374,6 +374,10 @@
         line-height: 20px;
     }
 
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2 .traffic_patrol-text {
+        font-size: 1.8rem;
+    }
+
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
         margin-bottom: 48px;
     }
@@ -520,7 +524,7 @@
         grid-auto-flow: row;
         grid-template-areas:
         "traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
-        ". traffic_patrol-text-3 traffic_patrol-text-3 traffic_patrol-text-3"
+        ". traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "traffic_patrol-text-4 traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
         ". . . ."
         /*". . traffic_patrol-no-slide-7 traffic_patrol-no-slide-8"*/
@@ -540,10 +544,11 @@
         display: block;
     }
 
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {
-        max-width: 541px;
-    }
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2*/
+    /*!*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 *!*/
+    /*{*/
+    /*    max-width: 541px;*/
+    /*}*/
 
         /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {*/
     /*    max-height: 280px;*/
@@ -576,6 +581,11 @@
 
     section.traffic_patrol .traffic_patrol-text {
         font-size: 1.6rem;
+        line-height: 24px;
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2 .traffic_patrol-text {
+        font-size: 1.8rem;
         line-height: 24px;
     }
 
@@ -1006,22 +1016,9 @@
         left: -50%;
     }
 
-    /*section.traffic_patrol .traffic_patrol-text {*/
-    /*    font-size: 1.4rem;*/
-    /*    line-height: 20px;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper {*/
-    /*    grid-template-columns: 140px repeat(3, 1fr);*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,*/
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 .text,*/
-    /*section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text*/
-    /*!*section.help_desk .help_desk_grid-wrapper .сrew .сrew_text *!*/
-    /*{*/
-    /*    font-size: 1.4rem;*/
-    /*}*/
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2 .traffic_patrol-text {
+        font-size: 1.6rem;
+    }
 }
 
 @media (max-width: 820px) {
@@ -1172,18 +1169,15 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         /*grid-template-rows: 48px 144px 0 336px 264px;*/
-        grid-template-rows: repeat(5, min-content);
+        grid-template-rows: repeat(3, min-content);
         /*grid-template-rows: repeat(5, max-content);*/
         grid-auto-columns: 1fr;
         gap: 40px 20px;
         grid-auto-flow: row;
         grid-template-areas:
-        "traffic_patrol-1 ."
-        "traffic_patrol-text-2 traffic_patrol-text-4"
-        /*". slider_button-wrapper"*/
-        /*"traffic_patrol-slide-6 traffic_patrol-slide-6"*/
-        "traffic_patrol-no-slide-7 traffic_patrol-no-slide-8"
-        "traffic_patrol-text-3 traffic_patrol-text-5";
+        "traffic_patrol-1 traffic_patrol-text-2"
+        "traffic_patrol-text-4 traffic_patrol-text-5"
+        "traffic_patrol-no-slide-7 traffic_patrol-no-slide-8";
     }
 
     section.traffic_patrol .traffic_patrol-title {
@@ -1202,10 +1196,11 @@
     /*    display: none;*/
     /*}*/
 
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {
-        max-width: unset;
-    }
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2*/
+    /*!*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 *!*/
+    /*{*/
+    /*    max-width: unset;*/
+    /*}*/
 
     section.traffic_patrol .traffic_patrol_slider .garage_model_card {
         max-width: 290px;
@@ -1848,7 +1843,7 @@
 @media (max-width: 552px) {
     .menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_navigation-link {
         font-size: 1.6rem;
-        line-height: 16px;
+        line-height: 18px;
         font-weight: 600;
     }
 
@@ -2081,23 +2076,30 @@
         "traffic_patrol-1"
         "traffic_patrol-text-mobile-1"
         "traffic_patrol-slide-6"
-        "traffic_patrol-text-mobile-2";
+        "traffic_patrol-text-5";
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2,
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2,*/
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
         display: block;
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3,
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3,*/
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-4,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5,
+    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5,*/
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8,
     section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
         display: none;
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1 .traffic_patrol-text:nth-child(1) {
+        font-family: 'MoscowSans', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 24px;
     }
 
     section.traffic_patrol .traffic_patrol-text-mobile-1 .traffic_patrol-text:first-child,
@@ -2389,6 +2391,12 @@
     }
 }
 
+@media (max-width: 388px) {
+    .menu .menu-media a[class^="media-"]:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
 @media (max-width: 375px) {
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
@@ -2397,6 +2405,11 @@
 }
 
 @media (max-width: 360px) {
+    .menu .menu-media a[class^="media-"] {
+        width: 60px;
+        height: 60px;
+    }
+
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
         padding: 10px;
     }
@@ -2413,7 +2426,7 @@
     }
 }
 
-    /*media на высоту экрана*/
+/*media на высоту экрана*/
 @media only screen and (max-height: 740px) {
     .menu {
         padding: 24px;
@@ -2433,6 +2446,40 @@
     /*}*/
 }
 
+@media only screen and (max-height: 600px) {
+    .menu .menu__logo {
+        margin-bottom: 30px;
+    }
+
+    .menu .menu_navigation .menu_navigation-list .menu_navigation-item {
+        margin-bottom: 16px;
+    }
+
+    section.main {
+        padding-top: 80px;
+    }
+
+    section.main .main_grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+        grid-auto-columns: 1fr;
+        gap: 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "main_text-1"
+        "main_button-3";
+    }
+
+    section.main .main_grid-wrapper .main_text-1 {
+        display: block;
+    }
+
+    section.main .main_grid-wrapper .main_text-mobile,
+    section.main .main_grid-wrapper .main_text-2 {
+        display: none;
+    }
+}
 
 
 

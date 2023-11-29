@@ -551,6 +551,10 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     animation: TopToBottom 0.2s linear 1.7s forwards;
 }
 
+.menu .menu-media .media-wrapper.animation:nth-child(4) {
+    animation: TopToBottom 0.2s linear 2s forwards;
+}
+
 .menu .menu_navigation .menu_navigation-list .menu_navigation-item .menu_preview-block {
     width: 200px;
     height: 100px;
@@ -575,6 +579,20 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     width: 100%;
     border-radius: 10px;
     object-fit: cover;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(1) .menu_preview-block .menu_preview-video {
+    object-position: center 22%;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(2) .menu_preview-block .menu_preview-video,
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(3) .menu_preview-block .menu_preview-video,
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(4) .menu_preview-block .menu_preview-video {
+    object-position: center 46%;
+}
+
+.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(5) .menu_preview-block .menu_preview-video {
+    object-position: center 42%;
 }
 
 
@@ -851,7 +869,7 @@ section.traffic_patrol .traffic_patrol_grid-wrapper {
     gap: 20px;
     grid-auto-flow: row;
     grid-template-areas:
-        "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-3 traffic_patrol-text-3"
+        "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
         /*"traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6 traffic_patrol-slide-6";*/
@@ -867,9 +885,9 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2 {
     grid-area: traffic_patrol-text-2;
 }
 
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {
-    grid-area: traffic_patrol-text-3;
-}
+/*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 {*/
+/*    grid-area: traffic_patrol-text-3;*/
+/*}*/
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-4 {
     grid-area: traffic_patrol-text-4;
@@ -1003,6 +1021,13 @@ section.traffic_patrol .traffic_patrol-text {
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 24px;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2 .traffic_patrol-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 26px;
 }
 
 section.traffic_patrol .traffic_patrol-descr.one .traffic_patrol-text:nth-child(2) {
