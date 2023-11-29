@@ -132,7 +132,7 @@
 </div>
 
 <div class="header">
-    <a class="header__logo" href="../index.html">
+    <a class="header__logo" href="../index.html#situation_centre">
         <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
         <p class="header__logo-text">Гараж ЦОДД</p>
     </a>
@@ -305,7 +305,7 @@
     </div>
 </div>
 
-<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="bus_iframe VectaryIframe"></iframe>
+<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>
 <div id="overlay"></div>
 
 <a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909" device-orientation-permission-ui="
@@ -492,76 +492,6 @@
     <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="271"></a-sky>
 </a-scene>
 
-<script>
-    // setTimeout(() => {
-        let currentInfoPanel = null;
-
-        // Open the panel
-        document
-            .querySelectorAll('[mixin="info-sphere"]')
-            .forEach(function (sphere) {
-                sphere.addEventListener("click", function () {
-                    console.log("Info sphere clicked: " + this.id);
-
-                    const currentSphereIdNumber = this.id.replace("sphere", "");
-
-                    // Get the template for this info sphere
-                    const template = document.querySelector(
-                        "#infoPanel" + currentSphereIdNumber
-                    );
-
-                    // Get the info panel entity
-                    const infoPanel = document.querySelector(
-                        "#infoPanelContainer" + currentSphereIdNumber
-                    );
-
-                    console.log("Current info panel: ", infoPanel);
-
-                    // Instantiate the new info panel from the template
-                    infoPanel.appendChild(document.importNode(template.content, true));
-
-                    const allInfoPanelContainerElements = document.querySelectorAll(
-                        "[id^=infoPanelContainer]"
-                    );
-
-                    document
-                        .querySelectorAll('[src="#crossIcon"]')
-                        .forEach(function (cross) {
-                            cross.addEventListener("click", function () {
-                                allInfoPanelContainerElements.forEach((container) => {
-                                    if (container.id == infoPanel.id) {
-                                        container.innerHTML = "";
-                                        document
-                                            .querySelector("#sphere" + currentInfoPanel)
-                                            .setAttribute("visible", true);
-                                    }
-                                });
-                            });
-                        });
-
-                    allInfoPanelContainerElements.forEach((container) => {
-                        if (container.id !== infoPanel.id) {
-                            container.innerHTML = "";
-                        }
-                        this.setAttribute("visible", true);
-                    });
-
-                    // console.log("Current info panel insides: ", infoPanel.innerHTML);
-
-                    const idNumber = currentSphereIdNumber;
-                    if (currentInfoPanel) {
-                        document
-                            .querySelector("#sphere" + currentInfoPanel)
-                            .setAttribute("visible", true);
-                    }
-                    // document.querySelector("#info" + idNumber).style.display = "block";
-                    this.setAttribute("visible", false);
-                    currentInfoPanel = idNumber;
-                    console.log("Current info panel id: " + currentInfoPanel);
-                });
-            });
-    // }, 1500);
-</script>
 <script type="module">
     import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
 
@@ -579,6 +509,7 @@
     let isModelLoaded = false;
 
     async function initializeModelApi() {
+        console.log('API go!');
         await viewerApi.init();
         viewerApi.isReady().then(() => {
             isModelLoaded = true;
@@ -655,47 +586,90 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         const IframeObject = {
-            'amarok_iframe': {
-                AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
-                AR_OFF: 'https://app.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'
-            },
-            'transit_iframe': {
-                AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
-                AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'
-            },
-            'solaris_iframe': {
-                AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
-                AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'
-            },
-            'bus_iframe': {
-                AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
-                AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
-            },
-            'kater_iframe': {
-                AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
-                AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'
-            },
-            'moskvich_iframe': {
-                AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
-                AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'
-            },
-            'velo_iframe': {
-                AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
-                AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
-            }
+            AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
+            AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
         };
 
-        let VectaryIframeClass = VectaryIframe.classList[0];
         let screenWidth = window.innerWidth;
 
         if (screenWidth >= 700 && screenWidth <= 1200) {
-            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_OFF;
+            VectaryIframe.src = IframeObject.AR_OFF;
         } else {
-            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
+            VectaryIframe.src = IframeObject.AR_ON;
         }
 
         initializeModelApi();
     });
+</script>
+<script>
+    // setTimeout(() => {
+        let currentInfoPanel = null;
+
+        // Open the panel
+        document
+            .querySelectorAll('[mixin="info-sphere"]')
+            .forEach(function (sphere) {
+                sphere.addEventListener("click", function () {
+                    console.log("Info sphere clicked: " + this.id);
+
+                    const currentSphereIdNumber = this.id.replace("sphere", "");
+
+                    // Get the template for this info sphere
+                    const template = document.querySelector(
+                        "#infoPanel" + currentSphereIdNumber
+                    );
+
+                    // Get the info panel entity
+                    const infoPanel = document.querySelector(
+                        "#infoPanelContainer" + currentSphereIdNumber
+                    );
+
+                    console.log("Current info panel: ", infoPanel);
+
+                    // Instantiate the new info panel from the template
+                    infoPanel.appendChild(document.importNode(template.content, true));
+
+                    const allInfoPanelContainerElements = document.querySelectorAll(
+                        "[id^=infoPanelContainer]"
+                    );
+
+                    document
+                        .querySelectorAll('[src="#crossIcon"]')
+                        .forEach(function (cross) {
+                            cross.addEventListener("click", function () {
+                                allInfoPanelContainerElements.forEach((container) => {
+                                    if (container.id == infoPanel.id) {
+                                        container.innerHTML = "";
+                                        document
+                                            .querySelector("#sphere" + currentInfoPanel)
+                                            .setAttribute("visible", true);
+                                    }
+                                });
+                            });
+                        });
+
+                    allInfoPanelContainerElements.forEach((container) => {
+                        if (container.id !== infoPanel.id) {
+                            container.innerHTML = "";
+                        }
+                        this.setAttribute("visible", true);
+                    });
+
+                    // console.log("Current info panel insides: ", infoPanel.innerHTML);
+
+                    const idNumber = currentSphereIdNumber;
+                    if (currentInfoPanel) {
+                        document
+                            .querySelector("#sphere" + currentInfoPanel)
+                            .setAttribute("visible", true);
+                    }
+                    // document.querySelector("#info" + idNumber).style.display = "block";
+                    this.setAttribute("visible", false);
+                    currentInfoPanel = idNumber;
+                    console.log("Current info panel id: " + currentInfoPanel);
+                });
+            });
+    // }, 1500);
 </script>
 </body>
 </html>

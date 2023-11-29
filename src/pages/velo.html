@@ -55,7 +55,7 @@
 </div>
 
 <div class="header">
-    <a class="header__logo" href="../index.html">
+    <a class="header__logo" href="../index.html#velo_patrol">
         <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
         <p class="header__logo-text">Гараж ЦОДД</p>
     </a>
@@ -234,7 +234,7 @@
     </div>
 </div>
 
-<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="velo_iframe VectaryIframe"></iframe>
+<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>
 <div id="overlay"></div>
 
 <script type="module">
@@ -254,6 +254,7 @@
     let isModelLoaded = false;
 
     async function initializeModelApi() {
+        console.log('API go!');
         await viewerApi.init();
         viewerApi.isReady().then(() => {
             isModelLoaded = true;
@@ -330,43 +331,16 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         const IframeObject = {
-            'amarok_iframe': {
-                AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
-                AR_OFF: 'https://app.vectary.com/p/6DUi1J389W2CpLx6rKd6NZ'
-            },
-            'transit_iframe': {
-                AR_ON: 'https://www.vectary.com/p/2zkou5LI5mWhXqo06RLBTm',
-                AR_OFF: 'https://app.vectary.com/p/04gT055hqpx33xeOIRCCsw'
-            },
-            'solaris_iframe': {
-                AR_ON: 'https://www.vectary.com/p/3yUUqLuKMivlvJ7atkLNjW',
-                AR_OFF: 'https://www.vectary.com/p/0VL9N8lcfOKZty8trMbgBC'
-            },
-            'bus_iframe': {
-                AR_ON: 'https://www.vectary.com/p/23bkuyEyPWkahKc2YGpnPH',
-                AR_OFF: 'https://app.vectary.com/p/4yCKixsmks4yIU7RUZMH4V'
-            },
-            'kater_iframe': {
-                AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
-                AR_OFF: 'https://www.vectary.com/p/5XqA1vpoxjGloVklJ00a7H'
-            },
-            'moskvich_iframe': {
-                AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
-                AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'
-            },
-            'velo_iframe': {
-                AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
-                AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
-            }
+            AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
+            AR_OFF: 'https://www.vectary.com/p/3m2dU1xt6Dmw4b4RY71iN7'
         };
 
-        let VectaryIframeClass = VectaryIframe.classList[0];
         let screenWidth = window.innerWidth;
 
         if (screenWidth >= 700 && screenWidth <= 1200) {
-            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_OFF;
+            VectaryIframe.src = IframeObject.AR_OFF;
         } else {
-            VectaryIframe.src = IframeObject[VectaryIframeClass].AR_ON;
+            VectaryIframe.src = IframeObject.AR_ON;
         }
 
         initializeModelApi();

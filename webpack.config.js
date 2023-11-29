@@ -20,8 +20,6 @@ module.exports = {
     entry: {
         index: './src/index.js',
         'index-style': './src/style/main_page.css',
-        // '404': './src/js/pages/404.js',
-        // '404-style': './src/style/pages/404.css',
         amarok: './src/js/pages/oneScriptVectary.js',
         'amarok-style': './src/style/style.css',
         solaris_two: './src/js/pages/oneScriptVectary.js',
@@ -58,19 +56,6 @@ module.exports = {
                 useShortDoctype: true,
             },
         }),
-        // new HtmlWebpackPlugin({
-        //     template: path.resolve(__dirname, 'src/pages', '404.html'),
-        //     filename: '404.html',
-        //     chunks: ['404', '404-style'],
-        //     minify: {
-        //                 collapseWhitespace: true,
-        //                 removeComments: true,
-        //                 removeRedundantAttributes: true,
-        //                 removeScriptTypeAttributes: true,
-        //                 removeStyleLinkTypeAttributes: true,
-        //                 useShortDoctype: true,
-        //             },
-        // }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/pages', 'amarok.html'),
             filename: 'amarok.html',
@@ -175,9 +160,6 @@ module.exports = {
                         useShortDoctype: true,
                     },
         }),
-        // new MiniCssExtractPlugin({
-        //     filename: 'style/[name][contenthash].css',
-        // }),
         new MiniCssExtractPlugin({
             filename: 'style/[name].[contenthash].css',
             chunkFilename: 'style/[id].[contenthash].css',
