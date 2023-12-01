@@ -20,6 +20,7 @@ html.a-fullscreen {
 html.a-fullscreen body {
     height: 100%;
     margin: 0;
+    background-color: #000000;
     overflow: hidden;
     padding: 0;
     width: 100%;

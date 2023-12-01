@@ -273,6 +273,8 @@
 
     .tech_spec.active {
         height: unset;
+        pointer-events: none;
+        top: 54px;
     }
 
     .tech_spec .tech_spec__wrapper {
@@ -293,7 +295,7 @@
         max-width: unset;
         /*display: flex;*/
         /*justify-content: center;*/
-        /*border-radius: 0 0 30px 30px;*/
+        border-radius: 0 0 30px 30px;
 
         height: 100%;
         padding: 80px 20px 20px 20px;
@@ -304,6 +306,7 @@
         height: inherit;
         background: none;
         backdrop-filter: none;
+        padding: 20px;
     }
 
     .tech_spec .tech_spec__description.hidden .tech_spec__button .tech_spec__btn {

@@ -339,10 +339,10 @@
     </div>
 </div>
 
-<!--<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>-->
+<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>
 <div id="overlay"></div>
 
-<a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909"
+<a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909" xr-mode-ui="enabled: false"
          device-orientation-permission-ui="
  denyButtonText: Отказаться;
  allowButtonText: Разрешить;
@@ -393,7 +393,7 @@
 </a-scene>
 
 <script type="module">
-    // import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
+    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
 
     const LOADING_TIME = 50000;
     const PERCENT_STEP = 2;
@@ -405,17 +405,17 @@
     let progressText = document.getElementById("progress_text");
 
     let VectaryIframe = document.querySelector('.VectaryIframe');
-    // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
-    let isModelLoaded = true;
+    let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
+    let isModelLoaded = false;
 
-    // async function initializeModelApi() {
-    //     console.log('API go!');
-    //     await viewerApi.init();
-    //     viewerApi.isReady().then(() => {
-    //         isModelLoaded = true;
-    //         console.log('Model loaded');
-    //     });
-    // }
+    async function initializeModelApi() {
+        console.log('API go!');
+        await viewerApi.init();
+        viewerApi.isReady().then(() => {
+            isModelLoaded = true;
+            console.log('Model loaded');
+        });
+    }
 
     function fadeOutnojquery(el) {
         el.style.opacity = 1;
@@ -484,22 +484,22 @@
 
     countLoad();
 
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     const IframeObject = {
-    //         AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
-    //         AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'
-    //     };
-    //
-    //     let screenWidth = window.innerWidth;
-    //
-    //     if (screenWidth >= 700 && screenWidth <= 1200) {
-    //         VectaryIframe.src = IframeObject.AR_OFF;
-    //     } else {
-    //         VectaryIframe.src = IframeObject.AR_ON;
-    //     }
-    //
-    //     initializeModelApi();
-    // });
+    document.addEventListener("DOMContentLoaded", () => {
+        const IframeObject = {
+            AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
+            AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH'
+        };
+
+        let screenWidth = window.innerWidth;
+
+        if (screenWidth >= 700 && screenWidth <= 1200) {
+            VectaryIframe.src = IframeObject.AR_OFF;
+        } else {
+            VectaryIframe.src = IframeObject.AR_ON;
+        }
+
+        initializeModelApi();
+    });
 </script>
 <script>
     // setTimeout(() => {
