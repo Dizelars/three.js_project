@@ -476,6 +476,7 @@
     countLoad();
 
     function myLoading(url) {
+        console.log('myLoading go!');
         let xhr = new XMLHttpRequest();
         xhr.open('GET', url);
         xhr.send();
@@ -495,7 +496,7 @@
                 console.log(`Done, got ${fileSizeInMegabytes.toFixed(1)} MB in ${downloadTimeInSeconds.toFixed(1)} seconds`);
                 setTimeout(() => {
                     isModelLoaded = true;
-                }, 5000);
+                }, 10000);
             }
         };
         // UNSENT = 0; // initial state
@@ -540,6 +541,8 @@
     async function initializeModelApi() {
         console.log('API go!');
         try {
+            // Вызываем несуществующий метод, что приведет к ошибке (для теста)
+            // await viewerApi.nonExistentMethod();
             await viewerApi.init();
             viewerApi.isReady().then(() => {
                 isModelLoaded = true;

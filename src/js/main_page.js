@@ -1,4 +1,12 @@
 import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibility } from "../utils";
+
+// Примечания по видео на стартовой странице:
+// Webpack импортирует пути до видео Абсолютными, что мешает открытию ролика в современных версиях iOS
+// Нужны абсолютные пути до файлов
+// Так как данный webpack пока не конвертирует пути, мы кладем путь и сами видео сразу на сервер
+// Размер ролика также тормозит отображение, нужно максимально сжимать до допустимого качества и в случае тяжеловесного файла,
+// ставить лоадер.
+
 // import videoMainDesctop from '../img/video/startVideo/main_desctop.mp4';
 // import videoMainMobile from '../img/video/startVideo/main_mobile.mp4';
 const videoMainDesctop = 'startVideos/main_desctop.mp4';
