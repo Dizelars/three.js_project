@@ -400,7 +400,8 @@
     }
 
     section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text:first-child {
-        margin-right: 10px;
+        /*margin-right: 10px;*/
+        margin-right: 20px;
     }
 
     section.velo_patrol .velo_patrol_grid-wrapper {

@@ -266,27 +266,35 @@
 
     .tech_spec {
         left: 0;
-
         height: 100vh;
         top: unset;
+        pointer-events: all;
     }
 
     .tech_spec.active {
         height: unset;
         pointer-events: none;
-        top: 54px;
     }
 
     .tech_spec .tech_spec__wrapper {
         margin-top: 0;
         width: 100%;
-
         height: 100vh;
     }
 
     .tech_spec .tech_spec__wrapper.hidden {
-        height: unset;
-        pointer-events: none;
+        height: 0;
+    }
+
+    .tech_spec__description,
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper,
+    .tech_spec__mission,
+    .tech_spec__outfit,
+    .tech_spec__mission.hidden,
+    .tech_spec__outfit.hidden,
+    .tech_spec__mission-panel.hidden,
+    .tech_spec__outfit-panel.hidden {
+        transition: all .3s ease;
     }
 
     .tech_spec .tech_spec__description {
@@ -298,7 +306,8 @@
         border-radius: 0 0 30px 30px;
 
         height: 100%;
-        padding: 80px 20px 20px 20px;
+        /*padding: 80px 20px 20px 20px;*/
+        padding: 68px 20px 20px 20px;
     }
 
     .tech_spec .tech_spec__description.hidden {
@@ -306,7 +315,7 @@
         height: inherit;
         background: none;
         backdrop-filter: none;
-        padding: 20px;
+        padding: 68px 20px 20px 20px;
     }
 
     .tech_spec .tech_spec__description.hidden .tech_spec__button .tech_spec__btn {
@@ -429,6 +438,11 @@
         max-width: unset;
     }
 
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit-panel .tech_spec__text,
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission-panel .tech_spec__text {
+        font-size: 16px;
+    }
+
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__title {
         font-size: 22px;
     }
@@ -450,6 +464,15 @@
 
     .header .header__logo .header__logo-text {
         font-size: 15px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        gap: 10px;
+    }
+
+    .tech_spec__mission-panel,
+    .tech_spec__outfit-panel {
+        padding: 6px 0;
     }
 }
 
@@ -477,6 +500,28 @@
 /*    }*/
 /*}*/
 
+@media screen and (max-height: 784px) {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        gap: 14px;
+    }
+
+    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__mission-panel {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
+
+    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__outfit-panel {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
+
+    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__text {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
+
+    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__text {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
+}
+
 @media screen and (max-width: 400px) and (max-height: 680px) {
     .tech_spec .tech_spec__description {
         /*padding: 10px 16px;*/
@@ -488,18 +533,18 @@
         gap: 14px;
     }
 
-    .tech_spec .tech_spec__mission .tech_spec__mission-panel {
-        margin-bottom: 8px;
-    }
+    /*.tech_spec .tech_spec__mission .tech_spec__mission-panel {*/
+    /*    margin-bottom: 8px;*/
+    /*}*/
 
     .tech_spec .tech_spec__mission .tech_spec__text {
         font-size: 18px;
         /*margin-bottom: 8px;*/
     }
 
-    .tech_spec__mission-panel {
-        margin-bottom: 10px;
-    }
+    /*.tech_spec__mission-panel {*/
+    /*    margin-bottom: 10px;*/
+    /*}*/
 
     /*.tech_spec__outfit .tech_spec__text {*/
     /*    margin-bottom: 10px;*/
@@ -535,26 +580,31 @@
     }
 }
 
-@media screen and (max-height: 784px) {
+@media screen and (max-width: 400px) and (max-height: 660px) {
     .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
-        gap: 14px;
+        gap: 10px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__mission-panel {
-        margin-bottom: 10px;
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
+        gap: 6px 2px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__outfit-panel {
-        margin-bottom: 10px;
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {
+        max-width: 68px;
     }
 
-    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__text {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-img {
+        height: 44px;
+        width: 54px;
+    }
 
-    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__text {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-img img {
+        width: 30px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__btn {
+        padding: 10px;
+    }
 }
 
 @media screen and (min-width: 700px) and (max-width: 1200px) and (orientation: landscape)  {
@@ -854,9 +904,9 @@
         gap: 10px 24px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__mission-panel {
-        margin-bottom: 8px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__mission .tech_spec__mission-panel {*/
+    /*    margin-bottom: 8px;*/
+    /*}*/
 
     /*.tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text {*/
     /*    margin-bottom: 8px;*/

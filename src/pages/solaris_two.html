@@ -127,7 +127,7 @@
         <div id="hellopreloader_barWrapper">
             <progress id="progress-bar" value="0" max="100"></progress>
         </div>
-        <label for="progress-bar" id="progress_text">Загрузка...</label>
+        <label for="progress-bar" id="progress_text">Загружаем модель в высоком разрешении.<br>Пожалуйста, дождитесь завершения</label>
     </div>
 </div>
 
@@ -148,18 +148,18 @@
                         <p class="tech_spec__subtitle">Помощь водителям на&nbsp;базе мобильных комплексов фотовидеофиксации</p>
                     </div>
                 </div>
+                <div class="tech_spec__mission-panel hidden">
+                    <p class="tech_spec__text">Задача</p>
+                    <div class="tech_spec__mission-panel-background"></div>
+                </div>
                 <div class="tech_spec__mission hidden">
-                    <div class="tech_spec__mission-panel">
-                        <p class="tech_spec__text">Задача</p>
-                        <div class="tech_spec__mission-panel-background"></div>
-                    </div>
                     <p class="tech_spec__text-descr">Помощь тем, кто столкнулся с&nbsp;трудностями на&nbsp;дороге</p>
                 </div>
+                <div class="tech_spec__outfit-panel hidden">
+                    <p class="tech_spec__text">Экипировка</p>
+                    <div class="tech_spec__outfit-panel-background"></div>
+                </div>
                 <div class="tech_spec__outfit hidden">
-                    <div class="tech_spec__outfit-panel">
-                        <p class="tech_spec__text">Экипировка</p>
-                        <div class="tech_spec__outfit-panel-background"></div>
-                    </div>
                     <ul class="tech_spec__outfit-list">
                         <li class="tech_spec__outfit-item">
                             <div class="tech_spec__outfit-img">
@@ -288,12 +288,38 @@
                             </a>
                         </div>
                         <div class="gallery_item swiper-slide">
+                            <a class="gallery_item_link" href="bus.html">
+                                <picture>
+                                    <!--                                    <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">-->
+                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">
+                                </picture>
+                                <!--                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus">-->
+                            </a>
+                        </div>
+                        <div class="gallery_item swiper-slide">
                             <a class="gallery_item_link" href="kater.html">
                                 <picture>
 <!--                                    <source srcset="../img/layout/pages/main/slider/kater.webp" type="image/webp">-->
                                     <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">
                                 </picture>
                                 <!--                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater">-->
+                            </a>
+                        </div>
+                        <div class="gallery_item swiper-slide">
+                            <a class="gallery_item_link" href="velo.html">
+                                <picture>
+                                    <!--                                    <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">-->
+                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">
+                                </picture>
+                            </a>
+                        </div>
+                        <div class="gallery_item swiper-slide">
+                            <a class="gallery_item_link" href="moskvich.html">
+                                <picture>
+                                    <!--                                    <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">-->
+                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">
+                                </picture>
+                                <!--                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich">-->
                             </a>
                         </div>
                         <div class="gallery_item swiper-slide active">
@@ -303,32 +329,6 @@
                                     <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">
                                 </picture>
                                 <!--                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris">-->
-                            </a>
-                        </div>
-                        <div class="gallery_item swiper-slide">
-                            <a class="gallery_item_link" href="bus.html">
-                                <picture>
-<!--                                    <source srcset="../img/layout/pages/main/slider/bus.webp" type="image/webp">-->
-                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">
-                                </picture>
-                                <!--                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus">-->
-                            </a>
-                        </div>
-                        <div class="gallery_item swiper-slide">
-                            <a class="gallery_item_link" href="moskvich.html">
-                                <picture>
-<!--                                    <source srcset="../img/layout/pages/main/slider/moskvich.webp" type="image/webp">-->
-                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">
-                                </picture>
-                                <!--                                <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich">-->
-                            </a>
-                        </div>
-                        <div class="gallery_item swiper-slide">
-                            <a class="gallery_item_link" href="velo.html">
-                                <picture>
-<!--                                    <source srcset="../img/layout/pages/main/slider/velo.webp" type="image/webp">-->
-                                    <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">
-                                </picture>
                             </a>
                         </div>
                     </div>
@@ -398,7 +398,7 @@
 </a-scene>
 
 <script type="module">
-    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
+    // import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
     let isModelLoaded = false;
 
     const LOADING_TIME = 50000;
@@ -408,7 +408,7 @@
     let preloader = document.querySelector(".progress-bar");
     const percentEl = document.getElementById("progress-label");
     const barEl = document.getElementById("progress-bar");
-    let progressText = document.getElementById("progress_text");
+    // let progressText = document.getElementById("progress_text");
 
     function fadeOutnojquery(el) {
         el.style.opacity = 1;
@@ -441,15 +441,15 @@
             percentEl.textContent = `${percent}%`;
             barEl.style.width = `${percent}%`;
 
-            if (percent >= 25 && percent < 50) {
-                progressText.textContent = 'Подбираем экипаж...';
-            } else if (percent >= 50 && percent < 70) {
-                progressText.textContent = 'Проводим ТО...';
-            } else if (percent >= 70 && percent < 90) {
-                progressText.textContent = 'Намываем технику...';
-            } else if (percent >= 80) {
-                progressText.textContent = 'Экипируемся...';
-            }
+            // if (percent >= 25 && percent < 50) {
+            //     progressText.textContent = 'Подбираем экипаж...';
+            // } else if (percent >= 50 && percent < 70) {
+            //     progressText.textContent = 'Проводим ТО...';
+            // } else if (percent >= 70 && percent < 90) {
+            //     progressText.textContent = 'Намываем технику...';
+            // } else if (percent >= 80) {
+            //     progressText.textContent = 'Экипируемся...';
+            // }
             if (isModelLoaded) {
                 clearInterval(countInterval);
                 let acceleratedInterval = COUNT_LOAD_TIME / 0;
@@ -464,7 +464,7 @@
                     barEl.style.width = `${percent}%`;
 
                     if (percent === 100) {
-                        progressText.textContent = 'Мы готовы!';
+                        // progressText.textContent = 'Мы готовы!';
                         setTimeout(function () {
                             fadeOutnojquery(preloader);
                         }, 500);
@@ -498,7 +498,7 @@
                 console.log(`Done, got ${fileSizeInMegabytes.toFixed(1)} MB in ${downloadTimeInSeconds.toFixed(1)} seconds`);
                 setTimeout(() => {
                     isModelLoaded = true;
-                }, 10000);
+                }, 15000);
             }
         };
         // UNSENT = 0; // initial state
@@ -522,7 +522,7 @@
         XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/a83b092c-6a51-48ea-8bbe-a79e4d44512b/a83b092c-6a51-48ea-8bbe-a79e4d44512b',
         XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/fdd0ab95-c50c-429c-b652-965b98a9bd14/fdd0ab95-c50c-429c-b652-965b98a9bd14'
     };
-    let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
+    // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
     let screenWidth = window.innerWidth;
     let xhrFile;
     let readySRC;
@@ -531,33 +531,34 @@
         readySRC = IframeObject.AR_OFF;
         xhrFile = IframeObject.XHR_AR_OFF;
     } else if (screenWidth < 700) {
-        readySRC = IframeObject.MOBILE_AR_ON;
-        xhrFile = IframeObject.XHR_MOBILE_AR_ON;
+        readySRC = IframeObject.AR_ON;
+        xhrFile = IframeObject.XHR_AR_ON;
     } else {
         readySRC = IframeObject.AR_ON;
         xhrFile = IframeObject.XHR_AR_ON;
     }
 
-    async function initializeModelApi() {
-        console.log('API go!');
-        try {
-            // Вызываем несуществующий метод, что приведет к ошибке (для теста)
-            // await viewerApi.nonExistentMethod();
-            await viewerApi.init();
-            viewerApi.isReady().then(() => {
-                isModelLoaded = true;
-                console.log('Model loaded');
-            });
-        } catch (error) {
-            console.error('Ошибка внутри API:', error);
-            myLoading(xhrFile);
-        }
-    }
+    // async function initializeModelApi() {
+    //     console.log('API go!');
+    //     try {
+    //         // Вызываем несуществующий метод, что приведет к ошибке (для теста)
+    //         // await viewerApi.nonExistentMethod();
+    //         await viewerApi.init();
+    //         viewerApi.isReady().then(() => {
+    //             isModelLoaded = true;
+    //             console.log('Model loaded');
+    //         });
+    //     } catch (error) {
+    //         console.error('Ошибка внутри API:', error);
+    //         myLoading(xhrFile);
+    //     }
+    // }
 
     document.addEventListener("DOMContentLoaded", () => {
         let VectaryIframe = document.querySelector('.VectaryIframe');
         VectaryIframe.src = readySRC;
-        initializeModelApi();
+        // initializeModelApi();
+        myLoading(xhrFile);
     });
 </script>
 <script>

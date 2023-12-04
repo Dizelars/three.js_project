@@ -28,7 +28,7 @@ function createVideo() {
     if (!isiPad && !isVertical && !isMobile) { // десктоп
         createVideoSource(videoMain, videoMainDesctop);
     } else if (isiPad && !isVertical && !isMobile) { // iPad горизонтально
-        createVideoSource(videoMain, videoMainMobile);
+        createVideoSource(videoMain, videoMainDesctop);
     } else if (isiPad && isVertical && !isMobile) { // iPad вертикально
         createVideoSource(videoMain, videoMainMobile);
     } else if (isMobile) { // мобилка

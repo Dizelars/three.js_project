@@ -140,6 +140,14 @@
     box-shadow: 0 0 5px 1px rgba(98, 167, 68, 0.50);
 }
 
+#progress_text {
+    text-align: center;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1rem;
+    font-weight: lighter;
+    line-height: 22px;
+}
+
 label {
     color: #ffffff;
     font-family: 'MoscowSans', sans-serif;
@@ -194,5 +202,12 @@ label {
 
     .progress-bar-container::after {
         left: -145%;
+    }
+}
+
+@media (max-width: 364px) {
+    #progress_text {
+        font-size: 0.8rem;
+        line-height: 20px;
     }
 }

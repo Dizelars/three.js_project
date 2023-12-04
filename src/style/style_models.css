@@ -343,15 +343,33 @@ a-scene {
     transition: all .8s ease;
 }
 
+/*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr;*/
+/*    grid-template-rows: repeat(4, max-content);*/
+/*    gap: 24px;*/
+/*    grid-auto-flow: row;*/
+/*    grid-template-areas:*/
+/*    "tech_spec__titles"*/
+/*    "tech_spec__mission"*/
+/*    "tech_spec__outfit"*/
+/*    "tech_spec__button";*/
+/*    max-width: 350px;*/
+/*    transition: all .8s ease;*/
+/*}*/
+
+
 .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, max-content);
+    grid-template-rows: repeat(6, max-content);
     gap: 24px;
     grid-auto-flow: row;
     grid-template-areas:
     "tech_spec__titles"
+    "tech_spec__mission-panel"
     "tech_spec__mission"
+    "tech_spec__outfit-panel"
     "tech_spec__outfit"
     "tech_spec__button";
     max-width: 350px;
@@ -378,6 +396,16 @@ a-scene {
     grid-area: tech_spec__button;
 }
 
+.tech_spec__mission-panel {
+    grid-area: tech_spec__mission-panel;
+}
+
+.tech_spec__outfit-panel {
+    grid-area: tech_spec__outfit-panel;
+}
+
+
+
 .tech_spec__button .tech_spec__btn {
     max-width: max-content;
 }
@@ -396,9 +424,12 @@ a-scene {
 }
 
 .tech_spec__mission.hidden,
-.tech_spec__outfit.hidden {
+.tech_spec__outfit.hidden,
+.tech_spec__mission-panel.hidden,
+.tech_spec__outfit-panel.hidden {
     /*display: none;*/
     opacity: 0;
+    padding: 0;
     max-height: 0; /* Устанавливаем максимальную высоту блока на 0 */
     transition: all .8s ease;
 }
@@ -420,7 +451,7 @@ a-scene {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 800;
     font-size: 30px;
-    margin-bottom: 8px;
+    /*margin-bottom: 8px;*/
 }
 
 .tech_spec__subtitle {
@@ -429,10 +460,11 @@ a-scene {
     /*font-size: 20px;*/
     font-size: 18px;
     opacity: 0.4;
+    margin-top: 5px;
 }
 
 .tech_spec__mission-panel {
-    margin-bottom: 12px;
+    /*margin-bottom: 12px;*/
     padding: 10px 0;
 }
 
@@ -457,7 +489,7 @@ a-scene {
 
 .tech_spec__outfit-panel {
     padding: 10px 0;
-    margin-bottom: 16px;
+    /*margin-bottom: 16px;*/
 }
 
 /*.tech_spec__outfit .tech_spec__text {*/
@@ -720,7 +752,8 @@ a-scene {
 
 .auto_park {
     position: fixed;
-    bottom: 0;
+    /*bottom: 0;*/
+    bottom: -5px;
     left: 0;
     right: 0;
     z-index: 3;

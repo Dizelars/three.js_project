@@ -10,6 +10,8 @@ const techSpecGridWrapper = document.querySelector('.tech_spec__description-grid
 const visibleDescr = document.querySelector('.tech_spec__description');
 const sliderButton = document.querySelectorAll('.auto_park_slider-button button');
 const techSpecWrapperText = document.querySelector('.tech_spec__titles');
+const techSpecMissionPanel = document.querySelector('.tech_spec__mission-panel');
+const techSpecOutfitPanel = document.querySelector('.tech_spec__outfit-panel');
 const buttontech = document.querySelector('.tech_spec__btn');
 const buttonText = document.querySelector('.tech_spec__btn span');
 const buttonIcon = document.querySelector('.tech_spec__btn img');
@@ -33,7 +35,9 @@ function toggleElements(action) {
         techSpecWrapper,
         techSpecGridWrapper,
         techSpecWrapperText,
-        visibleDescr
+        visibleDescr,
+        techSpecMissionPanel,
+        techSpecOutfitPanel
     ];
 
     elements.forEach(element => {
@@ -133,9 +137,11 @@ function toggleAutoParkSection() {
     if (isAutoParkVisible) {
         // Если секция .auto_park видима, скрываем ее
         if (screenWidth <= 576 || (screenWidth <= 900 && window.matchMedia("(orientation: landscape)").matches)) {
-            autoParkSection.style.transform = 'translateY(20px)';
+            // autoParkSection.style.transform = 'translateY(20px)';
+            autoParkSection.style.transform = 'translateY(15px)';
         } else {
             autoParkSection.style.transform = 'translateY(0)';
+            // autoParkSection.style.transform = 'translateY(-5)';
         }
         buttonIcon2.classList.remove('rotate');
     } else {
