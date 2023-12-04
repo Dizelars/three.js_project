@@ -24,8 +24,6 @@
         height: fit-content;
     }
 
-
-
     /*Размеры карточек*/
     section.traffic_patrol .garage_model_card .slid_img {
         max-height: 524px;
@@ -46,8 +44,6 @@
     section.help_desk .garage_model_card .slid_img {
         max-height: 524px;
     }
-
-
 
     .garage_model_card {
         width: 100%;
@@ -174,8 +170,6 @@
     section.traffic_patrol .traffic_patrol-text,
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text,
     section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text,
-    /*section.help_desk .help_desk_grid-wrapper .сrew .сrew_text,*/
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 .text,*/
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_1 .water_patrol-text,
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 .water_patrol-text,
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text,
@@ -199,25 +193,6 @@
     section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text:last-child {
         max-width: 500px;
     }
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 .text {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] {*/
-    /*    height: 150px;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content img {*/
-    /*    width: 58px;*/
-    /*    height: 58px;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 div[class^="skill-"] .skill_content .skill_text*/
-    /*{*/
-    /*    font-size: 1.8rem;*/
-    /*    line-height: 22px;*/
-    /*}*/
 
     footer.footer_main .footer_main_grid-wrapper .footer-media-4 {
         justify-content: unset;
@@ -344,15 +319,6 @@
     section.traffic_patrol .traffic_patrol_slider-wrapper {
         grid-column: 2/4;
     }
-
-    /*.traffic_patrol-card, section.traffic_patrol .traffic_patrol_slider .traffic_patrol-card.slid {*/
-    /*    max-width: 540px;*/
-    /*}*/
-
-    /*Размеры карточек*/
-    /*section.velo_patrol .garage_model_card .slid_img {*/
-    /*    max-height: 293px;*/
-    /*}*/
 }
 
 @media (max-width: 1200px) {
@@ -387,10 +353,6 @@
         height: unset;
     }
 
-    /*section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title {*/
-    /*    margin-right: 6px;*/
-    /*}*/
-
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
         padding: 20px 10px 20px 20px;
     }
@@ -400,7 +362,6 @@
     }
 
     section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text:first-child {
-        /*margin-right: 10px;*/
         margin-right: 20px;
     }
 
@@ -454,23 +415,6 @@
         border: 8px solid white;
         max-width: 174px;
     }
-
-    /*section.main .main_title {*/
-    /*    font-size: 6rem;*/
-    /*    line-height: 56px;*/
-    /*}*/
-
-    /*section.main .main_title span.large_letter {*/
-    /*    padding: 12px;*/
-    /*    border: 10px solid white;*/
-    /*}*/
-
-
-    /*section.main .main_title span:nth-child(2) {*/
-    /*    text-align: center;*/
-    /*}*/
-
-
     section.main .main_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -513,13 +457,10 @@
         max-height: 320px;
     }
 
-
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /*grid-template-rows: 168px 168px 0 280px;*/
         grid-template-rows: repeat(5, min-content);
-        /*grid-template-rows: repeat(4, max-content);*/
         grid-auto-columns: 1fr;
         gap: 20px;
         grid-auto-flow: row;
@@ -528,7 +469,6 @@
         ". traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "traffic_patrol-text-4 traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
         ". . . ."
-        /*". . traffic_patrol-no-slide-7 traffic_patrol-no-slide-8"*/
         "traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
     }
 
@@ -539,21 +479,9 @@
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 */
-    {
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
         display: block;
     }
-
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2*/
-    /*!*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 *!*/
-    /*{*/
-    /*    max-width: 541px;*/
-    /*}*/
-
-        /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {*/
-    /*    max-height: 280px;*/
-    /*}*/
 
     .title, section.traffic_patrol .traffic_patrol-title {
         font-size: 2.4rem;
@@ -561,15 +489,12 @@
         line-height: 24px;
     }
 
-
-
     section.traffic_patrol {
         padding: 60px 20px 0 20px;
     }
 
     section.traffic_patrol .container_main {
         border-bottom: 1px solid white;
-        /*padding: 0 20px 120px 20px;*/
         padding: 0 0 120px 0;
     }
 
@@ -577,8 +502,6 @@
     section.traffic_patrol .container_main_line  {
         display: none;
     }
-
-
 
     section.traffic_patrol .traffic_patrol-text {
         font-size: 1.6rem;
@@ -602,19 +525,12 @@
         grid-column: 2/3;
     }
 
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 .garage_model_card .slid_img {*/
-    /*    background-position-x: right;*/
-    /*    background-position-y: top;*/
-    /*    background-size: 52%;*/
-    /*}*/
-
     .garage_model_card {
         width: 100%;
         height: 100%;
     }
 
     .garage_model_card .slid_img {
-        /*background: #090909 url("../../img/layout/pages/main/slider/amarok_slide_mini.png") no-repeat top center/cover;*/
         max-width: unset;
     }
 
@@ -653,9 +569,7 @@
 
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
-        /*grid-template-columns: 236px 236px 1fr 1fr;*/
         grid-template-columns: repeat(4, 1fr);
-        /*grid-template-rows: 1fr 236px 284px;*/
         grid-template-rows: repeat(3, min-content);
         gap: 20px;
         grid-auto-flow: row;
@@ -686,7 +600,6 @@
     }
 
     section.situation_centre .situation_centre_grid-wrapper .slider-5 .garage_model_card .slid_img {
-        /*background: #090909 url(../../img/layout/pages/main/slider/amarok_prevue_big.png) no-repeat top center/cover;*/
         height: 100%;
     }
 
@@ -702,7 +615,6 @@
 
 
     section.water_patrol .container_main .water_patrol_grid-wrapper {
-        /*display: grid;*/
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(3, min-content);
         gap: 20px;
@@ -743,9 +655,6 @@
         padding: 20px;
     }
 
-
-
-
     section.velo_patrol .velo_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -763,13 +672,9 @@
         padding: 20px 30px 20px 20px;
     }
 
-
-
-
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        /*grid-template-rows: 293px 284px 120px 1fr;*/
         grid-template-rows: repeat(3, min-content);
         gap: 20px;
         grid-auto-flow: row;
@@ -777,26 +682,8 @@
         "help_desk-1 parkon-2 parkon-2 driver-3"
         ". parkon-2 parkon-2 driver-3"
         "slide-moskvich slide-moskvich slide-5 slide-5"
-        /*". . equipment-4 equipment-4"*/
         ;
     }
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 {*/
-    /*    grid-area: equipment-4;*/
-    /*    display: none;*/
-    /*    !*display: grid;*!*/
-    /*    grid-template-columns: repeat(3, 1fr);*/
-    /*    !*grid-template-rows: 29px 151px 151px 151px 151px;*!*/
-    /*    grid-template-rows: repeat(5, min-content);*/
-    /*    gap: 10px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "text text text"*/
-    /*    "skill-1 skill-2 skill-3"*/
-    /*    "skill-10 skill-5 skill-6"*/
-    /*    "skill-7 skill-8 skill-9"*/
-    /*    ". . skill-4";*/
-    /*}*/
 
     section.help_desk .help_desk_grid-wrapper .slide-6 {
         display: none;
@@ -824,7 +711,6 @@
 
     section.help_desk .help_desk_grid-wrapper .slide-5,
     section.help_desk .help_desk_grid-wrapper .slide-moskvich {
-        /*height: 284px;*/
         height: 100%;
     }
 
@@ -835,9 +721,6 @@
     section.help_desk .garage_model_card .slid_info .slid_info-desc .slid_info-title {
         font-size: 1.5rem;
     }
-
-
-
 
     footer.footer_main .footer_main_grid-wrapper {
         display: grid;
@@ -861,7 +744,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /*justify-content: space-between;*/
     }
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {
@@ -926,7 +808,6 @@
     section.situation_centre .situation_centre_grid-wrapper .bus_text {
         display: block;
         background-color: rgba(24, 24, 24, 0.70);
-        /*backdrop-filter: blur(5px);*/
         border-radius: 10px;
     }
 
@@ -935,7 +816,6 @@
         display: grid;
         height: 100%;
         background-color: rgba(24, 24, 24, 0.70);
-        /*backdrop-filter: blur(5px);*/
         border-radius: 10px;
     }
 
@@ -951,7 +831,6 @@
         width: 100%;
         height: 100%;
         max-height: 350px;
-        /*object-fit: cover;*/
         min-height: 342px;
         object-position: bottom;
     }
@@ -960,7 +839,6 @@
     section.situation_centre .situation_centre_grid-wrapper .bus_text .bus_text_info {
         padding: 24px;
         background-color: rgba(24, 24, 24, 0.70);
-        /*backdrop-filter: blur(5px);*/
         border-radius: 0 0 10px 10px;
     }
 
@@ -979,26 +857,6 @@
     section.situation_centre .situation_centre_grid-wrapper .slider-5 {
         height: 444px;
     }
-
-
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 {*/
-    /*    display: none;*/
-    /*    grid-area: equipment-4;*/
-    /*    !*display: grid;*!*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*    !*grid-template-rows: 29px 151px 151px 151px 151px;*!*/
-    /*    grid-template-rows: repeat(6, min-content);*/
-    /*    gap: 10px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "text text"*/
-    /*    "skill-1 skill-2"*/
-    /*    "skill-3 skill-10"*/
-    /*    "skill-5 skill-6"*/
-    /*    "skill-7 skill-8"*/
-    /*    "skill-9 skill-4";*/
-    /*}*/
 }
 
 @media (max-width: 938px) {
@@ -1023,11 +881,6 @@
 }
 
 @media (max-width: 820px) {
-    /*section.traffic_patrol .traffic_patrol-text {*/
-    /*    font-size: 1.4rem;*/
-    /*    line-height: 21px;*/
-    /*}*/
-
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
         right: -44px;
     }
@@ -1039,36 +892,6 @@
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
         margin-bottom: 20px;
     }
-
-    /*section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text {*/
-    /*    font-size: 1.4rem;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 .text {*/
-    /*    font-size: 1.3rem;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .driver-3 .driver_text*/
-    /*!*section.help_desk .help_desk_grid-wrapper .сrew .сrew_text *!*/
-    /*{*/
-    /*    font-size: 1.4rem;*/
-    /*    line-height: 20px;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper {*/
-    /*    display: grid;*/
-    /*    !*grid-template-columns: 124px 1fr 1fr 1fr;*!*/
-    /*    grid-template-columns: repeat(4, 1fr);*/
-    /*    !*grid-template-rows: 293px 284px 120px 1fr;*!*/
-    /*    grid-template-rows: repeat(4, min-content);*/
-    /*    gap: 20px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "help_desk-1 slide-5 parkon-2 parkon-2"*/
-    /*    ". slide-6 equipment-4 equipment-4"*/
-    /*    ". driver-3 equipment-4 equipment-4"*/
-    /*    ". . equipment-4 equipment-4";*/
-    /*}*/
 }
 
 @media (max-width: 800px) {
@@ -1082,38 +905,6 @@
         border: 5px solid white;
         max-width: 142px;
     }
-
-    /*.title, section.traffic_patrol .traffic_patrol-title {*/
-    /*    font-size: 2.1rem;*/
-    /*    line-height: 22px;*/
-    /*}*/
-
-    /*section.main .main_grid-wrapper {*/
-    /*    grid-template-columns: repeat(3, 1fr);*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol-wrapper img {*/
-    /*    width: 180px;*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol-wrapper {*/
-    /*    grid-template-columns: repeat(3, 1fr);*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol-descr {*/
-    /*    !*height: 700px;*!*/
-    /*    gap: 12px;*/
-    /*    grid-column-start: 2;*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol-wrapper img {*/
-    /*    width: 210px;*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol_slider {*/
-    /*    grid-template-columns: repeat(3, 1fr);*/
-    /*}*/
 }
 
 @media (max-width: 768px) {
@@ -1142,7 +933,6 @@
         justify-content: center;
     }
 
-
     /*Размеры карточек*/
     section.traffic_patrol .garage_model_card .slid_img {
         max-height: 234px;
@@ -1164,14 +954,10 @@
         max-height: 234px;
     }
 
-
-
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        /*grid-template-rows: 48px 144px 0 336px 264px;*/
         grid-template-rows: repeat(3, min-content);
-        /*grid-template-rows: repeat(5, max-content);*/
         grid-auto-columns: 1fr;
         gap: 40px 20px;
         grid-auto-flow: row;
@@ -1185,36 +971,10 @@
         max-width: 232px;
     }
 
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6,*/
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {*/
-    /*    display: block;*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,*/
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8*/
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-9 */
-    /*{*/
-    /*    display: none;*/
-    /*}*/
-
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2*/
-    /*!*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3 *!*/
-    /*{*/
-    /*    max-width: unset;*/
-    /*}*/
-
     section.traffic_patrol .traffic_patrol_slider .garage_model_card {
         max-width: 290px;
         height: 336px;
     }
-
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {*/
-    /*    position: relative;*/
-    /*    display: flex;*/
-    /*    align-items: flex-end;*/
-    /*    justify-self: flex-end;*/
-    /*}*/
-    /*}*/
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons button {
         width: 64px;
@@ -1226,11 +986,6 @@
         height: 100%;
     }
 
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-buttons {*/
-    /*    top: 236px;*/
-    /*    right: 0;*/
-    /*}*/
-
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
         max-height: 336px;
     }
@@ -1238,7 +993,6 @@
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        /*grid-template-rows: 72px 260px 192px 192px 290px;*/
         grid-template-rows: repeat(5, min-content);
         gap: 20px;
         grid-auto-flow: row;
@@ -1259,11 +1013,6 @@
     section.situation_centre .situation_centre_grid-wrapper .bus-6 {
         display: block;
     }
-
-    /*section.situation_centre .situation_centre_grid-wrapper .man_text-7,*/
-    /*section.situation_centre .situation_centre_grid-wrapper .major_events-3 {*/
-    /*    display: none;*/
-    /*}*/
 
     section.situation_centre .situation_centre_grid-wrapper .situation-1 .situation_centre-title {
         max-width: 231px;
@@ -1291,16 +1040,6 @@
         line-height: 21px;
     }
 
-    /*section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {*/
-    /*    display: block;*/
-    /*    padding: 20px;*/
-    /*}*/
-
-    /*section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {*/
-    /*    font-size: 1.6rem;*/
-    /*    line-height: 28px;*/
-    /*}*/
-
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {
         padding: 10px;
         display: flex;
@@ -1319,7 +1058,6 @@
 
 
     section.water_patrol .container_main .water_patrol_grid-wrapper {
-        /*display: grid;*/
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(4, min-content);
         gap: 20px;
@@ -1345,7 +1083,6 @@
     }
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top {
-        /*justify-content: unset;*/
         align-items: flex-start;
         gap: 0;
     }
@@ -1363,7 +1100,6 @@
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text:first-child {
         margin-bottom: 10px;
     }
-
 
 
     section.velo_patrol .velo_patrol_grid-wrapper {
@@ -1411,52 +1147,17 @@
         margin-bottom: 10px;
         margin-right: 0;
     }
-
-
-    /*section.help_desk .help_desk_grid-wrapper {*/
-    /*    display: grid;*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*    grid-template-rows: 28px 388px 72px 84px 726px;*/
-    /*    gap: 40px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "help_desk-1 ."*/
-    /*    "parkon-2 slide-6"*/
-    /*    "driver-3 ."*/
-    /*    ". ."*/
-    /*    "equipment_mobile equipment_mobile";*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 {*/
-    /*    grid-area: equipment-4;*/
-    /*    display: grid;*/
-    /*    grid-template-columns: repeat(3, 1fr);*/
-    /*    grid-template-rows: 151px 151px 151px 151px;*/
-    /*    gap: 20px 64px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "skill-10 skill-6 skill-5"*/
-    /*    "skill-1 skill-2 skill-4"*/
-    /*    "skill-3 skill-7 skill-9"*/
-    /*    "skill-8 . .";*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile,*/
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,*/
     section.help_desk .help_desk_grid-wrapper .slide-5 {
         display: block;
     }
 
-    section.help_desk .help_desk_grid-wrapper .slide-6
-    /*section.help_desk .help_desk_grid-wrapper .equipment-4 */
-    {
+    section.help_desk .help_desk_grid-wrapper .slide-6 {
         display: none;
     }
 
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        /*grid-template-rows: 28px 388px 72px 810px;*/
         grid-template-rows: repeat(4, min-content);
         gap: 40px 20px;
         grid-auto-flow: row;
@@ -1467,60 +1168,6 @@
         "slide-moskvich slide-5";
     }
 
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text .text {*/
-    /*    font-family: 'MoscowSans', sans-serif;*/
-    /*    font-size: 1.6rem;*/
-    /*    font-weight: 400;*/
-    /*    line-height: 24px;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text {*/
-    /*    display: none;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile {*/
-    /*    grid-area: equipment_mobile;*/
-    /*    display: none;*/
-    /*    !*display: grid;*!*/
-    /*    grid-template-columns: repeat(2, 1fr);*/
-    /*    !*grid-template-rows: 84px 725px;*!*/
-    /*    grid-template-rows: repeat(2, min-content);*/
-    /*    !*gap: 30px 0;*!*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "equipment_mobile_control equipment_mobile_control"*/
-    /*    "equipment_mobile_skills equipment_mobile_skills"*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-title {*/
-    /*    font-family: 'MoscowSans', sans-serif;*/
-    /*    font-size: 1.8rem;*/
-    /*    font-weight: 400;*/
-    /*    text-align: center;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_control .equipment_mobile_control-img2 {*/
-    /*    transition: transform .3s ease;*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
-    /*    !*grid-area: equipment_mobile;*!*/
-    /*    !*display: grid;*!*/
-    /*    display: none;*/
-    /*    grid-template-columns: repeat(3, 1fr);*/
-    /*    !*grid-template-rows: 151px 151px 151px 151px;*!*/
-    /*    grid-template-rows: repeat(4, min-content);*/
-    /*    gap: 20px 64px;*/
-    /*    grid-auto-flow: row;*/
-    /*    grid-template-areas:*/
-    /*    "skill-10 skill-6 skill-5"*/
-    /*    "skill-1 skill-2 skill-4"*/
-    /*    "skill-3 skill-7 skill-9"*/
-    /*    "skill-8 . .";*/
-    /*    !*padding-top: 22px;*!*/
-    /*    !*border-top: 1px solid white;*!*/
-    /*}*/
-
     section.help_desk .garage_model_card .slid_info {
         padding: 10px 20px;
     }
@@ -1528,15 +1175,6 @@
     section.help_desk .garage_model_card .slid_info .slid_info-desc .slid_info-title {
         font-size: 1.6rem;
     }
-
-    /*section.help_desk .help_desk_grid-wrapper .slide-6 {*/
-    /*    height: 100%*/
-    /*}*/
-
-    /*section.help_desk .help_desk_grid-wrapper .slide-6 .garage_model_card {*/
-    /*    height: 384px;*/
-    /*}*/
-
 
     footer.footer_main {
         overflow: hidden;
@@ -1580,8 +1218,6 @@
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 {
         display: block;
-        /*flex-direction: column;*/
-        /*align-items: center;*/
     }
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links,
@@ -1634,20 +1270,6 @@
     }
 }
 
-/*@media (max-width: 764px) {*/
-/*    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 {*/
-/*        padding: 10px;*/
-/*        display: flex;*/
-/*        justify-content: space-evenly;*/
-/*        flex-direction: column;*/
-/*    }*/
-
-/*    section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {*/
-/*        font-size: 1.6rem;*/
-/*        line-height: 26px;*/
-/*    }*/
-/*}*/
-
 @media (max-width: 640px) {
     section.main .main_title {
         font-size: 3rem;
@@ -1671,7 +1293,6 @@
     section.velo_patrol .garage_model_card .slid_img {
         max-height: 332px;
     }
-
 
     section.traffic_patrol .traffic_patrol-wrapper {
         grid-template-columns: repeat(2, 1fr);
@@ -1723,10 +1344,6 @@
     .garage_model_card .slid_info .slid_info-desc .slid_info-text {
         max-width: 136px;
     }
-
-    /*section.help_desk .help_desk_grid-wrapper .slide-6 .garage_model_card {*/
-    /*    height: 384px;*/
-    /*}*/
 
     section.help_desk .help_desk_grid-wrapper .slide-5 .garage_model_card,
     section.help_desk .help_desk_grid-wrapper .slide-moskvich .garage_model_card {
@@ -1787,7 +1404,6 @@
     footer.footer_main .footer_main_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        /*grid-template-rows: 40px 70px 266px 1fr;*/
         grid-template-rows: repeat(4, min-content);
         grid-auto-columns: 1fr;
         gap: 50px;
@@ -1861,10 +1477,6 @@
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
         line-height: 21px;
     }
-
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile .equipment_mobile_skills {*/
-    /*    gap: 20px;*/
-    /*}*/
 }
 
 @media (max-width: 534px) {
@@ -1887,23 +1499,9 @@
         max-width: 96px;
         padding: 9px;
     }
-
-    /*section.main .main_info .main_info-descr .main_info-text:first-child,*/
-    /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
-    /*    max-width: 50%;*/
-    /*}*/
 }
 
-/*@media (max-width: 500px) {*/
-/*    footer.footer_main {*/
-/*        overflow: hidden;*/
-/*    }*/
-/*}*/
-
 @media (max-width: 492px) {
-    /*section.main .main_bg {*/
-    /*    background-position: center;*/
-    /*}*/
 
     section.traffic_patrol .container_main {
         padding-bottom: 90px;
@@ -1917,7 +1515,6 @@
         font-size: 2.4rem;
         line-height: 24px;
         max-width: 246px;
-        /*margin-bottom: 40px;*/
     }
 
     section.traffic_patrol .traffic_patrol-wrapper img {
@@ -1936,16 +1533,11 @@
     section.traffic_patrol .traffic_patrol-text {
         font-size: 1.4rem;
         line-height: 21px;
-        /*margin-bottom: 20px;*/
     }
 
     section.traffic_patrol .traffic_patrol-descr .traffic_patrol-text:first-child {
         margin-bottom: 20px;
     }
-
-    /*section.traffic_patrol .traffic_patrol_slider-wrapper {*/
-    /*    grid-column-start: 1;*/
-    /*}*/
 
     section.situation_centre .situation_centre_grid-wrapper .man_plus_major_events-8 .man_plus_major_events-text {
         font-size: 1.2rem;
@@ -1972,17 +1564,12 @@
         width: 100%;
     }
 
-    /*section.main .main_bg {*/
-    /*    padding: 0;*/
-    /*}*/
-
     section.main {
         padding-bottom: 60px;
         padding-top: 88px;
     }
 
     section.main .main_title {
-        /*margin-bottom: 128px;*/
         margin-bottom: 24px;
     }
 
@@ -1992,7 +1579,6 @@
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
-        /*padding: 0 20px;*/
         padding: 0;
     }
 
@@ -2030,18 +1616,6 @@
         margin-bottom: 10px;
     }
 
-    /*section.main .main_info .main_info-descr {*/
-    /*    flex-direction: column;*/
-    /*    align-items: center;*/
-    /*    gap: 10px;*/
-    /*}*/
-
-    /*section.main .main_info .main_info-descr .main_info-text:first-child,*/
-    /*section.main .main_info .main_info-descr .main_info-text:last-child {*/
-    /*    max-width: 100%;*/
-    /*}*/
-
-
     /*Размеры карточек*/
     section.traffic_patrol .garage_model_card .slid_img {
         max-height: 274px;
@@ -2067,9 +1641,7 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        /*grid-template-rows: 58px 199px 380px 241px;*/
         grid-template-rows: repeat(4, min-content);
-        /*grid-template-rows: repeat(4, max-content);*/
         grid-auto-columns: 1fr;
         gap: 40px;
         grid-auto-flow: row;
@@ -2081,15 +1653,12 @@
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1,
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-2,*/
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
         display: block;
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-2,
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-3,*/
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-4,
-    /*section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5,*/
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8,
     section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
@@ -2132,7 +1701,6 @@
 
     section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
         display: block;
-        /*margin-top: 20px;*/
     }
 
     .swiper-pagination-bullet {
@@ -2143,12 +1711,9 @@
         background-color: #62A744;
     }
 
-
-
     section.situation_centre .situation_centre_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        /*grid-template-rows: 87px 333px 330px 360px;*/
         grid-template-rows: repeat(4, min-content);
         gap: 40px;
         grid-auto-flow: row;
@@ -2196,9 +1761,7 @@
         height: 336px;
     }
 
-
     section.water_patrol .container_main .water_patrol_grid-wrapper {
-        /*display: grid;*/
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(4, min-content);
         gap: 20px;
@@ -2237,8 +1800,6 @@
         font-size: 1.4rem;
         line-height: 21px;
     }
-
-
 
     section.velo_patrol .velo_patrol_grid-wrapper {
         display: grid;
@@ -2282,9 +1843,7 @@
         margin-bottom: 20px;
     }
 
-
     section.help_desk .help_desk_grid-wrapper .driver-3,
-    /*section.help_desk .help_desk_grid-wrapper .equipment_mobile-text,*/
     section.help_desk .help_desk_grid-wrapper .slide-5,
     section.help_desk .help_desk_grid-wrapper .slide-moskvich {
         display: none;
@@ -2312,7 +1871,6 @@
         font-size: 1.6rem;
         line-height: 21px;
         margin-bottom: 20px;
-        /*max-width: 273px;*/
         max-width: unset;
     }
 
@@ -2320,10 +1878,6 @@
         font-size: 1.4rem;
         line-height: 21px;
     }
-
-    /*section.situation_centre .situation_centre_grid-wrapper .slider-5 {*/
-    /*    height: clamp(366px, 444px, 444px);*/
-    /*}*/
 
     section.help_desk .help_desk_grid-wrapper .mobile_text_combo .mobile_text_combo-text {
         font-family: 'MoscowSans', sans-serif;
@@ -2340,14 +1894,12 @@
     section.help_desk .help_desk_grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
-        /*grid-template-rows: 30px 332px 115px 940px 388px;*/
         grid-template-rows: repeat(4, min-content);
         gap: 40px;
         grid-auto-flow: row;
         grid-template-areas:
         "help_desk-1"
         "parkon-2"
-        /*"."*/
         "mobile_text_combo"
         "equipment_mobile-slide";
     }
@@ -2440,11 +1992,6 @@
     .menu .menu_navigation .menu_navigation-list .menu_navigation-item {
         margin-bottom: 24px;
     }
-
-    /*.menu .menu-media {*/
-    /*    position: absolute;*/
-    /*    bottom: 24px;*/
-    /*}*/
 }
 
 @media only screen and (max-height: 600px) {

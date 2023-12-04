@@ -155,8 +155,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // });
 
 
-
-
     // Измененная функция обработчика события для ссылок
     function handleLinkCloseMenu(event) {
         event.preventDefault();
@@ -183,8 +181,6 @@ document.addEventListener("DOMContentLoaded", function() {
         link.addEventListener("mouseout", handleLinkLeave);
         link.addEventListener("click", handleLinkCloseMenu);
     });
-
-
 
 
 // ПОЯВЛЕНИЕ видео превью при наведении на список меню.
@@ -234,37 +230,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
                 let mediaWrap = card.querySelector('.garage_model_card .slid_img');
                 let modelCardImage = card.querySelector('.garage_model_card .slid_img picture');
-                // Так как метод вызывается в интервале, стоит оптимизировать 2 вызова getBoundingClientRect в методах на один, передавая например опционально в методы проверки готовый rect
-                // if (isElementVisible(card) && isElementInViewport(card)) {
-                //     modelCardVideo.style.display = 'block';
-                //     modelCardVideo.play();
-                //     modelCardImage.style.display = 'none';
-                //     mediaWrap.style.background = '#090909 ';
-                // } else {
-                //     modelCardVideo.style.display = 'none';
-                //     modelCardVideo.pause();
-                //     modelCardVideo.currentTime = 0;
-                //     modelCardImage.style.display = 'block';
-                //     mediaWrap.style.background = '';
-                // }
                 observeElementVisibility(
                     card,
                     () => {
                         // Действия, когда элемент видим
-                        // modelCardVideo.style.display = 'block';
                         modelCardVideo.style.visibility = 'visible';
                         modelCardVideo.play();
-                        // modelCardImage.style.display = 'none';
                         modelCardImage.style.visibility = 'hidden';
                         mediaWrap.style.background = '#090909 ';
                     },
                     () => {
                         // Действия, когда элемент невидим
-                        // modelCardVideo.style.display = 'none';
                         modelCardVideo.style.visibility = 'hidden';
                         modelCardVideo.pause();
                         modelCardVideo.currentTime = 0;
-                        // modelCardImage.style.display = 'block';
                         modelCardImage.style.visibility = 'visible';
                         mediaWrap.style.background = '';
                     }
@@ -278,20 +257,16 @@ document.addEventListener("DOMContentLoaded", function() {
             let modelCardImage = card.querySelector('.garage_model_card .slid_img picture');
 
             card.addEventListener('mouseenter', () => {
-                // modelCardVideo.style.display = 'block';
                 modelCardVideo.style.visibility = 'visible';
                 modelCardVideo.play();
-                // modelCardImage.style.display = 'none';
                 modelCardImage.style.visibility = 'hidden';
                 mediaWrap.style.background = '#090909 ';
             });
 
             card.addEventListener('mouseleave', () => {
-                // modelCardVideo.style.display = 'none';
                 modelCardVideo.style.visibility = 'hidden';
                 modelCardVideo.pause();
                 modelCardVideo.currentTime = 0;
-                // modelCardImage.style.display = 'block';
                 modelCardImage.style.visibility = 'visible';
                 mediaWrap.style.background = '';
             });
@@ -312,17 +287,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Swiper slider
     const swiper = new Swiper('.swiper', {
-        // Optional parameters
         // loop: true,
         slidesPerView: 1,
         spaceBetween: 0,
 
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
         },
 
-        // Navigation arrows
         navigation: {
             nextEl: '.btn_next',
             prevEl: '.btn_prev',
@@ -339,7 +311,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     const swiper2 = new Swiper('.swiper2', {
-        // Optional parameters
         // loop: true,
         slidesPerView: "auto",
         spaceBetween: 20,
@@ -349,7 +320,6 @@ document.addEventListener("DOMContentLoaded", function() {
         },
     });
     const swiper3 = new Swiper('.swiper3', {
-        // Optional parameters
         // loop: true,
         slidesPerView: 1,
         spaceBetween: 0,
@@ -365,51 +335,6 @@ document.addEventListener("DOMContentLoaded", function() {
             },
         }
     });
-
-
-
-    // Выпадание блока Инвентарь
-    // const controlBlock = document.querySelector('.equipment_mobile_control');
-    // const skillsBlock = document.querySelector('.equipment_mobile_skills');
-    // const equipmentArrow = document.querySelector('.equipment_mobile_control .equipment_mobile_control-img2');
-    //
-    // // Скрываем блок skills по умолчанию
-    // skillsBlock.style.height = '0';
-    // skillsBlock.style.padding = '0';
-    // equipmentArrow.style.transform = "rotate(0)";
-    //
-    // // Добавляем обработчик клика на controlBlock
-    // controlBlock.addEventListener('click', () => {
-    //     const isSkillsVisible = skillsBlock.style.height === '100%';
-    //     // console.log(isSkillsVisible);
-    //
-    //     if (isSkillsVisible) {
-    //         skillsBlock.style.height = '0';
-    //         skillsBlock.style.padding = '0';
-    //         equipmentArrow.style.transform = "rotate(0)";
-    //
-    //     } else {
-    //         skillsBlock.style.height = '100%';
-    //         skillsBlock.style.padding = '50px 0 20px 0';
-    //         equipmentArrow.style.transform = "rotate(180deg)";
-    //     }
-    // });
-
-    // const mainContent = document.querySelector('main.gradient_move');
-
-    // function moveBeforeElement(section) {
-    //     // Генерируем случайные координаты для всех четырех сторон (0-100)
-    //     const newPositionTop = Math.random() * 100;
-    //     const newPositionRight = Math.random() * 100;
-    //     const newPositionBottom = Math.random() * 100;
-    //     const newPositionLeft = Math.random() * 100;
-    //
-    //     // Изменяем свойства для анимации перемещения псевдоэлемента "before"
-    //     section.style.setProperty('--before-top', `${newPositionTop}%`);
-    //     section.style.setProperty('--before-right', `${newPositionRight}%`);
-    //     section.style.setProperty('--before-bottom', `${newPositionBottom}%`);
-    //     section.style.setProperty('--before-left', `${newPositionLeft}%`);
-    // }
 
     function moveBeforeElement(section) {
         if (section.classList.contains('help_desk')) {

@@ -81,27 +81,11 @@
 }
 
 @media (max-width: 1200px) {
-    /*.tech_spec .tech_spec__description {*/
-    /*    padding: 10px 30px 10px 30px;*/
-    /*}*/
-    /*.tech_spec .tech_spec__outfit .tech_spec__outfit-list {*/
-    /*    margin-bottom: 20px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
-    /*    margin-bottom: 0;*/
-    /*}*/
-
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-img {
         margin: 0 auto;
         height: 60px;
         width: 70px;
     }
-
-    /*.tech_spec__titles .text_spec__texts, .tech_spec__mission {*/
-    /*    margin-bottom: 20px !important;*/
-    /*}*/
-
 
     /*aframe code style*/
     .a-dialog {
@@ -168,56 +152,15 @@
         margin: 0 10px;
     }
 
-    /*.header .header__info {*/
-    /*    justify-content: flex-end;*/
-    /*}*/
-
-    /*.header .header__info-descr {*/
-    /*    display: none;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__wrapper {*/
-    /*    margin-top: 50px;*/
-    /*}*/
-
     .tech_spec .tech_spec__description {
         max-width: 500px;
     }
 
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__mission {*/
-    /*    margin-bottom: 16px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
-    /*    margin-bottom: 18px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {*/
-    /*    margin-bottom: 6px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text {*/
-    /*    font-size: 20px;*/
-    /*}*/
-
-    /*.tech_spec__interior {*/
-    /*    margin-top: 70px;*/
-    /*    margin-right: 50px;*/
-    /*    max-width: 110px;*/
-    /*    height: 70px;*/
-    /*}*/
-
     .tech_spec__interior {
-        /*margin-top: 50px;*/
-        /*margin-right: 30px;*/
         max-width: 130px;
-        /*height: 90px;*/
         height: 167px;
-
-        /*top: 60px;*/
         right: 30px;
         justify-content: unset;
-        padding: 10px;
     }
 
     .tech_spec__interior .tech_spec__interior-title {
@@ -230,18 +173,14 @@
 
     .tech_spec__interior-btn {
         right: unset;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         bottom: -35px;
     }
 
     .tech_spec__interior .tech_spec__interior-btn .arrow-wrapper {
-        /*border: 1px solid #FFF;*/
         background: transparent;
     }
-    /*.auto_park {*/
-    /*    transform: translateY(0px);*/
-    /*    margin: 0;*/
-    /*}*/
 }
 
 @media (max-width: 576px) {
@@ -259,10 +198,6 @@
         top: 14px;
         left: 20px;
     }
-
-    /*.header .header__wrapper {*/
-    /*    height: 60px;*/
-    /*}*/
 
     .tech_spec {
         left: 0;
@@ -298,20 +233,14 @@
     }
 
     .tech_spec .tech_spec__description {
-        /*padding: 20px;*/
         width: 100%;
         max-width: unset;
-        /*display: flex;*/
-        /*justify-content: center;*/
         border-radius: 0 0 30px 30px;
-
         height: 100%;
-        /*padding: 80px 20px 20px 20px;*/
         padding: 68px 20px 20px 20px;
     }
 
     .tech_spec .tech_spec__description.hidden {
-        /*padding: 20px;*/
         height: inherit;
         background: none;
         backdrop-filter: none;
@@ -336,27 +265,8 @@
         font-size: 16px;
     }
 
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text {*/
-    /*    font-size: 16px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__text-descr {*/
-    /*    font-size: 14px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
-    /*    margin-bottom: 0;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {*/
-    /*    margin-bottom: 24px;*/
-    /*}*/
-
     .tech_spec__interior {
-        /*max-width: 80px !important;*/
-        /*height: 50px !important;*/
         height: fit-content;
-        padding: 0;
         left: 20px;
         bottom: 84px;
         top: unset;
@@ -377,9 +287,9 @@
         position: absolute;
         width: 100%;
         max-width: fit-content;
-        /*top: 75px;*/
         left: 0;
         bottom: 0;
+        transform: unset;
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
         border: 1px solid white;
@@ -405,15 +315,6 @@
         height: auto;
         padding: 20px 20px 40px 20px;
     }
-
-    /* .auto_park .auto_park_wrapper .auto_park_slider .gallery_item img {
-        width: 140px;
-        height: 92px;
-    } */
-
-    /*.auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {*/
-    /*    bottom: 38px !important;*/
-    /*}*/
 }
 
 @media (max-width: 440px) {
@@ -449,7 +350,7 @@
 
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle,
     .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text-descr {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .tech_spec .tech_spec__description .tech_spec__btn {
@@ -476,55 +377,21 @@
     }
 }
 
-@media only screen and (min-width: 1200px) and (max-height: 750px) {
-    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
-        gap: 18px;
-    }
-
-    .tech_spec__button .tech_spec__btn {
-        padding: 12px;
+@media (max-width: 360px) {
+    .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle,
+    .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text-descr {
+        font-size: 14px;
     }
 }
-
-/*@media only screen and (min-width: 700px) and (max-width: 1200px) {*/
-/*    .hideARButton {*/
-/*        position: absolute;*/
-/*        width: 50px;*/
-/*        height: 50px;*/
-/*        right: 88px;*/
-/*        left: unset;*/
-/*        top: unset;*/
-/*        bottom: 80px;*/
-/*        background-color: #000000;*/
-/*        !*border-radius: 100%;*!*/
-/*    }*/
-/*}*/
 
 @media screen and (max-height: 784px) {
     .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
         gap: 14px;
     }
-
-    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__mission-panel {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__outfit-panel {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__mission .tech_spec__text {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__description-grid_wrapper .tech_spec__outfit .tech_spec__text {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
 }
 
 @media screen and (max-width: 400px) and (max-height: 680px) {
     .tech_spec .tech_spec__description {
-        /*padding: 10px 16px;*/
         -webkit-backdrop-filter: blur(16px);
         backdrop-filter: blur(16px);
     }
@@ -533,22 +400,9 @@
         gap: 14px;
     }
 
-    /*.tech_spec .tech_spec__mission .tech_spec__mission-panel {*/
-    /*    margin-bottom: 8px;*/
-    /*}*/
-
     .tech_spec .tech_spec__mission .tech_spec__text {
         font-size: 18px;
-        /*margin-bottom: 8px;*/
     }
-
-    /*.tech_spec__mission-panel {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
-
-    /*.tech_spec__outfit .tech_spec__text {*/
-    /*    margin-bottom: 10px;*/
-    /*}*/
 
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
         gap: 8px 2px;
@@ -570,10 +424,6 @@
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-text {
         font-size: 10px;
     }
-
-    /*.tech_spec__interior {*/
-    /*    bottom: 60px !important;*/
-    /*}*/
 
     .auto_park .auto_park_wrapper {
         padding: 14px 20px 34px 20px;
@@ -643,36 +493,6 @@
         left: 20px;
     }
 
-        /*.header .header__wrapper {*/
-    /*    height: 60px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description {*/
-    /*    max-width: none;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__info-wrapper {*/
-    /*    display: flex;*/
-    /*    align-items: flex-start;*/
-    /*    justify-content: space-between;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__btn {*/
-    /*    !*position: absolute;*!*/
-    /*    !*bottom: 30px;*!*/
-    /*    !*width: fit-content;*!*/
-    /*    position: relative;*/
-    /*    bottom: 14px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__titles {*/
-    /*    !*height: 210px;*!*/
-    /*    display: flex;*/
-    /*    flex-direction: column;*/
-    /*    justify-content: space-between;*/
-    /*    align-items: flex-start;*/
-    /*}*/
-
     .tech_spec {
         width: 100%;
 
@@ -706,7 +526,6 @@
     }
 
     .tech_spec .tech_spec__description {
-        /*padding: 20px 20px 100% 20px;*/
         padding: 80px 5px 100% 20px;
         max-width: unset;
     }
@@ -745,7 +564,7 @@
         font-size: 16px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text-descr {
+    .tech_spec .tech_spec__description .tech_spec__mission-panel .tech_spec__text-descr {
         font-size: 14px;
         line-height: 22px;
     }
@@ -758,65 +577,10 @@
         font-size: 10px;
     }
 
-    /*.tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle {*/
-    /*    margin-bottom: 24px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__mission {*/
-    /*    max-width: 313px;*/
-    /*    !*margin-bottom: 40px;*!*/
-    /*    position: absolute;*/
-    /*    top: 100px;*/
-    /*    left: 30px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__visible .tech_spec__outfit {*/
-    /*    max-width: 440px;*/
-    /*    margin-left: 74px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__titles .tech_spec__subtitle, .tech_spec .tech_spec__visible .tech_spec__mission .tech_spec__text, .tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__text {*/
-    /*    font-size: 16px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__visible .tech_spec__mission .tech_spec__text-descr {*/
-    /*    font-size: 14px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-text {*/
-    /*    font-size: 10px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-list {*/
-    /*    margin: 0;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__visible .tech_spec__outfit .tech_spec__outfit-item {*/
-    /*    margin-bottom: 0;*/
-    /*}*/
-
-    /*.tech_spec__interior {*/
-    /*    max-width: 80px !important;*/
-    /*    height: 50px !important;*/
-    /*    !*z-index: -1;*!*/
-    /*}*/
-
-    /*.tech_spec__interior {*/
-    /*    padding: 0 !important;*/
-    /*}*/
-
-    /*.tech_spec__interior .tech_spec__interior-btn {*/
-    /*    position: absolute !important;*/
-    /*    top: 54px !important;*/
-    /*}*/
-
-
-
     .tech_spec__interior {
-        /*padding: 0 !important;*/
-        /*margin: 0 !important;*/
-        /*left: 20px !important;*/
-        /*bottom: 112px !important;*/
+        width: fit-content;
+        padding: 0;
+        top: 80px;
         right: 20px;
         height: fit-content;
         background: none !important;
@@ -825,12 +589,10 @@
     }
 
     .tech_spec__interior .tech_spec__interior-btn {
-        position: absolute;
+        position: relative;
+        bottom: unset;
         width: 100%;
-        /*max-width: fit-content;*/
         max-width: max-content;
-        /*top: 20px;*/
-        right: 20px;
         background: rgba(9, 9, 9, 0.50);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
@@ -845,7 +607,7 @@
     }
 
     .tech_spec__interior .tech_spec__interior-wrapper {
-        background: none;
+        background: none !important;
         height: fit-content;
     }
 
@@ -858,26 +620,13 @@
         background: none;
     }
 
-
-
-
     .auto_park .auto_park_wrapper {
         height: auto;
-        /*padding: 20px 20px 40px 20px;*/
         padding: 20px 20px 30px 20px;
     }
-
-    /* .auto_park .auto_park_wrapper .auto_park_slider .gallery_item img {
-        width: 140px;
-        height: 92px;
-    } */
-
-    /*.auto_park_slider-button button.next_button, .auto_park_slider-button button.prev_button {*/
-    /*    bottom: 38px !important;*/
-    /*}*/
 }
 
-@media screen and (max-width:820px) and (orientation:landscape) {
+@media screen and (max-width: 820px) and (orientation:landscape) {
     .tech_spec .tech_spec__description .tech_spec__outfit {
         max-width: unset;
     }
@@ -893,24 +642,63 @@
     }
 }
 
-@media screen and (max-height:400px) and (orientation:landscape) {
+@media only screen and (min-width: 1200px) and (max-height: 750px) {
+    .tech_spec,
+    .tech_spec__interior {
+        top: 64px;
+    }
+
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        gap: 10px;
+    }
+
+    .tech_spec__button .tech_spec__btn {
+        padding: 12px;
+    }
+}
+
+@media screen and (max-height: 741px) and (max-width: 361px) {
+    .tech_spec .tech_spec__description-grid_wrapper {
+        max-height: 550px;
+        overflow-y: auto;
+        overflow-x: clip;
+    }
+}
+
+@media screen and (max-height: 668px) and (max-width: 440px) {
+    .tech_spec .tech_spec__description-grid_wrapper {
+        max-height: 482px;
+        overflow-y: auto;
+        overflow-x: clip;
+    }
+}
+
+@media screen and (max-height: 570px) and (max-width: 440px) {
+    .tech_spec .tech_spec__description-grid_wrapper {
+        max-height: 418px;
+        overflow-y: auto;
+        overflow-x: clip;
+    }
+}
+
+@media screen and (max-height: 490px) and (max-width: 440px) {
+    .tech_spec .tech_spec__description-grid_wrapper {
+        max-height: 340px;
+        overflow-y: auto;
+        overflow-x: clip;
+    }
+}
+
+@media screen and (max-height: 400px) and (orientation:landscape) {
     .tech_spec .tech_spec__titles.hidden {
         margin-bottom: 18px;
     }
 }
 
-@media screen and (max-height:370px) and (orientation:landscape) {
+@media screen and (max-height: 370px) and (orientation:landscape) {
     .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
         gap: 10px 24px;
     }
-
-    /*.tech_spec .tech_spec__description .tech_spec__mission .tech_spec__mission-panel {*/
-    /*    margin-bottom: 8px;*/
-    /*}*/
-
-    /*.tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text {*/
-    /*    margin-bottom: 8px;*/
-    /*}*/
 
     .auto_park .auto_park_wrapper {
         padding: 10px 20px 30px 20px;
