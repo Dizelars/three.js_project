@@ -408,9 +408,9 @@
         gap: 8px 2px;
     }
 
-    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {
-        max-width: 70px;
-    }
+    /*.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
+    /*    max-width: 70px;*/
+    /*}*/
 
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-img {
         height: 54px;
@@ -439,9 +439,9 @@
         gap: 6px 2px;
     }
 
-    .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {
-        max-width: 68px;
-    }
+    /*.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item {*/
+    /*    max-width: 68px;*/
+    /*}*/
 
     .tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item .tech_spec__outfit-img {
         height: 44px;
@@ -479,7 +479,7 @@
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+@media screen and (min-width: 320px) and (max-width: 945px) and (orientation: landscape) {
     .container {
         margin: 0 15px;
     }
@@ -511,14 +511,36 @@
     }
 
     .tech_spec  .tech_spec__description .tech_spec__description-grid_wrapper {
-        grid-template-columns: repeat(2, max-content);
-        grid-template-rows: repeat(3, max-content);
-        gap: 16px 24px;
+        /*grid-template-columns: repeat(2, max-content);*/
+        grid-template-columns: 270px 1fr;
+        grid-template-rows: repeat(4, min-content);
+        gap: 16px 20px;
         grid-template-areas:
-    "tech_spec__titles tech_spec__outfit"
+    "tech_spec__titles tech_spec__outfit-panel"
+    "tech_spec__mission-panel tech_spec__outfit"
     "tech_spec__mission tech_spec__outfit"
     "tech_spec__button tech_spec__outfit";
         max-width: unset;
+
+        height: 220px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(2, max-content);
+        gap: 5px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "outfit_1 outfit_2 outfit_3 outfit_4 outfit_5 outfit_6"
+        "outfit_7 outfit_8 outfit_9 outfit_10 outfit_11 outfit_12";
+    }
+
+    .tech_spec .tech_spec__outfit-panel-background {
+        width: 100%;
+        left: 0;
     }
 
     .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper.hidden {
@@ -526,7 +548,7 @@
     }
 
     .tech_spec .tech_spec__description {
-        padding: 80px 5px 100% 20px;
+        padding: 80px 10px 100% 20px;
         max-width: unset;
     }
 
@@ -564,14 +586,19 @@
         font-size: 16px;
     }
 
+    .tech_spec .tech_spec__description .tech_spec__mission-panel {
+        height: fit-content;
+        align-self: center;
+    }
+
     .tech_spec .tech_spec__description .tech_spec__mission-panel .tech_spec__text-descr {
         font-size: 14px;
         line-height: 22px;
     }
 
-    .tech_spec .tech_spec__description .tech_spec__outfit {
-        max-width: 440px;
-    }
+    /*.tech_spec .tech_spec__description .tech_spec__outfit {*/
+    /*    max-width: 440px;*/
+    /*}*/
 
     .tech_spec .tech_spec__description .tech_spec__outfit .tech_spec__outfit-text {
         font-size: 10px;
@@ -581,7 +608,9 @@
         width: fit-content;
         padding: 0;
         top: 80px;
+        bottom: unset;
         right: 20px;
+        left: unset;
         height: fit-content;
         background: none !important;
         pointer-events: none;
@@ -626,19 +655,27 @@
     }
 }
 
-@media screen and (max-width: 820px) and (orientation:landscape) {
-    .tech_spec .tech_spec__description .tech_spec__outfit {
-        max-width: unset;
+@media screen and (min-height: 523px) and (max-height: 528px) and (min-width: 829px) and (max-width: 834px)  {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        height: unset;
+    }
+}
+
+@media screen and (min-height: 655px) and (max-height: 660px) and (min-width: 691px) and (max-width: 696px) {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        height: unset;
     }
 
-    .tech_spec .tech_spec__text {
-        max-width: max-content;
-    }
-
-    .tech_spec .tech_spec__outfit-list {
-        flex-wrap: nowrap;
-        overflow: auto;
-        max-width: 33.33%;
+    .tech_spec .tech_spec__outfit .tech_spec__outfit-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, max-content);
+        gap: 5px;
+        grid-auto-flow: row;
+        grid-template-areas:
+        "outfit_1 outfit_2 outfit_3 outfit_4"
+        "outfit_5 outfit_6 outfit_7 outfit_8"
+        "outfit_9 outfit_10 outfit_11 outfit_12";
     }
 }
 
@@ -661,7 +698,7 @@
     .tech_spec .tech_spec__description-grid_wrapper {
         max-height: 550px;
         overflow-y: auto;
-        overflow-x: clip;
+        overflow-x: hidden;
     }
 }
 
@@ -669,7 +706,7 @@
     .tech_spec .tech_spec__description-grid_wrapper {
         max-height: 482px;
         overflow-y: auto;
-        overflow-x: clip;
+        overflow-x: hidden;
     }
 }
 
@@ -677,7 +714,7 @@
     .tech_spec .tech_spec__description-grid_wrapper {
         max-height: 418px;
         overflow-y: auto;
-        overflow-x: clip;
+        overflow-x: hidden;
     }
 }
 
@@ -685,7 +722,20 @@
     .tech_spec .tech_spec__description-grid_wrapper {
         max-height: 340px;
         overflow-y: auto;
-        overflow-x: clip;
+        overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 820px) and (orientation:landscape) {
+    .tech_spec .tech_spec__outfit-list {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+}
+
+@media screen and (max-height: 420px) and (orientation:landscape) {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        height: 250px;
     }
 }
 
@@ -697,7 +747,11 @@
 
 @media screen and (max-height: 370px) and (orientation:landscape) {
     .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
-        gap: 10px 24px;
+        gap: 10px;
+    }
+
+    .auto_park {
+        bottom: -12px;
     }
 
     .auto_park .auto_park_wrapper {
@@ -706,5 +760,13 @@
 
     .auto_park .auto_park__control {
         margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-height: 320px) and (orientation:landscape) {
+    .tech_spec .tech_spec__description .tech_spec__description-grid_wrapper {
+        grid-template-columns: 240px 1fr;
+        gap: 10px;
+        height: 180px;
     }
 }

@@ -1270,6 +1270,12 @@
     }
 }
 
+@media screen and (min-height: 655px) and (max-height: 660px) and (min-width: 691px) and (max-width: 696px) {
+    section.situation_centre .garage_model_card .slid_img {
+        max-height: 320px;
+    }
+}
+
 @media (max-width: 640px) {
     section.main .main_title {
         font-size: 3rem;
@@ -2028,26 +2034,6 @@
         display: none;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

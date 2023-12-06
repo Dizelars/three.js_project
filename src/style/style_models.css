@@ -384,6 +384,67 @@ a-scene {
     margin: 0;
 }
 
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, max-content);
+    gap: 5px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "outfit_1 outfit_2 outfit_3 outfit_4"
+    "outfit_5 outfit_6 outfit_7 outfit_8"
+    "outfit_9 outfit_10 outfit_11 outfit_12";
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(1) {
+    grid-area: outfit_1;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(2) {
+    grid-area: outfit_2;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(3) {
+    grid-area: outfit_3;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(4) {
+    grid-area: outfit_4;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(5) {
+    grid-area: outfit_5;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(6) {
+    grid-area: outfit_6;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(7) {
+    grid-area: outfit_7;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(8) {
+    grid-area: outfit_8;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(9) {
+    grid-area: outfit_9;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(10) {
+    grid-area: outfit_10;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(11) {
+    grid-area: outfit_11;
+}
+
+.tech_spec .tech_spec__outfit .tech_spec__outfit-list .tech_spec__outfit-item:nth-child(12) {
+    grid-area: outfit_12;
+}
+
+
 .tech_spec__outfit-panel {
     padding: 10px 0;
 }
@@ -396,7 +457,7 @@ a-scene {
 }
 
 .tech_spec__outfit-item {
-    max-width: 80px;
+    /*max-width: 80px;*/
     width: 100%;
     text-align: center;
 }

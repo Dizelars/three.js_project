@@ -93,6 +93,10 @@ footer.footer_main .footer_main_grid-wrapper .footer-media-4 a[class^="media-"]:
     background-color: transparent;
 }
 
+.header_main .container_main {
+    border: none;
+}
+
 .header_main .header__logo {
     cursor: unset;
 }
@@ -467,7 +471,7 @@ section.main .main_intro_content {
     z-index: 2;
 }
 
-section.main .container_main {
+section.main .main_intro_content .container_main {
     height: 100%;
 }
 
