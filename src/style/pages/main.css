@@ -412,19 +412,19 @@ footer.footer_main .footer_main_grid-wrapper .footer-title-1 .header__logo-text 
     object-fit: cover;
 }
 
-.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(1) .menu_preview-block .menu_preview-video {
-    object-position: center 22%;
-}
+/*.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(1) .menu_preview-block .menu_preview-video {*/
+/*    object-position: center 22%;*/
+/*}*/
 
-.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(2) .menu_preview-block .menu_preview-video,
-.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(3) .menu_preview-block .menu_preview-video,
-.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(4) .menu_preview-block .menu_preview-video {
-    object-position: center 46%;
-}
+/*.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(2) .menu_preview-block .menu_preview-video,*/
+/*.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(3) .menu_preview-block .menu_preview-video,*/
+/*.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(4) .menu_preview-block .menu_preview-video {*/
+/*    object-position: center 46%;*/
+/*}*/
 
-.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(5) .menu_preview-block .menu_preview-video {
-    object-position: center 42%;
-}
+/*.menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(5) .menu_preview-block .menu_preview-video {*/
+/*    object-position: center 42%;*/
+/*}*/
 
 
 /* main */
@@ -616,6 +616,15 @@ section.main .main_grid-wrapper .main_text-2 .main_info-text {
 section.main .main_grid-wrapper .main_button-3 .main_info-link  {
     animation: BottomToTop 0.2s linear 1.7s forwards;
 }
+
+
+/*swiper style*/
+.swiper-pagination-bullet {
+    width: 50px;
+    height: 10px;
+    border-radius: 20px;
+}
+
 
 
 /*traffic_patrol*/
@@ -846,32 +855,6 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
 .garage_model_card .slid_info .slid_info-link svg,
 .garage_model_card .slid_info .slid_info-link svg path {
     transition: all .3s;
-}
-
-.garage_model_card:hover {
-    cursor: pointer;
-    border-color: #303030;
-}
-
-.garage_model_card:hover .slid_info {
-    background-color: #303030;
-}
-
-.garage_model_card:hover .slid_info .slid_info-desc .slid_info-title {
-    color: #FFFFFF;
-}
-
-.garage_model_card:hover .slid_info .slid_info-desc .slid_info-text{
-    color: #D1D1D1;
-}
-
-.garage_model_card:hover .slid_info .slid_info-link svg {
-    width: 24px;
-    height: 24px;
-}
-
-.garage_model_card:hover .slid_info .slid_info-link svg path {
-    fill: #FFFFFF;
 }
 
 .garage_model_card .slid_img {

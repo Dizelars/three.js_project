@@ -183,43 +183,43 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 
-// ПОЯВЛЕНИЕ видео превью при наведении на список меню.
-    // Получаем все элементы списка
-    const menuItems = document.querySelectorAll('.menu_navigation-item');
+    // ПОЯВЛЕНИЕ видео превью при наведении на список меню. (на десктопе)
+    if(window.innerWidth > 1200) {
+        // Получаем все элементы списка
+        const menuItems = document.querySelectorAll('.menu_navigation-item');
 
-    // Для каждого элемента списка добавляем обработчики событий
-    menuItems.forEach(menuItem => {
-        const previewBlock = menuItem.querySelector('.menu_preview-block');
-        const previewVideo = menuItem.querySelector('.menu_preview-block .menu_preview-video');
+        // Для каждого элемента списка добавляем обработчики событий
+        menuItems.forEach(menuItem => {
+            const previewBlock = menuItem.querySelector('.menu_preview-block');
+            const previewVideo = menuItem.querySelector('.menu_preview-block .menu_preview-video');
 
-        menuItem.addEventListener('mouseenter', () => {
-            previewBlock.style.display = 'block';
-            previewVideo.play();
-            menuItem.style.zIndex = '5';
+            menuItem.addEventListener('mouseenter', () => {
+                previewBlock.style.display = 'block';
+                previewVideo.play();
+                menuItem.style.zIndex = '5';
+            });
+
+            menuItem.addEventListener('mouseleave', () => {
+                previewBlock.style.display = 'none';
+                previewVideo.pause();
+                previewVideo.currentTime = 0;
+                menuItem.style.zIndex = 'unset';
+            });
+
+            menuItem.addEventListener('mousemove', (event) => {
+                const xRelativeToItem = event.clientX - menuItem.getBoundingClientRect().left;
+                const yRelativeToItem = event.clientY - menuItem.getBoundingClientRect().top;
+                const previewBlockWidth = previewBlock.offsetWidth;
+                const previewBlockHeight = previewBlock.offsetHeight;
+
+                const x = xRelativeToItem - previewBlockWidth / 2; // Центрирование по X относительно курсора
+                const y = yRelativeToItem - previewBlockHeight - 10; // Смещение чуть выше курсора
+
+                previewBlock.style.left = x + 'px';
+                previewBlock.style.top = y + 'px';
+            });
         });
-
-        menuItem.addEventListener('mouseleave', () => {
-            previewBlock.style.display = 'none';
-            previewVideo.pause();
-            previewVideo.currentTime = 0;
-            menuItem.style.zIndex = 'unset';
-        });
-
-        menuItem.addEventListener('mousemove', (event) => {
-            const xRelativeToItem = event.clientX - menuItem.getBoundingClientRect().left;
-            const yRelativeToItem = event.clientY - menuItem.getBoundingClientRect().top;
-            const previewBlockWidth = previewBlock.offsetWidth;
-            const previewBlockHeight = previewBlock.offsetHeight;
-
-            const x = xRelativeToItem - previewBlockWidth / 2; // Центрирование по X относительно курсора
-            const y = yRelativeToItem - previewBlockHeight - 10; // Смещение чуть выше курсора
-
-            previewBlock.style.left = x + 'px';
-            previewBlock.style.top = y + 'px';
-        });
-    });
-
-
+    }
 
     // ВИДЕО при ховере на карточку .garage_model_card
     const modelCards = document.querySelectorAll('.garage_model_card');
@@ -293,6 +293,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         pagination: {
             el: '.swiper-pagination',
+            clickable: true,
         },
 
         navigation: {
@@ -317,6 +318,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         pagination: {
             el: '.swiper-pagination2',
+            clickable: true,
         },
     });
     const swiper3 = new Swiper('.swiper3', {
@@ -326,6 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         pagination: {
             el: '.swiper-pagination3',
+            clickable: true,
         },
 
         breakpoints: {

@@ -321,6 +321,35 @@
     }
 }
 
+/* Применять hover только на устройствах с шириной экрана больше или равной 1200px */
+@media (min-width: 1200px) {
+    .garage_model_card:hover {
+        cursor: pointer;
+        border-color: #303030;
+    }
+
+    .garage_model_card:hover .slid_info {
+        background-color: #303030;
+    }
+
+    .garage_model_card:hover .slid_info .slid_info-desc .slid_info-title {
+        color: #FFFFFF;
+    }
+
+    .garage_model_card:hover .slid_info .slid_info-desc .slid_info-text{
+        color: #D1D1D1;
+    }
+
+    .garage_model_card:hover .slid_info .slid_info-link svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .garage_model_card:hover .slid_info .slid_info-link svg path {
+        fill: #FFFFFF;
+    }
+}
+
 @media (max-width: 1200px) {
 
     section.main .main_grid-wrapper {
@@ -1537,8 +1566,10 @@
     }
 
     section.traffic_patrol .traffic_patrol-text {
-        font-size: 1.4rem;
-        line-height: 21px;
+        /*font-size: 1.4rem;*/
+        /*line-height: 21px;*/
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 
     section.traffic_patrol .traffic_patrol-descr .traffic_patrol-text:first-child {
@@ -1552,6 +1583,11 @@
 }
 
 @media (max-width: 440px) {
+    h1.title {
+        font-size: 2.8rem !important;
+        line-height: 30px !important;
+    }
+
     .menu:before,
     .menu:after {
         height: 500px;
@@ -1563,6 +1599,11 @@
 
     .menu:after {
         left: -125%;
+    }
+
+    .menu .menu-media {
+        display: flex;
+        justify-content: center;
     }
 
     .menu .menu_navigation .menu_navigation-list .menu_navigation-item:nth-child(2) .menu_wrapper_img {
@@ -1613,9 +1654,11 @@
         display: block;
     }
 
-    section.main .main_grid-wrapper .main_info-text, section.main .main_grid-wrapper .main_info-text {
-        font-size: 1.4rem;
-        line-height: 18px;
+    section.main .main_grid-wrapper .main_info-text {
+        /*font-size: 1.4rem;*/
+        /*line-height: 18px;*/
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 
     section.main .main_grid-wrapper .main_text-mobile .main_info-text:not(:last-child) {
@@ -1669,13 +1712,6 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8,
     section.traffic_patrol .traffic_patrol_grid-wrapper .slider_button-wrapper {
         display: none;
-    }
-
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1 .traffic_patrol-text:nth-child(1) {
-        font-family: 'MoscowSans', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        line-height: 24px;
     }
 
     section.traffic_patrol .traffic_patrol-text-mobile-1 .traffic_patrol-text:first-child,
@@ -1744,7 +1780,19 @@
     }
 
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 {
-        padding: 20px 30px 20px 20px;
+        /*padding: 20px 30px 20px 20px;*/
+        padding: 0;
+        border: none;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-text {
+        font-size: 1.6rem;
+        line-height: 22px;
+    }
+
+    section.situation_centre .situation_centre_grid-wrapper .employ_plus_bus_slider .situation_centre_slider .situation_centre-card .slid_info .slider-text {
+        font-size: 1.6rem;
+        line-height: 20px;
     }
 
     section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 img {
@@ -1780,7 +1828,9 @@
     }
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
-        padding: 20px;
+        /*padding: 20px;*/
+        padding: 0;
+        border: none;
     }
 
     section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top {
@@ -1803,8 +1853,10 @@
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_2 .water_patrol-text,
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_text_mobile .water_patrol-text,
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history-text {
-        font-size: 1.4rem;
-        line-height: 21px;
+        /*font-size: 1.4rem;*/
+        /*line-height: 21px;*/
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 
     section.velo_patrol .velo_patrol_grid-wrapper {
@@ -1834,9 +1886,11 @@
     section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-descr .velo_patrol_about-text {
         font-family: 'MoscowSans', sans-serif;
         color: #FFF;
-        font-size: 1.4rem;
+        /*font-size: 1.4rem;*/
         font-weight: 400;
-        line-height: 21px;
+        /*line-height: 21px;*/
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 
     section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_text_mobile p:first-child {
@@ -1881,15 +1935,19 @@
     }
 
     section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_text {
-        font-size: 1.4rem;
-        line-height: 21px;
+        /*font-size: 1.4rem;*/
+        /*line-height: 21px;*/
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 
     section.help_desk .help_desk_grid-wrapper .mobile_text_combo .mobile_text_combo-text {
         font-family: 'MoscowSans', sans-serif;
-        font-size: 1.4rem;
+        /*font-size: 1.4rem;*/
         font-weight: 400;
-        line-height: 21px;
+        /*line-height: 21px;*/
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 
     section.help_desk .help_desk_grid-wrapper .mobile_text_combo .mobile_text_combo-text:first-child {
@@ -1912,6 +1970,33 @@
 
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 {
         width: 100%;
+    }
+
+    .garage_model_card .slid_info .slid_info-desc .slid_info-title {
+        font-size: 1.8rem !important;
+    }
+
+    .garage_model_card .slid_info .slid_info-desc .slid_info-text {
+        font-size: 1.6rem;
+    }
+
+    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1 .traffic_patrol-text:nth-child(1),
+    section.situation_centre .situation_centre_grid-wrapper .brain_heart-2 .brain_heart-title,
+    section.water_patrol .container_main .water_patrol_grid-wrapper .water_patrol_history .water_patrol_history_top .water_patrol_history-title,
+    section.velo_patrol .velo_patrol_grid-wrapper .velo_patrol_about .velo_patrol_about-subtitle,
+    section.help_desk .help_desk_grid-wrapper .parkon-2 .parkon_title {
+        font-family: 'MoscowSans', sans-serif;
+        /*font-size: 1.8rem;*/
+        font-weight: 700;
+        /*line-height: 24px;*/
+        font-size: 2rem;
+        line-height: 26px;
+    }
+
+    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .footer-menu-link,
+    footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p {
+        font-size: 1.6rem;
+        line-height: 22px;
     }
 }
 

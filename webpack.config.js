@@ -36,6 +36,8 @@ module.exports = {
         'moskvich-style': './src/style/style.css',
         // test: './src/js/test.js',
         // 'test-style': './src/style/test.css',
+        amarok_t3: './src/js/three/my_three.js',
+        'amarok_t3-style': './src/style/style.css',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -160,6 +162,19 @@ module.exports = {
         //                 useShortDoctype: true,
         //             },
         // }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/pages', 'amarok_t3.html'),
+            filename: 'amarok_t3.html',
+            chunks: ['amarok_t3', 'amarok_t3-style'],
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+        }),
         new MiniCssExtractPlugin({
             filename: 'style/[name].[contenthash].css',
             chunkFilename: 'style/[id].[contenthash].css',

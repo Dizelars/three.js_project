@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="ru" class="a-fullscreen">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="robots" content="noindex,nofollow,noarchive"/>
+  <meta name="yandex-verification" content="c74167eb0fd8f8fe" />
+  <meta name="yandex" content="noindex,nofollow,noarchive"/>
+  <meta name="googlebot" content="noindex,nofollow,noarchive"/>
+  <!--    <link rel="shortcut icon" href="https://garage-codd.ru/favicon.ico"/>-->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://garage-codd.ru/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://garage-codd.ru/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://garage-codd.ru/favicons/favicon-16x16.png">
+  <link rel="manifest" href="https://garage-codd.ru/favicons/site.webmanifest">
+  <link rel="mask-icon" href="https://garage-codd.ru/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#090909">
+  <!--    &lt;!&ndash; Primary Meta Tags &ndash;&gt;-->
+  <!--    <meta name="title" content="Гараж ЦОДД"/>-->
+  <!--    <meta name="description" content="Гараж ЦОДД"/>-->
+  <!--    <meta name="keywords" content="Гараж ЦОДД"/>-->
+
+  <!--    &lt;!&ndash; Open Graph / Facebook &ndash;&gt;-->
+  <!--    <meta property="og:type" content="website"/>-->
+  <!--    <meta property="og:url" content="https://garage-codd.ru/"/>-->
+  <!--    <meta property="og:title" content="Гараж ЦОДД"/>-->
+  <!--    <meta property="og:description" content="Гараж ЦОДД"/>-->
+  <!--    <meta property="og:image" content="https://garage-codd.ru/seo.png"/>-->
+
+  <!--    &lt;!&ndash; Twitter &ndash;&gt;-->
+  <!--    <meta property="twitter:card" content="summary_large_image"/>-->
+  <!--    <meta property="twitter:url" content="https://garage-codd.ru/"/>-->
+  <!--    <meta property="twitter:title" content="Гараж ЦОДД"/>-->
+  <!--    <meta property="twitter:description" content="Гараж ЦОДД"/>-->
+  <!--    <meta property="twitter:image" content="https://garage-codd.ru/seo.png"/>-->
+  <title>Гараж ЦОДД</title>
+  <link rel="stylesheet" href="../style/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script>
+    // setTimeout(() => {
+    AFRAME.registerComponent("hotspots", {
+      init: function () {
+        this.el.addEventListener("reloadspots", function (evt) {
+          //get the entire current spot group and scale it to 0
+          let currspotgroup = document.getElementById(evt.detail.currspots);
+          currspotgroup.setAttribute("scale", "0 0 0");
+
+          //get the entire new spot group and scale it to 1
+          let newspotgroup = document.getElementById(evt.detail.newspots);
+          newspotgroup.setAttribute("scale", "1 1 1");
+        });
+      }
+    });
+
+    AFRAME.registerComponent("spot", {
+      schema: {
+        linkto: { type: "string", default: "" },
+        spotgroup: { type: "string", default: "" },
+        phiStart: { type: "string", default: "" }
+      },
+      init: function () {
+        this.el.addEventListener("click", () => {
+          let cam = document.getElementById("cam");
+          cam.emit("zoomin");
+
+          let fp = document.getElementById("camfadeplane");
+          fp.setAttribute("width", "2");
+          fp.setAttribute("height", "2");
+          fp.emit("camFadeIn");
+
+          const reloadSpot = () => {
+            //set the skybox source to the new image as per the spot
+            let sky = document.getElementById("skybox");
+            sky.setAttribute("src", this.data.linkto);
+            //надобавлял говна но оно не пашет
+            sky.setAttribute("phi-start", this.data.phiStart);
+
+            let spotcomp = document.getElementById("spots");
+            let currspots = this.el.parentElement.getAttribute("id");
+            //create event for spots component to change the spots data
+            spotcomp.emit("reloadspots", {
+              newspots: this.data.spotgroup,
+              currspots: currspots
+            });
+
+            //this.setAttribute("camera","fov",80);
+            cam.emit("zoomout");
+
+            let fp = document.getElementById("camfadeplane");
+            fp.emit("camFadeOut");
+
+            setTimeout(() => {
+              fp.setAttribute("width", "0");
+              fp.setAttribute("height", "0");
+            }, 1000);
+          };
+          setTimeout(reloadSpot, 2000);
+        });
+
+        // this.el.addEventListener("mouseleave", function () {
+        //   var cur = document.getElementById("cursor-visual");
+        //   cur.emit("stopFuse");
+        // });
+
+        //поменял mouseenter на click. какая то хуйня
+        // this.el.addEventListener("click", function (evt) {
+        //   var cur = document.getElementById("cursor-visual");
+        //   cur.emit("startFuse");
+        // });
+      }
+    });
+    // }, 1500);
+  </script>
+</head>
+<body>
+
+<div class="progress-bar">
+  <div class="progress-bar-container">
+    <div class="image">
+      <img class="no_animated" src="/src/img/layout/loader/logo.gif" alt="цодд">
+    </div>
+    <span id="progress-label">0%</span>
+    <div id="hellopreloader_barWrapper">
+      <progress id="progress-bar" value="0" max="100"></progress>
+    </div>
+    <label for="progress-bar" id="progress_text">Загружаем модель в высоком разрешении.<br>Пожалуйста, дождитесь завершения</label>
+  </div>
+</div>
+
+<div class="header">
+  <a class="header__logo" href="../index.html#traffic_patrol">
+    <img class="header__logo-img" src="../img/layout/header_logo.svg" alt="logo">
+    <p class="header__logo-text">Гараж ЦОДД</p>
+  </a>
+</div>
+
+<div class="tech_spec active">
+  <div class="tech_spec__wrapper hidden">
+    <div class="tech_spec__description hidden">
+      <div class="tech_spec__description-grid_wrapper hidden">
+        <div class="tech_spec__titles hidden">
+          <div class="text_spec__texts">
+            <p class="tech_spec__title">Дорожный патруль</p>
+            <!--                                <p class="tech_spec__subtitle">Автомобиль службы помощи ЦОДД</p>-->
+          </div>
+        </div>
+        <div class="tech_spec__mission-panel hidden">
+          <p class="tech_spec__text">Задача</p>
+          <div class="tech_spec__mission-panel-background"></div>
+        </div>
+        <div class="tech_spec__mission hidden">
+          <p class="tech_spec__text-descr">Регулировать движение на&nbsp;сложных участках, помогать водителям при поломке или аварии.</p>
+        </div>
+        <div class="tech_spec__outfit-panel hidden">
+          <p class="tech_spec__text">Экипировка</p>
+          <div class="tech_spec__outfit-panel-background"></div>
+        </div>
+        <div class="tech_spec__outfit hidden">
+          <ul class="tech_spec__outfit-list">
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_1.svg" alt="Огнетушитель" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Огнетушитель</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_2.svg" alt="Аптечка" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Аптечка</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_3.svg" alt="Инструменты" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Инструменты</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_4.svg" alt="Трос" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Трос</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img fetchpriority="high" src="../img/layout/outfit/ford/outfit_1.svg" alt="Противооткатные упоры">
+              </div>
+              <span class="tech_spec__outfit-text">Колодки</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_6.svg" alt="Пусковое устройство" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Пусковое устройство</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_7.svg" alt="Бланки европротокола" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Бланки европротокола</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_8.svg" alt="Телескопическая лестница" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Cкладная лестница</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_9.svg" alt="Домкрат" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Домкрат</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_10.svg" alt="Дорожные конусы" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Дорожные конусы</span>
+            </li>
+            <li class="tech_spec__outfit-item">
+              <div class="tech_spec__outfit-img">
+                <img src="../img/layout/outfit/amarok/outfit_11.svg" alt="Гайковерт" fetchpriority="high">
+              </div>
+              <span class="tech_spec__outfit-text">Гайковерт</span>
+            </li>
+          </ul>
+        </div>
+        <div class="tech_spec__button">
+          <a class="tech_spec__btn">
+            <span>Подробнее</span>
+            <img src="../img/layout/icon-arrow.svg" alt="icon-arrow" fetchpriority="high">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tech_spec__interior" id="amarok">
+  <p class="tech_spec__interior-title">Volkswagen Amarok</p>
+  <div class="tech_spec__interior-wrapper">
+    <div class="tech_spec__interior-btn">
+      <span class="tech_spec__interior-text">В салон</span>
+      <div class="arrow-wrapper">
+        <img src="../img/layout/interior_arrow.svg" alt="interior_arrow">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="auto_park">
+  <div class="container">
+    <div class="auto_park_wrapper">
+      <div class="auto_park__control">
+        <p class="auto_park__title">Транспорт ЦОДД</p>
+        <img class="rotate" src="../img/layout/auto_park_arrow.svg" alt="auto_park_btn">
+      </div>
+      <div class="auto_park_slider">
+        <div class="auto_park_slider-overflow swiper_model">
+          <div class="auto_park_slider-wrapper swiper-wrapper">
+            <div class="gallery_item active swiper-slide">
+              <a class="gallery_item_link" href="#">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/amarok.png" alt="amarok" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+            <div class="gallery_item swiper-slide">
+              <a class="gallery_item_link" href="ford.html">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/ford.png" alt="ford" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+            <div class="gallery_item swiper-slide">
+              <a class="gallery_item_link" href="bus.html">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/bus.png" alt="bus" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+            <div class="gallery_item swiper-slide">
+              <a class="gallery_item_link" href="kater.html">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+            <div class="gallery_item swiper-slide">
+              <a class="gallery_item_link" href="velo.html">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/velo.png" alt="velo" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+            <div class="gallery_item swiper-slide">
+              <a class="gallery_item_link" href="moskvich.html">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/moskvich.png" alt="moskvich" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+            <div class="gallery_item swiper-slide">
+              <a class="gallery_item_link" href="solaris_two.html">
+                <picture>
+                  <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">
+                </picture>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="auto_park_slider-button">
+          <button class="prev_button">
+            <img src="../img/layout/slider/icon-arrow.png" alt="arrow_prev" fetchpriority="high">
+          </button>
+          <button class="next_button">
+            <img src="../img/layout/slider/icon-arrow.png" alt="arrow_next" fetchpriority="high">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="VectaryIframe" id="Canvas_wrapper"></div>
+<div id="overlay"></div>
+
+<a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909" vr-mode-ui="enabled: false" ar-mode-ui="enabled: false" xr-mode-ui="enabled: false"
+         device-orientation-permission-ui="
+ denyButtonText: Отказаться;
+ allowButtonText: Разрешить;
+ cancelButtonText: Закрыть;
+ deviceMotionMessage: Разрешите этому сайту использовать гироскопы вашего устройства для ориентации в&nbsp;пространстве. Так экскурсия станет гораздо интерактивней и&nbsp;увлекательней.;
+ mobileDesktopMessage: Разрешите этому сайту использовать гироскопы вашего устройства для ориентации в&nbsp;пространстве. Так экскурсия станет гораздо интерактивней и&nbsp;увлекательней.;
+ httpsMessage: Зайдите на&nbsp;этот сайт по&nbsp;протоколу HTTPS, чтобы войти в&nbsp;режим&nbsp;VR и&nbsp;предоставить доступ к&nbsp;датчикам устройства.;">
+  <a-assets>
+    <script id="flatShader" type="x-shader/x-fragment">
+          varying vec2 vUv;
+          void main() {
+            gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+          }
+        </script>
+    <img
+            id="room1"
+            src="../img/layout/pages/main/360/amarok/amarok.jpg"
+            crossorigin="anonymous"
+            importance="high"
+    />
+    <a-mixin
+            id="info-sphere"
+            geometry="primitive: sphere; radius: 0.4;"
+            material="color: #ff0000;"
+    ></a-mixin>
+  </a-assets>
+  <a-entity
+          id="cam"
+          camera="fov:80"
+          position="0 1.6 0"
+          look-controls
+          cursor="rayOrigin: mouse"
+          animation__zoomin="property:camera.fov;dur:2000;to:50;startEvents:zoomin;"
+          animation__zoomout="property:camera.fov;dur:1000;to:80;startEvents:zoomout;"
+  >
+    <a-plane
+            id="camfadeplane"
+            rotation="10 0.5 0"
+            position="0 0 -0.5"
+            material="color:#000000;transparent:true;opacity:0"
+            width="0"
+            height="0"
+            animation__fadein="property:material.opacity;to:1;dur:2000;startEvents:camFadeIn"
+            animation__fadeout="property:material.opacity;to:0;dur:1000;startEvents:camFadeOut"
+    ></a-plane>
+  </a-entity>
+  <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="175"></a-sky>
+</a-scene>
+
+<!--<script type="module">-->
+<!--  // import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";-->
+<!--  let isModelLoaded = false;-->
+
+<!--  const LOADING_TIME = 50000;-->
+<!--  const PERCENT_STEP = 2;-->
+<!--  const COUNT_LOAD_TIME = LOADING_TIME / (100 / PERCENT_STEP);-->
+<!--  let percent = 0;-->
+<!--  let preloader = document.querySelector(".progress-bar");-->
+<!--  const percentEl = document.getElementById("progress-label");-->
+<!--  const barEl = document.getElementById("progress-bar");-->
+<!--  // let progressText = document.getElementById("progress_text");-->
+
+<!--  function fadeOutnojquery(el) {-->
+<!--    el.style.opacity = 1;-->
+<!--    let interhellopreloader = setInterval(function () {-->
+<!--      el.style.opacity = el.style.opacity - 0.05;-->
+
+<!--      if (el.style.opacity <= 0.05) {-->
+<!--        clearInterval(interhellopreloader);-->
+<!--        preloader.style.display = "none";-->
+<!--      }-->
+<!--    }, 16);-->
+<!--  }-->
+
+<!--  function countLoad() {-->
+<!--    barEl.style.width = "0%";-->
+<!--    percentEl.textContent = `0%`;-->
+<!--    barEl.style.transition = `width ${COUNT_LOAD_TIME / 4000}s linear`;-->
+
+<!--    let countInterval = setInterval(function () {-->
+<!--      percent += PERCENT_STEP;-->
+
+<!--      if ((percent > 96) && !isModelLoaded) {-->
+<!--        percent = 98;-->
+<!--      } else {-->
+<!--        if (percent > 100) {-->
+<!--          percent = 100;-->
+<!--        }-->
+<!--      }-->
+
+<!--      percentEl.textContent = `${percent}%`;-->
+<!--      barEl.style.width = `${percent}%`;-->
+
+<!--      // if (percent >= 25 && percent < 50) {-->
+<!--      //     progressText.textContent = 'Подбираем экипаж...';-->
+<!--      // } else if (percent >= 50 && percent < 70) {-->
+<!--      //     progressText.textContent = 'Проводим ТО...';-->
+<!--      // } else if (percent >= 70 && percent < 90) {-->
+<!--      //     progressText.textContent = 'Намываем технику...';-->
+<!--      // } else if (percent >= 80) {-->
+<!--      //     progressText.textContent = 'Экипируемся...';-->
+<!--      // }-->
+<!--      if (isModelLoaded) {-->
+<!--        clearInterval(countInterval);-->
+<!--        let acceleratedInterval = COUNT_LOAD_TIME / 0;-->
+<!--        countInterval = setInterval(function () {-->
+<!--          percent += PERCENT_STEP;-->
+
+<!--          if (percent > 100) {-->
+<!--            percent = 100;-->
+<!--          }-->
+
+<!--          percentEl.textContent = `${percent}%`;-->
+<!--          barEl.style.width = `${percent}%`;-->
+
+<!--          if (percent === 100) {-->
+<!--            // progressText.textContent = 'Мы готовы!';-->
+<!--            setTimeout(function () {-->
+<!--              fadeOutnojquery(preloader);-->
+<!--            }, 500);-->
+<!--            clearInterval(countInterval);-->
+<!--          }-->
+<!--        }, acceleratedInterval);-->
+<!--      }-->
+<!--    }, COUNT_LOAD_TIME);-->
+<!--  }-->
+
+<!--  countLoad();-->
+
+<!--  function myLoading(url) {-->
+<!--    console.log('myLoading go!');-->
+<!--    let xhr = new XMLHttpRequest();-->
+<!--    xhr.open('GET', url);-->
+<!--    xhr.send();-->
+<!--    const startTime = new Date().getTime(); // Запоминаем время начала загрузки-->
+
+<!--    // 4. Эта функция будет вызвана после получения ответа-->
+<!--    xhr.onload = function() {-->
+<!--      if (xhr.status !== 200) { // анализ HTTP-статуса ответа-->
+<!--        console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found-->
+<!--      } else {-->
+<!--        // console.log(`Done, got ${xhr.response.length} bytes`); // response - ответ сервера-->
+<!--        const endTime = new Date().getTime(); // Запоминаем время завершения загрузки-->
+<!--        const fileSizeInBytes = xhr.response.length;-->
+<!--        const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024); // Преобразование в мегабайты-->
+<!--        const downloadTimeInSeconds = (endTime - startTime) / 1000; // Преобразование в секунды-->
+
+<!--        console.log(`Done, got ${fileSizeInMegabytes.toFixed(1)} MB in ${downloadTimeInSeconds.toFixed(1)} seconds`);-->
+<!--        setTimeout(() => {-->
+<!--          isModelLoaded = true;-->
+<!--        }, 15000);-->
+<!--      }-->
+<!--    };-->
+<!--    // UNSENT = 0; // initial state-->
+<!--    // OPENED = 1; // open called-->
+<!--    // HEADERS_RECEIVED = 2; // полученные заголовки ответа-->
+<!--    // LOADING = 3; // происходит загрузка ответа (получен пакет данных)-->
+<!--    // DONE = 4; // запрос выполнен-->
+<!--    // xhr.onreadystatechange = function() {-->
+<!--    //     if (xhr.readyState == 4) {-->
+<!--    //         console.log('запрос выполнен');-->
+<!--    //     }-->
+<!--    // };-->
+<!--    xhr.onerror = function() {-->
+<!--      console.log("Request failed");-->
+<!--    };-->
+<!--  }-->
+
+<!--  const IframeObject = {-->
+<!--    AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',-->
+<!--    AR_OFF: 'https://www.vectary.com/p/1N0rB9dLMcEG5uH9Q7G7dL',-->
+<!--    MOBILE_AR_ON: 'https://www.vectary.com/p/0GvsPRo0LNzL2q0uOZhFYD',-->
+<!--    // MOBILE_AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',-->
+<!--    XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/cd8172d4-e177-4eba-a7cc-8ef64e6b64f9/cd8172d4-e177-4eba-a7cc-8ef64e6b64f9',-->
+<!--    XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/1bbd3e75-b6c7-49d3-9f62-ab09edf1150a/1bbd3e75-b6c7-49d3-9f62-ab09edf1150a',-->
+<!--    XHR_MOBILE_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/b8f75d2e-2c46-476f-8b9e-379064f997f1/b8f75d2e-2c46-476f-8b9e-379064f997f1'-->
+<!--  };-->
+<!--  // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id-->
+<!--  let screenWidth = window.innerWidth;-->
+<!--  let xhrFile;-->
+<!--  let readySRC;-->
+
+<!--  if (screenWidth >= 700 && screenWidth <= 1200) {-->
+<!--    readySRC = IframeObject.AR_OFF;-->
+<!--    xhrFile = IframeObject.XHR_AR_OFF;-->
+<!--  } else if (screenWidth < 700) {-->
+<!--    readySRC = IframeObject.MOBILE_AR_ON;-->
+<!--    xhrFile = IframeObject.XHR_MOBILE_AR_ON;-->
+<!--  } else {-->
+<!--    readySRC = IframeObject.AR_ON;-->
+<!--    xhrFile = IframeObject.XHR_AR_ON;-->
+<!--  }-->
+
+<!--  // async function initializeModelApi() {-->
+<!--  //     console.log('API go!');-->
+<!--  //     try {-->
+<!--  //         // Вызываем несуществующий метод, что приведет к ошибке (для теста)-->
+<!--  //         // await viewerApi.nonExistentMethod();-->
+<!--  //         await viewerApi.init();-->
+<!--  //         viewerApi.isReady().then(() => {-->
+<!--  //             isModelLoaded = true;-->
+<!--  //             console.log('Model loaded');-->
+<!--  //         });-->
+<!--  //     } catch (error) {-->
+<!--  //         console.error('Ошибка внутри API:', error);-->
+<!--  //         myLoading(xhrFile);-->
+<!--  //     }-->
+<!--  // }-->
+
+<!--  // function initializeModelApi() {-->
+<!--  //     myLoading(xhrFile);-->
+<!--  // }-->
+
+<!--  document.addEventListener("DOMContentLoaded", () => {-->
+<!--    let VectaryIframe = document.querySelector('.VectaryIframe');-->
+<!--    VectaryIframe.src = readySRC;-->
+<!--    // initializeModelApi();-->
+<!--    myLoading(xhrFile);-->
+<!--  });-->
+
+<!--  // // Wait for the page to load-->
+<!--  // window.onload = function () {-->
+<!--  //     // Get the performance entries-->
+<!--  //     let performanceEntries = performance.getEntriesByType("resource");-->
+<!--  //-->
+<!--  //     // Filter the entries to include all downloadable resources-->
+<!--  //     let downloadableResources = performanceEntries.filter(function (entry) {-->
+<!--  //         // Check if the resource has a valid URL-->
+<!--  //         // return entry.name && entry.name.length > 0;-->
+<!--  //         return entry.name && entry.name.length > 0;-->
+<!--  //     });-->
+<!--  //-->
+<!--  //     // Display the list of downloadable resources in the console-->
+<!--  //     console.log(downloadableResources);-->
+<!--  // };-->
+<!--</script>-->
+<script>
+  // setTimeout(() => {
+  let currentInfoPanel = null;
+
+  // Open the panel
+  document
+          .querySelectorAll('[mixin="info-sphere"]')
+          .forEach(function (sphere) {
+            sphere.addEventListener("click", function () {
+              console.log("Info sphere clicked: " + this.id);
+
+              const currentSphereIdNumber = this.id.replace("sphere", "");
+
+              // Get the template for this info sphere
+              const template = document.querySelector(
+                      "#infoPanel" + currentSphereIdNumber
+              );
+
+              // Get the info panel entity
+              const infoPanel = document.querySelector(
+                      "#infoPanelContainer" + currentSphereIdNumber
+              );
+
+              console.log("Current info panel: ", infoPanel);
+
+              // Instantiate the new info panel from the template
+              infoPanel.appendChild(document.importNode(template.content, true));
+
+              const allInfoPanelContainerElements = document.querySelectorAll(
+                      "[id^=infoPanelContainer]"
+              );
+
+              document
+                      .querySelectorAll('[src="#crossIcon"]')
+                      .forEach(function (cross) {
+                        cross.addEventListener("click", function () {
+                          allInfoPanelContainerElements.forEach((container) => {
+                            if (container.id === infoPanel.id) {
+                              container.innerHTML = "";
+                              document
+                                      .querySelector("#sphere" + currentInfoPanel)
+                                      .setAttribute("visible", true);
+                            }
+                          });
+                        });
+                      });
+
+              allInfoPanelContainerElements.forEach((container) => {
+                if (container.id !== infoPanel.id) {
+                  container.innerHTML = "";
+                }
+                this.setAttribute("visible", true);
+              });
+
+              // console.log("Current info panel insides: ", infoPanel.innerHTML);
+
+              const idNumber = currentSphereIdNumber;
+              if (currentInfoPanel) {
+                document
+                        .querySelector("#sphere" + currentInfoPanel)
+                        .setAttribute("visible", true);
+              }
+              // document.querySelector("#info" + idNumber).style.display = "block";
+              this.setAttribute("visible", false);
+              currentInfoPanel = idNumber;
+              console.log("Current info panel id: " + currentInfoPanel);
+            });
+          });
+  // }, 1500);
+</script>
+</body>
+</html>
