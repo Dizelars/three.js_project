@@ -1,4 +1,5 @@
 import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibility } from "../utils";
+import '../js/URLCheck.js';
 
 // Примечания по видео на стартовой странице:
 // Webpack импортирует пути до видео Абсолютными, что мешает открытию ролика в современных версиях iOS

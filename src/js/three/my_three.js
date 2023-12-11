@@ -1,24 +1,5 @@
 import '../../js/layout/script.js';
 import * as THREE from 'three';
-
-import {
-    Color,
-    LinearEncoding,
-    MeshBasicMaterial,
-    Mesh,
-    PerspectiveCamera,
-    sRGBEncoding,
-    Sprite,
-    HemisphereLight,
-    SpriteMaterial,
-    TextureLoader,
-    BoxBufferGeometry,
-    Scene,
-    Vector3,
-    WebGLRenderer,
-} from 'three';
-
-
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
@@ -77,6 +58,7 @@ let ShadowSwitch;
 if (screenWidth >= 850) {
     url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/test2.gltf';
     // url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarokVectary/Amarok_AR.gltf';
+    url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarokVectary_two/amarok.gltf';
     ShadowSwitch = true;
 } else {
     url = 'https://coddmac.store/THREE/3Dmodels/amarok/49/opt.gltf';
@@ -161,6 +143,26 @@ const progressBarContainer = document.querySelector('.progress-bar');
 LoadingManager.onLoad = function() {
     setTimeout( () => {
         progressBarContainer.style.display = 'none';
+        const hotspotsAll = document.querySelectorAll('.hotspot');
+        let activeHotspot = null;
+        hotspotsAll.forEach((hotspot) => {
+            hotspot.addEventListener('mousedown', (event) => {
+                event.stopPropagation(); // Остановка всплытия события, чтобы не сработал pointerdown на CanvasWrapper
+
+                if (activeHotspot) {
+                    activeHotspot.classList.remove('clicked');
+                }
+
+                hotspot.classList.add('clicked');
+                activeHotspot = hotspot;
+            });
+        });
+        document.body.addEventListener('mousedown', () => {
+            if (activeHotspot) {
+                activeHotspot.classList.remove('clicked');
+                activeHotspot = null;
+            }
+        });
     }, 0);
 }
 
@@ -202,43 +204,8 @@ controls1.minDistance = 210;
 controls1.maxDistance = 260;
 controls1.enabled = true;
 controls1.enablePan = false;
-// controls1.addEventListener( 'change', animate );
+controls1.addEventListener( 'change', animate );
 controls1.update();
-
-
-
-// const mouse = new THREE.Vector2(); // Нормализованное положение курсора
-// const intersectionPoint = new THREE.Vector3(); // Точка пересечения, где плоскость пересекается с лучем
-// const planeNormal = new THREE.Vector3(); // Единичный вектор нормалей указывающий направление движения плоскости
-// const planeTest = new THREE.Plane(); // Плоскость которая создается каждый раз при передвижении курсора
-// const raycaster = new THREE.Raycaster(); // Передача лучей которые будут излучаться между камерой и курсором
-// // const canvas = document.getElementById('myCanvas');
-//
-// window.addEventListener('mousemove', (e) => {
-//     // const rect = canvas.getBoundingClientRect(); // Получение положения холста относительно области просмотра
-//     // const moveX = 5; // Number of pixels to move horizontally (positive for right, negative for left)
-//     const moveY = -70; // Number of pixels to move vertically (positive for down, negative for up)
-//     mouse.x = (e.clientX) / window.innerWidth * 2 - 1;
-//     mouse.y = -(e.clientY + moveY) / window.innerHeight * 2 + 1;
-//     planeNormal.copy(camera1.position).normalize();
-//     planeTest.setFromNormalAndCoplanarPoint(planeNormal, scene1.position);
-//     raycaster.setFromCamera(mouse, camera1);
-//     raycaster.ray.intersectPlane(planeTest, intersectionPoint);
-// });
-//
-// window.addEventListener('click', (e) => {
-//     const sphereGeo = new THREE.SphereGeometry(8, 30, 30);
-//     const sphereMat = new THREE.MeshStandardMaterial({
-//         color: 0xFFEA00,
-//         metalness: 0,
-//         roughness: 0
-//     });
-//     const sphereMesh = new THREE.Mesh(sphereGeo, sphereMat);
-//     scene1.add(sphereMesh);
-//     sphereMesh.position.copy(intersectionPoint);
-// });
-
-
 
 // Создание объекта для рендеринга CSS-элементов в трехмерной сцене
 const labelRenderer = new CSS2DRenderer();
@@ -251,11 +218,11 @@ document.body.appendChild(labelRenderer.domElement);
 // Функция для создания сферического меша (объекта) с заданными параметрами
 // function createCpointMesh(name, x, y, z) {
 //     // Создание геометрии сферы
-//     const geo = new THREE.CircleGeometry(1.5, 32);
+//     const geo = new THREE.CircleGeometry(2, 32);
 //     const mat = new THREE.MeshBasicMaterial({
-//         color: 0x000000,
+//         color: 0xff0000,
 //         transparent: true,
-//         opacity: 0.5,
+//         opacity: 0,
 //     });
 //     // Создание меша (объекта) на основе геометрии и материала
 //     const mesh = new THREE.Mesh(geo, mat);
@@ -264,141 +231,13 @@ document.body.appendChild(labelRenderer.domElement);
 //     return mesh; // Возврат созданного меша
 // }
 
-function createCpointMesh(name, x, y, z, spriteScale = 3) {
-    // Создание геометрии сферы
-    const geo = new THREE.CircleGeometry(1.5, 32);
-    const mat = new THREE.MeshBasicMaterial({
-        color: 0xffffff,
-        transparent: true,
-        opacity: 0.8,
-    });
-    // Создание меша (объекта) на основе геометрии и материала
-    const mesh = new THREE.Mesh(geo, mat);
-    mesh.position.set(x, y, z); // Установка позиции меша
-    mesh.name = name; // Присвоение имени мешу
-
-    // Добавление спрайтов к мешу
-    const loader = new THREE.TextureLoader();
-    loader.crossOrigin = "";
-    const map = loader.load("https://i.imgur.com/EZynrrA.png");
-    map.encoding = THREE.sRGBEncoding;
-
-    const spriteMaterialRear = new THREE.SpriteMaterial({
-        map,
-        opacity: 1,
-        // transparent: true,
-        depthTest: false,
-    });
-
-    const spriteRear = new THREE.Sprite(spriteMaterialRear);
-    spriteRear.scale.set(spriteScale, spriteScale, spriteScale);
-    mesh.add(spriteRear); // Добавление спрайта к мешу
-
-    return mesh; // Возврат созданного меша с добавленными спрайтами
-}
-
-
-
-const group = new THREE.Group(); // Создание группы для хранения мешей
-
-// Создание сферических мешей и добавление их в группу
-const sphereMesh1 = createCpointMesh('sphereMesh1', 106, 91, -0);
-group.add(sphereMesh1);
-
-const sphereMesh2 = createCpointMesh('sphereMesh2', 26, 63, -0);
-group.add(sphereMesh2);
-
-scene1.add(group); // Добавление группы мешей на сцену
-
-
-
-
-
-// function createMarker(model, position) {
-//     const loader = new TextureLoader();
-//     loader.crossOrigin = "";
-//     const map = loader.load("https://i.imgur.com/EZynrrA.png");
-//     map.encoding = sRGBEncoding
-//
-//     const spriteMaterialFront = new SpriteMaterial( { map } );
-//
-//     const spriteFront = new Sprite( spriteMaterialFront );
-//     spriteFront.position.copy(position)
-//     const scaleValue = 5; // Замените на нужное вам значение
-//     spriteFront.scale.set(scaleValue, scaleValue, scaleValue);
-//
-//     const spriteMaterialRear = new SpriteMaterial({
-//         map,
-//         opacity: 0.3,
-//         transparent: true,
-//         depthTest: false
+// function updateScreenPosition() {
+//     let cameraPos = new THREE.Vector3();
+//     camera1.getWorldPosition(cameraPos);
+//     group.children.forEach((mesh) => {
+//         mesh.lookAt(cameraPos);
 //     });
-//
-//     const spriteRear = new Sprite( spriteMaterialRear );
-//     spriteRear.position.copy(position)
-//     spriteRear.scale.set(scaleValue, scaleValue, scaleValue);
-//
-//     model.add(spriteFront, spriteRear)
 // }
-
-
-
-
-
-// Объект с настройками материала по умолчанию для мешей
-// const defaultMaterialProps = {
-//     color: 0x000000,
-//     transparent: true,
-//     opacity: 0.9,
-//     emissive: 0x000000,
-//     emissiveIntensity: 5,
-// };
-
-// Функция для установки свойств материала меша
-// function setMeshMaterial(mesh, props) {
-//     mesh.material = new THREE.MeshStandardMaterial(props);
-// }
-
-// function setMeshMaterial(mesh, props) {
-//     // Используйте Material для основной части меша
-//     if (!mesh.material || !(mesh.material instanceof THREE.MeshBasicMaterial)) {
-//         mesh.material = new THREE.MeshBasicMaterial(defaultMaterialProps);
-//     }
-//
-//     // Применение свойств для основного материала
-//     Object.assign(mesh.material, props);
-//
-//     // Используйте Material для бордера
-//     const borderMesh = mesh.children.find(child => child instanceof THREE.Mesh);
-//     if (borderMesh && borderMesh.material) {
-//         Object.assign(borderMesh.material, { color: props.color }); // Используйте цвет основного материала для бордера
-//     }
-// }
-
-
-// Функция для обработки событий mouseover и mouseout на мешах
-function handleMouseEvents(event, isMouseOver) {
-    // const mesh = event.target;
-    // // Определение настроек материала в зависимости от события (mouseover или mouseout)
-    // const materialProps = isMouseOver
-    //     ? {
-    //         color: 0xA5A5A5, // Замените на желаемый цвет для события mouseover
-    //         transparent: true,
-    //         opacity: 0.9,
-    //         emissive: 0xA5A5A5, // Замените на желаемый цвет свечения для события mouseover
-    //         emissiveIntensity: 5,
-    //     }
-    //     : defaultMaterialProps; // Возврат настроек по умолчанию
-    //
-    // setMeshMaterial(mesh, materialProps); // Применение настроек материала к мешу
-    labelRenderer.domElement.style.cursor = isMouseOver ? "pointer" : "unset"; // Изменение стиля курсора в зависимости от события
-}
-
-// Добавление обработчиков событий для каждого меша в группе
-group.children.forEach((mesh) => {
-    mesh.addEventListener("pointerenter", (event) => handleMouseEvents(event, true));
-    mesh.addEventListener("pointerleave", (event) => handleMouseEvents(event, false));
-});
 
 // Объект с текстами подсказок для каждого меша
 const tooltipTexts = {
@@ -406,64 +245,64 @@ const tooltipTexts = {
     sphereMesh2: 'Дорожные знаки',
 };
 
-function updateScreenPosition() {
-    let cameraPos = new THREE.Vector3();
-    camera1.getWorldPosition(cameraPos);
-    group.children.forEach((mesh) => {
-        mesh.lookAt(cameraPos);
-    });
+function createHotspots(numHotspots, positions) {
+    const hotspots = [];
+
+    for (let i = 0; i < numHotspots; i++) {
+        const hotspotContainer = document.createElement('div');
+        hotspotContainer.className = `Myhotspot`;
+
+        const hotspotWrapper = document.createElement('div');
+        hotspotWrapper.className = 'hotspot_wrapper';
+        hotspotContainer.appendChild(hotspotWrapper);
+
+        const hotspot = document.createElement('div');
+        hotspot.className = `hotspot`;
+        hotspotWrapper.appendChild(hotspot);
+
+        const position = positions[i] || { x: 0, y: 0, z: 0 }; // Задаем позицию из переданных параметров или используем {0, 0, 0} по умолчанию
+
+        const hotspotPointLabel = new CSS2DObject(hotspotContainer);
+        hotspotPointLabel.position.set(position.x, position.y, position.z);
+
+        hotspots.push(hotspotPointLabel);
+
+        hotspotContainer.addEventListener('click', () => {
+            let tooltipText;
+            if(i === 0) {
+                tooltipText = tooltipTexts.sphereMesh1;
+            } else if(i === 1) {
+                tooltipText = tooltipTexts.sphereMesh2;
+            }
+
+            pContainer.className = 'Mytext show';
+            if (tooltipText) {
+                cPointLabel.position.set(position.x, position.y, position.z); // Установка позиции подсказки над выбранным мешом
+                p.textContent = tooltipText; // Установка текста подсказки
+                tooltipWrapper.style.marginBottom = (p.getBoundingClientRect().height + 62) + "px";
+            }
+        });
+    }
+
+    return hotspots;
 }
 
-// function smoothlyIncreaseRadius(mesh, maxRadius, step, interval, pulseDelay) {
-//     let currentRadius = mesh.geometry.parameters.radius;
-//     let animationActive = true;
-//
-//     function setNewRadiusAndPulse() {
-//         if (animationActive) {
-//             currentRadius += step;
-//
-//             if (currentRadius >= maxRadius) {
-//                 currentRadius = maxRadius;
-//                 animationActive = false;
-//
-//                 // Отключаем анимацию и возвращаемся через pulseDelay
-//                 setTimeout(() => {
-//                     animationActive = true;
-//                     currentRadius = 1.5;
-//                     setNewRadiusAndPulse();
-//                 }, pulseDelay);
-//             } else {
-//                 updateMeshGeometry(mesh, currentRadius);
-//
-//                 setTimeout(() => {
-//                     setNewRadiusAndPulse();
-//                 }, interval);
-//             }
-//         }
-//     }
-//
-//     setNewRadiusAndPulse();
-// }
-//
-// // Установка параметров для анимации радиуса и пульсации
-// const maxRadius = 2.5;
-// const step = 0.1;
-// const interval = 100;
-// const pulseDelay = 100; // Задержка перед повторным запуском пульсации (2 секунды)
-//
-// // Запуск анимации для каждого меша в группе
-// group.children.forEach((mesh) => {
-//     smoothlyIncreaseRadius(mesh, maxRadius, step, interval, pulseDelay);
-// });
-//
-// // Функция для обновления геометрии меша с новым радиусом
-// function updateMeshGeometry(mesh, newRadius) {
-//     const newGeometry = new THREE.CircleGeometry(newRadius, 32);
-//     mesh.geometry.dispose(); // Очистить предыдущую геометрию
-//     mesh.geometry = newGeometry; // Присвоить новую геометрию мешу
-// }
 
+// Пример использования функции
+const numHotspots = 2;
+const positionsArray = [
+    { x: 106, y: 63, z: -0 },
+    { x: 26, y: 63, z: -0 },
+];
 
+const hotspots = createHotspots(numHotspots, positionsArray);
+hotspots.forEach(hotspot => {
+    scene1.add(hotspot);
+});
+
+CanvasWrapper.addEventListener("pointerdown", () => {
+    pContainer.className = 'Mytext hide';
+});
 
 const pContainer = document.createElement('div');
 pContainer.className = 'Mytext';
@@ -494,71 +333,6 @@ tooltipWrapper.appendChild(p);
 // tooltipWrapper.appendChild(svgElement);
 const cPointLabel = new CSS2DObject(pContainer);
 scene1.add(cPointLabel);
-
-// Функция для сброса настроек материала всех мешей в группе и скрытия подсказки
-function resetMeshMaterials() {
-    // group.children.forEach((mesh) => {
-    //     setMeshMaterial(mesh, defaultMaterialProps);
-    // });
-    pContainer.className = 'Mytext hide';
-}
-
-let lastClickedMesh = null; // Переменная для хранения последнего выбранного меша
-
-const raycaster = new THREE.Raycaster();
-
-// Обработчик события pointerdown на элементе CanvasWrapper
-CanvasWrapper.addEventListener("pointerdown", (event) => {
-    const bounds = event.target.getBoundingClientRect();
-    const mousePos = new THREE.Vector2(
-        (event.offsetX / bounds.width) * 2 - 1,
-        -((event.offsetY) / bounds.height) * 2 + 1
-    );
-
-    raycaster.setFromCamera(mousePos, camera1); // Задание направления луча для raycaster
-
-    const intersects = raycaster.intersectObjects(group.children); // Поиск пересечений луча с мешами группы
-
-    if (intersects.length > 0) {
-        const clickedMesh = intersects[0].object;
-        if (clickedMesh) {
-            if (lastClickedMesh !== null) {
-                if (lastClickedMesh === clickedMesh) {
-                    pContainer.className = 'Mytext hide'; // Скрытие подсказки, если уже кликнули на выбранный меш
-                    resetMeshMaterials(); // Сброс настроек материала всех мешей
-                    lastClickedMesh = null;
-                    return;
-                }
-                // else {
-                //     setMeshMaterial(lastClickedMesh, defaultMaterialProps); // Восстановление настроек для предыдущего выбранного меша
-                // }
-            }
-
-            // // Установка новых настроек материала для выбранного меша
-            // setMeshMaterial(clickedMesh, {
-            //     color: 0xA5A5A5,
-            //     transparent: true,
-            //     opacity: 1,
-            //     emissive: 0xA5A5A5,
-            //     emissiveIntensity: 15,
-            // });
-            lastClickedMesh = clickedMesh; // Сохранение ссылки на выбранный меш
-
-            pContainer.className = 'Mytext show'; // Показ подсказки
-            const tooltipText = tooltipTexts[clickedMesh.name]; // Получение текста подсказки для выбранного меша
-            if (tooltipText) {
-                cPointLabel.position.set(clickedMesh.position.x, clickedMesh.position.y, clickedMesh.position.z); // Установка позиции подсказки над выбранным мешом
-                p.textContent = tooltipText; // Установка текста подсказки
-                tooltipWrapper.style.marginBottom = (p.getBoundingClientRect().height - 76) + "px";
-            }
-        }
-    } else {
-        resetMeshMaterials(); // Если не выбрали ни один меш, сброс настроек всех мешей
-        lastClickedMesh = null;
-    }
-});
-
-
 
 
 // 3) Свет экстерьер
@@ -789,7 +563,7 @@ function animate() {
     stats.begin();
     labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
-    updateScreenPosition();
+    // updateScreenPosition();
     stats.end();
 }
 renderer.setAnimationLoop(animate);

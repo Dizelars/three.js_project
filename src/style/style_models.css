@@ -4,10 +4,98 @@
 /*auto_park*/
 
 #Canvas_wrapper {
-    background-color: yellow;
+    /*background-color: yellow;*/
     width: 100%;
     height: 100%;
 }
+
+.BackToInnovation {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 16px 8px 8px;
+    color: white;
+    border-radius: 32px;
+    border: 2px solid #5F35FF;
+    background: linear-gradient(98deg, #070021 6.79%, #0F0144 85.82%);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.BackToInnovation .innovation_img {
+    margin-right: 8px;
+}
+
+.BackToInnovation .innovation_text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+    /*Типон*/
+
+[class^="Myhotspot"] {
+    pointer-events: all;
+}
+
+.hotspot_wrapper {
+    background: rgba(9, 9, 9, 0.50);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.hotspot_wrapper [class^="hotspot"] {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: 1px solid white;
+    box-shadow: 0 0 0 rgba(255,255,255, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.hotspot_wrapper [class^="hotspot"].clicked,
+.hotspot_wrapper [class^="hotspot"]:hover {
+    animation: none;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.5);
+    }
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0.5);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0.5);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+        box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
+}
+
+
+/*Текст описания маркера*/
 
 .Mytext {
     display: none;

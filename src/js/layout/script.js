@@ -1,4 +1,5 @@
 // import {GallerySwitchHook} from "../../helpers/gallerySwitchHook";
+import '../URLCheck.js';
 import {InteriorTransitionHelper} from "../../helpers/interiorTransitionHelper";
 
 const techSection = document.querySelector('.tech_spec');
