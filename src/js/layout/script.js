@@ -1,5 +1,6 @@
 // import {GallerySwitchHook} from "../../helpers/gallerySwitchHook";
 import '../URLCheck.js';
+import { isInnovation } from '../URLCheck';
 import {InteriorTransitionHelper} from "../../helpers/interiorTransitionHelper";
 
 const techSection = document.querySelector('.tech_spec');
@@ -158,7 +159,7 @@ const transitionHelper = new InteriorTransitionHelper(interior);
 const idToClassMap = {
     'amarok': 'garage_amarok',
     'ford': 'garage_ford',
-    'solaris_green': 'garage_solaris_green',
+    // 'solaris_green': 'garage_solaris_green',
     'solaris_gray': 'garage_solaris_gray',
     'bus': 'garage_bus',
     'kater': 'garage_kater',
@@ -234,7 +235,16 @@ document.addEventListener('DOMContentLoaded', function () {
             370: { slidesPerView: 2 },
             770: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
-            1200: { slidesPerView: 4, freeMode: false },
+            1200: { slidesPerView: 4,
+                    // freeMode: false
+                    freeMode: function () {
+                            if (window.innerWidth > 1200 && isInnovation) {
+                                return true;
+                            } else if(window.innerWidth > 1200 && !isInnovation) {
+                                return false;
+                            }
+                        }
+                    },
         },
     });
 

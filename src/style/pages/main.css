@@ -892,6 +892,7 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     align-items: center;
     border-radius: 10px 10px 0 0;
     position: relative;
+    background-color: black;
 }
 
 .garage_model_card .slid_img picture {
@@ -906,7 +907,7 @@ section.traffic_patrol .traffic_patrol-new_NOSLIDER .garage_model_card {
     display: block;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
-    background-color: black;
+    /*background-color: black;*/
 }
 
 .garage_model_card .slid_img .menu_preview-video {

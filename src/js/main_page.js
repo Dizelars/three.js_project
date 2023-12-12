@@ -1,5 +1,6 @@
 import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibility } from "../utils";
 import '../js/URLCheck.js';
+import { isInnovation } from './URLCheck';
 
 // Примечания по видео на стартовой странице:
 // Webpack импортирует пути до видео Абсолютными, что мешает открытию ролика в современных версиях iOS
@@ -183,9 +184,9 @@ document.addEventListener("DOMContentLoaded", function() {
         link.addEventListener("click", handleLinkCloseMenu);
     });
 
-
+    console.log(isInnovation);
     // ПОЯВЛЕНИЕ видео превью при наведении на список меню. (на десктопе)
-    if(window.innerWidth > 1200) {
+    if(window.innerWidth > 1200 && !isInnovation) {
         // Получаем все элементы списка
         const menuItems = document.querySelectorAll('.menu_navigation-item');
 
@@ -224,8 +225,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // ВИДЕО при ховере на карточку .garage_model_card
     const modelCards = document.querySelectorAll('.garage_model_card');
-
-    if (isAutoplayVideoScreenSize()) {
+    // isAutoplayVideoScreenSize()
+    if (isAutoplayVideoScreenSize() || isInnovation) {
         setInterval(() => {
             modelCards.forEach(card => {
                 let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');

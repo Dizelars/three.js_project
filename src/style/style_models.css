@@ -36,6 +36,57 @@
     font-weight: 300;
 }
 
+
+.pulse_wrapper {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.pulse {
+    position: relative;
+    text-align: center;
+    border-radius: 8px;
+    background-color: transparent;
+    width: 68px;
+    height: 32px;
+}
+
+.pulse::after,
+.pulse::before {
+    content: '';
+    position: absolute;
+    border: 2px solid white;
+    left: -15px;
+    right: -15px;
+    top: -10px;
+    bottom: -10px;
+    border-radius: 8px;
+    animation: pulse_border 2.5s linear infinite;
+}
+
+.pulse::after {
+    animation-delay: 1.25s;
+}
+
+@keyframes pulse_border {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+
     /*Типон*/
 
 [class^="Myhotspot"] {
@@ -777,9 +828,11 @@ a-scene {
     -webkit-backdrop-filter: blur(6px);
     border-radius: 12px;
     height: 224px;
-    padding: 19px;
     width: 100%;
-    max-width: 850px;
+    /*padding: 19px;*/
+    /*max-width: 850px;*/
+    padding: 19px 31px;
+    max-width: 882px;
     pointer-events: all;
 }
 
@@ -882,11 +935,13 @@ a-scene {
 
 .auto_park_slider-button button.prev_button {
     position: absolute;
-    left: 0;
+    /*left: 0;*/
+    left: -26px;
 }
 
 .auto_park_slider-button button.next_button {
     transform: rotate(180deg);
     position: absolute;
-    right: 0;
+    /*right: 0;*/
+    right: -26px;
 }

@@ -1,3 +1,5 @@
+export let isInnovation = false;
+
 function checkUrlParameterAndCreateButton() {
     console.log('URLCheck');
     let url = window.location.href;
@@ -8,6 +10,7 @@ function checkUrlParameterAndCreateButton() {
         button.addEventListener('click', function() {
             window.location.href = 'https://i.transport.mos.ru/screen';
         });
+        isInnovation = true;
         document.addEventListener("DOMContentLoaded", () => {
             const links = document.querySelectorAll("a");
             links.forEach(link => {
@@ -18,6 +21,8 @@ function checkUrlParameterAndCreateButton() {
             });
         });
     }
+
+    return isInnovation;
 }
 
 checkUrlParameterAndCreateButton();

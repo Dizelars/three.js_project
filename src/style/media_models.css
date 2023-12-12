@@ -143,6 +143,26 @@
     }
 }
 
+@media (max-width: 945px) {
+    .auto_park_slider-button button.prev_button {
+        left: -16px;
+    }
+
+    .auto_park_slider-button button.next_button {
+        right: -16px;
+    }
+}
+
+@media (max-width: 734px) {
+    .auto_park_slider-button button.prev_button {
+        left: -26px;
+    }
+
+    .auto_park_slider-button button.next_button {
+        right: -26px;
+    }
+}
+
 @media (max-width: 835px) {
     .container {
         margin: 0 40px;
@@ -314,6 +334,14 @@
     .auto_park .auto_park_wrapper {
         height: auto;
         padding: 20px 20px 40px 20px;
+    }
+
+    .auto_park_slider-button button.prev_button {
+        left: -16px;
+    }
+
+    .auto_park_slider-button button.next_button {
+        right: -16px;
     }
 }
 
