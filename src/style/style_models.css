@@ -39,47 +39,94 @@
 
 .pulse_wrapper {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*right: 18px;*/
+    /*top: 18px;*/
     right: 20px;
-    top: 20px;
-    z-index: 5;
+    top: 19px;
+    z-index: 1;
+    background-color: black;
+    /*width: 74px;*/
+    /*height: 38px;*/
+    width: 68px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid white;
     pointer-events: none;
+}
+
+.pulse_wrapper.hidden {
+    display: none;
+    visibility: hidden !important;
+}
+
+.pulse_wrapper.hidden .pulse {
+    animation: none;
 }
 
 .pulse {
     position: relative;
     text-align: center;
     border-radius: 8px;
-    background-color: transparent;
-    width: 68px;
-    height: 32px;
+    background-color: white;
+    /*top: 50%;*/
+    /*right: 50%;*/
+    /*right: 20px;*/
+    /*top: 19px;*/
+    /*transform: translate(-50%, -50%);*/
+    width: 88px;
+    height: 42px;
+    /*width: 68px;*/
+    /*height: 34px;*/
+    animation: move 1.5s linear infinite;
 }
 
-.pulse::after,
-.pulse::before {
-    content: '';
-    position: absolute;
-    border: 2px solid white;
-    left: -15px;
-    right: -15px;
-    top: -10px;
-    bottom: -10px;
-    border-radius: 8px;
-    animation: pulse_border 2.5s linear infinite;
-}
+/*.pulse::after,*/
+/*.pulse::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    border: 2px solid white;*/
+/*    left: -15px;*/
+/*    right: -15px;*/
+/*    top: -10px;*/
+/*    bottom: -10px;*/
+/*    border-radius: 8px;*/
+/*    animation: pulse_border 2.5s linear infinite;*/
+/*}*/
 
-.pulse::after {
-    animation-delay: 1.25s;
-}
+/*.pulse::after {*/
+/*    animation-delay: 1.25s;*/
+/*}*/
 
-@keyframes pulse_border {
+/*@keyframes pulse_border {*/
+/*    0% {*/
+/*        transform: scale(0.5);*/
+/*        opacity: 0;*/
+/*    }*/
+/*    50% {*/
+/*        opacity: 1;*/
+/*    }*/
+/*    100% {*/
+/*        transform: scale(1.2);*/
+/*        opacity: 0;*/
+/*    }*/
+/*}*/
+
+@keyframes move {
+    50%, 100% {
+        opacity: 0;
+        transform: translate(200px, 0);
+    }
     0% {
         transform: scale(0.5);
         opacity: 0;
     }
-    50% {
-        opacity: 1;
+    20% {
+        opacity: 0.5;
     }
-    100% {
+    40% {
         transform: scale(1.2);
         opacity: 0;
     }
@@ -276,7 +323,8 @@ a-scene {
 .header {
     position: absolute;
     top: 28px;
-    left: 60px;
+    /*left: 60px;*/
+    left: 50px;
     pointer-events: none;
     z-index: 5;
     background-color: transparent;
@@ -377,7 +425,8 @@ a-scene {
 .tech_spec {
     position: absolute;
     top: 84px;
-    left: 30px;
+    /*left: 30px;*/
+    left: 20px;
     z-index: 2;
     width: 100%;
 }
@@ -665,7 +714,8 @@ a-scene {
 .tech_spec__interior {
     position: absolute;
     top: 84px;
-    right: 60px;
+    /*right: 60px;*/
+    right: 20px;
     max-width: 200px;
     width: 100%;
     height: 174px;

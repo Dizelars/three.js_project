@@ -25,6 +25,8 @@ const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const screenWidth = window.innerWidth;
 
+const ARButtonPulse = document.querySelector('.pulse_wrapper');
+
 const overlay = document.getElementById('overlay');
 let VectaryIframe = document.querySelector('.VectaryIframe');
 
@@ -176,6 +178,7 @@ interior.addEventListener('click', () => {
     setTimeout(() => {
         techSection.classList.toggle('hidden');
         autoSection.classList.toggle('hidden');
+        ARButtonPulse.classList.toggle('hidden');
         VectaryIframe.classList.toggle('active');
         overlay.classList.toggle('active');
         sliderButton.forEach(e => {

@@ -179,7 +179,7 @@
     .tech_spec__interior {
         max-width: 130px;
         height: 167px;
-        right: 30px;
+        /*right: 30px;*/
         justify-content: unset;
     }
 

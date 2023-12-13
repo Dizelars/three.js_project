@@ -273,7 +273,7 @@
               <a class="gallery_item_link" href="#">
                 <picture>
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/kater.png" alt="kater" fetchpriority="high">
-                </picture
+                </picture>
               </a>
             </div>
               <div class="gallery_item swiper-slide">
@@ -291,7 +291,7 @@
                   </a>
               </div>
             <div class="gallery_item swiper-slide">
-              <a class="gallery_item_link" href="solaris_two.html">
+              <a class="gallery_item_link" href="solaris.html">
                 <picture>
                   <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">
                 </picture>
@@ -310,6 +310,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="pulse_wrapper">
+  <div class="pulse"></div>
 </div>
 
 <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>
@@ -484,18 +488,20 @@
 
     const IframeObject = {
         AR_ON: 'https://www.vectary.com/p/7NLghh4BVi6QtYfWBIhIiD',
-        AR_OFF: 'https://app.vectary.com/p/2t1Cq7Ii868Z58IwHbNb6B',
+        AR_OFF: 'https://app.vectary.com/p/55RsN4DB6CYkUToJBUsqax',
         XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/883d6986-662c-4ec3-b627-7af578d871a0/883d6986-662c-4ec3-b627-7af578d871a0',
-        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/6e3489da-063a-448b-ac4e-2af259f06f59/6e3489da-063a-448b-ac4e-2af259f06f59'
+        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/2723e674-1b1a-4c3e-b139-a4b65995cbeb/2723e674-1b1a-4c3e-b139-a4b65995cbeb'
     };
     // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
     let screenWidth = window.innerWidth;
     let xhrFile;
     let readySRC;
+    let ARButtonPulse = document.querySelector('.pulse_wrapper');
 
     if (screenWidth >= 700 && screenWidth <= 1200) {
         readySRC = IframeObject.AR_OFF;
         xhrFile = IframeObject.XHR_AR_OFF;
+      ARButtonPulse.style.display = 'none';
     } else if (screenWidth < 700) {
         readySRC = IframeObject.AR_ON;
         xhrFile = IframeObject.XHR_AR_ON;

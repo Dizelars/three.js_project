@@ -308,7 +308,7 @@
                             </a>
                         </div>
                         <div class="gallery_item swiper-slide">
-                            <a class="gallery_item_link" href="solaris_two.html">
+                            <a class="gallery_item_link" href="solaris.html">
                                 <picture>
                                     <img class="gallery_item-img" src="../img/layout/pages/main/slider/solaris_gray.png" alt="solaris" fetchpriority="high">
                                 </picture>
@@ -327,6 +327,10 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="pulse_wrapper">
+    <div class="pulse"></div>
 </div>
 
 <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>
@@ -503,18 +507,20 @@
 
     const IframeObject = {
         AR_ON: 'https://app.vectary.com/p/7arDxbsHpAKCWD7uxgRqOq',
-        AR_OFF: 'https://app.vectary.com/p/0q5RwfFnHQ0zWleDwP9pvH',
+        AR_OFF: 'https://app.vectary.com/p/1xgxWX3fz7XZjLjv7hFg0e',
         XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/9884c03a-958c-435e-9b43-5c284c8d11f5/9884c03a-958c-435e-9b43-5c284c8d11f5',
-        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/64c45d87-046e-4a60-875d-3401277feb68/64c45d87-046e-4a60-875d-3401277feb68'
+        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/dba59e43-46c1-4864-9110-74ae05f387f1/dba59e43-46c1-4864-9110-74ae05f387f1'
     };
     // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
     let screenWidth = window.innerWidth;
     let xhrFile;
     let readySRC;
+    let ARButtonPulse = document.querySelector('.pulse_wrapper');
 
     if (screenWidth >= 700 && screenWidth <= 1200) {
         readySRC = IframeObject.AR_OFF;
         xhrFile = IframeObject.XHR_AR_OFF;
+        ARButtonPulse.style.display = 'none';
     } else if (screenWidth < 700) {
         readySRC = IframeObject.AR_ON;
         xhrFile = IframeObject.XHR_AR_ON;

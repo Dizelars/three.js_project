@@ -22,8 +22,8 @@ module.exports = {
         'index-style': './src/style/main_page.css',
         amarok: './src/js/pages/oneScriptVectary.js',
         'amarok-style': './src/style/style.css',
-        solaris_two: './src/js/pages/oneScriptVectary.js',
-        'solaris_two-style': './src/style/style.css',
+        solaris: './src/js/pages/oneScriptVectary.js',
+        'solaris-style': './src/style/style.css',
         bus: './src/js/pages/oneScriptVectary.js',
         'bus-style': './src/style/style.css',
         ford: './src/js/pages/oneScriptVectary.js',
@@ -72,9 +72,9 @@ module.exports = {
             },
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/pages', 'solaris_two.html'),
-            filename: 'solaris_two.html',
-            chunks: ['solaris_two', 'solaris_two-style'],
+            template: path.resolve(__dirname, 'src/pages', 'solaris.html'),
+            filename: 'solaris.html',
+            chunks: ['solaris', 'solaris-style'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,
