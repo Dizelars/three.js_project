@@ -437,4 +437,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Вызываем обработчик события прокрутки в начале для проверки видимости элементов при загрузке страницы
     handleScroll();
+
+    // ссылка в футере отключена при URL-параметре
+    const footerICLink = document.querySelector('.secure_transportation');
+    if (isInnovation) {
+        footerICLink.style.pointerEvents = 'none';
+    }
 });

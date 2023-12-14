@@ -487,6 +487,7 @@ section.main .main_intro_media .preview_video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /*transform: translate(-50%,-50%) scale(0.596);*/
     min-height: 100%;
     min-width: 100%;
     object-fit: cover;

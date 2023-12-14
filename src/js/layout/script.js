@@ -25,8 +25,6 @@ const gallery_toggle = document.querySelectorAll('.gallery_item');
 const interiorText = document.querySelector('.tech_spec__interior-text');
 const screenWidth = window.innerWidth;
 
-const ARButtonPulse = document.querySelector('.pulse_wrapper');
-
 const overlay = document.getElementById('overlay');
 let VectaryIframe = document.querySelector('.VectaryIframe');
 
@@ -161,7 +159,6 @@ const transitionHelper = new InteriorTransitionHelper(interior);
 const idToClassMap = {
     'amarok': 'garage_amarok',
     'ford': 'garage_ford',
-    // 'solaris_green': 'garage_solaris_green',
     'solaris_gray': 'garage_solaris_gray',
     'bus': 'garage_bus',
     'kater': 'garage_kater',
@@ -178,7 +175,6 @@ interior.addEventListener('click', () => {
     setTimeout(() => {
         techSection.classList.toggle('hidden');
         autoSection.classList.toggle('hidden');
-        ARButtonPulse.classList.toggle('hidden');
         VectaryIframe.classList.toggle('active');
         overlay.classList.toggle('active');
         sliderButton.forEach(e => {

@@ -76,15 +76,23 @@
                     </div>
                 </div>
                 <div class="tech_spec__mission-panel hidden">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-2">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-3">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-4">
                     <p class="tech_spec__text">Задача</p>
-                    <div class="tech_spec__mission-panel-background"></div>
+<!--                    <div class="tech_spec__mission-panel-background"></div>-->
                 </div>
                 <div class="tech_spec__mission hidden">
                     <p class="tech_spec__text-descr">В&nbsp;теплое время года помогает велосипедистам, водителям и&nbsp;пешеходам</p>
                 </div>
                 <div class="tech_spec__outfit-panel hidden">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-2">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-3">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-4">
                     <p class="tech_spec__text">Экипировка</p>
-                    <div class="tech_spec__outfit-panel-background"></div>
+<!--                    <div class="tech_spec__outfit-panel-background"></div>-->
                 </div>
                 <div class="tech_spec__outfit hidden">
                     <ul class="tech_spec__outfit-list">
@@ -231,6 +239,10 @@
 </div>
 
 <div class="pulse_wrapper">
+    <div class="pulse_media">
+        <img class="pulse_img" src="../img/AR-cube.svg" alt="AR">
+        <img class="pulse_img" src="../img/AR.svg" alt="AR">
+    </div>
     <div class="pulse"></div>
 </div>
 
@@ -238,7 +250,7 @@
 <div id="overlay"></div>
 
 <script type="module">
-    // import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
+    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
     let isModelLoaded = false;
 
     const LOADING_TIME = 50000;
@@ -362,7 +374,7 @@
         XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/f5804f89-c08b-4b41-82cd-89f109f856b6/f5804f89-c08b-4b41-82cd-89f109f856b6',
         XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/136e355a-1c85-4b2d-8043-7bde4f83b47b/136e355a-1c85-4b2d-8043-7bde4f83b47b'
     };
-    // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
+    let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
     let screenWidth = window.innerWidth;
     let xhrFile;
     let readySRC;
@@ -380,27 +392,27 @@
         xhrFile = IframeObject.XHR_AR_ON;
     }
 
-    // async function initializeModelApi() {
-    //     console.log('API go!');
-    //     try {
-    //         // Вызываем несуществующий метод, что приведет к ошибке (для теста)
-    //         // await viewerApi.nonExistentMethod();
-    //         await viewerApi.init();
-    //         viewerApi.isReady().then(() => {
-    //             isModelLoaded = true;
-    //             console.log('Model loaded');
-    //         });
-    //     } catch (error) {
-    //         console.error('Ошибка внутри API:', error);
-    //         myLoading(xhrFile);
-    //     }
-    // }
+    async function initializeModelApi() {
+        console.log('API go!');
+        try {
+            // Вызываем несуществующий метод, что приведет к ошибке (для теста)
+            // await viewerApi.nonExistentMethod();
+            await viewerApi.init();
+            viewerApi.isReady().then(() => {
+                isModelLoaded = true;
+                console.log('Model loaded');
+            });
+        } catch (error) {
+            console.error('Ошибка внутри API:', error);
+            myLoading(xhrFile);
+        }
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
         let VectaryIframe = document.querySelector('.VectaryIframe');
         VectaryIframe.src = readySRC;
-        // initializeModelApi();
-        myLoading(xhrFile);
+        initializeModelApi();
+        // myLoading(xhrFile);
     });
 </script>
 </body>

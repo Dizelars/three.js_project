@@ -1616,6 +1616,10 @@
         padding-top: 88px;
     }
 
+    section.main .main_intro_media .preview_video {
+        transform: translate(-50%,-50%) scale(0.596);
+    }
+
     section.main .main_title {
         margin-bottom: 24px;
     }

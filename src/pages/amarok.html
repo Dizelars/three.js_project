@@ -152,15 +152,23 @@
                     </div>
                 </div>
                 <div class="tech_spec__mission-panel hidden">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-2">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-3">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-4">
                     <p class="tech_spec__text">Задача</p>
-                    <div class="tech_spec__mission-panel-background"></div>
+<!--                    <div class="tech_spec__mission-panel-background"></div>-->
                 </div>
                 <div class="tech_spec__mission hidden">
                     <p class="tech_spec__text-descr">Регулировать движение на&nbsp;сложных участках, помогать водителям при поломке или аварии.</p>
                 </div>
                 <div class="tech_spec__outfit-panel hidden">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-2">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-3">
+                    <img src="../img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-4">
                     <p class="tech_spec__text">Экипировка</p>
-                    <div class="tech_spec__outfit-panel-background"></div>
+<!--                    <div class="tech_spec__outfit-panel-background"></div>-->
                 </div>
                 <div class="tech_spec__outfit hidden">
                     <ul class="tech_spec__outfit-list">
@@ -330,6 +338,10 @@
 </div>
 
 <div class="pulse_wrapper">
+    <div class="pulse_media">
+        <img class="pulse_img" src="../img/AR-cube.svg" alt="AR">
+        <img class="pulse_img" src="../img/AR.svg" alt="AR">
+    </div>
     <div class="pulse"></div>
 </div>
 
@@ -387,7 +399,7 @@
 </a-scene>
 
 <script type="module">
-    // import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
+    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
     let isModelLoaded = false;
 
     const LOADING_TIME = 50000;
@@ -507,14 +519,14 @@
 
     const IframeObject = {
         AR_ON: 'https://app.vectary.com/p/0h1LA8EqAq1G5bZx7ryLo2',
-        AR_OFF: 'https://app.vectary.com/p/5jx4MH8L4paxgGw4wGLIyM',
+        AR_OFF: 'https://app.vectary.com/p/0Q3y1HJQrvvFuRdiFhsjkk',
         MOBILE_AR_ON: 'https://app.vectary.com/p/0h1LA8EqAq1G5bZx7ryLo2',
         // MOBILE_AR_ON: 'https://app.vectary.com/p/05xqKl2g22Pw4ClSHgLBWU',
         XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/31c351b9-f03f-49e0-ae21-b225de2d4389/31c351b9-f03f-49e0-ae21-b225de2d4389',
-        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/52ed9b9f-644e-4798-8c71-e0810e93cfbd/52ed9b9f-644e-4798-8c71-e0810e93cfbd',
+        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/07a50004-10c5-4577-9118-e85c0dcde760/07a50004-10c5-4577-9118-e85c0dcde760',
         XHR_MOBILE_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/31c351b9-f03f-49e0-ae21-b225de2d4389/31c351b9-f03f-49e0-ae21-b225de2d4389'
     };
-    // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
+    let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
     let screenWidth = window.innerWidth;
     let xhrFile;
     let readySRC;
@@ -532,48 +544,28 @@
         xhrFile = IframeObject.XHR_AR_ON;
     }
 
-    // async function initializeModelApi() {
-    //     console.log('API go!');
-    //     try {
-    //         // Вызываем несуществующий метод, что приведет к ошибке (для теста)
-    //         // await viewerApi.nonExistentMethod();
-    //         await viewerApi.init();
-    //         viewerApi.isReady().then(() => {
-    //             isModelLoaded = true;
-    //             console.log('Model loaded');
-    //         });
-    //     } catch (error) {
-    //         console.error('Ошибка внутри API:', error);
-    //         myLoading(xhrFile);
-    //     }
-    // }
-
-    // function initializeModelApi() {
-    //     myLoading(xhrFile);
-    // }
+    async function initializeModelApi() {
+        console.log('API go!');
+        try {
+            // Вызываем несуществующий метод, что приведет к ошибке (для теста)
+            // await viewerApi.nonExistentMethod();
+            await viewerApi.init();
+            viewerApi.isReady().then(() => {
+                isModelLoaded = true;
+                console.log('Model loaded');
+            });
+        } catch (error) {
+            console.error('Ошибка внутри API:', error);
+            myLoading(xhrFile);
+        }
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
         let VectaryIframe = document.querySelector('.VectaryIframe');
         VectaryIframe.src = readySRC;
-        // initializeModelApi();
-        myLoading(xhrFile);
+        initializeModelApi();
+        // myLoading(xhrFile);
     });
-
-    // // Wait for the page to load
-    // window.onload = function () {
-    //     // Get the performance entries
-    //     let performanceEntries = performance.getEntriesByType("resource");
-    //
-    //     // Filter the entries to include all downloadable resources
-    //     let downloadableResources = performanceEntries.filter(function (entry) {
-    //         // Check if the resource has a valid URL
-    //         // return entry.name && entry.name.length > 0;
-    //         return entry.name && entry.name.length > 0;
-    //     });
-    //
-    //     // Display the list of downloadable resources in the console
-    //     console.log(downloadableResources);
-    // };
 </script>
 <script>
     // setTimeout(() => {

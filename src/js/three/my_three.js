@@ -188,7 +188,7 @@ scene1.fog = new THREE.Fog(0x000000, 290, 600);
 //0x000000
 //0xB5B8B1
 
-// 2) Камера и управление камерой экстерьер
+// 2) Камера и управление камерой экстерьер 75
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const initialCameraPosition1 = new THREE.Vector3(-216, 94, 109);
 camera1.position.copy(initialCameraPosition1);
@@ -560,11 +560,11 @@ plane.receiveShadow = ShadowSwitch; // Плоскость получает те�
 
 // Переключение активной сцены
 function animate() {
-    stats.begin();
+    // stats.begin();
     labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
     // updateScreenPosition();
-    stats.end();
+    // stats.end();
 }
 renderer.setAnimationLoop(animate);
 

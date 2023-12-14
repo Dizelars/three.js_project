@@ -4,6 +4,7 @@ import '../../js/layout/script.js';
 import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper.js';
 
 const interiorButton = document.querySelector('.tech_spec__interior');
+const ARButtonPulse = document.querySelector('.pulse_wrapper');
 const aFrameScene = document.querySelector('a-scene');
 aFrameScene.pause();
 
@@ -16,6 +17,7 @@ interiorButton.addEventListener('click', () => {
     }
     transitionHelper.startTransition();
     if (activeScene === 1) {
+        ARButtonPulse.classList.add('hidden');
         setTimeout(() => {
             activeScene = 2;
             aFrameScene.style.opacity = '1';
@@ -33,5 +35,8 @@ interiorButton.addEventListener('click', () => {
             aFrameScene.pause();
             transitionHelper.endTransition();
         }, 1500);
+        setTimeout(() => {
+            ARButtonPulse.classList.remove('hidden');
+        }, 3100);
     }
 });
