@@ -235,15 +235,20 @@ document.addEventListener('DOMContentLoaded', function () {
             770: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
             1200: { slidesPerView: 4,
-                    // freeMode: false
+                    // freeMode: true,
                     freeMode: function () {
-                            if (window.innerWidth > 1200 && isInnovation) {
+                            // if (window.innerWidth > 1200 && isInnovation) {
+                            //     return true;
+                            // } else if(window.innerWidth > 1200 && !isInnovation) {
+                            //     return false;
+                            // }
+                            if (isInnovation) {
                                 return true;
-                            } else if(window.innerWidth > 1200 && !isInnovation) {
+                            } else if(!isInnovation) {
                                 return false;
                             }
-                        }
-                    },
+                        },
+                },
         },
     });
 

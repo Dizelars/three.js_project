@@ -17,6 +17,7 @@ import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper
 // import * as AFRAME from "aframe";
 
 // WebGLRenderer + настройки окружения
+// CSS2DRenderer (типоны)
 //
 // Сцена экстерьера Амарок
 // 1) Фон и туман сцены экстерьер
@@ -207,6 +208,7 @@ controls1.enablePan = false;
 controls1.addEventListener( 'change', animate );
 controls1.update();
 
+// CSS2DRenderer (типоны)
 // Создание объекта для рендеринга CSS-элементов в трехмерной сцене
 const labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(window.innerWidth, window.innerHeight);
