@@ -412,7 +412,6 @@
     let preloader = document.querySelector(".progress-bar");
     const percentEl = document.getElementById("progress-label");
     const barEl = document.getElementById("progress-bar");
-    // let progressText = document.getElementById("progress_text");
 
     function fadeOutnojquery(el) {
         el.style.opacity = 1;
@@ -445,15 +444,6 @@
             percentEl.textContent = `${percent}%`;
             barEl.style.width = `${percent}%`;
 
-            // if (percent >= 25 && percent < 50) {
-            //     progressText.textContent = 'Подбираем экипаж...';
-            // } else if (percent >= 50 && percent < 70) {
-            //     progressText.textContent = 'Проводим ТО...';
-            // } else if (percent >= 70 && percent < 90) {
-            //     progressText.textContent = 'Намываем технику...';
-            // } else if (percent >= 80) {
-            //     progressText.textContent = 'Экипируемся...';
-            // }
             if (isModelLoaded) {
                 clearInterval(countInterval);
                 let acceleratedInterval = COUNT_LOAD_TIME / 0;
@@ -468,7 +458,6 @@
                     barEl.style.width = `${percent}%`;
 
                     if (percent === 100) {
-                        // progressText.textContent = 'Мы готовы!';
                         setTimeout(function () {
                             fadeOutnojquery(preloader);
                         }, 500);

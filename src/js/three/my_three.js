@@ -56,8 +56,8 @@ if (pixelRatio > 1) {
 // Условие для версии модели и отбрасывание тени
 let url;
 let ShadowSwitch;
-if (screenWidth >= 850) {
-    url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/test2.gltf';
+if (screenWidth >= 700) {
+    // url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/test2.gltf';
     // url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarokVectary/Amarok_AR.gltf';
     url = 'https://coddmac.store/THREE/3Dmodels/amarok/amarokVectary_two/amarok.gltf';
     ShadowSwitch = true;
@@ -172,7 +172,7 @@ LoadingManager.onLoad = function() {
 //     console.error(`Ошибка во время загрузки: ${url}`);
 // }
 
-let stats = new Stats();
+// let stats = new Stats();
 // stats.showPanel(0, 1, 2); // 0: fps, 1: ms, 2: mb, 3+: custom
 // stats.dom.classList.add('my-stats');
 // document.body.appendChild( stats.dom );
@@ -184,10 +184,6 @@ const scene1 = new THREE.Scene();
 // 1) Фон и туман сцены экстерьер
 scene1.background = new THREE.Color(0x000000);
 scene1.fog = new THREE.Fog(0x000000, 290, 600);
-
-//0xffffff
-//0x000000
-//0xB5B8B1
 
 // 2) Камера и управление камерой экстерьер 75
 const camera1 = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -216,30 +212,6 @@ labelRenderer.domElement.style.position = 'absolute';
 labelRenderer.domElement.style.top = '0';
 labelRenderer.domElement.style.pointerEvents = 'none';
 document.body.appendChild(labelRenderer.domElement);
-
-// Функция для создания сферического меша (объекта) с заданными параметрами
-// function createCpointMesh(name, x, y, z) {
-//     // Создание геометрии сферы
-//     const geo = new THREE.CircleGeometry(2, 32);
-//     const mat = new THREE.MeshBasicMaterial({
-//         color: 0xff0000,
-//         transparent: true,
-//         opacity: 0,
-//     });
-//     // Создание меша (объекта) на основе геометрии и материала
-//     const mesh = new THREE.Mesh(geo, mat);
-//     mesh.position.set(x, y, z); // Установка позиции меша
-//     mesh.name = name; // Присвоение имени мешу
-//     return mesh; // Возврат созданного меша
-// }
-
-// function updateScreenPosition() {
-//     let cameraPos = new THREE.Vector3();
-//     camera1.getWorldPosition(cameraPos);
-//     group.children.forEach((mesh) => {
-//         mesh.lookAt(cameraPos);
-//     });
-// }
 
 // Объект с текстами подсказок для каждого меша
 const tooltipTexts = {
@@ -316,23 +288,7 @@ pContainer.appendChild(tooltipWrapper);
 const p = document.createElement('p');
 p.className = 'tooltip';
 
-// // Создаем элемент svg
-// const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-// svgElement.setAttribute("width", "18");
-// svgElement.setAttribute("height", "18");
-// svgElement.setAttribute("viewBox", "0 0 18 18");
-// svgElement.setAttribute("fill", "none");
-//
-// // Создаем элемент path
-// const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
-// pathElement.setAttribute("d", "M17.4 0.613783C16.88 0.0937829 16.04 0.0937829 15.52 0.613783L8.99996 7.12045L2.47996 0.600449C1.95996 0.0804492 1.11996 0.0804492 0.599961 0.600449C0.079961 1.12045 0.079961 1.96045 0.599961 2.48045L7.11996 9.00045L0.599961 15.5204C0.079961 16.0404 0.079961 16.8804 0.599961 17.4004C1.11996 17.9204 1.95996 17.9204 2.47996 17.4004L8.99996 10.8804L15.52 17.4004C16.04 17.9204 16.88 17.9204 17.4 17.4004C17.92 16.8804 17.92 16.0404 17.4 15.5204L10.88 9.00045L17.4 2.48045C17.9066 1.97378 17.9066 1.12045 17.4 0.613783Z");
-// pathElement.setAttribute("fill", "white");
-//
-// // Вставляем элемент path в элемент svg
-// svgElement.appendChild(pathElement);
-//
 tooltipWrapper.appendChild(p);
-// tooltipWrapper.appendChild(svgElement);
 const cPointLabel = new CSS2DObject(pContainer);
 scene1.add(cPointLabel);
 
@@ -354,7 +310,6 @@ lightPositions1.forEach(position => {
 const SpotLight5 = new THREE.SpotLight(0xffffff, 3);
 SpotLight5.position.set(0, 470, -0);
 SpotLight5.castShadow = ShadowSwitch;
-// SpotLight5.shadow.bias = 0.001;
 SpotLight5.shadow.mapSize.height = 64; // Разрешение отображения теней
 SpotLight5.shadow.mapSize.width = 64; // Разрешение отображения теней
 SpotLight5.shadow.camera.near = 1.0;
@@ -392,7 +347,6 @@ scene1.add( RectAreaLight2 );
 
 
 // 4) Настройка GLTFLoader и сжатия модели DRACOLoader экстерьер
-
 let gltfLoader = new GLTFLoader(LoadingManager);
 const dLoader = new DRACOLoader();
 dLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
@@ -402,7 +356,6 @@ let obj;
 
 
 // 5) Загрузка карты отражений на моделе экстерьер
-
 // ../img/studio.hdr  toneMappingExposure = 0.1
 // ../img/garage.hdr  toneMappingExposure = 0.1;
 // ../img/MR_INT-005_WhiteNeons_NAD.hdr   toneMappingExposure = 0.3
@@ -421,7 +374,6 @@ rgbLoaderPhone.load(PhoneJPG, function (texture) {
 
         // createMarker(obj, new Vector3(71, 88, -27.5));
         // createMarker(obj, new Vector3(-9, 60, -27.5));
-
         // obj.scale.set(55,55,55);
 
         scene1.add(obj);
@@ -565,7 +517,6 @@ function animate() {
     // stats.begin();
     labelRenderer.render(scene1, camera1);
     renderer.render(scene1, camera1);
-    // updateScreenPosition();
     // stats.end();
 }
 renderer.setAnimationLoop(animate);

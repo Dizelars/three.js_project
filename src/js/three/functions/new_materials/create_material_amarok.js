@@ -7,19 +7,26 @@ let clipShadowsSwitch;
 clipShadowsSwitch = screenWidth >= 850;
 
 const textures = {
-    mapTexture: null,
+    // mapTexture: null,
+    // mapTextureFara: null,
+    // mapTexture2: null
+    mapTextureMain: null,
     mapTextureFara: null,
-    mapTexture2: null
+    mapTextureMain_2: null
 };
 
 let mapTextureMainUrl;
 let mapTextureFaraUrl;
 let mapTextureMain_2Url;
 
-if (screenWidth >= 850) {
-    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/uv-1.png';
-    mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/fara.png';
-    mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/Main_texture_2.png';
+if (screenWidth >= 700) {
+    // mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/uv-1.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/Main_texture_2.png';
+
+    mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/amarokVectary_two/uv_1.png';
+    // mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/47/fara.png';
+    // mapTextureMain_2Url = 'https://coddmac.store/THREE/3Dmodels/amarok/47/Main_texture_2.png';
 } else {
     mapTextureMainUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/49/uv.png';
     mapTextureFaraUrl = 'https://coddmac.store/THREE/3Dmodels/amarok/49/fara.png';
@@ -85,7 +92,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
@@ -98,7 +105,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
@@ -111,7 +118,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
@@ -124,7 +131,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
@@ -137,7 +144,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
@@ -150,7 +157,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         side: THREE.DoubleSide,
         clipShadows: clipShadowsSwitch,
         // depthWrite: false,
@@ -209,7 +216,7 @@ const materials = {
         metalness: 0.7,
         clearcoat: 0.3,
         clearcoatRoughness: 0.3,
-        // map: textures.mapTextureMain,
+        map: textures.mapTextureMain,
         clipShadows: clipShadowsSwitch,
         side: THREE.DoubleSide
     },
