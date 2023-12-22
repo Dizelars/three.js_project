@@ -264,6 +264,12 @@
     }
 }
 
+@media (max-width: 1390px) {
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_card .garage_model_card {
+        max-height: 450px;
+    }
+}
+
 @media (max-width: 1340px) {
     section.situation_centre .situation_centre_grid-wrapper .major_events-3 .major_events-text,
     section.situation_centre .situation_centre_grid-wrapper .man_text-7 .man_text-text {
@@ -682,6 +688,10 @@
 
     section.water_patrol .water_patrol_grid-wrapper .water_patrol_history {
         padding: 20px;
+    }
+
+    section.water_patrol .water_patrol_grid-wrapper .water_patrol_card .garage_model_card {
+        max-height: unset;
     }
 
     section.velo_patrol .velo_patrol_grid-wrapper {
