@@ -329,28 +329,31 @@ a-scene {
     background-color: transparent;
 }
 
-.header__wrapper, .header__logo {
+/* .header .header__wrapper, .header .header__logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
-.header__logo {
+.header .header__logo {
     max-width: 170px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     cursor: pointer;
     text-decoration: none;
     pointer-events: all;
 }
 
-.header__logo-text {
+.header .header__logo-text {
     font-family: 'MoscowSans', sans-serif;
     font-weight: 800;
     font-size: 20px;
     margin-left: 12px;
 }
 
-.header__logo-text {
+.header .header__logo-text {
     color: white;
 }
 
