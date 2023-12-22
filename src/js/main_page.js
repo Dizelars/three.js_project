@@ -439,8 +439,10 @@ document.addEventListener("DOMContentLoaded", function() {
     handleScroll();
 
     // ссылка в футере отключена при URL-параметре
-    const footerICLink = document.querySelector('.secure_transportation');
+    const urlLinksKill = document.querySelectorAll('.menu-media .media-wrapper, .footer-contacts-3 .contacts-2, .footer-contacts-3 .contacts-3, .footer-media-4 .media-wrapper, .secure_transportation');
     if (isInnovation) {
-        footerICLink.style.pointerEvents = 'none';
+        urlLinksKill.forEach((link) => {
+            link.style.pointerEvents = 'none';
+        });
     }
 });
