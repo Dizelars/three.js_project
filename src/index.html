@@ -781,7 +781,9 @@
                                 <a class="form_open_btn">Принять участие</a>
                             </div>
                         </div>
-                        <div class="competition_media"></div>
+                        <div class="competition_media">
+                            <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="https://app.vectary.com/p/5KzbHOv5T50kLiUoeoJtLo" width="100%" height="100%"></iframe>
+                        </div>
                         <img class="competition_merch-img" src="./img/layout/pages/main/competition/merch.png" alt="Мерч">
                     </div>
                 </div>
@@ -794,7 +796,7 @@
         <div class="form_close">
             <img class="form_close-img" src="./img/layout/pages/main/competition/close.svg" alt="Закрыть">
         </div>
-        <form action="https://87e5-95-84-178-244.ngrok-free.app/contest" method="POST" id="form-contact" class="contact-form" autocomplete="off" enctype="multipart/form-data">
+        <form action="https://366a-95-84-178-244.ngrok-free.app/contest" method="POST" id="form-contact" class="contact-form" autocomplete="off" enctype="multipart/form-data">
           <p class="contact-form__title">Загрузка результатов</p>
           <p class="contact-form__text">Укажите свой ник в&nbsp;телеграм и&nbsp;загрузите снимки для конкурса в&nbsp;форму. Итоги будут подведены 12&nbsp;января</p>
           <div class="preloader"></div>
@@ -808,9 +810,10 @@
           <!-- Поле с выбором файла -->
           <div class="contact-form__input-wrapper file">
             <div class="preview_photos"></div>
-            <input class="contact-form__input contact-form__input_file" type="file" accept="image/*" name="photos" id="contact-form__input_file" multiple required>
+            <input class="contact-form__input contact-form__input_file" type="file" accept="image/*" name="photos" id="contact-form__input_file" multiple>
             <label class="contact-form__file-button" for="contact-form__input_file">
-              <div class="close"></div>
+              <!-- <div class="close"></div> -->
+              <img class="close" src="./img/layout/pages/main/competition/plus.svg" alt="plus">
             </label>
     
             <div class="contact-form_file_info">
@@ -826,8 +829,12 @@
           </label>
     
           <input class="contact-form__input contact-form__input_theme" name="theme" type="hidden" value="Заявка с сайта garage-codd.ru">
-    
-          <button class="contact-form__button" type="submit">Загрузить</button>
+          
+          <div type="submit" class="contact-form__button">
+            <img class="contact-form__button-img" src="./img/layout/pages/main/competition/download.svg" alt="Загрузить">
+            <p>Загрузить</p>
+          </div>
+          <!-- <button class="contact-form__button" type="submit">Загрузить</button> -->
         </form>
     </div>
 

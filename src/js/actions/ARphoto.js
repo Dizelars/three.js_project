@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', function () {
     let bodyOverflow = document.querySelector('body.main');
     let scrollPosition = 0;
 
+    // const applicantForm = document.getElementById('form-contact');
+    // function handleFormSubmit(event) {
+    //     // Просим форму не отправлять данные самостоятельно
+    //     event.preventDefault()
+    //     console.log('Отправка!')
+    // }
+    
+    // applicantForm.addEventListener('submit', handleFormSubmit);
+
     popupButton.addEventListener('click', () => {
         popupForm.classList.add('active');
         scrollPosition = window.scrollY;
@@ -16,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         bodyOverflow.style.width = "100%";
     });
     
-    formSubmit.addEventListener('click', () => {
+    formSubmit.addEventListener('click', (e) => {
         popupForm.classList.remove('active');
         bodyOverflow.style.removeProperty("overflow");
         bodyOverflow.style.removeProperty("position");
@@ -34,82 +43,187 @@ document.addEventListener('DOMContentLoaded', function () {
         window.scrollTo(0, scrollPosition);
     });
 
+    // let inputs = document.querySelectorAll('.contact-form__input_file');
+    // Array.prototype.forEach.call(inputs, function (input) {
+    //     let label = input.nextElementSibling,
+    //     fileText = document.querySelector('.contact-form_file_text'),
+    //     previewPhotosContainer = document.querySelector('.preview_photos'),
+    //     plusFileButton = document.querySelector('.contact-form__file-button');
+
+    //     // Массив для хранения уникальных идентификаторов файлов
+    //     let uniqueFileIds = [];
+
+    //     input.addEventListener('change', function (e) {
+    //     const updateFileText = function () {
+    //         const remainingFiles = previewPhotosContainer.children.length;
+    //         if (remainingFiles > 0) {
+    //         fileText.innerText = 'Снимки загружены: ' + remainingFiles;
+    //         } else if (remainingFiles == 0) {
+    //         fileText.innerText = 'Загрузите снимки';
+    //         }
+
+    //         // Добавление или удаление класса в зависимости от количества файлов
+    //         if (previewPhotosContainer.children.length < 3) {
+    //         plusFileButton.classList.remove('tooManyFiles');
+    //         } else {
+    //         plusFileButton.classList.add('tooManyFiles');
+    //         }
+    //     };
+
+    //     const files = input.files;
+
+    //     const deleteFileAndUpdateText = function (previewPhoto, fileId) {
+    //         // Удаление файла из списка
+    //         input.value = '';
+    //         // Удаление превью из контейнера
+    //         previewPhotosContainer.removeChild(previewPhoto);
+    //         // Удаление идентификатора из массива
+    //         uniqueFileIds = uniqueFileIds.filter(id => id !== fileId);
+    //         // Обновление текста
+    //         updateFileText();
+    //     };
+
+    //     // const files = input.files;
+    //     const filesToProcess = Math.min(3, files.length); // Обработка не более 3 файлов
+
+    //     for (let i = 0; i < filesToProcess; i++) {
+    //         const file = files[i];
+    //         if (file) {
+    //         if (previewPhotosContainer.children.length < 3) {
+    //             // Создание уникального идентификатора для файла
+    //             const fileId = file.name + file.size;
+
+    //             // Проверка на уникальность файла
+    //             const isDuplicate = uniqueFileIds.includes(fileId);
+
+    //             if (!isDuplicate) {
+    //             const previewPhoto = document.createElement('div');
+    //             previewPhoto.classList.add('preview_photo');
+
+    //             const previewImage = document.createElement('img');
+    //             previewImage.classList.add('contact-form__input_preview');
+    //             previewImage.src = URL.createObjectURL(file);
+
+    //             // Добавление обработчика событий для удаления при клике на фотографию
+    //             previewImage.addEventListener('click', function () {
+    //                 deleteFileAndUpdateText(previewPhoto, fileId);
+    //             });
+
+    //             previewPhoto.appendChild(previewImage);
+    //             previewPhotosContainer.appendChild(previewPhoto);
+
+    //             // Добавление идентификатора в массив
+    //             uniqueFileIds.push(fileId);
+    //             }
+    //         }
+    //         }
+    //     }
+
+    //     // Обновление текста после добавления файлов
+    //     updateFileText();
+    //     });
+    // });
+
     let inputs = document.querySelectorAll('.contact-form__input_file');
     Array.prototype.forEach.call(inputs, function (input) {
         let label = input.nextElementSibling,
-        fileText = document.querySelector('.contact-form_file_text'),
-        previewPhotosContainer = document.querySelector('.preview_photos'),
-        plusFileButton = document.querySelector('.contact-form__file-button');
+            fileText = document.querySelector('.contact-form_file_text'),
+            previewPhotosContainer = document.querySelector('.preview_photos'),
+            plusFileButton = document.querySelector('.contact-form__file-button');
 
         // Массив для хранения уникальных идентификаторов файлов
         let uniqueFileIds = [];
 
         input.addEventListener('change', function (e) {
-        const updateFileText = function () {
-            const remainingFiles = previewPhotosContainer.children.length;
-            if (remainingFiles > 0) {
-            fileText.innerText = 'Снимки загружены: ' + remainingFiles;
-            } else if (remainingFiles == 0) {
-            fileText.innerText = 'Загрузите снимки';
-            }
+            const updateFileText = function () {
+                const remainingFiles = previewPhotosContainer.children.length;
+                if (remainingFiles > 0) {
+                    fileText.innerText = 'Снимки загружены: ' + remainingFiles;
+                } else if (remainingFiles == 0) {
+                    fileText.innerText = 'Загрузите снимки';
+                }
 
-            // Добавление или удаление класса в зависимости от количества файлов
-            if (previewPhotosContainer.children.length < 3) {
-            plusFileButton.classList.remove('tooManyFiles');
-            } else {
-            plusFileButton.classList.add('tooManyFiles');
-            }
-        };
+                // Добавление или удаление класса в зависимости от количества файлов
+                if (previewPhotosContainer.children.length < 3) {
+                    plusFileButton.classList.remove('tooManyFiles');
+                } else {
+                    plusFileButton.classList.add('tooManyFiles');
+                }
+            };
 
-        const deleteFileAndUpdateText = function (previewPhoto, fileId) {
-            // Удаление файла из списка
-            input.value = '';
-            // Удаление превью из контейнера
-            previewPhotosContainer.removeChild(previewPhoto);
-            // Удаление идентификатора из массива
-            uniqueFileIds = uniqueFileIds.filter(id => id !== fileId);
-            // Обновление текста
-            updateFileText();
-        };
+            const files = input.files;
 
-        const files = input.files;
-        const filesToProcess = Math.min(3, files.length); // Обработка не более 3 файлов
+            const deleteFileAndUpdateText = function (previewPhoto, fileId) {
+                // Удаление файла из списка
+                const fileIndex = Array.from(input.files).findIndex(file => file.name + file.size === fileId);
+                if (fileIndex !== -1) {
+                    const newFiles = Array.from(input.files);
+                    newFiles.splice(fileIndex, 1);
+            
+                    const dataTransfer = new DataTransfer();
+                    newFiles.forEach(file => {
+                        dataTransfer.items.add(file);
+                    });
+            
+                    input.files = dataTransfer.files;
+                }
+            
+                // Удаление превью из контейнера
+                previewPhotosContainer.removeChild(previewPhoto);
+            
+                // Удаление идентификатора из массива
+                uniqueFileIds = uniqueFileIds.filter(id => id !== fileId);
+            
+                // Обновление текста
+                updateFileText();
+            };
 
-        for (let i = 0; i < filesToProcess; i++) {
-            const file = files[i];
-            if (file) {
-            if (previewPhotosContainer.children.length < 3) {
-                // Создание уникального идентификатора для файла
-                const fileId = file.name + file.size;
+            const filesToProcess = Math.min(3, files.length); // Обработка не более 3 файлов
 
-                // Проверка на уникальность файла
-                const isDuplicate = uniqueFileIds.includes(fileId);
+            for (let i = 0; i < filesToProcess; i++) {
+                const file = files[i];
+                if (file) {
+                    if (previewPhotosContainer.children.length < 3) {
+                        // Создание уникального идентификатора для файла
+                        const fileId = file.name + file.size;
 
-                if (!isDuplicate) {
-                const previewPhoto = document.createElement('div');
-                previewPhoto.classList.add('preview_photo');
+                        // Проверка на уникальность файла
+                        const isDuplicate = uniqueFileIds.includes(fileId);
 
-                const previewImage = document.createElement('img');
-                previewImage.classList.add('contact-form__input_preview');
-                previewImage.src = URL.createObjectURL(file);
+                        if (!isDuplicate) {
+                            const previewPhoto = document.createElement('div');
+                            previewPhoto.classList.add('preview_photo');
 
-                // Добавление обработчика событий для удаления при клике на фотографию
-                previewImage.addEventListener('click', function () {
-                    deleteFileAndUpdateText(previewPhoto, fileId);
-                });
+                            const previewImage = document.createElement('img');
+                            previewImage.classList.add('contact-form__input_preview');
+                            previewImage.src = URL.createObjectURL(file);
 
-                previewPhoto.appendChild(previewImage);
-                previewPhotosContainer.appendChild(previewPhoto);
+                            const previewDelete = document.createElement('img');
+                            previewDelete.classList.add('contact-form__input_delete');
+                            previewDelete.src = 'competition/deleteFile.svg';
 
-                // Добавление идентификатора в массив
-                uniqueFileIds.push(fileId);
+                            const gradient = document.createElement('div');
+                            gradient.classList.add('contact-form__input_gradient');
+
+                            // Добавление обработчика событий для удаления при клике на фотографию
+                            previewDelete.addEventListener('click', function () {
+                                deleteFileAndUpdateText(previewPhoto, fileId);
+                            });
+
+                            previewPhoto.appendChild(previewImage);
+                            previewPhoto.appendChild(previewDelete);
+                            previewPhoto.appendChild(gradient);
+                            previewPhotosContainer.appendChild(previewPhoto);
+
+                            // Добавление идентификатора в массив
+                            uniqueFileIds.push(fileId);
+                        }
+                    }
                 }
             }
-            }
-        }
 
-        // Обновление текста после добавления файлов
-        updateFileText();
+            // Обновление текста после добавления файлов
+            updateFileText();
         });
     });
 });
