@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const inputTelegram = document.querySelector('.contact-form__input_telegram');
+    const placeholder = document.querySelector('.telegram-custom-placeholder');
+    const closeIcon = document.querySelector('.telegram-custom-close');
+
+    // Функция, которая обрабатывает ввод пользователя
+    function handleInput() {
+        const inputValue = inputTelegram.value.trim();
+
+        // Если в поле ввода что-то написано, добавляем класс и меняем видимость элементов
+        if (inputValue !== '') {
+        inputTelegram.classList.add('initial-padding');
+        placeholder.style.visibility = 'visible';
+        closeIcon.style.visibility = 'visible';
+        } else {
+        inputTelegram.classList.remove('initial-padding');
+        placeholder.style.visibility = 'hidden';
+        closeIcon.style.visibility = 'hidden';
+        }
+    }
+
+    // Функция, которая очищает поле ввода
+    function clearInput() {
+        inputTelegram.value = ''; // Очищаем поле ввода
+        inputTelegram.classList.remove('initial-padding');
+        placeholder.style.visibility = 'hidden';
+        closeIcon.style.visibility = 'hidden';
+    }
+
+    // Слушаем событие ввода
+    inputTelegram.addEventListener('input', handleInput);
+    // Слушаем событие клика по элементу .telegram-custom-close
+    closeIcon.addEventListener('click', clearInput);
+
+
 
     const popupButton = document.querySelector('.form_open_button');
     const popupForm = document.querySelector('.form-wrapper');
@@ -6,15 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const formClose = document.querySelector('.form-wrapper .form_close');
     let bodyOverflow = document.querySelector('body.main');
     let scrollPosition = 0;
-
-    // const applicantForm = document.getElementById('form-contact');
-    // function handleFormSubmit(event) {
-    //     // Просим форму не отправлять данные самостоятельно
-    //     event.preventDefault()
-    //     console.log('Отправка!')
-    // }
-    
-    // applicantForm.addEventListener('submit', handleFormSubmit);
 
     popupButton.addEventListener('click', () => {
         popupForm.classList.add('active');

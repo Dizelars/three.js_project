@@ -105,28 +105,55 @@
     overflow: auto;
 }
 
+.form-wrapper .container_main {
+    border: none;
+}
+
 .form-wrapper.active {
     display: flex;
 }
 
+.form-wrapper .form-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "form_send swiper-images";
+	position: relative;
+    border-radius: 60px;
+    background-color: #090909;
+    overflow: hidden;
+}
+
 .form-wrapper .form_close {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 30px;
+    right: 30px;
     padding: 14px;
     border-radius: 10px;
     background: rgba(10, 10, 10, 0.80);
     backdrop-filter: blur(2.5px);
     cursor: pointer;
+    z-index: 2;
+}
+
+.form-wrapper .form-content .form_send {
+    grid-area: form_send;
+    padding: 60px 0 60px 60px;
+    height: 700px;
+}
+
+.form-wrapper .form-content .swiper-images { 
+	grid-area: swiper-images; 
 }
 
 .contact-form {
     width: 100%;
-    max-width: 645px;
-    padding: 60px;
-    background: #1c1e21;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    max-width: 400px;
+    position: relative;
 }
 
 .contact-form__title {
@@ -143,7 +170,6 @@
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     line-height: 24px;
-    max-width: 320px;
     width: 100%;
     color: #ffffff;
     margin-bottom: 40px;
@@ -153,14 +179,16 @@
     text-align: center;
 }
 
+.contact-form__input-wrapper.telegram {
+    position: relative;
+}
+
 .contact-form__input_telegram {
     height: 50px;
     border: 1px solid #CDCDCD;
     background-color: rgba(134, 134, 134, 0.10);
     border-radius: 10px;
-    max-width: 320px;
     width: 100%;
-    margin-bottom: 20px;
     padding: 8px 12px;
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
@@ -168,9 +196,33 @@
     transition: 0.3s;
 }
 
+.contact-form__input_telegram.initial-padding {
+    padding: 16px 38px 0 12px;
+}
+
 .contact-form__input_telegram:focus {
     transition: 0.3s;
     border: 1px solid rgba(255, 241, 198, 0.2);
+}
+
+.telegram-custom-placeholder {
+    visibility: hidden;
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    color: #878787;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.telegram-custom-close {
+    visibility: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 12px;
+    cursor: pointer;
 }
 
 .contact-form__input_file {
@@ -180,7 +232,8 @@
 .contact-form__input-wrapper.file {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .preview_photos {
@@ -190,9 +243,6 @@
 }
 
 .contact-form__file-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     width: 80px;
     height: 80px;
@@ -214,12 +264,20 @@
 }
 
 .contact-form__file-button.tooManyFiles {
+    display: none;
+  }
+  
+  .contact-form__file-button.tooManyFiles .close {
+    display: flex;
+  }
+
+/* .contact-form__file-button.tooManyFiles {
   pointer-events: none;
 }
 
 .contact-form__file-button.tooManyFiles .close {
   transform: rotate(45deg);
-}
+} */
 
 /* .contact-form__file-button .close:before {
   content: "";
@@ -259,18 +317,9 @@
     position: relative;
     width: 80px;
     height: 80px;
-    /* border: 1px solid white; */
     border-radius: 10px;
-    margin-right: 10px;
+    margin-right: 20px;
 }
-
-/* .preview_photo:not(:last-child) {
-      margin-right: 5px;
-    } */
-
-/* .preview_photo:last-child {
-      margin-right: 20px;
-    } */
 
 .contact-form__input_preview {
     width: 80px;
@@ -296,16 +345,21 @@
     background: linear-gradient(180deg, #090909 0%, rgba(9, 9, 9, 0.00) 100%);
 }
 
+.contact-form_file_info {
+    margin-bottom: 20px;
+}
+
 .contact-form_file_info .contact-form_file_text {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
+    line-height: 24px;
     color: white;
 }
 
 .contact-form_file_info .contact-form_file_count {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
-    line-height: 21px;
+    line-height: 24px;
     color: white;
     opacity: 0.5;
 }
@@ -320,6 +374,7 @@
 .contact-form__privacy-text {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.4rem;
+    line-height: 21px;
     color: white;
 }
 
@@ -359,8 +414,6 @@
     transform: translate(-50%, -50%) scale(0);
     width: 22px;
     height: 22px;
-    /* border-radius: 2px;
-    background-color: white; */
     background: url('../../img/layout/pages/main/competition/check.svg') no-repeat center/cover;
     transition: all .2s ease-in;
 }
@@ -375,6 +428,9 @@
     } */
 
 .contact-form__button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     background: #ffffff;
     padding: 24px;
     display: flex;
@@ -382,20 +438,18 @@
     justify-content: center;
     border-radius: 35px;
     border: none;
-    margin-top: 40px;
+    /* margin-top: 80px; */
     font-family: 'MoscowSans', sans-serif;
-    font-size: 1.6rem;
+    font-size: 2rem;
+    line-height: 22px;
     color: black;
     transition: 0.3s;
     cursor: pointer;
-
     width: max-content;
 }
 
 .contact-form__button:hover {
     transition: 0.3s;
-    /* background: #7156f3;
-    color: #fff; */
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
 }
 
@@ -485,6 +539,10 @@
     .competition .competition_merch-img {
         width: 595px;
     }
+
+    .form-wrapper .form-content .form_send {
+        padding: 40px 0 40px 40px;
+    }
 }
 
 @media (max-width: 960px) {
@@ -496,6 +554,30 @@
 @media (max-width: 880px) {
     .competition .competition_merch-img {
         width: 420px;
+    }
+}
+
+@media (max-width: 850px) {
+    .form-wrapper .form-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "form_send";
+    }
+
+    .form-wrapper .form-content .form_send {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px;
+    }
+
+    .contact-form {
+        max-width: 540px;
+    }
+    
+    .form-wrapper .form-content .swiper-images { 
+        display: none;
     }
 }
 
@@ -536,6 +618,12 @@
     }
 }
 
+/* @media (max-width: 640px) {
+    .contact-form__button {
+        margin-top: 134px;
+    }
+} */
+
 @media (max-width: 560px) {
     .competition .competition_wrapper .competition_info  {
         padding: 30px 30px 5px 30px;
@@ -544,6 +632,36 @@
     .competition .competition_info .competition_title {
         font-size: 4rem;
         line-height: 40px;
+    }
+}
+
+@media (max-width: 440px) {
+    .form-wrapper .form_close  {
+        top: 20px;
+        right: 20px;
+    }
+
+    .form-wrapper .form-content .form_send {
+        padding: 40px 20px;
+    }
+
+    .contact-form__text {
+        font-size: 1.4rem;
+        line-height: 21px;
+    }
+
+    .contact-form__button {
+        width: 100%;
+    }
+}
+
+/* @media (max-width: 480px) {
+    .contact-form {
+        padding: 30px 15px;
+    }
+
+    .contact-form__title {
+        font-size: 1.6rem;
     }
 }
 
@@ -560,14 +678,5 @@
     .competition .form_open_button .form_open_btn {
         font-size: 1.8rem;
     }
-}
+} */
 
-@media (max-width: 480px) {
-    .contact-form {
-        padding: 30px 15px;
-    }
-
-    .contact-form__title {
-        font-size: 1.6rem;
-    }
-}
