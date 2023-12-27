@@ -1,0 +1,493 @@
+.competition {
+    padding: 120px 0 0 0;
+}
+
+.competition .competition_wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "competition_info competition_media";
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(6px);
+    width: 100%;
+}
+
+.competition .competition_wrapper .competition_info {
+    grid-area: competition_info;
+    padding: 60px 0 150px 60px;
+    max-width: 645px;
+}
+
+.competition .competition_wrapper .competition_media { 
+	grid-area: competition_media; 
+}
+
+.competition .competition_merch-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.competition .competition_info .competition_title {
+    color: #FFF;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 5.6rem;
+    font-weight: 700;
+    line-height: 56px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.competition .competition_info .competition_descr {
+    color: #FFF;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 60px;
+}
+
+.competition .form_open_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    padding: 24px;
+    border-radius: 35px;
+    background: #FFF;
+	cursor: pointer;
+    text-align: center;
+}
+
+.competition .form_open_button .form_open_img {
+    margin-right: 8px;
+}
+
+.competition .form_open_button .form_open_btn {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 22px;
+    color: #333;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+.form-wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.form-wrapper.active {
+    display: flex;
+}
+
+.form-wrapper .form_close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    padding: 14px;
+    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.80);
+    backdrop-filter: blur(2.5px);
+    cursor: pointer;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 645px;
+    padding: 60px;
+    background: #1c1e21;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form__title {
+    font-family: 'MoscowSans', sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.contact-form__text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 24px;
+    max-width: 320px;
+    width: 100%;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.contact-form__message {
+    text-align: center;
+}
+
+.contact-form__input_telegram {
+    height: 50px;
+    border: 1px solid #CDCDCD;
+    background-color: rgba(134, 134, 134, 0.10);
+    border-radius: 10px;
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.contact-form__input_telegram:focus {
+    transition: 0.3s;
+    border: 1px solid rgba(255, 241, 198, 0.2);
+}
+
+.contact-form__input_file {
+    display: none;
+}
+
+.contact-form__input-wrapper.file {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.preview_photos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form__file-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 62px;
+    height: 62px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-right: 20px;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.contact-form__file-button .close {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all .8s ease;
+}
+
+.contact-form__file-button.tooManyFiles {
+  pointer-events: none;
+}
+
+.contact-form__file-button.tooManyFiles .close {
+  transform: rotate(45deg);
+}
+
+.contact-form__file-button .close:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  width: 34px;
+  height: 1px;
+  background: #ffffff;
+}
+
+.contact-form__file-button .close:after {
+  content: "";
+  position: absolute;
+  top: 76%;
+  bottom: 0;
+  right: 0;
+  left: 22%;
+  width: 34px;
+  height: 1px;
+  background: #ffffff;
+}
+
+.contact-form__file-button .close:before {
+  webkit-transform: rotate(0deg) translate(-50%, -50%);
+  transform: rotate(0deg) translate(-50%, -50%);
+}
+
+.contact-form__file-button .close:after {
+  webkit-transform: rotate(90deg) translate(-50%, -50%);
+  transform: rotate(90deg) translate(-50%, -50%);
+}
+
+.preview_photo {
+    width: 62px;
+    height: 62px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.preview_photo {
+    margin-right: 10px;
+}
+
+/* .preview_photo:not(:last-child) {
+      margin-right: 5px;
+    } */
+
+/* .preview_photo:last-child {
+      margin-right: 20px;
+    } */
+
+.contact-form__input_preview {
+    width: 60px;
+    height: 60px;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+.contact-form_file_info .contact-form_file_text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    color: white;
+}
+
+.contact-form_file_info .contact-form_file_count {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 21px;
+    color: white;
+    opacity: 0.5;
+}
+
+.contact-form__privacy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contact-form__privacy-text {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.contact-form__privacy-text a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact-form__privacy-text a:hover {
+    text-decoration: underline;
+}
+
+.real-checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.custom-checkbox {
+    position: relative;
+    display: block;
+    min-width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    border: 2px solid white;
+    border-radius: 5px;
+    background: transparent;
+}
+
+.custom-checkbox::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 22px;
+    height: 22px;
+    border-radius: 2px;
+    background-color: white;
+    transition: all .2s ease-in;
+}
+
+.real-checkbox:checked+.custom-checkbox::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* .real-checkbox:focus + .custom-checkbox {
+      transition: 0.3s;
+      border: 1px solid rgba(255, 241, 198, 0.2);
+    } */
+
+.contact-form__button {
+    background: #ffffff;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px;
+    border: none;
+    margin-top: 40px;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    color: black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.contact-form__button:hover {
+    transition: 0.3s;
+    background: #7156f3;
+    color: #fff;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.preloader {
+    position: relative;
+    margin: 0 0 0 45%;
+    height: 15px;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+    transition: 0.3s;
+}
+
+.preloader_active {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.preloader:before {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    background: #393e46;
+    animation: preloader_before 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.preloader:after {
+    width: 12px;
+    height: 12px;
+    left: 15%;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+    background: #5f646c;
+    animation: preloader_after 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes preloader_before {
+    0% {
+        transform: translateX(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(160px) scale(1.5) rotate(264deg);
+        background: #00adb5;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateX(0px) rotate(0deg);
+    }
+}
+
+@keyframes preloader_after {
+    0% {
+        transform: translateX(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-160px) scale(1.5) rotate(-264deg);
+        background: #00fff5;
+        border-radius: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@media (max-width: 1024px) {
+    .competition .competition_wrapper .competition_info  {
+        padding: 50px 0 110px 50px;
+    }
+
+    .competition .competition_info .competition_descr {
+        margin-bottom: 50px;
+    }
+
+    .competition .competition_merch-img {
+        width: 595px;
+    }
+}
+
+@media (max-width: 960px) {
+    .competition .competition_merch-img {
+        width: 490px;
+    }
+}
+
+@media (max-width: 880px) {
+    .competition .competition_merch-img {
+        width: 420px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        padding: 30px 15px;
+    }
+
+    .contact-form__title {
+        font-size: 1.6rem;
+    }
+}
