@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function() {
         link.addEventListener("click", handleLinkCloseMenu);
     });
 
-    console.log(isInnovation);
+    // console.log(isInnovation);
     // ПОЯВЛЕНИЕ видео превью при наведении на список меню. (на десктопе)
     if(window.innerWidth > 1200 && !isInnovation) {
         // Получаем все элементы списка
