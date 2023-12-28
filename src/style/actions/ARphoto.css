@@ -127,6 +127,22 @@
     overflow: hidden;
 }
 
+.form-wrapper .form-content:before {
+    content: ' ';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    pointer-events: none;
+    top: unset;
+    bottom: -500px;
+    left: 40%;
+    transform: translateX(-50%);
+    border-radius: 100%;
+    opacity: 0.3;
+    background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
+    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+}
+
 .form-wrapper .form_close {
     position: absolute;
     top: 30px;
@@ -143,11 +159,103 @@
     grid-area: form_send;
     padding: 60px 0 60px 60px;
     height: 700px;
+    width: max-content;
 }
 
 .form-wrapper .form-content .swiper-images { 
 	grid-area: swiper-images; 
+    overflow: hidden;
+    height: 700px;
 }
+
+.swiper-images .ticker {
+    transform: rotate(90deg);
+}
+
+.swiper-images .ticker .flex {
+    display: flex;
+}
+
+.swiper-images .ticker .w-64 {
+    width: 216px;
+    height:64px;
+}
+
+.swiper-images .ticker .mx-4 {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.swiper-images .ticker .flex-none {
+    flex: none;
+}
+
+.swiper-images .ticker .self-start {
+    align-self: flex-start;
+}
+
+.swiper-images .ticker .img-ticker {
+    /* animation: ticker-kf 13s linear infinite; */
+    animation: ticker-kf 20s linear infinite;
+}
+
+.swiper-images .ticker.ticker_1 {
+    margin-left: 490px;
+    margin-top: -120px;
+}
+
+.swiper-images .ticker.ticker_2 {
+    width: 1210px;
+    margin-left: -235px;
+    transform: rotate(-90deg);
+}
+
+.swiper-images .ticker.ticker_3 {
+    margin-right: 392px;
+    margin-top: -852px;
+}
+
+.swiper-images .ticker.ticker_1 img {
+    transform: rotate(-90deg);
+    width: 200px;
+    height: 400px;
+    margin: 0 110px;
+    border-radius: 20px;
+}
+
+.swiper-images .ticker.ticker_2 img {
+    transform: rotate(90deg);
+    width: 200px;
+    height: 400px;
+    margin: 0 110px;
+    border-radius: 20px;
+}
+
+.swiper-images .ticker.ticker_3 img {
+    transform: rotate(-90deg);
+    width: 200px;
+    height: 400px;
+    margin: 0 110px;
+    border-radius: 20px;
+}
+
+@keyframes ticker-kf {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-2088px, 0, 0);
+    }
+}
+
+
+
+
+
+
+
+
 
 .contact-form {
     width: 100%;
@@ -527,6 +635,12 @@
     }
 }
 
+@media (min-width: 2500px) {
+    .swiper-images .ticker.ticker_2 {
+        margin-left: -80px;
+    }
+}
+
 @media (max-width: 1024px) {
     .competition .competition_wrapper .competition_info  {
         padding: 50px 0 110px 50px;
@@ -654,29 +768,3 @@
         width: 100%;
     }
 }
-
-/* @media (max-width: 480px) {
-    .contact-form {
-        padding: 30px 15px;
-    }
-
-    .contact-form__title {
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 380px) {
-    .competition .competition_info .competition_title {
-        font-size: 3rem;
-        line-height: 30px;
-    }
-
-    .competition .competition_info .competition_descr {
-        line-height: 22px;
-    }
-
-    .competition .form_open_button .form_open_btn {
-        font-size: 1.8rem;
-    }
-} */
-
