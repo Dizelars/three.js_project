@@ -180,7 +180,7 @@
     grid-area: form_send;
     padding: 60px 0 60px 60px;
     height: 700px;
-    width: max-content;
+    /* width: max-content; */
 }
 
 .form-wrapper .form-content .swiper-images { 
@@ -216,8 +216,7 @@
 }
 
 .swiper-images .ticker .img-ticker {
-    /* animation: ticker-kf 13s linear infinite; */
-    animation: ticker-kf 20s linear infinite;
+    animation: ticker-kf 80s linear infinite;
 }
 
 .swiper-images .ticker.ticker_1 {
@@ -494,6 +493,7 @@
 }
 
 .contact-form__privacy {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -508,20 +508,26 @@
 }
 
 .contact-form__privacy-text a {
-    text-decoration: none;
     color: white;
 }
 
 .contact-form__privacy-text a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
-.real-checkbox {
+/* .real-checkbox {
     width: 0;
     height: 0;
     opacity: 0;
     position: absolute;
     z-index: -1;
+} */
+
+.real-checkbox {
+    position: absolute;
+    opacity: 0;
+    left: 5px;
+    bottom: 10px;
 }
 
 .custom-checkbox {
@@ -547,7 +553,7 @@
     transition: all .2s ease-in;
 }
 
-.real-checkbox:checked+.custom-checkbox::before {
+.real-checkbox:checked + .custom-checkbox::before {
     transform: translate(-50%, -50%) scale(1);
 }
 

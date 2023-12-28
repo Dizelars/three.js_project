@@ -74,86 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Слушаем событие клика по элементу .telegram-custom-close
     closeIcon.addEventListener('click', clearInput);
 
-    // let inputs = document.querySelectorAll('.contact-form__input_file');
-    // Array.prototype.forEach.call(inputs, function (input) {
-    //     let label = input.nextElementSibling,
-    //     fileText = document.querySelector('.contact-form_file_text'),
-    //     previewPhotosContainer = document.querySelector('.preview_photos'),
-    //     plusFileButton = document.querySelector('.contact-form__file-button');
-
-    //     // Массив для хранения уникальных идентификаторов файлов
-    //     let uniqueFileIds = [];
-
-    //     input.addEventListener('change', function (e) {
-    //     const updateFileText = function () {
-    //         const remainingFiles = previewPhotosContainer.children.length;
-    //         if (remainingFiles > 0) {
-    //         fileText.innerText = 'Снимки загружены: ' + remainingFiles;
-    //         } else if (remainingFiles == 0) {
-    //         fileText.innerText = 'Загрузите снимки';
-    //         }
-
-    //         // Добавление или удаление класса в зависимости от количества файлов
-    //         if (previewPhotosContainer.children.length < 3) {
-    //         plusFileButton.classList.remove('tooManyFiles');
-    //         } else {
-    //         plusFileButton.classList.add('tooManyFiles');
-    //         }
-    //     };
-
-    //     const files = input.files;
-
-    //     const deleteFileAndUpdateText = function (previewPhoto, fileId) {
-    //         // Удаление файла из списка
-    //         input.value = '';
-    //         // Удаление превью из контейнера
-    //         previewPhotosContainer.removeChild(previewPhoto);
-    //         // Удаление идентификатора из массива
-    //         uniqueFileIds = uniqueFileIds.filter(id => id !== fileId);
-    //         // Обновление текста
-    //         updateFileText();
-    //     };
-
-    //     // const files = input.files;
-    //     const filesToProcess = Math.min(3, files.length); // Обработка не более 3 файлов
-
-    //     for (let i = 0; i < filesToProcess; i++) {
-    //         const file = files[i];
-    //         if (file) {
-    //         if (previewPhotosContainer.children.length < 3) {
-    //             // Создание уникального идентификатора для файла
-    //             const fileId = file.name + file.size;
-
-    //             // Проверка на уникальность файла
-    //             const isDuplicate = uniqueFileIds.includes(fileId);
-
-    //             if (!isDuplicate) {
-    //             const previewPhoto = document.createElement('div');
-    //             previewPhoto.classList.add('preview_photo');
-
-    //             const previewImage = document.createElement('img');
-    //             previewImage.classList.add('contact-form__input_preview');
-    //             previewImage.src = URL.createObjectURL(file);
-
-    //             // Добавление обработчика событий для удаления при клике на фотографию
-    //             previewImage.addEventListener('click', function () {
-    //                 deleteFileAndUpdateText(previewPhoto, fileId);
-    //             });
-
-    //             previewPhoto.appendChild(previewImage);
-    //             previewPhotosContainer.appendChild(previewPhoto);
-
-    //             // Добавление идентификатора в массив
-    //             uniqueFileIds.push(fileId);
-    //             }
-    //         }
-    //         }
-    //     }
-
-    //     // Обновление текста после добавления файлов
-    //     updateFileText();
-    //     });
-    // });
 
 
     // Обработка поля files (удаление файлов + превью файлов)
@@ -172,8 +92,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 const remainingFiles = previewPhotosContainer.children.length;
                 if (remainingFiles > 0) {
                     fileText.innerText = 'Снимки загружены: ' + remainingFiles;
+                    fileText.style.color = 'white';
                 } else if (remainingFiles == 0) {
                     fileText.innerText = 'Загрузите снимки';
+                    fileText.style.color = 'white';
                 }
 
                 // Добавление или удаление класса в зависимости от количества файлов
@@ -256,10 +178,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-
-    // Отслеживание отправки формы
     document.getElementById("form-contact").addEventListener("submit", async function(event) {
         event.preventDefault();
+        // Дополнительная проверка перед отправкой формы
+        const fileInput = document.getElementById("contact-form__input_file");
+        let fileTextError = document.querySelector('.contact-form_file_text');
+        if (fileInput.files.length === 0) {
+            // Если нет выбранных файлов, вы можете предпринять необходимые действия, например, вывести сообщение об ошибке.
+            console.error("Выберите хотя бы один файл.");
+            fileTextError.style.color = 'red';
+            return;
+        }
+    
+        // Обрезаем файлы до первых трех
+        const filesToProcess = Math.min(3, fileInput.files.length);
+        const filesToSend = Array.from(fileInput.files).slice(0, filesToProcess);
+    
+        // Заменяем исходные файлы обрезанными
+        const dataTransfer = new DataTransfer();
+        filesToSend.forEach(file => {
+            dataTransfer.items.add(file);
+        });
+        fileInput.files = dataTransfer.files;
     
         const form = this;
         const actionUrl = form.getAttribute("action");
@@ -273,13 +213,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Дополнительные заголовки, если необходимо
                 }
             });
-    
+            
             if (response.ok) {
                 // Успешный ответ от сервера
                 console.log("Форма успешно отправлена!");
-
-                // Продолжаем отправку формы
-                form.submit();
             } else {
                 // Ошибка отправки формы
                 console.error("Произошла ошибка при отправке формы.");
