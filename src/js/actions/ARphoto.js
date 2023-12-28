@@ -1,42 +1,56 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // Скрытие и закрытие popup, с учетом скролла в Safari
-    // const formSubmit = document.querySelector('.form-wrapper form .contact-form__button');
-
-
-    const popupButton = document.querySelector('.form_open_button');
-    const popupForm = document.querySelector('.form-wrapper');
-    const formClose = document.querySelector('.form-wrapper .form_close');
-    let bodyOverflow = document.querySelector('body.main');
-    let scrollPosition = 0;
-
-    popupButton.addEventListener('click', () => {
-        popupForm.classList.add('active');
-        scrollPosition = window.scrollY;
-        bodyOverflow.style.overflow = "hidden";
-        bodyOverflow.style.position = "fixed";
-        bodyOverflow.style.top = `-${scrollPosition}px`;
-        bodyOverflow.style.width = "100%";
-    });
-
-    formClose.addEventListener('click', () => {
+    function closePopup() {
         popupForm.classList.remove('active');
         bodyOverflow.style.removeProperty("overflow");
         bodyOverflow.style.removeProperty("position");
         bodyOverflow.style.removeProperty("top");
         bodyOverflow.style.removeProperty("width");
         window.scrollTo(0, scrollPosition);
+        resetForm();
+    }
+
+    function openPopup() {
+        popupForm.classList.add('active');
+        scrollPosition = window.scrollY;
+        bodyOverflow.style.overflow = "hidden";
+        bodyOverflow.style.position = "fixed";
+        bodyOverflow.style.top = `-${scrollPosition}px`;
+        bodyOverflow.style.width = "100%";
+    }
+
+    const contactForm = document.getElementById('form-contact');
+    const popupButton = document.querySelector('.form_open_button');
+    const popupButtonHeader = document.querySelector('.header_main .ARphotoForm');
+    const popupForm = document.querySelector('.form-wrapper');
+    const formClose = document.querySelector('.form-wrapper .form_close');
+    let bodyOverflow = document.querySelector('body.main');
+    let scrollPosition = 0;
+
+    // Массив для хранения уникальных идентификаторов файлов
+    let uniqueFileIds = [];
+
+    popupButton.addEventListener('click', () => {
+        openPopup();
     });
 
+    popupButtonHeader.addEventListener('click', () => {
+        openPopup();
+    });
 
-    // formSubmit.addEventListener('click', (e) => {
-    //     popupForm.classList.remove('active');
-    //     bodyOverflow.style.removeProperty("overflow");
-    //     bodyOverflow.style.removeProperty("position");
-    //     bodyOverflow.style.removeProperty("top");
-    //     bodyOverflow.style.removeProperty("width");
-    //     window.scrollTo(0, scrollPosition);
-    // });
+    formClose.addEventListener('click', () => {
+        closePopup();
+    });
+
+    popupForm.addEventListener('mousedown', (event) => {
+        const target = event.target;
+        const isInsideTechSpec = target.closest('.form-content');
+    
+        if (!isInsideTechSpec) {
+            closePopup();
+        }
+    });
 
 
 
@@ -83,9 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
             fileText = document.querySelector('.contact-form_file_text'),
             previewPhotosContainer = document.querySelector('.preview_photos'),
             plusFileButton = document.querySelector('.contact-form__file-button');
-
-        // Массив для хранения уникальных идентификаторов файлов
-        let uniqueFileIds = [];
 
         input.addEventListener('change', function (e) {
             const updateFileText = function () {
@@ -178,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // Слушаем события отправки формы (какой статус)
     document.getElementById("form-contact").addEventListener("submit", async function(event) {
         event.preventDefault();
         // Дополнительная проверка перед отправкой формы
@@ -203,6 +215,16 @@ document.addEventListener('DOMContentLoaded', function () {
     
         const form = this;
         const actionUrl = form.getAttribute("action");
+
+
+        // Ошибки и статусы (оповещения)
+        const messages = {
+            send: 'Данные успешно отправлены',
+            sendWithError: 'Ошибка отправки данных'
+        }
+
+        const hidden_if_send = form.querySelector('.hidden_if_send');
+        const visible_if_send = form.querySelector('.visible_if_send');
     
         try {
             const response = await fetch(actionUrl, {
@@ -217,13 +239,46 @@ document.addEventListener('DOMContentLoaded', function () {
             if (response.ok) {
                 // Успешный ответ от сервера
                 console.log("Форма успешно отправлена!");
+                hidden_if_send.style.display = 'none';
+                visible_if_send.innerHTML = messages.send;
+                visible_if_send.style.display = 'flex';
+                setTimeout(() => {
+                    closePopup();
+                }, 4000);
             } else {
                 // Ошибка отправки формы
                 console.error("Произошла ошибка при отправке формы.");
+                hidden_if_send.style.display = 'none';
+                visible_if_send.innerHTML = messages.sendWithError;
+                visible_if_send.style.display = 'flex';
+                visible_if_send.classList.add('red');
             }
         } catch (error) {
             // Обработка ошибок, например, сетевых проблем
             console.error("Произошла ошибка при отправке формы:", error);
+            hidden_if_send.style.display = 'none';
+            visible_if_send.innerHTML = messages.sendWithError;
+            visible_if_send.style.display = 'flex';
+            visible_if_send.classList.add('red');
         }
     });
+
+
+    function resetForm() {
+        contactForm.reset();
+        clearInput();
+        uniqueFileIds = [];
+    
+        const previewPhotosContainer = document.querySelector('.preview_photos');
+        const fileTextReset = document.querySelector('.contact-form_file_text');
+        const addFiles = document.querySelector('.contact-form__file-button');
+
+        if (addFiles.classList.contains('tooManyFiles')) {
+            addFiles.classList.remove('tooManyFiles');
+        }
+
+        previewPhotosContainer.innerHTML = '';
+        fileTextReset.innerText = 'Загрузите снимки';
+        fileTextReset.style.color = 'white';
+    }
 });

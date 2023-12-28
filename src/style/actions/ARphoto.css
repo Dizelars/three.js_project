@@ -1,3 +1,63 @@
+.header_main .ARphotoForm {
+    position: relative;
+    z-index: 2;
+    padding: 8px 32px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+.header_main .ARphotoForm:hover,
+.header_main .ARphotoForm:focus {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+.header_main .ARphotoForm img.corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: 0;
+}
+
+.header_main .ARphotoForm img.corner-2 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.header_main .ARphotoForm img.corner-3 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    left: 0;
+    transform: rotate(270deg);
+}
+
+.header_main .ARphotoForm img.corner-4 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.header_main .ARphotoForm .ARphotoForm-text {
+    color: #FFF;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+
+
+
 .competition {
     padding: 120px 0 0 0;
 }
@@ -302,6 +362,27 @@
     color: #ffffff;
     margin-bottom: 40px;
 }
+
+
+.visible_if_send {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 2.4rem;
+    line-height: 20px;
+    color: green;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(134, 134, 134, 0.10);
+}
+
+.visible_if_send.red {
+    color: red;
+}
+
 
 .contact-form__message {
     text-align: center;
@@ -668,7 +749,35 @@
     }
 }
 
+@media (max-width: 1380px) {
+    .swiper-images .ticker.ticker_1 {
+        margin-left: 440px;
+    }
+    
+    .swiper-images .ticker.ticker_2 {
+        display: none;
+    }
+    
+    .swiper-images .ticker.ticker_3 {
+        margin-right: 0px;
+    }
+}
+
 @media (max-width: 1024px) {
+    .swiper-images .ticker.ticker_1 {
+        display: none;
+    }
+
+    .swiper-images .ticker.ticker_3 img {
+        width: 250px;
+        height: 450px;
+        margin: 0 114px;
+    }
+
+    .header_main .ARphotoForm {
+        margin-right: 40px;
+    }
+
     .competition .competition_wrapper .competition_info  {
         padding: 50px 0 110px 50px;
     }
@@ -723,6 +832,17 @@
 }
 
 @media (max-width: 768px) {
+
+    .header_main .ARphotoForm {
+        padding: 8px 22px;
+        margin-right: 30px;
+    }
+
+    .header_main .ARphotoForm .ARphotoForm-text {
+        font-size: 1.4rem;
+        line-height: 21px;
+    }
+
     .competition .competition_wrapper {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
@@ -777,6 +897,11 @@
 }
 
 @media (max-width: 440px) {
+    .header_main .ARphotoForm {
+        padding: 6px 16px;
+        margin-right: 20px;
+    }
+
     .form-wrapper .form_close  {
         top: 20px;
         right: 20px;
@@ -793,5 +918,11 @@
 
     .contact-form__button {
         width: 100%;
+    }
+}
+
+@media (max-width: 350px) {
+    .header_main .ARphotoForm {
+        margin-right: 10px;
     }
 }

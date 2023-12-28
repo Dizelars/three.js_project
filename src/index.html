@@ -71,6 +71,13 @@
                     <img class="header__logo-img" src="./img/layout/header_logo.svg" alt="logo">
                     <p class="header__logo-text">Гараж ЦОДД</p>
                 </div>
+                <div class="ARphotoForm">
+                    <img src="./img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner">
+                    <img src="./img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-2">
+                    <img src="./img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-3">
+                    <img src="./img/layout/pages/main/border_corner/corner.svg" alt="стрелки" class="corner-4">
+                    <p class="ARphotoForm-text">Фотоконкурс</p>
+                </div>
                 <div class="header__menu">
                     <div class="burger-menu burger-menu--closed">
                         <div class="bar"></div>
@@ -791,7 +798,7 @@
             </div>
         </section>
     </main>
-    <!-- https://0384-95-84-178-244.ngrok-free.app/contest -->
+
     <!-- https://garagetest.ru/contest -->
     <div class="form-wrapper">
         <div class="container_main">
@@ -803,45 +810,50 @@
                     <form class="contact-form" action="https://garagetest.ru/contest" method="POST" id="form-contact" autocomplete="off" enctype="multipart/form-data">
                         <p class="contact-form__title">Загрузка результатов</p>
                         <p class="contact-form__text">Укажите свой ник в&nbsp;телеграм и&nbsp;загрузите снимки для конкурса в&nbsp;форму.</br>Итоги будут подведены 12&nbsp;января</p>
-                        <div class="preloader"></div>
-                        <p class="contact-form__message"></p>
-                  
-                        <!-- Поле с телеграммом -->
-                        <div class="contact-form__input-wrapper telegram">
-                          <input class="contact-form__input contact-form__input_telegram" type="text" name="username" required placeholder="Ник Telegram">
-                          <div class="telegram-custom-placeholder">Ник в Telegram</div>
-                          <div class="telegram-custom-close">
-                            <img src="./img/layout/pages/main/competition/inputClear.svg" alt="inputClear">
-                          </div>
+                        <div class="hidden_if_send">
+                            <div class="preloader"></div>
+                            <p class="contact-form__message"></p>
+                    
+                            <!-- Поле с телеграммом -->
+                            <div class="contact-form__input-wrapper telegram">
+                            <input class="contact-form__input contact-form__input_telegram" type="text" name="username" required placeholder="Ник Telegram">
+                            <div class="telegram-custom-placeholder">Ник в Telegram</div>
+                            <div class="telegram-custom-close">
+                                <img src="./img/layout/pages/main/competition/inputClear.svg" alt="inputClear">
+                            </div>
+                            </div>
+                    
+                            <!-- Поле с выбором файла -->
+                            <div class="contact-form__input-wrapper file">
+                            <div class="preview_photos"></div>
+                            <input class="contact-form__input contact-form__input_file" type="file" accept="image/*" name="photos" id="contact-form__input_file" multiple>
+                            <label class="contact-form__file-button" for="contact-form__input_file">
+                                <!-- <div class="close"></div> -->
+                                <img class="close" src="./img/layout/pages/main/competition/plus.svg" alt="plus">
+                            </label>
+                            </div>
+                
+                            <div class="contact-form_file_info">
+                            <p class="contact-form_file_text">Загрузите снимки</p>
+                            <p class="contact-form_file_count">максимум 3</p>
+                            </div>
+                    
+                            <label class="contact-form__privacy">
+                                <input class="real-checkbox" type="checkbox" name="privacy" checked required>
+                                <span class="custom-checkbox"></span>
+                                <div class="contact-form__privacy-text">Даю согласие на обработку персональных данных согласно <a href="https://coddmac.store/CODD_doc/Politics.pdf" target="_blank">Политике обработки персональных данных</a></div>
+                            </label>
+                    
+                            <input class="contact-form__input contact-form__input_theme" name="theme" type="hidden" value="Заявка с сайта garage-codd.ru">
+
+                            <button type="submit" class="contact-form__button">
+                                <img class="contact-form__button-img" src="./img/layout/pages/main/competition/download.svg" alt="Загрузить">
+                                <p>Отправить</p>
+                            </button>
                         </div>
-                  
-                        <!-- Поле с выбором файла -->
-                        <div class="contact-form__input-wrapper file">
-                          <div class="preview_photos"></div>
-                          <input class="contact-form__input contact-form__input_file" type="file" accept="image/*" name="photos" id="contact-form__input_file" multiple>
-                          <label class="contact-form__file-button" for="contact-form__input_file">
-                            <!-- <div class="close"></div> -->
-                            <img class="close" src="./img/layout/pages/main/competition/plus.svg" alt="plus">
-                          </label>
+                        <div class="visible_if_send">
+                            
                         </div>
-              
-                        <div class="contact-form_file_info">
-                          <p class="contact-form_file_text">Загрузите снимки</p>
-                          <p class="contact-form_file_count">максимум 3</p>
-                        </div>
-                  
-                        <label class="contact-form__privacy">
-                            <input class="real-checkbox" type="checkbox" name="privacy" checked required>
-                            <span class="custom-checkbox"></span>
-                            <div class="contact-form__privacy-text">Даю согласие на обработку персональных данных согласно <a href="https://coddmac.store/CODD_doc/Politics.pdf" target="_blank">Политике обработки персональных данных</a></div>
-                        </label>
-                  
-                        <input class="contact-form__input contact-form__input_theme" name="theme" type="hidden" value="Заявка с сайта garage-codd.ru">
-                        
-                        <button type="submit" class="contact-form__button">
-                            <img class="contact-form__button-img" src="./img/layout/pages/main/competition/download.svg" alt="Загрузить">
-                            <p>Загрузить</p>
-                        </button>
                       </form>
                 </div>
                 <div class="swiper-images">
