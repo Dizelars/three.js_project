@@ -89,7 +89,10 @@
 
 
 .form-wrapper {
-    display: none;
+    display: flex;
+    visibility: hidden;
+    pointer-events: none;
+
     position: fixed;
     top: 0;
     bottom: 0;
@@ -105,12 +108,10 @@
     overflow: auto;
 }
 
-.form-wrapper .container_main {
-    border: none;
-}
 
 .form-wrapper.active {
-    display: flex;
+    visibility: visible;
+    pointer-events: all;
 }
 
 .form-wrapper .form-content {
@@ -125,6 +126,26 @@
     border-radius: 60px;
     background-color: #090909;
     overflow: hidden;
+    transform: scale(0);
+}
+
+.form-wrapper.active .form-content {
+    transition: all .5s ease;
+    transform: scale(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+.form-wrapper .container_main {
+    border: none;
 }
 
 .form-wrapper .form-content:before {

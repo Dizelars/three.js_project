@@ -1,4 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    // Скрытие и закрытие popup, с учетом скролла в Safari
+    // const formSubmit = document.querySelector('.form-wrapper form .contact-form__button');
+
+
+    const popupButton = document.querySelector('.form_open_button');
+    const popupForm = document.querySelector('.form-wrapper');
+    const formClose = document.querySelector('.form-wrapper .form_close');
+    let bodyOverflow = document.querySelector('body.main');
+    let scrollPosition = 0;
+
+    popupButton.addEventListener('click', () => {
+        popupForm.classList.add('active');
+        scrollPosition = window.scrollY;
+        bodyOverflow.style.overflow = "hidden";
+        bodyOverflow.style.position = "fixed";
+        bodyOverflow.style.top = `-${scrollPosition}px`;
+        bodyOverflow.style.width = "100%";
+    });
+
+    formClose.addEventListener('click', () => {
+        popupForm.classList.remove('active');
+        bodyOverflow.style.removeProperty("overflow");
+        bodyOverflow.style.removeProperty("position");
+        bodyOverflow.style.removeProperty("top");
+        bodyOverflow.style.removeProperty("width");
+        window.scrollTo(0, scrollPosition);
+    });
+
+
+    // formSubmit.addEventListener('click', (e) => {
+    //     popupForm.classList.remove('active');
+    //     bodyOverflow.style.removeProperty("overflow");
+    //     bodyOverflow.style.removeProperty("position");
+    //     bodyOverflow.style.removeProperty("top");
+    //     bodyOverflow.style.removeProperty("width");
+    //     window.scrollTo(0, scrollPosition);
+    // });
+
+
+
+    // Обработка поля Telegram, прослушка ввода мользователя
     const inputTelegram = document.querySelector('.contact-form__input_telegram');
     const placeholder = document.querySelector('.telegram-custom-placeholder');
     const closeIcon = document.querySelector('.telegram-custom-close');
@@ -31,42 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
     inputTelegram.addEventListener('input', handleInput);
     // Слушаем событие клика по элементу .telegram-custom-close
     closeIcon.addEventListener('click', clearInput);
-
-
-
-    const popupButton = document.querySelector('.form_open_button');
-    const popupForm = document.querySelector('.form-wrapper');
-    const formSubmit = document.querySelector('.form-wrapper form .contact-form__button');
-    const formClose = document.querySelector('.form-wrapper .form_close');
-    let bodyOverflow = document.querySelector('body.main');
-    let scrollPosition = 0;
-
-    popupButton.addEventListener('click', () => {
-        popupForm.classList.add('active');
-        scrollPosition = window.scrollY;
-        bodyOverflow.style.overflow = "hidden";
-        bodyOverflow.style.position = "fixed";
-        bodyOverflow.style.top = `-${scrollPosition}px`;
-        bodyOverflow.style.width = "100%";
-    });
-    
-    formSubmit.addEventListener('click', (e) => {
-        popupForm.classList.remove('active');
-        bodyOverflow.style.removeProperty("overflow");
-        bodyOverflow.style.removeProperty("position");
-        bodyOverflow.style.removeProperty("top");
-        bodyOverflow.style.removeProperty("width");
-        window.scrollTo(0, scrollPosition);
-    });
-
-    formClose.addEventListener('click', () => {
-        popupForm.classList.remove('active');
-        bodyOverflow.style.removeProperty("overflow");
-        bodyOverflow.style.removeProperty("position");
-        bodyOverflow.style.removeProperty("top");
-        bodyOverflow.style.removeProperty("width");
-        window.scrollTo(0, scrollPosition);
-    });
 
     // let inputs = document.querySelectorAll('.contact-form__input_file');
     // Array.prototype.forEach.call(inputs, function (input) {
@@ -149,6 +155,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //     });
     // });
 
+
+    // Обработка поля files (удаление файлов + превью файлов)
     let inputs = document.querySelectorAll('.contact-form__input_file');
     Array.prototype.forEach.call(inputs, function (input) {
         let label = input.nextElementSibling,
@@ -195,10 +203,8 @@ document.addEventListener('DOMContentLoaded', function () {
             
                 // Удаление превью из контейнера
                 previewPhotosContainer.removeChild(previewPhoto);
-            
                 // Удаление идентификатора из массива
                 uniqueFileIds = uniqueFileIds.filter(id => id !== fileId);
-            
                 // Обновление текста
                 updateFileText();
             };
@@ -211,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (previewPhotosContainer.children.length < 3) {
                         // Создание уникального идентификатора для файла
                         const fileId = file.name + file.size;
-
                         // Проверка на уникальность файла
                         const isDuplicate = uniqueFileIds.includes(fileId);
 
@@ -246,9 +251,42 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             }
-
             // Обновление текста после добавления файлов
             updateFileText();
         });
+    });
+
+
+    // Отслеживание отправки формы
+    document.getElementById("form-contact").addEventListener("submit", async function(event) {
+        event.preventDefault();
+    
+        const form = this;
+        const actionUrl = form.getAttribute("action");
+    
+        try {
+            const response = await fetch(actionUrl, {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                    "Accept": "application/json"
+                    // Дополнительные заголовки, если необходимо
+                }
+            });
+    
+            if (response.ok) {
+                // Успешный ответ от сервера
+                console.log("Форма успешно отправлена!");
+
+                // Продолжаем отправку формы
+                form.submit();
+            } else {
+                // Ошибка отправки формы
+                console.error("Произошла ошибка при отправке формы.");
+            }
+        } catch (error) {
+            // Обработка ошибок, например, сетевых проблем
+            console.error("Произошла ошибка при отправке формы:", error);
+        }
     });
 });
