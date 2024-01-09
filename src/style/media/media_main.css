@@ -2099,7 +2099,7 @@
     }
 }
 
-@media only screen and (max-height: 600px) {
+@media only screen and (max-height: 700px) {
     .menu .menu__logo {
         margin-bottom: 30px;
     }
@@ -2133,7 +2133,3 @@
         display: none;
     }
 }
-
-
-
-

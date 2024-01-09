@@ -159,7 +159,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             const previewImage = document.createElement('img');
                             previewImage.classList.add('contact-form__input_preview');
-                            previewImage.src = URL.createObjectURL(file);
+                            // previewImage.src = URL.createObjectURL(file);
+                            // console.log(file);
+                            // console.log(previewImage.src);
+                            // Используем FileReader для чтения файла как Data URL
+                            const reader = new FileReader();
+                            reader.onload = function (e) {
+                                previewImage.src = e.target.result;
+                                console.log(previewImage.src);
+                            };
+                            reader.readAsDataURL(file);
 
                             const previewDelete = document.createElement('img');
                             previewDelete.classList.add('contact-form__input_delete');
