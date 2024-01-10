@@ -1598,6 +1598,20 @@
         line-height: 30px !important;
     }
 
+    .header_main .header__logo {
+        justify-content: flex-start;
+    }
+
+    .header_main .header__logo .header__logo-img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header_main .header__logo .header__logo-text {
+        font-size: 1.8rem;
+        margin-left: 8px;
+    }
+
     .menu:before,
     .menu:after {
         height: 500px;

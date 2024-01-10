@@ -7,7 +7,7 @@
     padding: 8px 22px;
     cursor: pointer;
     margin-left: auto;
-    margin-right: 60px;
+    margin-right: 40px;
     border-radius: 100px;
     background: linear-gradient(97deg, #63CB47 2.56%, #408B2A 86.88%);
 }
@@ -207,20 +207,28 @@
     border: none;
 }
 
-.form-wrapper .form-content:before {
+.form-wrapper .form-content:before,
+.form-wrapper .form-content:after {
     content: ' ';
     position: absolute;
     width: 1000px;
     height: 1000px;
-    pointer-events: none;
-    top: unset;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.form-wrapper .form-content:before {
     bottom: -500px;
     left: 40%;
     transform: translateX(-50%);
     border-radius: 100%;
-    opacity: 0.3;
     background: radial-gradient(50% 50.00% at 50% 50.00%, #2BFC7F 0%, rgba(9, 9, 9, 0.00) 100%);
-    transition: top 4s ease, right 4s ease, bottom 4s ease, left 4s ease; /* Добавляем анимацию перемещения через свойства top и right */
+}
+
+.form-wrapper .form-content:after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to bottom left, #FC762B 0%, rgba(9, 9, 9, 0.00) 50%);
 }
 
 .form-wrapper .form_close {
@@ -358,8 +366,7 @@
 .contact-form__input-wrapper.file {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
-    margin-top: 20px;
+    margin: 20px 0;
 }
 
 .preview_photos {
@@ -370,11 +377,11 @@
 
 .contact-form__file-button {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border: 1px solid white;
     border-radius: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
     cursor: pointer;
 }
 
@@ -441,15 +448,15 @@
 
 .preview_photo {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .contact-form__input_preview {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: inherit;
     object-fit: cover;
 }
@@ -473,22 +480,24 @@
 
 .contact-form_file_info {
     margin-bottom: 20px;
+    margin: auto 0 auto auto;
+    text-align: end;
+    visibility: hidden;
 }
 
-.contact-form_file_info .contact-form_file_text {
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 1.6rem;
-    line-height: 24px;
-    color: white;
-}
-
+.contact-form_file_info .contact-form_file_text,
 .contact-form_file_info .contact-form_file_count {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     line-height: 24px;
+    font-weight: 400;
     color: white;
     opacity: 0.5;
 }
+
+/* .contact-form_file_info .contact-form_file_count {
+    visibility: hidden;
+} */
 
 .contact-form__privacy {
     position: relative;
@@ -565,7 +574,7 @@
     bottom: 0;
     left: 0;
     background: #ffffff;
-    padding: 24px;
+    padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -663,9 +672,9 @@
 
 
 @media (max-width: 1024px) {
-    .header_main .ARphotoForm {
+    /* .header_main .ARphotoForm {
         margin-right: 40px;
-    }
+    } */
 
     /* .competition .competition_wrapper .competition_info  {
         padding: 50px 0 110px 50px;
@@ -715,15 +724,14 @@
         max-width: 540px;
     }
     
-    .form-wrapper .form-content .swiper-images { 
+    .form-wrapper .form-content .vectary_phone { 
         display: none;
     }
 }
 
 @media (max-width: 768px) {
-
     .header_main .ARphotoForm {
-        padding: 8px 22px;
+        padding: 8px 16px;
         margin-right: 30px;
     }
 
@@ -787,7 +795,7 @@
 
 @media (max-width: 440px) {
     .header_main .ARphotoForm {
-        padding: 6px 16px;
+        padding: 8px 12px;
         margin-right: 20px;
     }
 

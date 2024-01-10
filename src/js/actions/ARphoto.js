@@ -94,19 +94,24 @@ document.addEventListener('DOMContentLoaded', function () {
     let inputs = document.querySelectorAll('.contact-form__input_file');
     Array.prototype.forEach.call(inputs, function (input) {
         let label = input.nextElementSibling,
+            fileCountBlock = document.querySelector('.contact-form_file_info'),
             fileText = document.querySelector('.contact-form_file_text'),
+            counterFiles = document.querySelector('.counter_files'),
             previewPhotosContainer = document.querySelector('.preview_photos'),
             plusFileButton = document.querySelector('.contact-form__file-button');
 
-        input.addEventListener('change', function (e) {
-            const updateFileText = function () {
+        input.addEventListener('change', () => {
+            const updateFileText = () => {
                 const remainingFiles = previewPhotosContainer.children.length;
+                counterFiles.innerText = remainingFiles;
                 if (remainingFiles > 0) {
-                    fileText.innerText = 'Снимки загружены: ' + remainingFiles;
                     fileText.style.color = 'white';
+                    counterFiles.style.color = 'white';
+                    fileCountBlock.style.visibility = 'visible';
                 } else if (remainingFiles == 0) {
-                    fileText.innerText = 'Загрузите снимки';
+                    fileText.innerText = 'Загружено';
                     fileText.style.color = 'white';
+                    counterFiles.style.color = 'white';
                 }
 
                 // Добавление или удаление класса в зависимости от количества файлов
@@ -212,10 +217,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Дополнительная проверка перед отправкой формы
         const fileInput = document.getElementById("contact-form__input_file");
         let fileTextError = document.querySelector('.contact-form_file_text');
+        let counterFilesError = document.querySelector('.counter_files');
         if (fileInput.files.length === 0) {
             // Если нет выбранных файлов, вы можете предпринять необходимые действия, например, вывести сообщение об ошибке.
             console.error("Выберите хотя бы один файл.");
             fileTextError.style.color = 'red';
+            counterFilesError.style.color = 'red';
             return;
         }
     
@@ -295,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         previewPhotosContainer.innerHTML = '';
-        fileTextReset.innerText = 'Загрузите снимки';
+        fileTextReset.innerText = 'Загружено';
         fileTextReset.style.color = 'white';
     }
 });
