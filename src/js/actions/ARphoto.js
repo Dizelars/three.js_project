@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const contactForm = document.getElementById('form-contact');
-    const popupButton = document.querySelector('.form_open_button');
+    // const popupButton = document.querySelector('.form_open_button');
     const popupButtonHeader = document.querySelector('.header_main .ARphotoForm');
     const popupForm = document.querySelector('.form-wrapper');
     const formClose = document.querySelector('.form-wrapper .form_close');
@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Массив для хранения уникальных идентификаторов файлов
     let uniqueFileIds = [];
 
-    popupButton.addEventListener('click', () => {
-        openPopup();
-    });
+    // popupButton.addEventListener('click', () => {
+    //     openPopup();
+    // });
 
     popupButtonHeader.addEventListener('click', () => {
         openPopup();
@@ -159,10 +159,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
                             const previewImage = document.createElement('img');
                             previewImage.classList.add('contact-form__input_preview');
+
+                            //* Превью формируется из blob ссылки на файл с Абсолютным путем
+                            //! Этот URL предоставляет прямой доступ к данным в Blob-объекте. 
+                            //! Данный подход не работает в Safari
                             // previewImage.src = URL.createObjectURL(file);
                             // console.log(file);
                             // console.log(previewImage.src);
-                            // Используем FileReader для чтения файла как Data URL
+
+                            //* Используем FileReader для чтения файла как Data URL
+                            //! Этот метод использует Data URL, который кодирует данные файла в строку base64 и вставляет их в URL.
+                            //! В таком случае превью в Safari работают
+                            //* Использование FileReader с readAsDataURL более универсально и широко поддерживается в различных браузерах, включая Safari.
                             const reader = new FileReader();
                             reader.onload = function (e) {
                                 previewImage.src = e.target.result;

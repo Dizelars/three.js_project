@@ -1,13 +1,18 @@
 .header_main .ARphotoForm {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
-    padding: 8px 32px;
+    padding: 8px 22px;
     cursor: pointer;
     margin-left: auto;
     margin-right: 60px;
+    border-radius: 100px;
+    background: linear-gradient(97deg, #63CB47 2.56%, #408B2A 86.88%);
 }
 
-.header_main .ARphotoForm:hover,
+/* .header_main .ARphotoForm:hover,
 .header_main .ARphotoForm:focus {
     background-color: rgba(255, 255, 255, 0.10);
 }
@@ -45,6 +50,10 @@
     bottom: 0;
     right: 0;
     transform: rotate(180deg);
+} */
+
+.header_main .ARphotoForm .ARphotoForm_img {
+    margin-right: 4px;
 }
 
 .header_main .ARphotoForm .ARphotoForm-text {
@@ -58,7 +67,7 @@
 
 
 
-.competition {
+/* .competition {
     padding: 120px 0 0 0;
 }
 
@@ -140,7 +149,7 @@
     line-height: 22px;
     color: #333;
     text-decoration: none;
-}
+} */
 
 
 
@@ -152,7 +161,6 @@
     display: flex;
     visibility: hidden;
     pointer-events: none;
-
     position: fixed;
     top: 0;
     bottom: 0;
@@ -181,7 +189,7 @@
     gap: 0;
     grid-auto-flow: row;
     grid-template-areas:
-        "form_send swiper-images";
+        "form_send vectary_phone";
 	position: relative;
     border-radius: 60px;
     background-color: #090909;
@@ -193,15 +201,6 @@
     transition: all .5s ease;
     transform: scale(1);
 }
-
-
-
-
-
-
-
-
-
 
 
 .form-wrapper .container_main {
@@ -243,90 +242,8 @@
     /* width: max-content; */
 }
 
-.form-wrapper .form-content .swiper-images { 
-	grid-area: swiper-images; 
-    overflow: hidden;
-    height: 700px;
-}
-
-.swiper-images .ticker {
-    transform: rotate(90deg);
-}
-
-.swiper-images .ticker .flex {
-    display: flex;
-}
-
-.swiper-images .ticker .w-64 {
-    width: 216px;
-    height:64px;
-}
-
-.swiper-images .ticker .mx-4 {
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-.swiper-images .ticker .flex-none {
-    flex: none;
-}
-
-.swiper-images .ticker .self-start {
-    align-self: flex-start;
-}
-
-.swiper-images .ticker .img-ticker {
-    animation: ticker-kf 80s linear infinite;
-}
-
-.swiper-images .ticker.ticker_1 {
-    margin-left: 490px;
-    margin-top: -120px;
-}
-
-.swiper-images .ticker.ticker_2 {
-    width: 1210px;
-    margin-left: -235px;
-    transform: rotate(-90deg);
-}
-
-.swiper-images .ticker.ticker_3 {
-    margin-right: 392px;
-    margin-top: -852px;
-}
-
-.swiper-images .ticker.ticker_1 img {
-    transform: rotate(-90deg);
-    width: 200px;
-    height: 400px;
-    margin: 0 110px;
-    border-radius: 20px;
-}
-
-.swiper-images .ticker.ticker_2 img {
-    transform: rotate(90deg);
-    width: 200px;
-    height: 400px;
-    margin: 0 110px;
-    border-radius: 20px;
-}
-
-.swiper-images .ticker.ticker_3 img {
-    transform: rotate(-90deg);
-    width: 200px;
-    height: 400px;
-    margin: 0 110px;
-    border-radius: 20px;
-}
-
-@keyframes ticker-kf {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-
-    100% {
-        transform: translate3d(-2088px, 0, 0);
-    }
+.vectary_phone {
+    grid-area: vectary_phone;
 }
 
 
@@ -743,42 +660,14 @@
     }
 }
 
-@media (min-width: 2500px) {
-    .swiper-images .ticker.ticker_2 {
-        margin-left: -80px;
-    }
-}
 
-@media (max-width: 1380px) {
-    .swiper-images .ticker.ticker_1 {
-        margin-left: 440px;
-    }
-    
-    .swiper-images .ticker.ticker_2 {
-        display: none;
-    }
-    
-    .swiper-images .ticker.ticker_3 {
-        margin-right: 0px;
-    }
-}
 
 @media (max-width: 1024px) {
-    .swiper-images .ticker.ticker_1 {
-        display: none;
-    }
-
-    .swiper-images .ticker.ticker_3 img {
-        width: 250px;
-        height: 450px;
-        margin: 0 114px;
-    }
-
     .header_main .ARphotoForm {
         margin-right: 40px;
     }
 
-    .competition .competition_wrapper .competition_info  {
+    /* .competition .competition_wrapper .competition_info  {
         padding: 50px 0 110px 50px;
     }
 
@@ -788,14 +677,14 @@
 
     .competition .competition_merch-img {
         width: 595px;
-    }
+    } */
 
     .form-wrapper .form-content .form_send {
         padding: 40px 0 40px 40px;
     }
 }
 
-@media (max-width: 960px) {
+/* @media (max-width: 960px) {
     .competition .competition_merch-img {
         width: 490px;
     }
@@ -805,7 +694,7 @@
     .competition .competition_merch-img {
         width: 420px;
     }
-}
+} */
 
 @media (max-width: 850px) {
     .form-wrapper .form-content {
@@ -843,7 +732,7 @@
         line-height: 21px;
     }
 
-    .competition .competition_wrapper {
+    /* .competition .competition_wrapper {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, 1fr);
         gap: 0;
@@ -872,7 +761,7 @@
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
-    }
+    } */
 
     .form-wrapper {
         padding: 15px;
@@ -885,7 +774,7 @@
     }
 } */
 
-@media (max-width: 560px) {
+/* @media (max-width: 560px) {
     .competition .competition_wrapper .competition_info  {
         padding: 30px 30px 5px 30px;
     }
@@ -894,7 +783,7 @@
         font-size: 4rem;
         line-height: 40px;
     }
-}
+} */
 
 @media (max-width: 440px) {
     .header_main .ARphotoForm {
