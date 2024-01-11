@@ -2,6 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Скрытие и закрытие popup, с учетом скролла в Safari
     function closePopup() {
+        if (window.innerWidth < 851) {
+            setTimeout(() => {
+                popupForm.style.visibility = 'hidden';
+            }, 450);
+        } else {
+            popupForm.style.visibility = 'hidden';
+        }
         popupForm.classList.remove('active');
         bodyOverflow.style.removeProperty("overflow");
         bodyOverflow.style.removeProperty("position");
@@ -12,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function openPopup() {
+        popupForm.style.visibility = 'visible';
         popupForm.classList.add('active');
         scrollPosition = window.scrollY;
         bodyOverflow.style.overflow = "hidden";
@@ -34,6 +42,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // popupButton.addEventListener('click', () => {
     //     openPopup();
     // });
+
+    // Открытие попапа после загрузки сайта и спустя 1 секунду
+    setTimeout(() => {
+        openPopup();
+    }, 2500);
 
     popupButtonHeader.addEventListener('click', () => {
         openPopup();
@@ -95,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     Array.prototype.forEach.call(inputs, function (input) {
         let label = input.nextElementSibling,
             fileCountBlock = document.querySelector('.contact-form_file_info'),
-            fileText = document.querySelector('.contact-form_file_text'),
+            fileCountText = document.querySelectorAll('.contact-form_file_info p'),
             counterFiles = document.querySelector('.counter_files'),
             previewPhotosContainer = document.querySelector('.preview_photos'),
             plusFileButton = document.querySelector('.contact-form__file-button');
@@ -105,13 +118,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 const remainingFiles = previewPhotosContainer.children.length;
                 counterFiles.innerText = remainingFiles;
                 if (remainingFiles > 0) {
-                    fileText.style.color = 'white';
-                    counterFiles.style.color = 'white';
+                    fileCountText.forEach((e) => {
+                        e.style.color = 'white';
+                        e.style.opacity = 0.5;
+                    });
                     fileCountBlock.style.visibility = 'visible';
                 } else if (remainingFiles == 0) {
-                    fileText.innerText = 'Загружено';
-                    fileText.style.color = 'white';
-                    counterFiles.style.color = 'white';
+                    fileCountText.forEach((e) => {
+                        e.style.color = 'white';
+                        e.style.opacity = 0.5;
+                    });
                 }
 
                 // Добавление или удаление класса в зависимости от количества файлов
@@ -162,15 +178,28 @@ document.addEventListener('DOMContentLoaded', function () {
                             const previewPhoto = document.createElement('div');
                             previewPhoto.classList.add('preview_photo');
 
-                            const previewImage = document.createElement('img');
+                            // const previewImage = document.createElement('img');
+                            const previewImage = document.createElement('div');
                             previewImage.classList.add('contact-form__input_preview');
+                            // previewImage.src = 'competition/loading.gif';
+                            previewImage.innerHTML = `
+                            <svg x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                                <path fill="#000" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
+                                <animateTransform attributeType="xml"
+                                    attributeName="transform"
+                                    type="rotate"
+                                    from="0 25 25"
+                                    to="360 25 25"
+                                    dur="0.9s"
+                                    repeatCount="indefinite"/>
+                                </path>
+                            </svg>
+                            `;
 
                             //* Превью формируется из blob ссылки на файл с Абсолютным путем
                             //! Этот URL предоставляет прямой доступ к данным в Blob-объекте. 
                             //! Данный подход не работает в Safari
                             // previewImage.src = URL.createObjectURL(file);
-                            // console.log(file);
-                            // console.log(previewImage.src);
 
                             //* Используем FileReader для чтения файла как Data URL
                             //! Этот метод использует Data URL, который кодирует данные файла в строку base64 и вставляет их в URL.
@@ -178,8 +207,13 @@ document.addEventListener('DOMContentLoaded', function () {
                             //* Использование FileReader с readAsDataURL более универсально и широко поддерживается в различных браузерах, включая Safari.
                             const reader = new FileReader();
                             reader.onload = function (e) {
-                                previewImage.src = e.target.result;
-                                console.log(previewImage.src);
+                                const newImage = document.createElement('img');
+                                newImage.classList.add('contact-form__input_preview');
+                                // Установите атрибут src для нового изображения
+                                newImage.src = e.target.result;
+                                // Замените previewImage новым изображением
+                                previewImage.parentNode.replaceChild(newImage, previewImage);
+                                // previewImage.src = e.target.result;
                             };
                             reader.readAsDataURL(file);
 
@@ -216,13 +250,13 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         // Дополнительная проверка перед отправкой формы
         const fileInput = document.getElementById("contact-form__input_file");
-        let fileTextError = document.querySelector('.contact-form_file_text');
-        let counterFilesError = document.querySelector('.counter_files');
+        let fileCountTextError = document.querySelectorAll('.contact-form_file_info p');
         if (fileInput.files.length === 0) {
             // Если нет выбранных файлов, вы можете предпринять необходимые действия, например, вывести сообщение об ошибке.
-            console.error("Выберите хотя бы один файл.");
-            fileTextError.style.color = 'red';
-            counterFilesError.style.color = 'red';
+            fileCountTextError.forEach((e) => {
+                e.style.color = 'red';
+                e.style.opacity = 1;
+            });
             return;
         }
     
@@ -249,6 +283,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const hidden_if_send = form.querySelector('.hidden_if_send');
         const visible_if_send = form.querySelector('.visible_if_send');
+
+        const visible_if_send_img = document.createElement('img');
+        visible_if_send_img.classList.add('visible_if_send_img');
+        const visible_if_send_text = document.createElement('p');
+        visible_if_send_text.classList.add('visible_if_send_text');
     
         try {
             const response = await fetch(actionUrl, {
@@ -264,7 +303,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Успешный ответ от сервера
                 console.log("Форма успешно отправлена!");
                 hidden_if_send.style.display = 'none';
-                visible_if_send.innerHTML = messages.send;
+                // visible_if_send.innerHTML = messages.send;
+                visible_if_send.appendChild(visible_if_send_img);
+                visible_if_send.appendChild(visible_if_send_text);
+                visible_if_send_img.src = 'competition/download.svg';
+                visible_if_send_text.innerHTML = messages.send;
                 visible_if_send.style.display = 'flex';
                 setTimeout(() => {
                     closePopup();

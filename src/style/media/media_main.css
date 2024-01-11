@@ -198,11 +198,6 @@
         justify-content: unset;
     }
 
-    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-title {
-        font-size: 2.4rem;
-        line-height: 30px;
-    }
-
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links .footer-menu-link,
     footer.footer_main .footer_main_grid-wrapper .footer-contacts-3 a[class^="contacts-"] p{
         font-size: 2.1rem;
@@ -1261,12 +1256,6 @@
 
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-links,
     footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .text_wrapper {
-        margin-left: 0;
-    }
-
-
-    footer.footer_main .footer_main_grid-wrapper .footer-menu-2 .footer-menu-title {
-        margin-bottom: 34px;
         margin-left: 0;
     }
 
