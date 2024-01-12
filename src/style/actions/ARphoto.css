@@ -401,6 +401,14 @@
   transition: all .8s ease;
 }
 
+.contact-form__file-button.no_file {
+    border-color: red;
+}
+
+.contact-form__file-button.no_file .close {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
 .contact-form__file-button.tooManyFiles {
     display: none;
   }
@@ -475,6 +483,11 @@
 .contact-form__input_preview svg path,
 .contact-form__input_preview svg rect {
     fill: #ffffff;
+}
+
+.contact-form__button_svg svg path,
+.contact-form__button_svg svg rect {
+    fill: #000000;
 }
 
 .contact-form__input_delete {
@@ -611,7 +624,8 @@
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
 }
 
-.contact-form__button .contact-form__button-img{
+.contact-form__button .contact-form__button-img,
+.contact-form__button_svg {
     margin-right: 8px;
 }
 

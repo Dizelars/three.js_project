@@ -102,16 +102,16 @@ document.addEventListener('DOMContentLoaded', function () {
     closeIcon.addEventListener('click', clearInput);
 
 
+    let fileCountBlock = document.querySelector('.contact-form_file_info'),
+        fileCountText = document.querySelectorAll('.contact-form_file_info p'),
+        counterFiles = document.querySelector('.counter_files'),
+        previewPhotosContainer = document.querySelector('.preview_photos'),
+        plusFileButton = document.querySelector('.contact-form__file-button');
 
     // Обработка поля files (удаление файлов + превью файлов)
     let inputs = document.querySelectorAll('.contact-form__input_file');
     Array.prototype.forEach.call(inputs, function (input) {
-        let label = input.nextElementSibling,
-            fileCountBlock = document.querySelector('.contact-form_file_info'),
-            fileCountText = document.querySelectorAll('.contact-form_file_info p'),
-            counterFiles = document.querySelector('.counter_files'),
-            previewPhotosContainer = document.querySelector('.preview_photos'),
-            plusFileButton = document.querySelector('.contact-form__file-button');
+        // let label = input.nextElementSibling,
 
         input.addEventListener('change', () => {
             const updateFileText = () => {
@@ -123,11 +123,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         e.style.opacity = 0.5;
                     });
                     fileCountBlock.style.visibility = 'visible';
+                    plusFileButton.classList.remove('no_file');
                 } else if (remainingFiles == 0) {
                     fileCountText.forEach((e) => {
                         e.style.color = 'white';
                         e.style.opacity = 0.5;
                     });
+                    fileCountBlock.style.visibility = 'hidden';
                 }
 
                 // Добавление или удаление класса в зависимости от количества файлов
@@ -250,13 +252,14 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         // Дополнительная проверка перед отправкой формы
         const fileInput = document.getElementById("contact-form__input_file");
-        let fileCountTextError = document.querySelectorAll('.contact-form_file_info p');
+        // let fileCountTextError = document.querySelectorAll('.contact-form_file_info p');
         if (fileInput.files.length === 0) {
             // Если нет выбранных файлов, вы можете предпринять необходимые действия, например, вывести сообщение об ошибке.
-            fileCountTextError.forEach((e) => {
+            fileCountText.forEach((e) => {
                 e.style.color = 'red';
                 e.style.opacity = 1;
             });
+            plusFileButton.classList.add('no_file');
             return;
         }
     
@@ -274,16 +277,59 @@ document.addEventListener('DOMContentLoaded', function () {
         const form = this;
         const actionUrl = form.getAttribute("action");
 
-
         // Ошибки и статусы (оповещения)
         const messages = {
+            sendStart: 'Отправка',
             send: 'Данные успешно отправлены',
             sendWithError: 'Ошибка отправки данных'
         }
 
+        // Элемент для показа что форма начала отправляться
+        const sendInProgressButton = document.querySelector('.contact-form__button');
+        const sendInProgressImg = sendInProgressButton.querySelector('.contact-form__button-img');
+        const sendInProgressText = sendInProgressButton.querySelector('.contact-form__button p');
+        const newSendSvg = document.createElement('div');
+        newSendSvg.classList.add('contact-form__button_svg');
+
+        sendInProgressImg.remove();
+        // Используем insertBefore вместо appendChild, чтобы элемент поставился в конце родительского блока.
+        sendInProgressButton.insertBefore(newSendSvg, sendInProgressText);
+        newSendSvg.innerHTML = `
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                <rect x="0" y="13" width="4" height="5" fill="#333">
+                    <animate attributeName="height" attributeType="XML"
+                    values="5;21;5" 
+                    begin="0s" dur="0.9s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML"
+                    values="13; 5; 13"
+                    begin="0s" dur="0.9s" repeatCount="indefinite" />
+                </rect>
+                <rect x="10" y="13" width="4" height="5" fill="#333">
+                    <animate attributeName="height" attributeType="XML"
+                    values="5;21;5" 
+                    begin="0.15s" dur="0.9s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML"
+                    values="13; 5; 13"
+                    begin="0.15s" dur="0.9s" repeatCount="indefinite" />
+                </rect>
+                <rect x="20" y="13" width="4" height="5" fill="#333">
+                    <animate attributeName="height" attributeType="XML"
+                    values="5;21;5" 
+                    begin="0.3s" dur="0.9s" repeatCount="indefinite" />
+                    <animate attributeName="y" attributeType="XML"
+                    values="13; 5; 13"
+                    begin="0.3s" dur="0.9s" repeatCount="indefinite" />
+                </rect>
+            </svg>
+        `;
+        sendInProgressText.innerHTML = messages.sendStart;
+
+        // Блоки скрытия и показа статуса отправки формы
         const hidden_if_send = form.querySelector('.hidden_if_send');
         const visible_if_send = form.querySelector('.visible_if_send');
 
+        // Сщздание элементов показывающих статус
         const visible_if_send_img = document.createElement('img');
         visible_if_send_img.classList.add('visible_if_send_img');
         const visible_if_send_text = document.createElement('p');
@@ -298,6 +344,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Дополнительные заголовки, если необходимо
                 }
             });
+
+            // console.log(response);
             
             if (response.ok) {
                 // Успешный ответ от сервера
