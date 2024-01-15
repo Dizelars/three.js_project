@@ -313,12 +313,26 @@
     margin-bottom: 40px;
 }
 
+.contact-form__text .contact-form__text-list {
+    list-style: auto;
+    list-style-position: outside;
+    margin: 5px 0 10px 18px;
+}
+
+.contact-form__text .contact-form__text-list .contact-form__text-item:not(:last-child) {
+    margin-bottom: 4px;
+}
+
 .random-link {
     font-family: 'MoscowSans', sans-serif;
     font-size: 1.6rem;
     line-height: 24px;
     width: 100%;
-    color: #ffffff;
+    color: #62A744;
+}
+
+.random-link:hover {
+    text-decoration: none;
 }
 
 
