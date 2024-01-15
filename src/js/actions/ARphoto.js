@@ -1,5 +1,29 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Функция для установки куки
+function setCookie(cookieName, cookieValue, expirationDays) {
+    const date = new Date();
+    date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+}
 
+// Функция для получения значения куки по имени
+function getCookie(cookieName) {
+    const name = cookieName + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for(let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i];
+        while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf(name) === 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+    return "";
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     // Скрытие и закрытие popup, с учетом скролла в Safari
     function closePopup() {
         if (window.innerWidth < 851) {
@@ -28,6 +52,53 @@ document.addEventListener('DOMContentLoaded', function () {
         bodyOverflow.style.width = "100%";
     }
 
+    // Рандомная ссылка при загрузке страницы
+    const modelPage = [
+        'amarok.html',
+        'bus.html',
+        'ford.html',
+        'kater.html',
+        'moskvich.html',
+        'solaris.html',
+        'velo.html',
+    ];
+    const randomLink = document.querySelector('.random-link');
+    // Выбираем случайную ссылку из массива
+    const randomPage = modelPage[Math.floor(Math.random() * modelPage.length)];
+    randomLink.href = randomPage;
+
+
+    // Проверка, был ли пользователь на сайте ранее
+    function checkVisited() {
+        const visited = getCookie("visited");
+        if (visited === "") {
+            // Пользователь на сайте впервые
+            setCookie("visited", "true", 365); // Установка куки на год
+            // Здесь можно добавить код для показа элемента
+            console.log("Пользователь на сайте впервые");
+            // Открытие попапа после загрузки сайта
+            setTimeout(() => {
+                openPopup();
+            }, 2500);
+        } else {
+            // Пользователь уже посещал сайт
+            // Здесь можно добавить код для скрытия элемента
+            console.log("Пользователь уже посещал сайт");
+        }
+    }
+    checkVisited();
+
+
+    // Временная заглушка модели телефона vectary
+    const vectaryLoad = document.querySelector('.vectary_phone-load');
+    const vectaryIframe = document.querySelector('.vectary_phone iframe');
+
+    setTimeout(() => {
+        vectaryLoad.style.display = 'none';
+        vectaryIframe.style.visibility = 'visible';
+    }, 8000);
+
+
     const contactForm = document.getElementById('form-contact');
     // const popupButton = document.querySelector('.form_open_button');
     const popupButtonHeader = document.querySelector('.header_main .ARphotoForm');
@@ -38,15 +109,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Массив для хранения уникальных идентификаторов файлов
     let uniqueFileIds = [];
-
-    // popupButton.addEventListener('click', () => {
-    //     openPopup();
-    // });
-
-    // Открытие попапа после загрузки сайта и спустя 1 секунду
-    setTimeout(() => {
-        openPopup();
-    }, 2500);
 
     popupButtonHeader.addEventListener('click', () => {
         openPopup();
@@ -252,7 +314,6 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         // Дополнительная проверка перед отправкой формы
         const fileInput = document.getElementById("contact-form__input_file");
-        // let fileCountTextError = document.querySelectorAll('.contact-form_file_info p');
         if (fileInput.files.length === 0) {
             // Если нет выбранных файлов, вы можете предпринять необходимые действия, например, вывести сообщение об ошибке.
             fileCountText.forEach((e) => {
@@ -378,22 +439,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-
     function resetForm() {
         contactForm.reset();
         clearInput();
         uniqueFileIds = [];
     
-        const previewPhotosContainer = document.querySelector('.preview_photos');
         const fileTextReset = document.querySelector('.contact-form_file_text');
-        const addFiles = document.querySelector('.contact-form__file-button');
 
-        if (addFiles.classList.contains('tooManyFiles')) {
-            addFiles.classList.remove('tooManyFiles');
+        if (plusFileButton.classList.contains('tooManyFiles')) {
+            plusFileButton.classList.remove('tooManyFiles');
         }
 
         previewPhotosContainer.innerHTML = '';
-        fileTextReset.innerText = 'Загружено';
+        fileCountBlock.style.visibility = 'hidden';
         fileTextReset.style.color = 'white';
+        // console.log(remainingFiles);
     }
 });

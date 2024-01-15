@@ -252,8 +252,32 @@
 }
 
 .vectary_phone {
+    position: relative;
     grid-area: vectary_phone;
 }
+
+.vectary_phone iframe {
+    visibility: hidden;
+}
+
+.vectary_phone .vectary_phone-load {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 60px 60px 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vectary_phone .vectary_phone-load .phone-load {
+    height: 100%;
+}
+
 
 
 
@@ -287,6 +311,14 @@
     width: 100%;
     color: #ffffff;
     margin-bottom: 40px;
+}
+
+.random-link {
+    font-family: 'MoscowSans', sans-serif;
+    font-size: 1.6rem;
+    line-height: 24px;
+    width: 100%;
+    color: #ffffff;
 }
 
 
@@ -753,6 +785,10 @@
 
     .form-wrapper .form-content .form_send {
         padding: 40px 0 40px 40px;
+    }
+
+    .vectary_phone .vectary_phone-load {
+        padding: 40px 40px 40px 0;
     }
 }
 
