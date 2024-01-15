@@ -1,6 +1,6 @@
 import { isAutoplayVideoScreenSize, isElementInViewport, observeElementVisibility } from "../utils";
-import '../js/URLCheck.js';
-import { isInnovation } from './URLCheck';
+// import '../js/URLCheck.js';
+// import { isInnovation } from './URLCheck';
 
 // Примечания по видео на стартовой странице:
 // Webpack импортирует пути до видео Абсолютными, что мешает открытию ролика в современных версиях iOS
@@ -186,7 +186,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // console.log(isInnovation);
     // ПОЯВЛЕНИЕ видео превью при наведении на список меню. (на десктопе)
-    if(window.innerWidth > 1200 && !isInnovation) {
+    // && !isInnovation
+    if(window.innerWidth > 1200) {
         // Получаем все элементы списка
         const menuItems = document.querySelectorAll('.menu_navigation-item');
 
@@ -226,7 +227,8 @@ document.addEventListener("DOMContentLoaded", function() {
     // ВИДЕО при ховере на карточку .garage_model_card
     const modelCards = document.querySelectorAll('.garage_model_card');
     // isAutoplayVideoScreenSize()
-    if (isAutoplayVideoScreenSize() || isInnovation) {
+    //|| isInnovation
+    if (isAutoplayVideoScreenSize()) {
         setInterval(() => {
             modelCards.forEach(card => {
                 let modelCardVideo = card.querySelector('.slid_img .menu_preview-video');
@@ -439,10 +441,10 @@ document.addEventListener("DOMContentLoaded", function() {
     handleScroll();
 
     // ссылка в футере отключена при URL-параметре
-    const urlLinksKill = document.querySelectorAll('.menu-media .media-wrapper, .footer-contacts-3 .contacts-2, .footer-contacts-3 .contacts-3, .footer-media-4 .media-wrapper, .secure_transportation');
-    if (isInnovation) {
-        urlLinksKill.forEach((link) => {
-            link.style.pointerEvents = 'none';
-        });
-    }
+    // const urlLinksKill = document.querySelectorAll('.menu-media .media-wrapper, .footer-contacts-3 .contacts-2, .footer-contacts-3 .contacts-3, .footer-media-4 .media-wrapper, .secure_transportation');
+    // if (isInnovation) {
+    //     urlLinksKill.forEach((link) => {
+    //         link.style.pointerEvents = 'none';
+    //     });
+    // }
 });

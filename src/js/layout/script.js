@@ -1,6 +1,6 @@
 // import {GallerySwitchHook} from "../../helpers/gallerySwitchHook";
-import '../URLCheck.js';
-import { isInnovation } from '../URLCheck';
+// import '../URLCheck.js';
+// import { isInnovation } from '../URLCheck';
 import {InteriorTransitionHelper} from "../../helpers/interiorTransitionHelper";
 
 const techSection = document.querySelector('.tech_spec');
@@ -235,19 +235,19 @@ document.addEventListener('DOMContentLoaded', function () {
             770: { slidesPerView: 3 },
             1024: { slidesPerView: 4 },
             1200: { slidesPerView: 4,
-                    // freeMode: true,
-                    freeMode: function () {
-                            // if (window.innerWidth > 1200 && isInnovation) {
-                            //     return true;
-                            // } else if(window.innerWidth > 1200 && !isInnovation) {
-                            //     return false;
-                            // }
-                            if (isInnovation) {
-                                return true;
-                            } else if(!isInnovation) {
-                                return false;
-                            }
-                        },
+                    freeMode: true,
+                    // freeMode: function () {
+                    //         // if (window.innerWidth > 1200 && isInnovation) {
+                    //         //     return true;
+                    //         // } else if(window.innerWidth > 1200 && !isInnovation) {
+                    //         //     return false;
+                    //         // }
+                    //         if (isInnovation) {
+                    //             return true;
+                    //         } else if(!isInnovation) {
+                    //             return false;
+                    //         }
+                    //     },
                 },
         },
     });

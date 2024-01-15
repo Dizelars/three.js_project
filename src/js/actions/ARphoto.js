@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setTimeout(() => {
         vectaryLoad.style.display = 'none';
         vectaryIframe.style.visibility = 'visible';
-    }, 8000);
+    }, 15000);
 
 
     const contactForm = document.getElementById('form-contact');

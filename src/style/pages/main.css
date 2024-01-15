@@ -42,7 +42,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
 
-.BackToInnovation {
+/* .BackToInnovation {
     display: none;
     justify-content: center;
     align-items: center;
@@ -67,7 +67,7 @@ body::-webkit-scrollbar-thumb {
     font-family: 'MoscowSans', sans-serif;
     font-size: 16px;
     font-weight: 300;
-}
+} */
 
 main.gradient_move {
     margin-top: -80px;
