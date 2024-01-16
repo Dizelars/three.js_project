@@ -958,8 +958,57 @@
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 380px) {
     .header_main .ARphotoForm {
         margin-right: 10px;
+    }
+
+    .form-wrapper .form_close {
+        padding: 8px;
+    }
+}
+
+@media (max-height: 730px) {
+    .contact-form__text,
+    .contact-form__button {
+        margin-bottom: 28px;
+    }
+
+    .contact-form__input-wrapper.file {
+        margin: 18px 0;
+    }
+
+    .contact-form__privacy-text {
+        line-height: 18px;
+    }
+}
+
+@media (max-height: 432px) and (orientation: landscape) {
+	.form-wrapper .form-content {
+		max-height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+    .form-wrapper .form-content:before {
+        width: 650px;
+        height: 650px;
+        bottom: -248px;
+        left: 10%;
+    }
+}
+
+@media (max-height: 730px) and (orientation: portrait) {
+	.form-wrapper .form-content {
+		max-height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+    .form-wrapper .form-content:before {
+        width: 650px;
+        height: 650px;
+        bottom: 0;
+        left: 0;
     }
 }
