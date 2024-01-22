@@ -696,7 +696,8 @@ section.traffic_patrol .traffic_patrol_grid-wrapper {
         "traffic_patrol-1 traffic_patrol-1 traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
-        ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
+        /* ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8" */
+        "traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER";
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-1 {
@@ -720,6 +721,56 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
     grid-area: traffic_patrol-slide-6;
     overflow: hidden;
 }
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz {
+    grid-area: traffic_patrol-slide-kamaz;
+    position: relative;
+    display: none;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_NOSLIDER {
+    grid-area: traffic_patrol-slide-kamaz_NOSLIDER;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "model_1 model_2 model_3";
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_NOSLIDER .model_1 {
+    grid-area: model_1;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_NOSLIDER .model_2 {
+    grid-area: model_2;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_NOSLIDER .model_3 {
+    grid-area: model_3;
+}
+
+/* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons {
+    position: absolute;
+    top: -60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_prev,
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_next {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_next {
+    transform: rotate(180deg);
+} */
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER {
     grid-area: traffic_patrol-new_NOSLIDER;
@@ -747,10 +798,12 @@ section.traffic_patrol .traffic_patrol-slide-6 .swiper-pagination {
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7 {
     grid-area: traffic_patrol-no-slide-7;
+    display: none;
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
     grid-area: traffic_patrol-no-slide-8;
+    display: none;
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-mobile-1 {

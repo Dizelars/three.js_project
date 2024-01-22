@@ -290,6 +290,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Swiper slider
+    const swiperKamaz = new Swiper('.swiperKamaz', {
+        // loop: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
+
+        // pagination: {
+        //     el: '.swiper-pagination',
+        //     clickable: true,
+        // },
+
+        navigation: {
+            nextEl: '.btn_next',
+            prevEl: '.btn_prev',
+        },
+
+        breakpoints: {
+            441: { // when window width is >= 440px
+                slidesPerView: "auto",
+                spaceBetween: 20,
+            },
+            770: { // when window width is >= 768px
+                slidesPerView: "auto",
+                spaceBetween: 20,
+            },
+        }
+    });
+
     const swiper = new Swiper('.swiper', {
         // loop: true,
         slidesPerView: 1,

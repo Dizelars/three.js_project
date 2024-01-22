@@ -34,6 +34,8 @@ module.exports = {
         'velo-style': './src/style/style.css',
         moskvich: './src/js/pages/oneScriptVectary.js',
         'moskvich-style': './src/style/style.css',
+        kamaz: './src/js/pages/oneScriptVectary.js',
+        'kamaz-style': './src/style/style.css',
         // test: './src/js/test.js',
         // 'test-style': './src/style/test.css',
         // amarok_t3: './src/js/three/my_three.js',
@@ -140,6 +142,19 @@ module.exports = {
             template: path.resolve(__dirname, 'src/pages', 'moskvich.html'),
             filename: 'moskvich.html',
             chunks: ['moskvich', 'moskvich-style'],
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true,
+                useShortDoctype: true,
+            },
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, 'src/pages', 'kamaz.html'),
+            filename: 'kamaz.html',
+            chunks: ['kamaz', 'kamaz-style'],
             minify: {
                 collapseWhitespace: true,
                 removeComments: true,

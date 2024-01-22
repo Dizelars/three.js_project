@@ -21,7 +21,12 @@
     }
 
     .parentCardForLargeMonitor {
-        height: fit-content;
+        height: fit-content !important;
+    }
+
+    section.traffic_patrol .traffic_patrol-slide-kamaz .garage_model_card {
+        max-width: 768px;
+        width: 100%;
     }
 
     /*Размеры карточек*/
@@ -107,7 +112,8 @@
         "traffic_patrol-1 . traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
-        ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
+        /* ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8" */
+        "traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz";
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER {
@@ -116,7 +122,8 @@
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
-        display: block;
+        /* display: block; */
+        display: none;
     }
 
     .title,
@@ -499,7 +506,8 @@
         ". traffic_patrol-text-2 traffic_patrol-text-2 traffic_patrol-text-2"
         "traffic_patrol-text-4 traffic_patrol-text-4 traffic_patrol-text-5 traffic_patrol-text-5"
         ". . . ."
-        "traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8";
+        /* "traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8" */
+        "traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz";
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6,
@@ -510,7 +518,8 @@
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-7,
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-no-slide-8 {
-        display: block;
+        /* display: block; */
+        display: none;
     }
 
     .title, section.traffic_patrol .traffic_patrol-title {
@@ -998,7 +1007,8 @@
         grid-template-areas:
         "traffic_patrol-1 traffic_patrol-text-2"
         "traffic_patrol-text-4 traffic_patrol-text-5"
-        "traffic_patrol-no-slide-7 traffic_patrol-no-slide-8";
+        /* "traffic_patrol-no-slide-7 traffic_patrol-no-slide-8" */
+        "traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz";
     }
 
     section.traffic_patrol .traffic_patrol-title {
@@ -1714,7 +1724,8 @@
         grid-template-areas:
         "traffic_patrol-1"
         "traffic_patrol-text-mobile-1"
-        "traffic_patrol-slide-6"
+        /* "traffic_patrol-slide-6" */
+        "traffic_patrol-slide-kamaz"
         "traffic_patrol-text-5";
     }
 
@@ -1739,6 +1750,8 @@
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-6 {
         height: 374px;
         max-height: none;
+
+        display: none;
     }
 
     section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol_slider-wrapper {
