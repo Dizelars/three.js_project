@@ -969,8 +969,7 @@
 }
 
 @media (max-height: 730px) {
-    .contact-form__text,
-    .contact-form__button {
+    .contact-form__text {
         margin-bottom: 28px;
     }
 
@@ -980,6 +979,10 @@
 
     .contact-form__privacy-text {
         line-height: 18px;
+    }
+
+    .contact-form__button {
+        margin-top: 28px;
     }
 }
 
