@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'moskvich.html',
         'solaris.html',
         'velo.html',
+        'kamaz.html',
     ];
     const randomLink = document.querySelector('.random-link');
     // Выбираем случайную ссылку из массива

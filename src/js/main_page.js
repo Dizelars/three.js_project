@@ -290,60 +290,64 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     // Swiper slider
-    const swiperKamaz = new Swiper('.swiperKamaz', {
-        // loop: true,
-        slidesPerView: 1,
-        spaceBetween: 0,
-
-        // pagination: {
-        //     el: '.swiper-pagination',
-        //     clickable: true,
-        // },
-
-        navigation: {
-            nextEl: '.btn_next',
-            prevEl: '.btn_prev',
-        },
-
-        breakpoints: {
-            441: { // when window width is >= 440px
-                slidesPerView: "auto",
-                spaceBetween: 20,
-            },
-            770: { // when window width is >= 768px
-                slidesPerView: "auto",
-                spaceBetween: 20,
-            },
-        }
-    });
-
-    const swiper = new Swiper('.swiper', {
-        // loop: true,
+    const swiper1 = new Swiper('.swiper1', {
         slidesPerView: 1,
         spaceBetween: 0,
 
         pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
+            el: '.swiper-pagination1',
+            clickable: true
         },
 
         navigation: {
             nextEl: '.btn_next',
-            prevEl: '.btn_prev',
+            prevEl: '.btn_prev'
         },
 
         breakpoints: {
-            441: { // when window width is >= 440px
-                slidesPerView: "auto",
-                spaceBetween: 24,
-            },
-            770: { // when window width is >= 768px
-                slidesPerView: "auto",
-            },
+            440: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            }
         }
     });
+
+    // const swipertest = new Swiper('.swipertest', {
+    //     slidesPerView: 1,
+    //     spaceBetween: 0,
+
+    //     pagination: {
+    //         el: '.swiper-paginationtest',
+    //         clickable: true,
+    //     },
+    // });
+
+    // const swiper = new Swiper('.swiper', {
+    //     slidesPerView: 1,
+    //     spaceBetween: 0,
+
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true,
+    //     },
+
+    //     navigation: {
+    //         nextEl: '.btn_next',
+    //         prevEl: '.btn_prev',
+    //     },
+
+    //     breakpoints: {
+    //         441: { // when window width is >= 440px
+    //             slidesPerView: "auto",
+    //             spaceBetween: 24,
+    //         },
+    //         770: { // when window width is >= 768px
+    //             slidesPerView: "auto",
+    //         },
+    //     }
+    // });
+    
     const swiper2 = new Swiper('.swiper2', {
-        // loop: true,
         slidesPerView: "auto",
         spaceBetween: 20,
 
@@ -352,8 +356,8 @@ document.addEventListener("DOMContentLoaded", function() {
             clickable: true,
         },
     });
+
     const swiper3 = new Swiper('.swiper3', {
-        // loop: true,
         slidesPerView: 1,
         spaceBetween: 0,
 

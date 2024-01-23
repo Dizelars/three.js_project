@@ -163,6 +163,7 @@ const idToClassMap = {
     'bus': 'garage_bus',
     'kater': 'garage_kater',
     'moskvich': 'garage_moskvich',
+    // 'kamaz': 'garage_kamaz',
 };
 
 interior.addEventListener('click', () => {
