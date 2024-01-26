@@ -716,13 +716,13 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-text-5 {
     grid-area: traffic_patrol-text-5;
 }
 
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid {
+/* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid {
     grid-area: InGrid;
     display: none;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-}
+} */
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz {
     grid-area: traffic_patrol-slide-kamaz;
@@ -756,24 +756,27 @@ section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons {
     position: absolute;
     top: -60px;
-    display: flex;
+    right: 0;
+    display: none;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
 }
 
 section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_prev,
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_next,
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid .btn_prev,
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid .btn_next {
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_next
+/* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid .btn_prev,
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid .btn_next  */
+{
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_next,
-section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid .btn_next {
+section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons .btn_next
+/* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid .btn_next  */
+{
     transform: rotate(180deg);
 }
 
