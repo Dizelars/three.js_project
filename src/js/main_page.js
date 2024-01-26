@@ -311,41 +311,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-
-    // const swipertest = new Swiper('.swipertest', {
-    //     slidesPerView: 1,
-    //     spaceBetween: 0,
-
-    //     pagination: {
-    //         el: '.swiper-paginationtest',
-    //         clickable: true,
-    //     },
-    // });
-
-    // const swiper = new Swiper('.swiper', {
-    //     slidesPerView: 1,
-    //     spaceBetween: 0,
-
-    //     pagination: {
-    //         el: '.swiper-pagination',
-    //         clickable: true,
-    //     },
-
-    //     navigation: {
-    //         nextEl: '.btn_next',
-    //         prevEl: '.btn_prev',
-    //     },
-
-    //     breakpoints: {
-    //         441: { // when window width is >= 440px
-    //             slidesPerView: "auto",
-    //             spaceBetween: 24,
-    //         },
-    //         770: { // when window width is >= 768px
-    //             slidesPerView: "auto",
-    //         },
-    //     }
-    // });
     
     const swiper2 = new Swiper('.swiper2', {
         slidesPerView: "auto",
