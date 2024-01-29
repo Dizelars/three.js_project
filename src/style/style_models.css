@@ -778,8 +778,7 @@ a-scene {
 }
 
 .tech_spec__interior#kamaz .tech_spec__interior-wrapper {
-    /* background: url("../img/layout/interior_prew/kamaz_prew.png") no-repeat center/cover; */
-    background: url("../img/layout/pages/main/slider/kamaz.png") no-repeat center/cover;
+    background: url("../img/layout/interior_prew/kamaz_prew.png") no-repeat center/cover;
 }
 
 .tech_spec__interior#kamaz.garage_kamaz .tech_spec__interior-wrapper {
