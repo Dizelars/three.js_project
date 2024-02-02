@@ -12,46 +12,6 @@
     background: linear-gradient(97deg, #63CB47 2.56%, #408B2A 86.88%);
 }
 
-/* .header_main .ARphotoForm:hover,
-.header_main .ARphotoForm:focus {
-    background-color: rgba(255, 255, 255, 0.10);
-}
-
-.header_main .ARphotoForm img.corner {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 0;
-    left: 0;
-}
-
-.header_main .ARphotoForm img.corner-2 {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 0;
-    right: 0;
-    transform: rotate(90deg);
-}
-
-.header_main .ARphotoForm img.corner-3 {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    bottom: 0;
-    left: 0;
-    transform: rotate(270deg);
-}
-
-.header_main .ARphotoForm img.corner-4 {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    bottom: 0;
-    right: 0;
-    transform: rotate(180deg);
-} */
-
 .header_main .ARphotoForm .ARphotoForm_img {
     margin-right: 4px;
 }
@@ -63,8 +23,6 @@
     font-weight: 400;
     line-height: 24px;
 }
-
-
 
 
 /* .competition {
@@ -243,8 +201,6 @@
     grid-area: form_send;
     padding: 60px 0 60px 60px;
     height: fit-content;
-    /* height: 700px; */
-    /* width: max-content; */
 }
 
 .vectary_phone {
@@ -277,16 +233,9 @@
 
 
 
-
-
-
-
-
-
 .contact-form {
     width: 100%;
     height: 100%;
-    /* max-width: 400px; */
     max-width: 450px;
     position: relative;
 }
@@ -465,48 +414,6 @@
     display: flex;
   }
 
-/* .contact-form__file-button.tooManyFiles {
-  pointer-events: none;
-}
-
-.contact-form__file-button.tooManyFiles .close {
-  transform: rotate(45deg);
-} */
-
-/* .contact-form__file-button .close:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  bottom: 0;
-  right: 0;
-  left: 50%;
-  width: 34px;
-  height: 1px;
-  background: #ffffff;
-}
-
-.contact-form__file-button .close:after {
-  content: "";
-  position: absolute;
-  top: 76%;
-  bottom: 0;
-  right: 0;
-  left: 22%;
-  width: 34px;
-  height: 1px;
-  background: #ffffff;
-}
-
-.contact-form__file-button .close:before {
-  webkit-transform: rotate(0deg) translate(-50%, -50%);
-  transform: rotate(0deg) translate(-50%, -50%);
-}
-
-.contact-form__file-button .close:after {
-  webkit-transform: rotate(90deg) translate(-50%, -50%);
-  transform: rotate(90deg) translate(-50%, -50%);
-} */
-
 .preview_photo {
     position: relative;
     width: 60px;
@@ -572,10 +479,6 @@
     opacity: 0.5;
 }
 
-/* .contact-form_file_info .contact-form_file_count {
-    visibility: hidden;
-} */
-
 .contact-form__privacy {
     position: relative;
     display: flex;
@@ -598,14 +501,6 @@
 .contact-form__privacy-text a:hover {
     text-decoration: none;
 }
-
-/* .real-checkbox {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-} */
 
 .real-checkbox {
     position: absolute;
@@ -641,15 +536,7 @@
     transform: translate(-50%, -50%) scale(1);
 }
 
-/* .real-checkbox:focus + .custom-checkbox {
-      transition: 0.3s;
-      border: 1px solid rgba(255, 241, 198, 0.2);
-    } */
-
 .contact-form__button {
-    /* position: absolute;
-    bottom: 0;
-    left: 0; */
     background: #ffffff;
     padding: 16px 24px;
     display: flex;
@@ -783,10 +670,6 @@
 }
 
 @media (max-width: 1024px) {
-    /* .header_main .ARphotoForm {
-        margin-right: 40px;
-    } */
-
     /* .competition .competition_wrapper .competition_info  {
         padding: 50px 0 110px 50px;
     }
@@ -826,7 +709,6 @@
     }
 
     .form-wrapper .form-content {
-        /* visibility: hidden; */
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas:
@@ -837,7 +719,6 @@
     }
 
     .form-wrapper.active .form-content {
-        /* visibility: visible; */
         transform: translateY(0);
     }
 
@@ -869,7 +750,6 @@
     }
 
     .contact-form__button {
-        /* position: static; */
         margin-top: 50px;
     }
 
@@ -903,17 +783,7 @@
         transform: translateX(-50%);
         width: 100%;
     } */
-
-    /* .form-wrapper {
-        padding: 15px;
-    } */
 }
-
-/* @media (max-width: 640px) {
-    .contact-form__button {
-        margin-top: 134px;
-    }
-} */
 
 /* @media (max-width: 560px) {
     .competition .competition_wrapper .competition_info  {
@@ -952,8 +822,6 @@
     }
 
     .contact-form__button {
-        /* position: static;
-        margin-top: 50px; */
         width: 100%;
     }
 }
@@ -986,21 +854,6 @@
     }
 }
 
-@media (max-height: 432px) and (orientation: landscape) {
-	.form-wrapper .form-content {
-		max-height: 100vh;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-
-    .form-wrapper .form-content:before {
-        width: 650px;
-        height: 650px;
-        bottom: -248px;
-        left: 10%;
-    }
-}
-
 @media (max-height: 730px) and (orientation: portrait) {
 	.form-wrapper .form-content {
 		max-height: 100vh;
@@ -1013,5 +866,87 @@
         height: 650px;
         bottom: 0;
         left: 0;
+    }
+}
+
+@media (max-height: 680px) and (orientation: portrait) {
+    .form-wrapper .form-content .form_send {
+        padding: 30px 20px;
+    }
+    
+    .contact-form__title {
+        font-size: 3rem;
+        line-height: 30px;
+        margin-bottom: 18px;
+    }
+    
+    .contact-form__text {
+        margin-bottom: 18px;
+    }
+    
+    .contact-form__input-wrapper.file {
+        margin: 18px 0;
+    }
+    
+    .contact-form__privacy-text {
+        line-height: 15px;
+    }
+    
+    .contact-form__button {
+        margin-top: 18px;
+    }
+}
+
+@media (max-height: 570px) and (orientation: portrait) {
+    .form-wrapper .form-content {
+        border-radius: 0;
+    }
+    
+    .form-wrapper .form_close {
+        padding: 6px;
+        top: 30px;
+        right: 10px;
+    }
+    
+    .form-wrapper .form-content .form_send {
+        padding: 40px 10px 30px 10px;
+    }
+    
+    .contact-form__title {
+        font-size: 2.8rem;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+    
+    .contact-form__text {
+        margin-bottom: 12px;
+    }
+    
+    .contact-form__input-wrapper.file {
+        margin: 12px 0;
+    }
+    
+    .contact-form__privacy-text {
+        font-size: 1.2rem;
+        line-height: 13px;
+    }
+    
+    .contact-form__button {
+        margin-top: 16px;
+    }
+}
+
+@media (max-height: 432px) and (orientation: landscape) {
+	.form-wrapper .form-content {
+		max-height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+    .form-wrapper .form-content:before {
+        width: 650px;
+        height: 650px;
+        bottom: -248px;
+        left: 10%;
     }
 }
