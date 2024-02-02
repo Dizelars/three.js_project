@@ -125,38 +125,6 @@ document.addEventListener("DOMContentLoaded", function() {
         removeHoveredClass();
     }
 
-
-
-
-    // Размер видео в карточках такой же как размер картинок.
-    // Получаем элементы изображения и видео
-    // const cardMediaWrapper = document.querySelectorAll('.garage_model_card .slid_img');
-    //
-    // cardMediaWrapper.forEach((e) => {
-    //     let img = e.querySelector('.menu_preview-img');
-    //     let video = e.querySelector('.menu_preview-video');
-    //
-    //     // Проверяем, загружено ли изображение
-    //     if (img.complete && img.naturalWidth > 0) {
-    //         setTimeout(() => {
-    //             applyChanges();
-    //         }, 500);
-    //     } else {
-    //         // Слушаем событие загрузки изображения
-    //         img.addEventListener('load', applyChanges);
-    //     }
-    //
-    //     function applyChanges() {
-    //         // Устанавливаем максимальную ширину и высоту видео с точностью до сотых
-    //         video.style.maxWidth = `${img.offsetWidth}px`;
-    //         video.style.maxHeight = `${img.offsetHeight}px`;
-    //
-    //         // Убираем обработчик события, чтобы избежать многократного вызова
-    //         img.removeEventListener('load', applyChanges);
-    //     }
-    // });
-
-
     // Измененная функция обработчика события для ссылок
     function handleLinkCloseMenu(event) {
         event.preventDefault();

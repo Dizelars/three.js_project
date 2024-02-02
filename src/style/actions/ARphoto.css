@@ -24,92 +24,6 @@
     line-height: 24px;
 }
 
-
-/* .competition {
-    padding: 120px 0 0 0;
-}
-
-.competition .competition_wrapper {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr;
-    gap: 0;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "competition_info competition_media";
-    border-radius: 60px;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(6px);
-    width: 100%;
-}
-
-.competition .competition_wrapper .competition_info {
-    grid-area: competition_info;
-    padding: 60px 0 150px 60px;
-}
-
-.competition .competition_wrapper .competition_media { 
-	grid-area: competition_media; 
-}
-
-.competition .competition_merch-img {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-}
-
-.competition .competition_info .competition_title,
-.competition .competition_info .competition_descr {
-    max-width: 645px;
-}
-
-.competition .competition_info .competition_title {
-    color: #FFF;
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 5.6rem;
-    font-weight: 700;
-    line-height: 56px;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-}
-
-.competition .competition_info .competition_descr {
-    color: #FFF;
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 30px;
-    margin-bottom: 60px;
-}
-
-.competition .form_open_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
-    padding: 24px;
-    border-radius: 35px;
-    background: #FFF;
-	cursor: pointer;
-    text-align: center;
-}
-
-.competition .form_open_button .form_open_img {
-    margin-right: 8px;
-}
-
-.competition .form_open_button .form_open_btn {
-    font-family: 'MoscowSans', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 22px;
-    color: #333;
-    text-decoration: none;
-} */
-
-
 .form-wrapper {
     display: flex;
     visibility: hidden;
@@ -229,9 +143,6 @@
 .vectary_phone .vectary_phone-load .phone-load {
     height: 100%;
 }
-
-
-
 
 .contact-form {
     width: 100%;
@@ -670,18 +581,6 @@
 }
 
 @media (max-width: 1024px) {
-    /* .competition .competition_wrapper .competition_info  {
-        padding: 50px 0 110px 50px;
-    }
-
-    .competition .competition_info .competition_descr {
-        margin-bottom: 50px;
-    }
-
-    .competition .competition_merch-img {
-        width: 595px;
-    } */
-
     .form-wrapper .form-content .form_send {
         padding: 40px 0 40px 40px;
     }
@@ -690,18 +589,6 @@
         padding: 40px 40px 40px 0;
     }
 }
-
-/* @media (max-width: 960px) {
-    .competition .competition_merch-img {
-        width: 490px;
-    }
-}
-
-@media (max-width: 880px) {
-    .competition .competition_merch-img {
-        width: 420px;
-    }
-} */
 
 @media (max-width: 850px) {
     .form-wrapper {
@@ -752,49 +639,7 @@
     .contact-form__button {
         margin-top: 50px;
     }
-
-    /* .competition .competition_wrapper {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        gap: 0;
-        grid-template-areas:
-            "competition_info"
-            "competition_media";
-    }
-
-    .competition .competition_wrapper .competition_info  {
-        padding: 50px 50px 5px 50px;
-    }
-
-    .competition .competition_info .competition_title,
-    .competition .competition_info .competition_descr {
-        max-width: 475px;
-    }
-
-    .competition .competition_info .competition_descr {
-        font-size: 1.6rem;
-        line-height: 24px;
-    }
-
-    .competition .competition_merch-img {
-        top: unset;
-        right: unset;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-    } */
 }
-
-/* @media (max-width: 560px) {
-    .competition .competition_wrapper .competition_info  {
-        padding: 30px 30px 5px 30px;
-    }
-
-    .competition .competition_info .competition_title {
-        font-size: 4rem;
-        line-height: 40px;
-    }
-} */
 
 @media (max-width: 440px) {
     .header_main .ARphotoForm {

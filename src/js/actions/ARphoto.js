@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     const contactForm = document.getElementById('form-contact');
-    // const popupButton = document.querySelector('.form_open_button');
     const popupButtonHeader = document.querySelector('.header_main .ARphotoForm');
     const popupForm = document.querySelector('.form-wrapper');
     const formClose = document.querySelector('.form-wrapper .form_close');
