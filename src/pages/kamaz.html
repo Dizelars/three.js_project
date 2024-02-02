@@ -406,8 +406,18 @@
       importance="low"
     />
     <img
-      id="hotspot"
-      src="../img/layout/pages/main/360/hotspot.svg"
+      id="hotspotCabin"
+      src="../img/layout/pages/main/360/kamaz/hotspots/kamaz_cabin.svg"
+      crossorigin="anonymous"
+    />
+    <img
+      id="hotspotKung"
+      src="../img/layout/pages/main/360/kamaz/hotspots/kamaz_kung.svg"
+      crossorigin="anonymous"
+    />
+    <img
+      id="hotspotBagage"
+      src="../img/layout/pages/main/360/kamaz/hotspots/kamaz_bagage.svg"
       crossorigin="anonymous"
     />
   </a-assets>
@@ -417,9 +427,10 @@
   <a-entity id="spots" hotspots="">
     <a-entity id="group-room1">
       <a-image
-        src="#hotspot"
+        src="#hotspotKung"
         spot="linkto:#room2;spotgroup:group-room2;phiStart:100"
-        position="0 0 10"
+        position="0 1 5"
+        rotation="0 180 0"
         look-at
       ></a-image>
     </a-entity>
@@ -428,15 +439,16 @@
       <!-- переход в третью комнату -->
       <a-image
         spot="linkto:#room3;spotgroup:group-room3;phiStart:100"
-        src="#hotspot"
-        position="-1.5 0 10"
+        src="#hotspotBagage"
+        position="-0.8 1 5"
+        rotation="0 180 0"
         look-at
       ></a-image>
       <!-- возврат в первую комнату -->
       <a-image
         spot="linkto:#room1;spotgroup:group-room1;phiStart:240"
-        src="#hotspot"
-        position="1 -1 -10"
+        src="#hotspotCabin"
+        position="1 1 -5"
         look-at
       ></a-image>
     </a-entity>
@@ -445,8 +457,8 @@
       <!-- возврат во вторую комнату -->
       <a-image
         spot="linkto:#room2;spotgroup:group-room2;phiStart:100"
-        src="#hotspot"
-        position="1 0 -10"
+        src="#hotspotKung"
+        position="0.55 1 -5"
         look-at
       ></a-image>
     </a-entity>
