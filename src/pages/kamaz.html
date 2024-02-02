@@ -405,7 +405,13 @@
       crossorigin="anonymous"
       importance="low"
     />
+
     <img
+        id="hotspot"
+        src="../img/layout/pages/main/360/hotspot.svg"
+        crossorigin="anonymous"
+    />
+    <!-- <img
       id="hotspotCabin"
       src="../img/layout/pages/main/360/kamaz/hotspots/kamaz_cabin.svg"
       crossorigin="anonymous"
@@ -419,7 +425,7 @@
       id="hotspotBagage"
       src="../img/layout/pages/main/360/kamaz/hotspots/kamaz_bagage.svg"
       crossorigin="anonymous"
-    />
+    /> -->
   </a-assets>
 
   <!-- room teleport hotspots -->
@@ -427,10 +433,10 @@
   <a-entity id="spots" hotspots="">
     <a-entity id="group-room1">
       <a-image
-        src="#hotspotKung"
-        spot="linkto:#room2;spotgroup:group-room2;phiStart:100"
-        position="0 1 5"
-        rotation="0 180 0"
+        src="#hotspot"
+        spot="linkto:#room2;spotgroup:group-room2;phiStart:160"
+        position="-5 1 2.5"
+        rotation="0 100 0"
         look-at
       ></a-image>
     </a-entity>
@@ -438,17 +444,18 @@
     <a-entity id="group-room2" scale="0 0 0">
       <!-- переход в третью комнату -->
       <a-image
-        spot="linkto:#room3;spotgroup:group-room3;phiStart:100"
-        src="#hotspotBagage"
-        position="-0.8 1 5"
-        rotation="0 180 0"
+        spot="linkto:#room3;spotgroup:group-room3;phiStart:160"
+        src="#hotspot"
+        position="-5 1 2"
+        rotation="0 100 0"
         look-at
       ></a-image>
       <!-- возврат в первую комнату -->
       <a-image
-        spot="linkto:#room1;spotgroup:group-room1;phiStart:240"
-        src="#hotspotCabin"
-        position="1 1 -5"
+        spot="linkto:#room1;spotgroup:group-room1;phiStart:304"
+        src="#hotspot"
+        position="5 1 -2"
+        rotation="0 100 0"
         look-at
       ></a-image>
     </a-entity>
@@ -456,9 +463,10 @@
     <a-entity id="group-room3" scale="0 0 0">
       <!-- возврат во вторую комнату -->
       <a-image
-        spot="linkto:#room2;spotgroup:group-room2;phiStart:100"
-        src="#hotspotKung"
-        position="0.55 1 -5"
+        spot="linkto:#room2;spotgroup:group-room2;phiStart:160"
+        src="#hotspot"
+        position="6.5 1 -3"
+        rotation="0 100 0"
         look-at
       ></a-image>
     </a-entity>
@@ -488,7 +496,7 @@
   <!-- тут где написано phi-start подбираем точку начала первого кадра
 (куда будет повёрнута камера при загрузке страницы) -->
 
-  <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="240"></a-sky>
+  <a-sky id="skybox" src="#room1" rotation="0 0 0" phi-start="304"></a-sky>
 </a-scene>
 
 <script type="module">
