@@ -76,15 +76,16 @@ document.addEventListener('DOMContentLoaded', function () {
             // Пользователь на сайте впервые
             setCookie("visited", "true", 365); // Установка куки на год
             // Здесь можно добавить код для показа элемента
-            console.log("Пользователь на сайте впервые");
+            // console.log("Пользователь на сайте впервые");
             // Открытие попапа после загрузки сайта
             setTimeout(() => {
                 openPopup();
             }, 2500);
         } else {
+            return;
             // Пользователь уже посещал сайт
             // Здесь можно добавить код для скрытия элемента
-            console.log("Пользователь уже посещал сайт");
+            // console.log("Пользователь уже посещал сайт");
         }
     }
     checkVisited();
@@ -135,18 +136,47 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeIcon = document.querySelector('.telegram-custom-close');
 
     // Функция, которая обрабатывает ввод пользователя
-    function handleInput() {
-        const inputValue = inputTelegram.value.trim();
+    // function handleInput() {
+    //     const inputValue = inputTelegram.value.trim();
 
-        // Если в поле ввода что-то написано, добавляем класс и меняем видимость элементов
+    // Если в поле ввода что-то написано, добавляем класс и меняем видимость элементов
+    //     if (inputValue !== '') {
+    //         inputTelegram.classList.add('initial-padding');
+    //         placeholder.style.visibility = 'visible';
+    //         closeIcon.style.visibility = 'visible';
+    //     } else {
+    //         inputTelegram.classList.remove('initial-padding');
+    //         placeholder.style.visibility = 'hidden';
+    //         closeIcon.style.visibility = 'hidden';
+    //     }
+    // }
+
+    function handleInput() {
+        let inputValue = inputTelegram.value;
+    
+        // Удаляем пробелы и кириллические символы из текущего ввода
+        inputValue = inputValue.replace(/[\sа-яА-Я]/gi, '');
+    
+        // Применяем измененное значение к полю ввода
+        inputTelegram.value = inputValue;
+    
+        // Проверяем наличие пробела в текущем вводе
+        const hasSpace = /\s/.test(inputValue);
+    
+        // Если есть пробел, удаляем его из текущего ввода
+        if (hasSpace) {
+            inputTelegram.value = inputValue.replace(/\s/g, '');
+        }
+    
+        // Проверяем, что ввод не пустой
         if (inputValue !== '') {
-        inputTelegram.classList.add('initial-padding');
-        placeholder.style.visibility = 'visible';
-        closeIcon.style.visibility = 'visible';
+            inputTelegram.classList.add('initial-padding');
+            placeholder.style.visibility = 'visible';
+            closeIcon.style.visibility = 'visible';
         } else {
-        inputTelegram.classList.remove('initial-padding');
-        placeholder.style.visibility = 'hidden';
-        closeIcon.style.visibility = 'hidden';
+            inputTelegram.classList.remove('initial-padding');
+            placeholder.style.visibility = 'hidden';
+            closeIcon.style.visibility = 'hidden';
         }
     }
 
