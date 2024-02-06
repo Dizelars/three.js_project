@@ -217,6 +217,10 @@
     margin-right: 8px;
 }
 
+.visible_if_send  .visible_if_send_text {
+    width: max-content;
+}
+
 .visible_if_send.red {
     border-color: red;
 }
@@ -668,6 +672,11 @@
 
     .contact-form__button {
         width: 100%;
+    }
+
+    .visible_if_send {
+        font-size: 1.8rem;
+        padding: 10px;
     }
 }
 
