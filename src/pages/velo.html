@@ -278,7 +278,7 @@
 <div id="overlay"></div>
 
 <script type="module">
-    import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
+    // import { VctrModelApi } from "https://app.vectary.com/studio-lite/scripts/api.js";
     let isModelLoaded = false;
 
     const LOADING_TIME = 50000;
@@ -357,90 +357,101 @@
 
     countLoad();
 
-    function myLoading(url) {
+    // function myLoading(url) {
+    //     console.log('myLoading go!');
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open('GET', url);
+    //     xhr.send();
+    //     const startTime = new Date().getTime(); // Запоминаем время начала загрузки
+
+    //     // 4. Эта функция будет вызвана после получения ответа
+    //     xhr.onload = function() {
+    //         if (xhr.status !== 200) { // анализ HTTP-статуса ответа
+    //             console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+    //         } else {
+    //             // console.log(`Done, got ${xhr.response.length} bytes`); // response - ответ сервера
+    //             const endTime = new Date().getTime(); // Запоминаем время завершения загрузки
+    //             const fileSizeInBytes = xhr.response.length;
+    //             const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024); // Преобразование в мегабайты
+    //             const downloadTimeInSeconds = (endTime - startTime) / 1000; // Преобразование в секунды
+
+    //             console.log(`Done, got ${fileSizeInMegabytes.toFixed(1)} MB in ${downloadTimeInSeconds.toFixed(1)} seconds`);
+    //             setTimeout(() => {
+    //                 isModelLoaded = true;
+    //             }, 15000);
+    //         }
+    //     };
+    //     // UNSENT = 0; // initial state
+    //     // OPENED = 1; // open called
+    //     // HEADERS_RECEIVED = 2; // полученные заголовки ответа
+    //     // LOADING = 3; // происходит загрузка ответа (получен пакет данных)
+    //     // DONE = 4; // запрос выполнен
+    //     // xhr.onreadystatechange = function() {
+    //     //     if (xhr.readyState == 4) {
+    //     //         console.log('запрос выполнен');
+    //     //     }
+    //     // };
+    //     xhr.onerror = function() {
+    //         console.log("Request failed");
+    //     };
+    // }
+
+    function myLoading() {
         console.log('myLoading go!');
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', url);
-        xhr.send();
-        const startTime = new Date().getTime(); // Запоминаем время начала загрузки
-
-        // 4. Эта функция будет вызвана после получения ответа
-        xhr.onload = function() {
-            if (xhr.status !== 200) { // анализ HTTP-статуса ответа
-                console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
-            } else {
-                // console.log(`Done, got ${xhr.response.length} bytes`); // response - ответ сервера
-                const endTime = new Date().getTime(); // Запоминаем время завершения загрузки
-                const fileSizeInBytes = xhr.response.length;
-                const fileSizeInMegabytes = fileSizeInBytes / (1024 * 1024); // Преобразование в мегабайты
-                const downloadTimeInSeconds = (endTime - startTime) / 1000; // Преобразование в секунды
-
-                console.log(`Done, got ${fileSizeInMegabytes.toFixed(1)} MB in ${downloadTimeInSeconds.toFixed(1)} seconds`);
-                setTimeout(() => {
-                    isModelLoaded = true;
-                }, 15000);
-            }
-        };
-        // UNSENT = 0; // initial state
-        // OPENED = 1; // open called
-        // HEADERS_RECEIVED = 2; // полученные заголовки ответа
-        // LOADING = 3; // происходит загрузка ответа (получен пакет данных)
-        // DONE = 4; // запрос выполнен
-        // xhr.onreadystatechange = function() {
-        //     if (xhr.readyState == 4) {
-        //         console.log('запрос выполнен');
-        //     }
-        // };
-        xhr.onerror = function() {
-            console.log("Request failed");
-        };
+        setTimeout(() => {
+            isModelLoaded = true;
+            console.log('ModelLoaded');
+        }, 10000);
     }
+
+    
 
     const IframeObject = {
         AR_ON: 'https://www.vectary.com/p/1OaMXKivHNjDz5dAVF1jAI',
         AR_OFF: 'https://app.vectary.com/p/5yQbC2E7fw9qvLKC8uUBfX',
-        XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/f5804f89-c08b-4b41-82cd-89f109f856b6/f5804f89-c08b-4b41-82cd-89f109f856b6',
-        XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/136e355a-1c85-4b2d-8043-7bde4f83b47b/136e355a-1c85-4b2d-8043-7bde4f83b47b'
+        // XHR_AR_ON: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/f5804f89-c08b-4b41-82cd-89f109f856b6/f5804f89-c08b-4b41-82cd-89f109f856b6',
+        // XHR_AR_OFF: 'https://app.vectary.com/api/vctr-repo/v2/dependencies/136e355a-1c85-4b2d-8043-7bde4f83b47b/136e355a-1c85-4b2d-8043-7bde4f83b47b'
     };
-    let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
+    // let viewerApi = new VctrModelApi("9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8"); // DOM Id
     let screenWidth = window.innerWidth;
-    let xhrFile;
+    // let xhrFile;
     let readySRC;
     let ARButtonPulse = document.querySelector('.pulse_wrapper');
 
     if (screenWidth >= 700 && screenWidth <= 1200) {
         readySRC = IframeObject.AR_OFF;
-        xhrFile = IframeObject.XHR_AR_OFF;
+        // xhrFile = IframeObject.XHR_AR_OFF;
         ARButtonPulse.style.display = 'none';
     } else if (screenWidth < 700) {
         readySRC = IframeObject.AR_ON;
-        xhrFile = IframeObject.XHR_AR_ON;
+        // xhrFile = IframeObject.XHR_AR_ON;
     } else {
         readySRC = IframeObject.AR_ON;
-        xhrFile = IframeObject.XHR_AR_ON;
+        // xhrFile = IframeObject.XHR_AR_ON;
     }
 
-    async function initializeModelApi() {
-        console.log('API go!');
-        try {
-            // Вызываем несуществующий метод, что приведет к ошибке (для теста)
-            // await viewerApi.nonExistentMethod();
-            await viewerApi.init();
-            viewerApi.isReady().then(() => {
-                isModelLoaded = true;
-                console.log('Model loaded');
-            });
-        } catch (error) {
-            console.error('Ошибка внутри API:', error);
-            myLoading(xhrFile);
-        }
-    }
+    // async function initializeModelApi() {
+    //     console.log('API go!');
+    //     try {
+    //         // Вызываем несуществующий метод, что приведет к ошибке (для теста)
+    //         // await viewerApi.nonExistentMethod();
+    //         await viewerApi.init();
+    //         viewerApi.isReady().then(() => {
+    //             isModelLoaded = true;
+    //             console.log('Model loaded');
+    //         });
+    //     } catch (error) {
+    //         console.error('Ошибка внутри API:', error);
+    //         myLoading(xhrFile);
+    //     }
+    // }
 
     document.addEventListener("DOMContentLoaded", () => {
         let VectaryIframe = document.querySelector('.VectaryIframe');
         VectaryIframe.src = readySRC;
-        initializeModelApi();
+        // initializeModelApi();
         // myLoading(xhrFile);
+        myLoading();
     });
 </script>
 </body>
