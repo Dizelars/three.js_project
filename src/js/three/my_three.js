@@ -5,7 +5,7 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {DRACOLoader} from 'three/examples/jsm/loaders/DRACOLoader.js';
 // import gsap from "gsap";
 import {createMaterialProperties} from './functions/new_materials/create_material_amarok.js';
-import Stats from 'stats.js';
+// import Stats from 'stats.js';
 import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
 import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper.js';
 // import {SpriteMaterial, TextureLoader} from "three";
@@ -17,6 +17,7 @@ import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper
 // import * as AFRAME from "aframe";
 
 // WebGLRenderer + настройки окружения
+// Менеджер загрузки
 // CSS2DRenderer (типоны)
 //
 // Сцена экстерьера Амарок

@@ -544,6 +544,7 @@ a-scene {
     font-weight: 800;
     font-size: 18px;
     text-align: center;
+    pointer-events: none;
 }
 
 .tech_spec__text-descr {
@@ -871,11 +872,8 @@ a-scene {
     border-radius: 12px;
     height: 224px;
     width: 100%;
-    /*padding: 19px;*/
-    /*max-width: 850px;*/
-    /*padding: 19px 31px;*/
-    /*max-width: 882px;*/
-    padding: 19px 47px;
+    /* padding: 19px 47px; */
+    padding-bottom: 19px;
     max-width: 902px;
     pointer-events: all;
 }
@@ -886,6 +884,7 @@ a-scene {
     align-items: center;
     cursor: pointer;
     margin-bottom: 20px;
+    padding: 19px 47px 0 47px;
 }
 
 .auto_park__control img {
@@ -906,6 +905,7 @@ a-scene {
 
 .auto_park_slider {
     position: relative;
+    padding: 0 47px 0 47px;
 }
 
 .auto_park_slider-overflow{
@@ -979,15 +979,13 @@ a-scene {
 
 .auto_park_slider-button button.prev_button {
     position: absolute;
-    /*left: 0;*/
-    /*left: -26px;*/
-    left: -36px;
+    /* left: -36px; */
+    left: 10px;
 }
 
 .auto_park_slider-button button.next_button {
     transform: rotate(180deg);
     position: absolute;
-    /*right: 0;*/
-    /*right: -26px;*/
-    right: -36px;
+    /* right: -36px; */
+    right: 10px;
 }
