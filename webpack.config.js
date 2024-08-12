@@ -43,8 +43,10 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'javascript/[name].[contenthash].js',
-        assetModuleFilename: "images/[name][hash][ext][query]",
+        // filename: 'javascript/[name].[contenthash].js',
+        // assetModuleFilename: "images/[name][hash][ext][query]",
+        filename: 'javascript/[name].js',
+        assetModuleFilename: "images/[name][ext]",
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -191,8 +193,10 @@ module.exports = {
         //     },
         // }),
         new MiniCssExtractPlugin({
-            filename: 'style/[name].[contenthash].css',
-            chunkFilename: 'style/[id].[contenthash].css',
+            // filename: 'style/[name].[contenthash].css',
+            // chunkFilename: 'style/[id].[contenthash].css',
+            filename: 'style/[name].css',
+            chunkFilename: 'style/[id].css',
             ignoreOrder: false,
         }),
     ],
@@ -223,7 +227,8 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg|mp4|webm|ogg)$/i,
                 type: "asset/resource",
                 generator: {
-                    filename: 'images/[name][hash][ext][query]',
+                    // filename: 'images/[name][hash][ext][query]',
+                    filename: 'images/[name][ext]',
                 },
             },
             {
