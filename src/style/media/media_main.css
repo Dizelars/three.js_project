@@ -113,8 +113,8 @@
         "slider_button-wrapper . traffic_patrol-text-4 traffic_patrol-text-5 ."
         ". . . . ."
         /* ". traffic_patrol-no-slide-7 traffic_patrol-no-slide-7 traffic_patrol-no-slide-8 traffic_patrol-no-slide-8" */
-        /* "traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz" */
-        "traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER";
+        "traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz traffic_patrol-slide-kamaz";
+        /* "traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER traffic_patrol-slide-kamaz_NOSLIDER"; */
     }
 
     /* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-new_NOSLIDER {
@@ -215,7 +215,8 @@
 @media (max-width: 2500px) {
     /*Размеры карточек*/
     section.traffic_patrol .garage_model_card .slid_img {
-        max-height: 358px;
+        /* max-height: 358px; */
+        max-height: 361px;
     }
 
     section.situation_centre .garage_model_card .slid_img {
@@ -538,14 +539,14 @@
     }
 
     /* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slider-buttons.InGrid */
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons {
+    /* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons {
         display: flex;
-    }
+    } */
 
     /* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz .traffic_patrol-slider-buttons, */
-    section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_NOSLIDER {
+    /* section.traffic_patrol .traffic_patrol_grid-wrapper .traffic_patrol-slide-kamaz_NOSLIDER {
         display: none;
-    }
+    } */
 
     section.traffic_patrol .traffic_patrol_slider .garage_model_card {
         height: fit-content;
