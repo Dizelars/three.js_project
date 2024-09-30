@@ -4,8 +4,9 @@ import '../../js/layout/script.js';
 import { InteriorTransitionHelper } from '../../helpers/interiorTransitionHelper.js';
 
 const interiorButton = document.querySelector('.tech_spec__interior');
-const ARButtonPulse = document.querySelector('.pulse_wrapper');
+// const ARButtonPulse = document.querySelector('.pulse_wrapper');
 const aFrameScene = document.querySelector('a-scene');
+const vectaryForbidden = document.querySelector('.vectary_forbidden');
 
 if (aFrameScene) {
     aFrameScene.pause();
@@ -21,7 +22,9 @@ if (aFrameScene) {
         }
         transitionHelper.startTransition();
         if (activeScene === 1) {
-            ARButtonPulse.classList.add('hidden');
+            // ARButtonPulse.classList.add('hidden');
+            vectaryForbidden.style.opacity = '0';
+            vectaryForbidden.style.pointerEvents = 'none';
             setTimeout(() => {
                 activeScene = 2;
                 aFrameScene.style.opacity = '1';
@@ -38,10 +41,12 @@ if (aFrameScene) {
                 aFrameScene.style.pointerEvents = 'none';
                 aFrameScene.pause();
                 transitionHelper.endTransition();
+                vectaryForbidden.style.opacity = '1';
+                vectaryForbidden.style.pointerEvents = 'auto';
             }, 1500);
-            setTimeout(() => {
-                ARButtonPulse.classList.remove('hidden');
-            }, 3100);
+            // setTimeout(() => {
+            //     ARButtonPulse.classList.remove('hidden');
+            // }, 3100);
         }
     });
 }

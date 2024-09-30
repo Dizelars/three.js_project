@@ -164,6 +164,14 @@
 /*}*/
 
 @media (max-width: 835px) {
+    /* .plug_wrapper img.plug_background {
+        display: none;
+    }
+
+    .plug_wrapper img.plug_background-mobile {
+        display: block;
+    } */
+
     .container {
         margin: 0 40px;
     }
@@ -354,6 +362,30 @@
     } */
 }
 
+@media (max-width: 480px) {
+    .vectary_forbidden {
+        right: -330px;
+    }
+
+    .vectary_forbidden.open {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .vectary_forbidden .forbidden_icons {
+        gap: 40px;
+    }
+
+    .vectary_forbidden .forbidden_descr .forbidden_descr-title {
+        font-size: 16px;
+    }
+
+    .vectary_forbidden .forbidden_descr .forbidden_descr-text {
+        max-width: 320px;
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 440px) {
     .tech_spec {
         width: 100%;
@@ -417,6 +449,12 @@
 @media (max-width: 360px) {
     .tech_spec .tech_spec__description .tech_spec__titles .tech_spec__subtitle,
     .tech_spec .tech_spec__description .tech_spec__mission .tech_spec__text-descr {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .vectary_forbidden .forbidden_descr .forbidden_descr-title {
         font-size: 14px;
     }
 }

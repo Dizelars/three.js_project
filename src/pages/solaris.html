@@ -20,6 +20,7 @@
     <link rel="mask-icon" href="https://garage-codd.ru/favicons/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#090909">
+
     <!--Primary Meta Tags-->
     <meta name="title" content="Служба помощи. Легковая"/>
     <meta name="description" content="Помощь водителям на&nbsp;базе мобильных комплексов фотовидеофиксации"/>
@@ -167,6 +168,17 @@
     </a>
 </div>
 
+<div class="vectary_forbidden open">
+    <div class="forbidden_icons">
+        <img class="forbidden-warning" src="../img/vectary_403/forbidden_warning.svg" alt="warning">
+        <img class="forbidden-arrow" src="../img/vectary_403/forbidden_arrow.svg" alt="arrow">
+    </div>
+    <div class="forbidden_descr">
+        <div class="forbidden_descr-title">В&nbsp;данный момент&nbsp;AR и&nbsp;3D&nbsp;недоступны</div>
+        <div class="forbidden_descr-text">Мы&nbsp;проводим работы с&nbsp;элементами интерактивности сайта, чтобы повысить качество пользовательского опыта. Спасибо за&nbsp;понимание</div>
+    </div>
+</div>
+
 <div class="tech_spec active">
     <div class="tech_spec__wrapper hidden">
         <div class="tech_spec__description hidden">
@@ -303,13 +315,13 @@
             <div class="auto_park_slider">
                 <div class="auto_park_slider-overflow swiper_model">
                     <div class="auto_park_slider-wrapper swiper-wrapper">
-                        <div class="gallery_item swiper-slide">
+                        <!-- <div class="gallery_item swiper-slide">
                             <a class="gallery_item_link" href="moto.html">
                                 <picture>
                                     <img class="gallery_item-img" src="../img/layout/pages/main/slider/moto.png" alt="moto" fetchpriority="high">
                                 </picture>
                             </a>
-                        </div>
+                        </div> -->
                         <div class="gallery_item swiper-slide">
                             <a class="gallery_item_link" href="kamaz.html">
                                 <picture>
@@ -381,15 +393,19 @@
     </div>
 </div>
 
-<div class="pulse_wrapper">
+<!-- <div class="pulse_wrapper">
     <div class="pulse_media">
         <img class="pulse_img" src="../img/AR-cube.svg" alt="AR">
         <img class="pulse_img" src="../img/AR.svg" alt="AR">
     </div>
     <div class="pulse"></div>
-</div>
+</div> -->
 
-<iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe>
+<!-- <iframe id="9f0e8cf5-2302-46a3-8e49-0a7c4c3911d8" src="" width="100%" height="100%" class="VectaryIframe"></iframe> -->
+<div class="plug_wrapper VectaryIframe">
+    <img class="plug_img" src="../img/vectary_403/solaris_plug.png" alt="Служба помощи. Легковая">
+    <img class="plug_background" src="../img/vectary_403/background_plug.png" alt="Служба помощи">
+</div>
 <div id="overlay"></div>
 
 <a-scene loading-screen="enabled: true, dotsColor: #62A744, backgroundColor: #090909" vr-mode-ui="enabled: false" ar-mode-ui="enabled: false" xr-mode-ui="enabled: false"
@@ -557,7 +573,8 @@
         setTimeout(() => {
             isModelLoaded = true;
             console.log('ModelLoaded');
-        }, 10000);
+        // }, 10000);
+        }, 1500);
     }
 
     const IframeObject = {
@@ -570,12 +587,12 @@
     let screenWidth = window.innerWidth;
     // let xhrFile;
     let readySRC;
-    let ARButtonPulse = document.querySelector('.pulse_wrapper');
+    // let ARButtonPulse = document.querySelector('.pulse_wrapper');
 
     if (screenWidth >= 700 && screenWidth <= 1200) {
         readySRC = IframeObject.AR_OFF;
         // xhrFile = IframeObject.XHR_AR_OFF;
-        ARButtonPulse.style.display = 'none';
+        // ARButtonPulse.style.display = 'none';
     } else if (screenWidth < 700) {
         readySRC = IframeObject.AR_ON;
         // xhrFile = IframeObject.XHR_AR_ON;
@@ -601,8 +618,9 @@
     // }
 
     document.addEventListener("DOMContentLoaded", () => {
-        let VectaryIframe = document.querySelector('.VectaryIframe');
-        VectaryIframe.src = readySRC;
+        // let VectaryIframe = document.querySelector('.VectaryIframe');
+        // VectaryIframe.src = readySRC;
+
         // initializeModelApi();
         // myLoading(xhrFile);
         myLoading();

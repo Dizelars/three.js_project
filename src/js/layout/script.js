@@ -3,6 +3,9 @@
 // import { isInnovation } from '../URLCheck';
 import {InteriorTransitionHelper} from "../../helpers/interiorTransitionHelper";
 
+const vectaryForbidden = document.querySelector('.vectary_forbidden');
+const vectaryForbiddenArrow = document.querySelector('.vectary_forbidden .forbidden_icons .forbidden-arrow');
+
 const techSection = document.querySelector('.tech_spec');
 const autoSection = document.querySelector('.auto_park');
 const techSpecWrapper = document.querySelector('.tech_spec .tech_spec__wrapper');
@@ -29,6 +32,12 @@ const overlay = document.getElementById('overlay');
 let VectaryIframe = document.querySelector('.VectaryIframe');
 
 let isAutoParkVisible = true; // Флаг для отслеживания состояния видимости секции .auto_park
+
+
+// Функция для открытия плашки предупреждения
+vectaryForbiddenArrow.addEventListener('click', () => {
+    vectaryForbidden.classList.toggle('open');
+})
 
 function toggleElements(action) {
     const elements = [
